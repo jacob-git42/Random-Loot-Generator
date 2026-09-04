@@ -20,7 +20,7 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
   };
 
   static PARTS = {
-    tab: {
+    main: {
       template: `modules/${MODULE_ID}/templates/loot-panel.html`
     }
   };

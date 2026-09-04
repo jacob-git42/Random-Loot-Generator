@@ -1,5 +1,5 @@
 {
-  "name": "random-loot-generator",
+  "id": "random-loot-generator",
   "title": "Random Loot Generator",
   "description": "Loot generation macros and roll tables packaged as a FoundryVTT module",
   "version": "0.02",
@@ -12,8 +12,9 @@
       "name": "jacob-git42"
     }
   ],
-  "esmodules": [],
-  "scripts": ["src/module.js"],
+  "esmodules": [
+    "src/module.js"
+  ],
   "styles": [],
   "packs": [],
   "url": "https://github.com/jacob-git42/Random-Loot-Generator",

@@ -1,0 +1,57 @@
+{
+	"name": "Wizard Spells - Level 8",
+	"formula": "1d13",
+	"description": "",
+	"results": [
+		{
+			"range": [
+				1,
+				1
+			],
+			"name": "",
+			"description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplAntimagicF]{Antimagic Field}",
+			"_id": "03a4V3Wt3ChIxmKx",
+			"type": "text",
+			"img": "systems/dnd5e/icons/svg/dice/d20.svg",
+			"weight": 1,
+			"drawn": false,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "dnd5e",
+				"systemVersion": "5.3.3",
+				"createdTime": 1788462904134,
+				"modifiedTime": 1788463649870,
+				"lastModifiedBy": "d8OGxoanPxSpeqvo",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			}
+		}
+	],
+	"folder": "ghtnLddXgNE4RNfo",
+	"img": "icons/svg/d20-grey.svg",
+	"replacement": true,
+	"displayRoll": true,
+	"ownership": {
+		"default": 2
+	},
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "dnd5e",
+		"systemVersion": "5.3.3",
+		"createdTime": 1788462904134,
+		"modifiedTime": 1788471703144,
+		"lastModifiedBy": "d8OGxoanPxSpeqvo",
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "chroniken-von-nebelweid",
+			"uuid": "RollTable.QLAaZUJI3n1lGD6b",
+			"coreVersion": "14.367",
+			"systemId": "dnd5e",
+			"systemVersion": "5.3.3"
+		}
+	}
+}

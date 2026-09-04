@@ -1,0 +1,61 @@
+{
+  "name": "🧪 Potions and Poisons",
+  "formula": "1d5000",
+  "description": "",
+  "results": [
+    {
+      "range": [
+        1,
+        1500
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.phbagPotionofHea]{Potion of Healing}",
+      "_id": "8MbY69lXFKnFAdiQ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681408,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "folder": "te4W4lyYNDuvKq72",
+  "img": "icons/svg/d20-grey.svg",
+  "replacement": true,
+  "displayRoll": true,
+  "ownership": {
+    "default": 2
+  },
+  "flags": {
+    "scene-packer": {
+      "hash": "b0227d2461b27e84d973601874b6f1186710b1f2"
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 1781041650654,
+    "modifiedTime": 1788471708774,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.CbMYoKPvgGx4G52x",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

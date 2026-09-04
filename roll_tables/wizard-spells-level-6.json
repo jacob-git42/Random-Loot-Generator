@@ -1,0 +1,58 @@
+{
+	"name": "Wizard Spells - Level 6",
+	"formula": "1d22",
+	"description": "",
+	"results": [
+		{
+			"range": [
+				1,
+				1
+			],
+			"name": "",
+			"description": "<p>@UUID[Item.32ayvzpEB5MxScSR]{Arcane Gate}</p>",
+			"_id": "8lN8p9jKnWZGqPe9",
+			"type": "text",
+			"img": "systems/dnd5e/icons/svg/dice/d20.svg",
+			"weight": 1,
+			"drawn": false,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "dnd5e",
+				"systemVersion": "5.3.3",
+				"createdTime": 1788462903891,
+				"modifiedTime": 1788463569744,
+				"lastModifiedBy": "d8OGxoanPxSpeqvo",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
+			},
+			"documentUuid": null
+		}
+	],
+	"folder": "ghtnLddXgNE4RNfo",
+	"img": "icons/svg/d20-grey.svg",
+	"replacement": true,
+	"displayRoll": true,
+	"ownership": {
+		"default": 2
+	},
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "dnd5e",
+		"systemVersion": "5.3.3",
+		"createdTime": 1788462903891,
+		"modifiedTime": 1788471703142,
+		"lastModifiedBy": "d8OGxoanPxSpeqvo",
+		"compendiumSource": null,
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "chroniken-von-nebelweid",
+			"uuid": "RollTable.JjstOjCw22oI09H9",
+			"coreVersion": "14.367",
+			"systemId": "dnd5e",
+			"systemVersion": "5.3.3"
+		}
+	}
+}

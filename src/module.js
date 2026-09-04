@@ -1,4 +1,4 @@
-const MODULE_ID = 'random-loot-generator';
+const MODULE_ID = 'jacobs-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 5;

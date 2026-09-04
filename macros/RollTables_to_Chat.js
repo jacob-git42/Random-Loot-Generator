@@ -24,6 +24,9 @@ const targetedLootMacroNames = ["Targeted-Loot", "Targeted Loot", "Treasure Pres
 const targetedLootSettingsNamespace = "lootmakros";
 const targetedLootSettingsKey = "targetedLootPreset";
 
+// DMG recommendations shown in the UI
+const DMG_RECOMMENDED = { 1: 7, 2: 18, 3: 12, 4: 8 };
+
 function isIndividualTreasureMacro(macro) {
   if (!macro) return false;
   const loweredName = macro.name.toLowerCase();
@@ -221,8 +224,13 @@ async function askTreasureHoardPreset() {
           <span>T1 (L1-4)</span>
           <span>T2 (L5-10)</span>
           <span>T3 (L11-16)</span>
-          <span>T4 (L17+)</span>
+          <span>T4 (L17-20)</span>
         </div>
+      </div>
+
+      <div style="background: rgba(0,0,0,0.05); padding: 8px 12px; border-radius: 6px; margin-bottom: 12px; font-size: 0.85em; text-align: center;">
+        <b>Hoard Counter (rolled / recommended):</b><br>
+        <span id="counterDisplay" style="color: #111; font-weight: bold;">${counters[2] || 0} / ${DMG_RECOMMENDED[2]} Hoards</span>
       </div>
 
       <!-- Hoard Count -->
@@ -239,8 +247,8 @@ async function askTreasureHoardPreset() {
       content: dialogContent,
       buttons: {
         apply: {
-          icon: '<i class="fas fa-check"></i>',
-          label: "Apply",
+          icon: '<i class="fas fa-dice-d20"></i>',
+          label: "Generate Loot",
           callback: (html) => {
             const count = parseInt(html.find('[name="hoard-count"]').val()) || 0;
             const tier = parseInt(html.find('[name="hoard-tier"]').val()) || 2;

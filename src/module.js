@@ -1,7 +1,7 @@
 const MODULE_ID = 'random-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 2;
+const MACRO_SYNC_VERSION = 3;
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
@@ -27,6 +27,14 @@ Hooks.once('init', () => {
     config: false,
     type: Number,
     default: 0
+  });
+
+  game.settings.register(MODULE_ID, 'tablesImported', {
+    name: 'Tables Imported',
+    scope: 'world',
+    config: false,
+    type: Boolean,
+    default: false
   });
 });
 
@@ -79,7 +87,7 @@ let lootPanel = null;
 
 function addLootSidebarButton(sidebarHtml) {
   const root = sidebarHtml?.[0] || sidebarHtml;
-  const tabs = root?.querySelector('#sidebar-tabs, .sidebar-tabs');
+  const tabs = root?.querySelector('#sidebar-tabs, .sidebar-tabs, #sidebar .tabs, #sidebar nav.tabs');
   if (!tabs || tabs.querySelector('.random-loot-button')) return;
 
   const button = document.createElement('button');
@@ -96,6 +104,7 @@ function addLootSidebarButton(sidebarHtml) {
 }
 
 Hooks.on('renderSidebar', (_app, html) => addLootSidebarButton(html));
+Hooks.on('renderSidebarTab', (_app, html) => addLootSidebarButton(document.querySelector('#sidebar')));
 
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
@@ -123,10 +132,6 @@ Hooks.once('ready', async () => {
 
   // Import and normalize module RollTables (GM only)
   if (game.user.isGM) {
-    const importKey = 'tablesImported';
-    if (!game.settings.settings.has(`${MODULE_ID}.${importKey}`)) {
-      game.settings.register(MODULE_ID, importKey, { name: 'Tables Imported', scope: 'world', config: false, type: Boolean, default: false });
-    }
     try {
       const manifestUrl = `modules/${MODULE_ID}/roll_tables/manifest.json`;
       const resp = await fetch(manifestUrl);
@@ -166,7 +171,7 @@ Hooks.once('ready', async () => {
           }
         }
 
-        await game.settings.set(MODULE_ID, importKey, true);
+        await game.settings.set(MODULE_ID, 'tablesImported', true);
         if (imported || normalized) {
           ui.notifications.info(`${MODULE_ID}: Imported ${imported} and organized ${normalized} RollTables in "${ROLL_TABLE_FOLDER_NAME}".`);
         }

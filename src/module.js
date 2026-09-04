@@ -36,6 +36,13 @@ Hooks.once('init', () => {
     type: Boolean,
     default: false
   });
+
+  foundry.applications.sidebar.Sidebar.TABS.jacobsLootGenerator = {
+    id: 'jacobs-loot-generator',
+    label: 'Loot',
+    icon: '<i class="fas fa-dice-d4"></i>',
+    cls: LootSidebarTab
+  };
 });
 
 async function createMacroFromPath(name, path) {
@@ -124,64 +131,29 @@ for (const folder of folders) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
 
-class LootPanel extends Application {
-  static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
-      id: 'random-loot-panel',
-      title: 'Random Loot Generator',
-      template: `modules/${MODULE_ID}/templates/loot-panel.html`,
-      width: 420,
-      height: 'auto',
-      resizable: true
+class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
+  static get DEFAULT_OPTIONS() {
+    return foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+      id: 'jacobs-loot-generator',
+      template: `modules/${MODULE_ID}/templates/loot-panel.html`
     });
   }
 
-  getData() {
-    return {};
+  async _prepareContext(options) {
+    return await super._prepareContext(options);
   }
 
   activateListeners(html) {
     super.activateListeners(html);
-    html.find('[data-action="run-macro"]').on('click', async (ev) => {
-      const name = ev.currentTarget.dataset.name;
+    html.find('[data-action="run-macro"]').on('click', async (event) => {
+      event.preventDefault();
+      const name = event.currentTarget.dataset.name;
       const macro = game.macros.find(m => m.name === name);
       if (macro) await macro.execute();
       else ui.notifications.warn(`Macro not found: ${name}`);
     });
   }
 }
-
-let lootPanel = null;
-
-function addLootSidebarButton() {
-  const tabs = document.querySelector('#sidebar-tabs')
-    || document.querySelector('#sidebar .sidebar-tabs')
-    || document.querySelector('#sidebar nav.tabs');
-  if (!tabs || tabs.querySelector('.random-loot-button')) return;
-
-  const button = document.createElement('a');
-  button.href = '#';
-  button.className = 'item random-loot-button';
-  button.innerHTML = '<i class="fas fa-dice-d20"></i>';
-  button.title = 'Random Loot Generator';
-  button.setAttribute('aria-label', 'Random Loot Generator');
-  button.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    try {
-      if (!lootPanel) lootPanel = new LootPanel();
-      lootPanel.render(true);
-    } catch (error) {
-      console.error(`${MODULE_ID} | Failed to open loot panel:`, error);
-      ui.notifications.error('Random Loot Generator: Loot panel could not be opened.');
-    }
-  }, true);
-  button.style.cursor = 'pointer';
-  tabs.append(button);
-}
-
-Hooks.on('renderSidebar', () => addLootSidebarButton());
-Hooks.on('renderSidebarTab', () => addLootSidebarButton());
 
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
@@ -265,10 +237,4 @@ Hooks.once('ready', async () => {
     }
   }
 
-  // Add the module button to the sidebar tab bar.
-  try {
-    addLootSidebarButton();
-  } catch (err) {
-    console.warn(`${MODULE_ID} | Failed to add sidebar button:`, err);
-  }
 });

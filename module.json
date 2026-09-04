@@ -2,7 +2,7 @@
   "id": "jacobs-loot-generator",
   "title": "Jacobs-Loot-Generator",
   "description": "Loot generation macros and roll tables packaged as a FoundryVTT module",
-  "version": "0.08",
+  "version": "0.09",
   "compatibility": {
     "minimum": "11",
     "verified": "14"

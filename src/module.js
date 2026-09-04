@@ -3,7 +3,7 @@ const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 8;
 
-// 1. Klasse wie gehabt definieren
+// 1. Definition deines Sidebar-Tabs
 class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
   static DEFAULT_OPTIONS = {
     id: 'jacobs-loot-generator',
@@ -33,11 +33,18 @@ class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
   }
 }
 
-// 2. Registrierung direkt beim Init über die Foundry-Core-CONFIG
+// 2. Direkt beim Laden des Skripts registrieren (VOR dem Init-Hook!)
+CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
+  id: 'jacobs-loot-generator',
+  tooltip: 'Loot Generator',
+  icon: 'fa-solid fa-dice-d4',
+  tab: LootSidebarTab
+};
+
+// 3. Modul-Einstellungen registrieren
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
 
-  // Settings wie gewohnt...
   game.settings.register(MODULE_ID, 'enabled', {
     name: 'Enable Random Loot Generator',
     hint: 'Enable or disable the Random Loot Generator module features',
@@ -68,14 +75,6 @@ Hooks.once('init', () => {
     type: Boolean,
     default: false
   });
-
-  // NATIVE REGISTRIERUNG: Fügt den Tab korrekt in das Sidebar-Grid ein
-  CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
-    id: 'jacobs-loot-generator',
-    tooltip: 'Loot Generator',
-    icon: 'fa-solid fa-dice-d4',
-    cls: LootSidebarTab
-  };
 });
 
 async function createMacroFromPath(name, path) {

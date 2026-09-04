@@ -5,9 +5,11 @@
     </div>
   </header>
 
+  <hr class="loot-divider">
+
   <div class="loot-body flexcol">
     <section class="loot-section">
-      <h3 class="loot-heading">Player Reveal</h3>
+      <h3 class="loot-heading">Player Revealed Loot</h3>
       <p class="loot-description">Create a loot card that players can reveal after the encounter.</p>
       <button type="button" class="loot-btn loot-primary" data-action="runMacro" data-name="RollTables to Chat">
         <i class="fa-solid fa-box-open"></i> Generate Loot
@@ -17,7 +19,7 @@
     <hr class="loot-divider">
 
     <section class="loot-section">
-      <h3 class="loot-heading">Direct DM Loot</h3>
+      <h3 class="loot-heading">Direct GM Loot</h3>
       <p class="loot-description">Generate selected rewards directly without creating a player reveal card.</p>
       <div class="macro-list flexcol">
       <button type="button" class="loot-btn" data-action="runMacro" data-name="Spells">
@@ -44,7 +46,9 @@
     <button type="button" class="loot-btn danger" data-action="runMacro" data-name="Clean up Random Loot Generator">
       <i class="fa-solid fa-trash"></i> Clean Up Data
     </button>
-    <p class="loot-description">Remove the module macros, roll tables, and Loot folders.</p>
+    <p class="loot-description">Warning! Removes the module macros, roll tables, and Loot folders. only klick this if you 
+      encounter serious issues or if you want to remove the module completely. You will have to reinstall the module to use it again.</p>
+    </p>
   </footer>
   <style>
     .loot-generator-sidebar { min-height: 100%; padding: 8px; gap: 6px; }

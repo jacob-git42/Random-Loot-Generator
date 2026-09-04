@@ -308,18 +308,32 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
 
   // 2. Private GM card with the current roll and tier counters.
   const gmChatContent = `
-    <div style="border: 1px solid #4a5568; padding: 10px; border-radius: 6px; background: #1a202c; color: #e2e8f0; font-size: 0.85em;">
-      <div style="font-weight: bold; color: #63b3ed; margin-bottom: 4px; border-bottom: 1px solid #4a5568; padding-bottom: 4px;">
-        🔒 Treasure Hoard Tracker
-      </div>
-      <p style="margin: 4px 0 8px;"><b>Current roll:</b> Tier ${tier}, ${safeHoards} hoard${safeHoards > 1 ? 's' : ''}</p>
-      <div style="display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; font-size: 0.85em; color: #cbd5e0;">
-        <span>Tier 1:   ${allCounters[1] || 0} / ${DMG_RECOMMENDED[1]}</span>
-        <span>Tier 2:   ${allCounters[2] || 0} / ${DMG_RECOMMENDED[2]}</span>
-        <span>Tier 3:   ${allCounters[3] || 0} / ${DMG_RECOMMENDED[3]}</span>
-        <span>Tier 4:   ${allCounters[4] || 0} / ${DMG_RECOMMENDED[4]}</span>
-      </div>
+  <div class="card" style="border: 1px solid var(--color-border-dark); padding: 10px; border-radius: 6px; background: rgba(0, 0, 0, 0.2); font-size: 0.85em;">
+      <div style="font-weight: bold; color: var(--color-text-hyperlink); margin-bottom: 4px; border-bottom: 1px solid var(--color-border-dark); padding-bottom: 4px;">
+      🔒 Treasure Hoard Tracker
     </div>
+      <p style="margin: 4px 0 8px;"><b>Current roll:</b> Tier ${tier}, ${safeHoards} hoard${safeHoards > 1 ? 's' : ''}</p>
+    <div style="display: flex; flex-direction: column; gap: 3px; font-size: 0.85em;">
+      <span>Tier 1: ${allCounters[1] || 0} / ${DMG_RECOMMENDED[1]}</span>
+      <span>Tier 2: ${allCounters[2] || 0} / ${DMG_RECOMMENDED[2]}</span>
+      <span>Tier 3: ${allCounters[3] || 0} / ${DMG_RECOMMENDED[3]}</span>
+      <span>Tier 4: ${allCounters[4] || 0} / ${DMG_RECOMMENDED[4]}</span>
+    </div>
+  </div>
+
+
+    // <div style="border: 1px solid #4a5568; padding: 10px; border-radius: 6px; background: #1a202c; color: #e2e8f0; font-size: 0.85em;">
+    //   <div style="font-weight: bold; color: #63b3ed; margin-bottom: 4px; border-bottom: 1px solid #4a5568; padding-bottom: 4px;">
+    //     🔒 Treasure Hoard Tracker
+    //   </div>
+    //   <p style="margin: 4px 0 8px;"><b>Current roll:</b> Tier ${tier}, ${safeHoards} hoard${safeHoards > 1 ? 's' : ''}</p>
+    //   <div style="display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; font-size: 0.85em; color: #cbd5e0;">
+    //     <span>Tier 1:   ${allCounters[1] || 0} / ${DMG_RECOMMENDED[1]}</span>
+    //     <span>Tier 2:   ${allCounters[2] || 0} / ${DMG_RECOMMENDED[2]}</span>
+    //     <span>Tier 3:   ${allCounters[3] || 0} / ${DMG_RECOMMENDED[3]}</span>
+    //     <span>Tier 4:   ${allCounters[4] || 0} / ${DMG_RECOMMENDED[4]}</span>
+    //   </div>
+    // </div>
   `;
 
   const gmUsers = game.users.filter(u => u.isGM).map(u => u.id);

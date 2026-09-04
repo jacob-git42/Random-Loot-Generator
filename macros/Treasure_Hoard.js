@@ -314,10 +314,10 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
       </div>
       <p style="margin: 4px 0 8px;"><b>Current roll:</b> Tier ${tier}, ${safeHoards} hoard${safeHoards > 1 ? 's' : ''}</p>
       <div style="display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; font-size: 0.85em; color: #cbd5e0;">
-        <span>Tier 1</span><span>${allCounters[1] || 0} / ${DMG_RECOMMENDED[1]} recommended</span>
-        <span>Tier 2</span><span>${allCounters[2] || 0} / ${DMG_RECOMMENDED[2]} recommended</span>
-        <span>Tier 3</span><span>${allCounters[3] || 0} / ${DMG_RECOMMENDED[3]} recommended</span>
-        <span>Tier 4</span><span>${allCounters[4] || 0} / ${DMG_RECOMMENDED[4]} recommended</span>
+        <span>Tier 1:   ${allCounters[1] || 0} / ${DMG_RECOMMENDED[1]}</span>
+        <span>Tier 2:   ${allCounters[2] || 0} / ${DMG_RECOMMENDED[2]}</span>
+        <span>Tier 3:   ${allCounters[3] || 0} / ${DMG_RECOMMENDED[3]}</span>
+        <span>Tier 4:   ${allCounters[4] || 0} / ${DMG_RECOMMENDED[4]}</span>
       </div>
     </div>
   `;
@@ -371,28 +371,6 @@ function showLootDialog() {
         label: "Generate Loot",
         callback: async (html) => {
           await rollTreasureHoard(html.find("#hoardCount").val(), html.find("#tierRange").val());
-        }
-      },
-      reset: {
-        icon: '<i class="fas fa-undo"></i>',
-        label: "Reset Counter",
-        callback: async (html) => {
-          const selectedTier = html.find("#tierRange").val();
-          new Dialog({
-            title: "Confirm Counter Reset",
-            content: `<p>Reset the counter for <b>Tier ${selectedTier}</b> or <b>ALL tiers</b>?</p>`,
-            buttons: {
-              current: {
-                label: `Tier ${selectedTier} only`,
-                callback: async () => await resetCounter(selectedTier)
-              },
-              all: {
-                label: "All tiers (1-4)",
-                callback: async () => await resetCounter(null)
-              },
-              cancel: { label: "Abbrechen" }
-            }
-          }).render(true);
         }
       },
       cancel: { icon: '<i class="fas fa-times"></i>', label: "Close" }

@@ -377,8 +377,7 @@ if (isTreasureHoardMacro(selectedMacro)) {
             if (!spellsPreset) return;
 
             await game.settings.set(spellsSettingsNamespace, spellsSettingsKey, {
-              tableId: spellsPreset.tableId,
-              count: spellsPreset.count,
+              selections: spellsPreset,
               createdBy: game.user.id,
               createdAt: Date.now()
             });
@@ -483,7 +482,7 @@ async function askSpellsPreset() {
     return null;
   }
 
-  const options = folder.contents
+  const tableOptions = folder.contents
     .sort((a, b) => a.name.localeCompare(b.name))
     .map(t => {
       const isSelected = t.name.toLowerCase().includes("scroll") ? "selected" : "";
@@ -491,38 +490,60 @@ async function askSpellsPreset() {
     })
     .join("");
 
-  if (!options) {
+  if (!tableOptions) {
     ui.notifications.warn(`No roll tables found in folder "${spellsFolderName}".`);
     return null;
   }
 
+  const options = `<option value="">-- none --</option>${tableOptions}`;
+
   return new Promise(resolve => {
     new Dialog({
-      title: "Spells Preset",
+      title: "Roll from Folder: Spells",
       content: `
         <form>
           <div class="form-group">
-            <label>1. Select a table:</label>
-            <select name="table-select" style="width: 100%;">${options}</select>
+            <label>Select a table:</label>
+            <select name="table-select-1" style="width: 100%;">${tableOptions}</select>
           </div>
           <div class="form-group">
-            <label>2. Number of scrolls:</label>
-            <input type="number" id="roll-count" name="roll-count" value="1" min="1" autofocus style="text-align: center; width: 60px;">
+            <label>Number of scrolls:</label>
+            <input type="number" name="roll-count-1" value="1" min="0" autofocus style="text-align: center; width: 60px;">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label>Select another table (optional):</label>
+            <select name="table-select-2" style="width: 100%;">${options}</select>
+          </div>
+          <div class="form-group">
+            <label>Number of scrolls:</label>
+            <input type="number" name="roll-count-2" value="0" min="0" style="text-align: center; width: 60px;">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label>Select another table (optional):</label>
+            <select name="table-select-3" style="width: 100%;">${options}</select>
+          </div>
+          <div class="form-group">
+            <label>Number of scrolls:</label>
+            <input type="number" name="roll-count-3" value="0" min="0" style="text-align: center; width: 60px;">
           </div>
         </form>
       `,
       buttons: {
         apply: {
-          icon: '<i class="fas fa-check"></i>',
-          label: "Apply",
-          callback: (html) => {
-            const tableId = html.find('[name="table-select"]').val();
-            const count = parseInt(html.find('[name="roll-count"]').val()) || 0;
-            if (!tableId || count <= 0) {
-              ui.notifications.warn("Please choose a table and enter at least 1 roll.");
+          icon: '<i class="fas fa-dice"></i>',
+          label: "Roll",
+          callback: html => {
+            const selections = [1, 2, 3].map(index => ({
+              tableId: String(html.find(`[name="table-select-${index}"]`).val() || "").trim(),
+              count: parseInt(html.find(`[name="roll-count-${index}"]`).val()) || 0
+            })).filter(selection => selection.tableId && selection.count > 0);
+            if (!selections.length) {
+              ui.notifications.warn("Please select at least one table with a count greater than 0.");
               return resolve(null);
             }
-            resolve({ tableId, count });
+            resolve(selections);
           }
         },
         cancel: {

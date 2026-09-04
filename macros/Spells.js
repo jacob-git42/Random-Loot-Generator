@@ -35,25 +35,36 @@ function ensureSpellsSettingRegistered() {
 async function runWithPreset() {
   ensureSpellsSettingRegistered();
   const preset = game.settings.get(spellsSettingsNamespace, spellsSettingsKey);
-  if (!preset?.tableId || !preset?.count) return false;
+  const selections = Array.isArray(preset?.selections)
+    ? preset.selections
+    : (preset?.tableId && preset?.count ? [{ tableId: preset.tableId, count: preset.count }] : []);
+  if (!selections.length) return false;
 
-  const selectedTable = getLootTableById(preset.tableId);
-  if (!selectedTable) {
-    ui.notifications.warn("Preset spell table was not found.");
+  const validSelections = selections
+    .map(selection => ({
+      table: getLootTableById(selection.tableId),
+      count: Math.max(1, parseInt(selection.count) || 0)
+    }))
+    .filter(selection => selection.table && selection.count > 0);
+  if (!validSelections.length) {
+    ui.notifications.warn("Preset spell tables were not found.");
     return false;
   }
 
-  const count = Math.max(1, parseInt(preset.count) || 1);
   if (game.user.isGM) {
     await game.settings.set(spellsSettingsNamespace, spellsSettingsKey, {});
   }
 
   let textResults = [];
-  for (let i = 0; i < count; i++) {
-    const rollResult = await selectedTable.roll();
-    const result = rollResult.results[0];
-    if (result) {
-      textResults.push(`<li>${getTableResultText(result)}</li>`);
+  let count = 0;
+  for (const selection of validSelections) {
+    count += selection.count;
+    for (let i = 0; i < selection.count; i++) {
+      const rollResult = await selection.table.roll();
+      const result = rollResult.results[0];
+      if (result) {
+        textResults.push(`<li>${getTableResultText(result)}</li>`);
+      }
     }
   }
 

@@ -2,7 +2,7 @@ const MODULE_ID = 'jacobs-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 18;
+const MACRO_SYNC_VERSION = 19;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;

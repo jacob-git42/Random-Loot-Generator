@@ -1,0 +1,67 @@
+<div class="loot-generator-sidebar flexcol">
+  <header class="directory-header">
+    <div class="header-actions action-buttons flexrow">
+      <h2><i class="fa-solid fa-coins"></i> Loot Generator</h2>
+    </div>
+  </header>
+
+  <hr class="loot-divider">
+
+  <div class="loot-body flexcol">
+    <section class="loot-section">
+      <h3 class="loot-heading">Player Revealed Loot</h3>
+      <p class="loot-description">Create a loot card that players can reveal after the encounter.</p>
+      <button type="button" class="loot-btn loot-primary" data-action="runMacro" data-name="RollTables to Chat">
+        <i class="fa-solid fa-box-open"></i> Generate Loot
+      </button>
+    </section>
+
+    <hr class="loot-divider">
+
+    <section class="loot-section">
+      <h3 class="loot-heading">Direct GM Loot</h3>
+      <p class="loot-description">Generate selected rewards directly without creating a player reveal card.</p>
+      <div class="macro-list flexcol">
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Spells">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Spells
+      </button>
+
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Potions">
+        <i class="fa-solid fa-flask"></i> Potions
+      </button>
+
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Targeted Loot">
+        <i class="fa-solid fa-crosshairs"></i> Targeted Loot
+      </button>
+      </div>
+    </section>
+  </div>
+
+  <footer class="directory-footer">
+    <hr class="loot-divider">
+    <button type="button" class="loot-btn" data-action="runMacro" data-name="Reset Treasure Hoard Counter">
+      <i class="fa-solid fa-rotate-left"></i> Reset Hoard Counter
+    </button>
+    <p class="loot-description">Reset all Treasure Hoard counters for every tier.</p>
+    <button type="button" class="loot-btn danger" data-action="runMacro" data-name="Clean up Random Loot Generator">
+      <i class="fa-solid fa-trash"></i> Clean Up Data
+    </button>
+    <p class="loot-description">Warning! Removes the module macros, roll tables, and Loot folders. only klick this if you 
+      encounter serious issues or if you want to remove the module completely. You will have to reinstall the module to use it again.</p>
+    </p>
+  </footer>
+  <style>
+    .loot-generator-sidebar { min-height: 100%; padding: 8px; gap: 6px; }
+    .loot-body, .macro-list, .directory-footer { gap: 6px; }
+    .loot-body { flex: 0 0 auto; }
+    .loot-section { padding: 0 2px; }
+    .loot-heading { margin: 4px 0 2px; font-size: 0.95em; }
+    .loot-section > .loot-description { margin-bottom: 8px; }
+    .loot-btn { width: 100%; min-height: 34px; padding: 6px 8px; text-align: left; }
+    .loot-btn i { width: 1.25em; margin-right: 6px; text-align: center; }
+    .loot-primary { font-weight: 700; }
+    .loot-divider { width: calc(100% - 4px); margin: 16px 2px; border: 0; border-top: 1px solid var(--color-border-light-2, rgba(255,255,255,0.2)); }
+    .loot-description { margin: 0 2px 4px; font-size: 0.78em; line-height: 1.25; color: var(--color-text-secondary, #aaa); }
+    .directory-footer { margin-top: auto; padding-top: 2px; }
+  </style>
+</div>

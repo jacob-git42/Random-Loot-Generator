@@ -300,8 +300,8 @@ async function runWithDialog() {
 		`,
 		buttons: {
 			roll: {
-				icon: '<i class="fas fa-coins"></i>',
-				label: "Roll Loot",
+          		icon: '<i class="fas fa-dice-d20"></i>',
+          		label: "Generate Loot",
 				callback: async (html) => {
 					await runLootRolls(rangeId => parseInt(html.find(`[name="${rangeId}"]`).val()) || 0);
 				}

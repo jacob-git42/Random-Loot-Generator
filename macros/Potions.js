@@ -86,8 +86,8 @@ async function runWithDialog() {
     `,
     buttons: {
       roll: {
-        icon: '<i class="fas fa-dice"></i>',
-        label: "Roll",
+        icon: '<i class="fas fa-dice-d20"></i>',
+        label: "Generate Loot",
         callback: async (html) => {
           const count = parseInt(html.find('[name="potion-count"]').val()) || 0;
           if (count < 1) {

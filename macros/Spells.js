@@ -151,8 +151,8 @@ async function runWithDialog() {
     `,
     buttons: {
       roll: {
-        icon: '<i class="fas fa-dice"></i>',
-        label: "Roll",
+        icon: '<i class="fas fa-dice-d20"></i>',
+        label: "Generate Loot",
         callback: async (html) => {
           const selections = [1, 2, 3].map(index => {
             const tableId = String(html.find(`[name="table-select-${index}"]`).val() || "").trim();

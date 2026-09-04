@@ -1,6 +1,7 @@
 const treasureHoardSettingsNamespace = "lootmakros";
 const treasureHoardSettingsKey = "treasureHoardPreset";
 const treasureHoardCountersKey = "treasureHoardCounters";
+const rollTableFolderName = "Loot";
 
 const potionTableName = "🧪 Potions and Poisons"; 
 const BONUS_POTION_CHANCE = 0.40; // Von 0.50 auf 0.40 verringert
@@ -28,8 +29,10 @@ const SPELL_WEIGHTS = {
 function findTable(name) {
   if (!name) return null;
   const nameLower = name.toLowerCase().trim();
-  return game.tables.find(t => t.name.toLowerCase().trim() === nameLower) ||
-         game.tables.find(t => t.name.toLowerCase().includes(nameLower) || nameLower.includes(t.name.toLowerCase()));
+  const folder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
+  const tables = folder?.contents || [];
+  return tables.find(t => t.name.toLowerCase().trim() === nameLower) ||
+         tables.find(t => t.name.toLowerCase().includes(nameLower) || nameLower.includes(t.name.toLowerCase()));
 }
 
 // Hilfsfunktion zum rekursiven Auswürfeln von Untertabellen
@@ -41,7 +44,8 @@ async function resolveTableRoll(table, depth = 0) {
   if (!res) return "Leeres Ergebnis";
 
   if (res.type === "document" && res.documentCollection === "RollTable") {
-    const nextTable = game.tables.get(res.documentId);
+    const folder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
+    const nextTable = folder?.contents.find(table => table.id === res.documentId);
     if (nextTable) return await resolveTableRoll(nextTable, depth + 1);
   }
 

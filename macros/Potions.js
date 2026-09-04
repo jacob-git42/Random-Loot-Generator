@@ -1,8 +1,10 @@
 const tableName = "🧪 Potions and Poisons";
+const rollTableFolderName = "Loot";
 const potionsSettingsNamespace = "lootmakros";
 const potionsSettingsKey = "potionsPreset";
 
-const table = game.tables.find(t => t.name === tableName);
+const lootTableFolder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
+const table = lootTableFolder?.contents.find(t => t.name === tableName);
 
 function ensurePotionsSettingRegistered() {
   const settingId = `${potionsSettingsNamespace}.${potionsSettingsKey}`;

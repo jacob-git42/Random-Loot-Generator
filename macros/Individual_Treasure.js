@@ -1,4 +1,5 @@
 const trinketTableName = "🎒 Trinkets & Plunder";
+const rollTableFolderName = "Loot";
 
 // Gemstone-Konfiguration mit Gewichtung
 const gemTableConfig = [
@@ -8,14 +9,16 @@ const gemTableConfig = [
 	{ name: "500 GP Gemstones", weight: 5  }
 ];
 
-const trinketTable = game.tables.find(t => t.name === trinketTableName);
+const lootTableFolder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
+const lootTables = lootTableFolder?.contents || [];
+const trinketTable = lootTables.find(t => t.name === trinketTableName);
 
 // Hilfsfunktion zum Suchen von Tabellen (unscharf)
 function findTable(name) {
 	if (!name) return null;
 	const nameLower = name.toLowerCase().trim();
-	return game.tables.find(t => t.name.toLowerCase().trim() === nameLower) ||
-				 game.tables.find(t => t.name.toLowerCase().includes(nameLower));
+	return lootTables.find(t => t.name.toLowerCase().trim() === nameLower) ||
+				 lootTables.find(t => t.name.toLowerCase().includes(nameLower));
 }
 
 let weightedGemTables = [];

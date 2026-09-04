@@ -1,4 +1,7 @@
 const MODULE_ID = 'random-loot-generator';
+const ROLL_TABLE_FOLDER_NAME = 'Loot';
+const OBSERVER_OWNERSHIP = 2;
+const MACRO_SYNC_VERSION = 2;
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
@@ -18,6 +21,13 @@ Hooks.once('init', () => {
     type: Boolean,
     default: false
   });
+
+  game.settings.register(MODULE_ID, 'macroSyncVersion', {
+    scope: 'world',
+    config: false,
+    type: Number,
+    default: 0
+  });
 });
 
 async function createMacroFromPath(name, path) {
@@ -27,7 +37,10 @@ async function createMacroFromPath(name, path) {
     if (!res.ok) return null;
     const cmd = await res.text();
     const existing = game.macros.find(m => m.name === name);
-    if (existing) return existing;
+    if (existing) {
+      await existing.update({ command: cmd });
+      return existing;
+    }
     return await Macro.create({ name, type: 'script', scope: 'global', command: cmd });
   } catch (err) {
     console.error(`${MODULE_ID} | Failed to create macro ${name}:`, err);
@@ -64,11 +77,31 @@ class LootPanel extends Application {
 
 let lootPanel = null;
 
+function addLootSidebarButton(sidebarHtml) {
+  const root = sidebarHtml?.[0] || sidebarHtml;
+  const tabs = root?.querySelector('#sidebar-tabs, .sidebar-tabs');
+  if (!tabs || tabs.querySelector('.random-loot-button')) return;
+
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'item random-loot-button';
+  button.innerHTML = '<i class="fas fa-dice-d20"></i>';
+  button.title = 'Random Loot Generator';
+  button.setAttribute('aria-label', 'Random Loot Generator');
+  button.addEventListener('click', () => {
+    if (!lootPanel) lootPanel = new LootPanel();
+    lootPanel.render(true);
+  });
+  tabs.appendChild(button);
+}
+
+Hooks.on('renderSidebar', (_app, html) => addLootSidebarButton(html));
+
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
-  // Create macros on first run (GM only)
-  if (game.user.isGM && !game.settings.get(MODULE_ID, 'macrosCreated')) {
+  // Create or update module macros (GM only)
+  if (game.user.isGM && game.settings.get(MODULE_ID, 'macroSyncVersion') < MACRO_SYNC_VERSION) {
     console.log(`${MODULE_ID} | Creating macros from module files`);
     const macrosToCreate = [
       { name: 'Individual Treasure', path: 'macros/Individual_Treasure.js' },
@@ -84,68 +117,68 @@ Hooks.once('ready', async () => {
     }
 
     await game.settings.set(MODULE_ID, 'macrosCreated', true);
+    await game.settings.set(MODULE_ID, 'macroSyncVersion', MACRO_SYNC_VERSION);
     ui.notifications.info('Random Loot Generator: Macros created.');
   }
 
-  // Import RollTables from module roll_tables manifest if not already imported (GM only)
+  // Import and normalize module RollTables (GM only)
   if (game.user.isGM) {
     const importKey = 'tablesImported';
     if (!game.settings.settings.has(`${MODULE_ID}.${importKey}`)) {
       game.settings.register(MODULE_ID, importKey, { name: 'Tables Imported', scope: 'world', config: false, type: Boolean, default: false });
     }
-    const already = game.settings.get(MODULE_ID, importKey);
-    if (!already) {
-      try {
-        const manifestUrl = `modules/${MODULE_ID}/roll_tables/manifest.json`;
-        const resp = await fetch(manifestUrl);
-        if (resp.ok) {
-          const files = await resp.json();
-          let imported = 0;
-          for (const fname of files) {
-            try {
-              const url = `modules/${MODULE_ID}/roll_tables/${encodeURIComponent(fname)}`;
-              const r = await fetch(url);
-              if (!r.ok) {
-                console.warn(`${MODULE_ID} | Missing roll table file: ${fname}`);
-                continue;
-              }
-              const data = await r.json();
-              if (!data?.name) continue;
-              const exists = game.tables.find(t => t.name === data.name);
-              if (exists) continue;
-              await RollTable.create(data);
-              imported++;
-            } catch (e) {
-              console.warn(`${MODULE_ID} | Failed importing ${fname}`, e);
+    try {
+      const manifestUrl = `modules/${MODULE_ID}/roll_tables/manifest.json`;
+      const resp = await fetch(manifestUrl);
+      if (resp.ok) {
+        const files = await resp.json();
+        const folder = game.folders.find(f => f.name === ROLL_TABLE_FOLDER_NAME && f.type === 'RollTable')
+          || await Folder.create({ name: ROLL_TABLE_FOLDER_NAME, type: 'RollTable' });
+        let imported = 0;
+        let normalized = 0;
+
+        for (const fname of files) {
+          try {
+            const url = `modules/${MODULE_ID}/roll_tables/${encodeURIComponent(fname)}`;
+            const r = await fetch(url);
+            if (!r.ok) {
+              console.warn(`${MODULE_ID} | Missing roll table file: ${fname}`);
+              continue;
             }
+            const data = await r.json();
+            if (!data?.name) continue;
+
+            const existing = game.tables.find(t => t.name === data.name);
+            if (existing) {
+              await existing.update({ folder: folder.id, ownership: { default: OBSERVER_OWNERSHIP } });
+              normalized++;
+              continue;
+            }
+
+            await RollTable.create({
+              ...data,
+              folder: folder.id,
+              ownership: { default: OBSERVER_OWNERSHIP }
+            });
+            imported++;
+          } catch (e) {
+            console.warn(`${MODULE_ID} | Failed importing ${fname}`, e);
           }
-          await game.settings.set(MODULE_ID, importKey, true);
-          ui.notifications.info(`${MODULE_ID}: Imported ${imported} RollTables from module.`);
         }
-      } catch (err) {
-        console.warn(`${MODULE_ID} | RollTables import failed`, err);
+
+        await game.settings.set(MODULE_ID, importKey, true);
+        if (imported || normalized) {
+          ui.notifications.info(`${MODULE_ID}: Imported ${imported} and organized ${normalized} RollTables in "${ROLL_TABLE_FOLDER_NAME}".`);
+        }
       }
+    } catch (err) {
+      console.warn(`${MODULE_ID} | RollTables import failed`, err);
     }
   }
 
-  // Add a small button to the left sidebar to open the LootPanel
+  // Add the module button to the sidebar tab bar.
   try {
-    const container = document.querySelector('#sidebar');
-    if (container) {
-      const btn = document.createElement('a');
-      btn.className = 'random-loot-button';
-      btn.innerHTML = `<i class="fas fa-dice-d20"></i>`;
-      btn.title = 'Random Loot';
-      btn.style.cssText = 'display:block; padding:8px; text-align:center; color:var(--text-color); cursor:pointer;';
-      btn.addEventListener('click', () => {
-        if (!lootPanel) lootPanel = new LootPanel();
-        lootPanel.render(true);
-      });
-      // append to sidebar header (if available)
-      const header = container.querySelector('.sidebar-header');
-      if (header) header.appendChild(btn);
-      else container.appendChild(btn);
-    }
+    addLootSidebarButton(document.querySelector('#sidebar'));
   } catch (err) {
     console.warn(`${MODULE_ID} | Failed to add sidebar button:`, err);
   }

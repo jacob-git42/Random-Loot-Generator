@@ -1,6 +1,11 @@
 const spellsSettingsNamespace = "lootmakros";
 const spellsSettingsKey = "spellsPreset";
-const spellsFolderName = "Spells";
+const spellsFolderName = "Loot";
+
+function getLootTableById(id) {
+  const folder = game.folders.find(f => f.name === spellsFolderName && f.type === "RollTable");
+  return folder?.contents.find(table => table.id === id) || null;
+}
 
 function ensureSpellsSettingRegistered() {
   const settingId = `${spellsSettingsNamespace}.${spellsSettingsKey}`;
@@ -20,7 +25,7 @@ async function runWithPreset() {
   const preset = game.settings.get(spellsSettingsNamespace, spellsSettingsKey);
   if (!preset?.tableId || !preset?.count) return false;
 
-  const selectedTable = game.tables.get(preset.tableId);
+  const selectedTable = getLootTableById(preset.tableId);
   if (!selectedTable) {
     ui.notifications.warn("Preset spell table was not found.");
     return false;
@@ -140,7 +145,7 @@ async function runWithDialog() {
           let resultItemsHtml = "";
 
           for (const selection of selections) {
-            const selectedTable = game.tables.get(selection.tableId);
+            const selectedTable = getLootTableById(selection.tableId);
             if (!selectedTable) continue;
 
             totalCount += selection.count;

@@ -4,7 +4,7 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 9;
 
-// 1. Eigenständiges Fenster für den Loot Generator
+// 1. Fenster-Klasse für den Loot Generator
 class JacobsLootGeneratorApp extends Application {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -33,13 +33,20 @@ class JacobsLootGeneratorApp extends Application {
   }
 }
 
-// 2. Modul-Einstellungen
+// 2. Globaler Click-Listener (fängt den Klick vor Foundry ab)
+$(document).on('click', '[data-action="open-loot-generator"]', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log(`${MODULE_ID} | Opening Loot Generator Window`);
+  new JacobsLootGeneratorApp().render(true);
+});
+
+// 3. Modul-Einstellungen
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
 
   game.settings.register(MODULE_ID, 'enabled', {
     name: 'Enable Random Loot Generator',
-    hint: 'Enable or disable the Random Loot Generator module features',
     scope: 'world',
     config: true,
     type: Boolean,
@@ -61,7 +68,6 @@ Hooks.once('init', () => {
   });
 
   game.settings.register(MODULE_ID, 'tablesImported', {
-    name: 'Tables Imported',
     scope: 'world',
     config: false,
     type: Boolean,
@@ -69,30 +75,43 @@ Hooks.once('init', () => {
   });
 });
 
-// 3. Würfel-Button in die Sidebar einfügen
+// 4. Button in die rechte Sidebar-Leiste einfügen
 Hooks.on('renderSidebar', (app, html) => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
   const root = html?.jquery ? html : $(html);
   const tabsNav = root.find('#sidebar-tabs');
 
-  if (tabsNav.find('a[data-action="open-loot-generator"]').length > 0) return;
+  if (tabsNav.find('[data-action="open-loot-generator"]').length > 0) return;
 
   const button = $(`
-    <a class="item" data-action="open-loot-generator" title="Loot Generator">
+    <a class="item" data-action="open-loot-generator" title="Loot Generator" style="cursor: pointer;">
       <i class="fa-solid fa-dice-d4"></i>
     </a>
   `);
 
-  button.on('click', (event) => {
-    event.preventDefault();
-    new JacobsLootGeneratorApp().render(true);
-  });
-
   tabsNav.append(button);
 });
 
-// 4. Hilfsfunktionen für Makros und Säuberung
+// 5. ZUSÄTZLICH: Button im Kopfteil der Würfeltabellen (RollTables) einbinden
+Hooks.on('renderRollTableDirectory', (app, html) => {
+  if (!game.settings.get(MODULE_ID, 'enabled')) return;
+
+  const root = html?.jquery ? html : $(html);
+  const header = root.find('.directory-header .action-buttons');
+
+  if (header.find('[data-action="open-loot-generator"]').length > 0) return;
+
+  const btn = $(`
+    <button type="button" data-action="open-loot-generator" class="open-loot-btn">
+      <i class="fa-solid fa-dice-d4"></i> Loot Generator
+    </button>
+  `);
+
+  header.append(btn);
+});
+
+// 6. Hilfsfunktionen für Makros & Cleanup
 async function createMacroFromPath(name, path) {
   try {
     const base = `modules/${MODULE_ID}`;
@@ -116,38 +135,6 @@ async function createMacroFromPath(name, path) {
     console.error(`${MODULE_ID} | Failed to create macro ${name}:`, err);
     return null;
   }
-}
-
-async function cleanupRandomLootGenerator(folderName = 'Loot') {
-  if (!game.user.isGM) {
-    ui.notifications.warn('Only a GM can clean up Random Loot Generator data.');
-    return;
-  }
-
-  const confirmed = await Dialog.confirm({
-    title: 'Clean up Random Loot Generator',
-    content: '<p>Delete the module macros, RollTables in the "Loot" folder, and the folder itself?</p><p>This cannot be undone.</p>'
-  });
-  if (!confirmed) return;
-
-  const macroNames = [
-    'Individual Treasure',
-    'Potions',
-    'RollTables to Chat',
-    'Spells',
-    'Targeted Loot',
-    'Treasure Hoard',
-    'Clean up Random Loot Generator'
-  ];
-  const macros = game.macros.filter(macro => macroNames.includes(macro.name));
-  for (const macro of macros) await macro.delete();
-
-  const folders = game.folders.filter(folder => folder.type === 'RollTable' && folder.name === folderName);
-  const tables = game.tables.filter(table => folders.some(folder => folder.id === table.folder?.id));
-  for (const table of tables) await table.delete();
-  for (const folder of folders) await folder.delete();
-
-  ui.notifications.info('Random Loot Generator data was removed.');
 }
 
 const cleanupMacroCommand = `if (!game.user.isGM) {
@@ -179,11 +166,10 @@ for (const folder of folders) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
 
-// 5. Automatische Synchronisation beim Start der Welt
+// 7. Automatische Tabellen- & Makro-Erstellung beim Start
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
-  // Create or update module macros (GM only)
   if (game.user.isGM && game.settings.get(MODULE_ID, 'macroSyncVersion') < MACRO_SYNC_VERSION) {
     console.log(`${MODULE_ID} | Creating macros from module files`);
     const macrosToCreate = [
@@ -211,7 +197,6 @@ Hooks.once('ready', async () => {
     ui.notifications.info('Random Loot Generator: Macros created.');
   }
 
-  // Import and normalize module RollTables (GM only)
   if (game.user.isGM) {
     try {
       const manifestUrl = `modules/${MODULE_ID}/roll_tables/manifest.json`;
@@ -230,10 +215,7 @@ Hooks.once('ready', async () => {
           try {
             const url = `modules/${MODULE_ID}/roll_tables/${encodeURIComponent(fname)}`;
             const r = await fetch(url);
-            if (!r.ok) {
-              console.warn(`${MODULE_ID} | Missing roll table file: ${fname}`);
-              continue;
-            }
+            if (!r.ok) continue;
             const data = await r.json();
             if (!data?.name) continue;
             const isSpellTable = /^(wizard-)?spells-level-\d+\.json$/i.test(fname);

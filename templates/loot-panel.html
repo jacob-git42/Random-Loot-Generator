@@ -1,0 +1,66 @@
+<div class="jacobs-loot-panel flexcol">
+  <h2><i class="fa-solid fa-dice-d20"></i> Random Loot</h2>
+
+  <div class="loot-actions flexcol">
+    <button type="button" data-action="run-macro" data-name="Individual Treasure">
+      <i class="fa-solid fa-coins"></i> Individual Treasure
+    </button>
+
+    <button type="button" data-action="run-macro" data-name="Treasure Hoard">
+      <i class="fa-solid fa-gem"></i> Treasure Hoard
+    </button>
+
+    <button type="button" data-action="run-macro" data-name="Potions">
+      <img src="icons/consumables/potions/bottle-bulb-corked-puple.webp" alt=""> Potions
+    </button>
+
+    <button type="button" data-action="run-macro" data-name="Spells">
+      <img src="icons/magic/symbols/chevron-elipse-circle-blue.webp" alt=""> Spells
+    </button>
+
+    <button type="button" data-action="run-macro" data-name="Targeted Loot">
+      <i class="fa-solid fa-crosshairs"></i> Targeted Loot
+    </button>
+
+    <button type="button" data-action="run-macro" data-name="RollTables to Chat">
+      <img src="icons/containers/boxes/box-gift-blue.webp" alt=""> Post Loot (Orchestrator)
+    </button>
+  </div>
+</div>
+
+<style>
+  .jacobs-loot-panel {
+    padding: 8px;
+    gap: 8px;
+  }
+  .jacobs-loot-panel h2 {
+    text-align: center;
+    border-bottom: 1px solid var(--color-border-light-2);
+    margin: 0 0 6px 0;
+    padding-bottom: 4px;
+  }
+  .jacobs-loot-panel .loot-actions {
+    gap: 6px;
+  }
+  .jacobs-loot-panel .loot-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    padding: 6px 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .jacobs-loot-panel .loot-actions button img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex: 0 0 22px;
+  }
+  .jacobs-loot-panel .loot-actions button i {
+    width: 22px;
+    text-align: center;
+    font-size: 1.1em;
+  }
+</style>

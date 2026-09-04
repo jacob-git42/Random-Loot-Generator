@@ -13,14 +13,13 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
   static tabName = 'lootGenerator';
 
   static DEFAULT_OPTIONS = {
-    id: 'jacobs-loot-generator',
     actions: {
       runMacro: JacobsLootSidebarTab.#onRunMacro
     }
   };
 
   static PARTS = {
-    main: {
+    loot: {
       template: `modules/${MODULE_ID}/templates/loot-panel.html`
     }
   };

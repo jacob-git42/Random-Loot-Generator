@@ -2,7 +2,7 @@ const MODULE_ID = 'jacobs-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 9;
+const MACRO_SYNC_VERSION = 13;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -86,7 +86,7 @@ Hooks.once('init', () => {
 
   // Register sidebar tab metadata
   CONFIG.ui.sidebar.TABS.lootGenerator = {
-    icon: 'fa-solid fa-dice-d4',
+    icon: 'fa-solid fa-coins',
     tooltip: 'Loot Generator'
   };
 
@@ -142,17 +142,35 @@ const macroNames = [
   'Spells',
   'Targeted Loot',
   'Treasure Hoard',
+  'Reset Treasure Hoard Counter',
   'Clean up Random Loot Generator'
 ];
 const macros = game.macros.filter(macro => macroNames.includes(macro.name));
 for (const macro of macros) await macro.delete();
 
-const folders = game.folders.filter(folder => folder.type === 'RollTable' && folder.name === 'Loot');
+const rootFolder = game.folders.find(folder => folder.type === 'RollTable' && folder.name === 'Loot');
+const folders = rootFolder
+  ? game.folders.filter(folder => folder.id === rootFolder.id || folder.folder?.id === rootFolder.id)
+  : [];
 const tables = game.tables.filter(table => folders.some(folder => folder.id === table.folder?.id));
 for (const table of tables) await table.delete();
-for (const folder of folders) await folder.delete();
+for (const folder of folders.sort((a, b) => b.id.localeCompare(a.id))) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
+
+const resetHoardCounterMacroCommand = `if (!game.user.isGM) {
+  return ui.notifications.warn('Only a GM can reset the Treasure Hoard counters.');
+}
+
+const settingId = 'lootmakros.treasureHoardCounters';
+if (!game.settings.settings.has(settingId)) {
+  game.settings.register('lootmakros', 'treasureHoardCounters', {
+    name: 'Treasure Hoard Counters', scope: 'world', config: false, type: Object,
+    default: { 1: 0, 2: 0, 3: 0, 4: 0 }
+  });
+}
+await game.settings.set('lootmakros', 'treasureHoardCounters', { 1: 0, 2: 0, 3: 0, 4: 0 });
+ui.notifications.info('All Treasure Hoard counters reset.');`;
 
 // 4. Automatic table & macro synchronization on world start
 Hooks.once('ready', async () => {
@@ -167,6 +185,7 @@ Hooks.once('ready', async () => {
       { name: 'Spells', path: 'macros/Spells.js' },
       { name: 'Targeted Loot', path: 'macros/Targeted_Loot.js' },
       { name: 'Treasure Hoard', path: 'macros/Treasure_Hoard.js' },
+      { name: 'Reset Treasure Hoard Counter', command: resetHoardCounterMacroCommand },
       { name: 'Clean up Random Loot Generator', command: cleanupMacroCommand }
     ];
 

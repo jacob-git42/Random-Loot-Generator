@@ -4,13 +4,17 @@ const treasureHoardCountersKey = "treasureHoardCounters";
 const rollTableFolderName = "Loot";
 const spellsFolderName = "Spells";
 
+function getTableResultText(result) {
+  return result?.name?.trim() || result?.description?.trim() || "";
+}
+
 const potionTableName = "🧪 Potions and Poisons"; 
 const BONUS_POTION_CHANCE = 0.40; // Von 0.50 auf 0.40 verringert
 
-// DMG Soll-Empfehlungen für die Anzeige im UI
+// DMG recommendations shown in the UI
 const DMG_RECOMMENDED = { 1: 7, 2: 18, 3: 12, 4: 8 };
 
-// Konfiguration der Zauberrollen-Chancen pro Tier (Leicht verringert)
+// Spell scroll chance configuration by tier
 const SCROLL_CHANCES = {
   1: { extraChance2: 0.20, extraChance3: 0.05 },
   2: { extraChance2: 0.30, extraChance3: 0.10 },
@@ -18,7 +22,7 @@ const SCROLL_CHANCES = {
   4: { extraChance2: 0.50, extraChance3: 0.15 }
 };
 
-// Pyramiden-Gewichtung der Zauberstufen pro Tier (Summe = 100)
+// Spell level weighting by tier (total: 100)
 const SPELL_WEIGHTS = {
   1: [ { level: 1, weight: 60 }, { level: 2, weight: 30 }, { level: 3, weight: 10 } ],
   2: [ { level: 2, weight: 50 }, { level: 3, weight: 30 }, { level: 4, weight: 15 }, { level: 5, weight: 5 } ],
@@ -26,7 +30,7 @@ const SPELL_WEIGHTS = {
   4: [ { level: 4, weight: 35 }, { level: 5, weight: 25 }, { level: 6, weight: 18 }, { level: 7, weight: 12 }, { level: 8, weight: 7 }, { level: 9, weight: 3 } ]
 };
 
-// Hilfsfunktion zum Suchen von Tabellen
+// Find a table in Loot or its Spells subfolder.
 function findTable(name) {
   if (!name) return null;
   const nameLower = name.toLowerCase().trim();
@@ -43,7 +47,7 @@ function findTable(name) {
          tables.find(t => t.name.toLowerCase().includes(nameLower) || nameLower.includes(t.name.toLowerCase()));
 }
 
-// Hilfsfunktion zum rekursiven Auswürfeln von Untertabellen
+// Recursively resolve nested table results.
 async function resolveTableRoll(table, depth = 0) {
   if (!table || depth > 5) return "Unbekannter Gegenstand";
 
@@ -60,20 +64,21 @@ async function resolveTableRoll(table, depth = 0) {
   if (res.type === "pack" || (res.type === "document" && res.documentCollection === "Item")) {
     const uuid = res.uuid || (res.documentCollection ? `Compendium.${res.documentCollection}.${res.documentId}` : null);
     if (uuid) {
-      return `<a class="content-link" data-link data-type="Item" data-uuid="${uuid}">${res.text}</a>`;
+      return `<a class="content-link" data-link data-type="Item" data-uuid="${uuid}">${getTableResultText(res)}</a>`;
     }
   }
 
-  const textClean = res.text ? res.text.toLowerCase().trim() : "";
+  const resultText = getTableResultText(res);
+  const textClean = resultText.toLowerCase().trim();
   const subTableMatch = findTable(textClean);
   if (subTableMatch && subTableMatch.id !== table.id) {
     return await resolveTableRoll(subTableMatch, depth + 1);
   }
 
-  return res.text || "Unbekanntes Ergebnis";
+  return resultText || "Unbekanntes Ergebnis";
 }
 
-// Gemstone-Tabelle basierend auf Tier (Maximal 500 GP Gemstones)
+// Gemstone table by tier (maximum 500 GP gemstones)
 function getGemTableNameForTier(tier) {
   const rand = Math.random();
   if (tier === 1) return rand < 0.80 ? "10 GP Gemstones" : "50 GP Gemstones";
@@ -82,7 +87,7 @@ function getGemTableNameForTier(tier) {
   return "500 GP Gemstones";
 }
 
-// Art Objects-Tabelle basierend auf Tier
+// Art object table by tier
 function getArtTableNameForTier(tier) {
   const rand = Math.random();
   if (tier === 1) return rand < 0.80 ? "25 GP Art Objects" : "250 GP Art Objects";
@@ -91,7 +96,7 @@ function getArtTableNameForTier(tier) {
   return rand < 0.60 ? "2,500 GP Art Objects" : "7,500 GP Art Objects";
 }
 
-// Bestimmt die DMG Magic Item Table (A-I) basierend auf dem Tier
+// Determine the DMG magic item table (A-I) by tier.
 function getDMGMagicItemTableForTier(tier) {
   const rand = Math.random();
   if (tier === 1) {
@@ -139,7 +144,7 @@ async function rollSpellScroll(tier) {
     const resText = await resolveTableRoll(scrollTable);
     return `<b>📜 Scroll (Level ${targetLevel}):</b> ${resText}`;
   } else {
-    return `<b>📜 Scroll (Level ${targetLevel}):</b> (Tabelle "${scrollTableName}" fehlt)`;
+    return `<b>📜 Scroll (Level ${targetLevel}):</b> (Table "${scrollTableName}" is missing)`;
   }
 }
 
@@ -172,19 +177,19 @@ async function resetCounter(tier = null) {
   let counters = game.settings.get(treasureHoardSettingsNamespace, treasureHoardCountersKey) || { 1: 0, 2: 0, 3: 0, 4: 0 };
   if (tier && counters[tier] !== undefined) {
     counters[tier] = 0;
-    ui.notifications.info(`Treasure Counter für Tier ${tier} zurückgesetzt.`);
+    ui.notifications.info(`Treasure counter for Tier ${tier} reset.`);
   } else {
     counters = { 1: 0, 2: 0, 3: 0, 4: 0 };
-    ui.notifications.info(`Alle Treasure Counter zurückgesetzt.`);
+    ui.notifications.info("All treasure counters reset.");
   }
   await game.settings.set(treasureHoardSettingsNamespace, treasureHoardCountersKey, counters);
 }
 
-async function rollTreasureHoard(hoardCount, selectedTier) {
+async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false) {
   const safeHoards = Math.max(1, parseInt(hoardCount) || 1);
   const tier = Math.min(4, Math.max(1, parseInt(selectedTier) || 1));
 
-  // Zähler inkrementieren
+  // Increment the counter.
   const allCounters = await updateCounter(tier, safeHoards);
   const totalRolledForTier = allCounters[tier];
 
@@ -197,7 +202,7 @@ async function rollTreasureHoard(hoardCount, selectedTier) {
   let bonusItems = [];
 
   for (let h = 0; h < safeHoards; h++) {
-    // 1. Gold (Erhöht, um verringerte Kunst/Gems/Consumables auszugleichen)
+    // 1. Gold
     let gpFormula = "5d6 * 100";
     let spFormula = "2d6 * 10";
     if (tier === 1) { gpFormula = "8d6 * 10"; spFormula = "2d6 * 100"; }
@@ -208,22 +213,22 @@ async function rollTreasureHoard(hoardCount, selectedTier) {
     const spRoll = await new Roll(spFormula).evaluate();
     totalGoldValue += gpRoll.total + (spRoll.total / 10);
 
-    // 2. Gemstones (1d2 statt 1d3)
+    // 2. Gemstones
     const gemRoll = await new Roll("1d2").evaluate();
     for (let g = 0; g < gemRoll.total; g++) {
       const gemName = getGemTableNameForTier(tier);
       const gemTable = findTable(gemName);
       if (gemTable) gemResults.push(`<li>${await resolveTableRoll(gemTable)}</li>`);
-      else gemResults.push(`<li>(Tabelle "${gemName}" fehlt)</li>`);
+      else gemResults.push(`<li>(Table "${gemName}" is missing)</li>`);
     }
 
-    // 3. Art Objects (1d2 statt 1d3)
+    // 3. Art objects
     const artRoll = await new Roll("1d2").evaluate();
     for (let a = 0; a < artRoll.total; a++) {
       const artName = getArtTableNameForTier(tier);
       const artTable = findTable(artName);
       if (artTable) artResults.push(`<li>${await resolveTableRoll(artTable)}</li>`);
-      else artResults.push(`<li>(Tabelle "${artName}" fehlt)</li>`);
+      else artResults.push(`<li>(Table "${artName}" is missing)</li>`);
     }
 
     // 4. Magic Items (DMG Table A-I)
@@ -236,11 +241,11 @@ async function rollTreasureHoard(hoardCount, selectedTier) {
         const resText = await resolveTableRoll(magicTable);
         magicItemResults.push(`<li>${resText}</li>`);
       } else {
-        magicItemResults.push(`<li><b>[${targetTableName}]:</b> (Tabelle nicht gefunden)</li>`);
+        magicItemResults.push(`<li><b>[${targetTableName}]:</b> (Table not found)</li>`);
       }
     }
 
-    // 5. Scrolls (Niedrigere Zusatzchancen)
+    // 5. Scrolls
     const config = SCROLL_CHANCES[tier];
     bonusItems.push(`<li>${await rollSpellScroll(tier)}</li>`);
     if (Math.random() < config.extraChance2) {
@@ -262,7 +267,7 @@ async function rollTreasureHoard(hoardCount, selectedTier) {
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${bonusItems.join("")}</ul>
   ` : "";
 
-  // 1. Öffentliche Karte für Spieler (ohne Counter-Anzeige)
+  // 1. Public card for players.
   const publicChatContent = `
     <div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);">
       <p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Treasure Hoard Tier ${tier} (${safeHoards}x)</p>
@@ -291,31 +296,28 @@ async function rollTreasureHoard(hoardCount, selectedTier) {
     speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })
   });
   
-  ChatMessage.create({
-    content: `<div style="text-align: center; color: #000000;">
-                <span style="display:none;">LOOT-CLAIM:HOARD</span>
-                Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰
-              </div>`,
-    speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
-  });
+  if (includeClaim) {
+    ChatMessage.create({
+      content: `<div style="text-align: center; color: #000000;">
+                  <span style="display:none;">LOOT-CLAIM:HOARD</span>
+                  Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰
+                </div>`,
+      speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
+    });
+  }
 
-  // 2. Private Karte NUR für den GM mit dem Counter-Stand
+  // 2. Private GM card with the current roll and tier counters.
   const gmChatContent = `
     <div style="border: 1px solid #4a5568; padding: 10px; border-radius: 6px; background: #1a202c; color: #e2e8f0; font-size: 0.85em;">
       <div style="font-weight: bold; color: #63b3ed; margin-bottom: 4px; border-bottom: 1px solid #4a5568; padding-bottom: 4px;">
-        🔒 GM Loot Tracker (Treasure Hoards)
+        🔒 Treasure Hoard Tracker
       </div>
-      <p style="margin: 4px 0;"><b>Aktueller Roll:</b> Tier ${tier} (+${safeHoards} Hoard${safeHoards > 1 ? 's' : ''})</p>
-      <p style="margin: 4px 0; color: #f6ad55; font-weight: bold;">
-        Tier ${tier} Zählerstand: ${totalRolledForTier} / ${DMG_RECOMMENDED[tier]} (DMG Empfehlung)
-      </p>
-      <hr style="border: 0; border-top: 1px dashed #4a5568; margin: 6px 0;">
-      <p style="margin: 2px 0; font-size: 0.8em; color: #a0aec0;">Übersicht alle Tiers:</p>
-      <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #cbd5e0;">
-        <span>T1: ${allCounters[1] || 0}/${DMG_RECOMMENDED[1]}</span>
-        <span>T2: ${allCounters[2] || 0}/${DMG_RECOMMENDED[2]}</span>
-        <span>T3: ${allCounters[3] || 0}/${DMG_RECOMMENDED[3]}</span>
-        <span>T4: ${allCounters[4] || 0}/${DMG_RECOMMENDED[4]}</span>
+      <p style="margin: 4px 0 8px;"><b>Current roll:</b> Tier ${tier}, ${safeHoards} hoard${safeHoards > 1 ? 's' : ''}</p>
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; font-size: 0.85em; color: #cbd5e0;">
+        <span>Tier 1</span><span>${allCounters[1] || 0} / ${DMG_RECOMMENDED[1]} recommended</span>
+        <span>Tier 2</span><span>${allCounters[2] || 0} / ${DMG_RECOMMENDED[2]} recommended</span>
+        <span>Tier 3</span><span>${allCounters[3] || 0} / ${DMG_RECOMMENDED[3]} recommended</span>
+        <span>Tier 4</span><span>${allCounters[4] || 0} / ${DMG_RECOMMENDED[4]} recommended</span>
       </div>
     </div>
   `;
@@ -344,17 +346,17 @@ function showLootDialog() {
           <span>T1 (L1-4)</span>
           <span>T2 (L5-10)</span>
           <span>T3 (L11-16)</span>
-          <span>T4 (L17+)</span>
+          <span>T4 (L17-20)</span>
         </div>
       </div>
 
       <div style="background: rgba(0,0,0,0.05); padding: 8px 12px; border-radius: 6px; margin-bottom: 12px; font-size: 0.85em; text-align: center;">
-        <b>DMG Hoard Stats (Gezogen / Soll):</b><br>
+        <b>Hoard Counter (rolled / recommended):</b><br>
         <span id="counterDisplay" style="color: #111; font-weight: bold;">${counters[2] || 0} / ${DMG_RECOMMENDED[2]} Hoards</span>
       </div>
 
       <div style="margin-bottom: 8px;">
-        <label style="font-weight: bold; font-size: 0.95em; display: block; margin-bottom: 6px;">Anzahl Hoards:</label>
+        <label style="font-weight: bold; font-size: 0.95em; display: block; margin-bottom: 6px;">Number of hoards:</label>
         <input type="number" id="hoardCount" value="1" min="1" max="10" style="width: 100%; text-align: center;">
       </div>
     </div>
@@ -366,7 +368,7 @@ function showLootDialog() {
     buttons: {
       roll: {
         icon: '<i class="fas fa-dice-d20"></i>',
-        label: "Loot Generieren",
+        label: "Generate Loot",
         callback: async (html) => {
           await rollTreasureHoard(html.find("#hoardCount").val(), html.find("#tierRange").val());
         }
@@ -377,15 +379,15 @@ function showLootDialog() {
         callback: async (html) => {
           const selectedTier = html.find("#tierRange").val();
           new Dialog({
-            title: "Counter Reset Bestätigen",
-            content: `<p>Möchtest du den Zähler für <b>Tier ${selectedTier}</b> oder <b>ALLE Tiers</b> zurücksetzen?</p>`,
+            title: "Confirm Counter Reset",
+            content: `<p>Reset the counter for <b>Tier ${selectedTier}</b> or <b>ALL tiers</b>?</p>`,
             buttons: {
               current: {
-                label: `Nur Tier ${selectedTier}`,
+                label: `Tier ${selectedTier} only`,
                 callback: async () => await resetCounter(selectedTier)
               },
               all: {
-                label: "Alle Tiers (1-4)",
+                label: "All tiers (1-4)",
                 callback: async () => await resetCounter(null)
               },
               cancel: { label: "Abbrechen" }
@@ -393,7 +395,7 @@ function showLootDialog() {
           }).render(true);
         }
       },
-      cancel: { icon: '<i class="fas fa-times"></i>', label: "Schließen" }
+      cancel: { icon: '<i class="fas fa-times"></i>', label: "Close" }
     },
     default: "roll",
     render: (html) => {
@@ -417,7 +419,7 @@ async function runWithPreset() {
     await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {});
   }
 
-  await rollTreasureHoard(count, tier);
+  await rollTreasureHoard(count, tier, true);
   return true;
 }
 

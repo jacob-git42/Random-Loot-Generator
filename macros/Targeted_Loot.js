@@ -31,12 +31,46 @@ async function resolveItemFromEntry(entry) {
   }
 }
 
-async function runWithPreset() {
-  ensureTargetedLootSettingRegistered();
-  const preset = game.settings.get(targetedLootSettingsNamespace, targetedLootSettingsKey);
-  const entries = Array.isArray(preset?.entries) ? preset.entries : [];
-  if (!entries.length) return false;
+async function askForTargetedLootEntries() {
+  const inputs = Array.from({ length: 8 }, (_, index) => `
+    <div class="form-group" style="margin-bottom: 6px;">
+      <label for="targeted-loot-${index}">Item ${index + 1}</label>
+      <input type="text" id="targeted-loot-${index}" name="targeted-loot-${index}" placeholder="Paste item UUID or ID..." style="width: 100%;">
+    </div>
+  `).join("");
 
+  return new Promise(resolve => {
+    new Dialog({
+      title: "Targeted Loot",
+      content: `<form>${inputs}</form>`,
+      buttons: {
+        apply: {
+          icon: '<i class="fas fa-check"></i>',
+          label: "Post Loot",
+          callback: html => {
+            const entries = Array.from({ length: 8 }, (_, index) =>
+              String(html.find(`[name="targeted-loot-${index}"]`).val() || "").trim()
+            ).filter(Boolean);
+            if (!entries.length) {
+              ui.notifications.warn("Add at least one item first.");
+              return resolve(null);
+            }
+            resolve(entries);
+          }
+        },
+        cancel: {
+          icon: '<i class="fas fa-times"></i>',
+          label: "Cancel",
+          callback: () => resolve(null)
+        }
+      },
+      default: "apply",
+      close: () => resolve(null)
+    }).render(true);
+  });
+}
+
+async function postTargetedLoot(entries, includeClaim = false) {
   if (game.user.isGM) {
     await game.settings.set(targetedLootSettingsNamespace, targetedLootSettingsKey, {});
   }
@@ -52,31 +86,35 @@ async function runWithPreset() {
   }
 
   if (itemsCount === 0) {
-    ui.notifications.warn("No valid items found in Targeted Loot preset.");
-    return true;
+    ui.notifications.warn("No valid items found.");
+    return;
   }
 
   await ChatMessage.create({
-    content: await TextEditor.enrichHTML(`<div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);"><p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Curated Reward</p><h3 style="margin-top: 0; border-bottom: 1px solid rgba(123,99,48,0.45); padding-bottom: 6px; font-size: 1.1em; color: #2f2a1d;">💎 Treasure Found!</h3><ul style="margin: 5px 0; padding-left: 0; list-style-type: none; line-height: 1.6em;">${itemsListHtml}</ul></div>`, {async: true}),
+    content: await TextEditor.enrichHTML(`<div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);"><p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Curated Reward</p><h3 style="margin-top: 0; border-bottom: 1px solid rgba(123,99,48,0.45); padding-bottom: 6px; font-size: 1.1em; color: #2f2a1d;">💎 Treasure Found!</h3><ul style="margin: 5px 0; padding-left: 0; list-style-type: none; line-height: 1.6em;">${itemsListHtml}</ul></div>`, { async: true }),
     speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })
   });
 
-  await ChatMessage.create({
-    content: `<div style="text-align: center; color: #000000;">
-                <span style="display:none;">LOOT-CLAIM:TARGETED</span>
-                Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰
-              </div>`,
-    speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
-  });
+  if (includeClaim) {
+    await ChatMessage.create({
+      content: `<div style="text-align: center; color: #000000;"><span style="display:none;">LOOT-CLAIM:TARGETED</span>Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰</div>`,
+      speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
+    });
+  }
+}
 
+async function runWithPreset() {
+  ensureTargetedLootSettingRegistered();
+  const preset = game.settings.get(targetedLootSettingsNamespace, targetedLootSettingsKey);
+  const entries = Array.isArray(preset?.entries) ? preset.entries : [];
+  if (!entries.length) return false;
+
+  await postTargetedLoot(entries, true);
   return true;
 }
 
 const usedPreset = await runWithPreset();
 if (!usedPreset) {
-  if (game.user.isGM) {
-    ui.notifications.warn("No Targeted Loot preset found. Use RollTables-to-Chat to set items and post the loot card.");
-  } else {
-    ui.notifications.warn("No Targeted Loot preset is available yet. Ask your GM to post a loot card first.");
-  }
+  const entries = await askForTargetedLootEntries();
+  if (entries) await postTargetedLoot(entries);
 }

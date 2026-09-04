@@ -3,6 +3,10 @@ const spellsSettingsKey = "spellsPreset";
 const spellsFolderName = "Spells";
 const lootFolderName = "Loot";
 
+function getTableResultText(result) {
+  return result?.name?.trim() || result?.description?.trim() || "";
+}
+
 function getSpellsFolder() {
   const lootFolder = game.folders.find(folder => folder.name === lootFolderName && folder.type === "RollTable");
   return game.folders.find(folder =>
@@ -49,7 +53,7 @@ async function runWithPreset() {
     const rollResult = await selectedTable.roll();
     const result = rollResult.results[0];
     if (result) {
-      textResults.push(`<li>${result.text}</li>`);
+      textResults.push(`<li>${getTableResultText(result)}</li>`);
     }
   }
 
@@ -161,7 +165,7 @@ async function runWithDialog() {
             for (let i = 0; i < selection.count; i++) {
               const rollResult = await selectedTable.roll();
               const result = rollResult.results[0];
-              if (result) textResults.push(`<li>${result.text}</li>`);
+              if (result) textResults.push(`<li>${getTableResultText(result)}</li>`);
             }
 
             if (textResults.length > 0) {

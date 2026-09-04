@@ -260,7 +260,7 @@ async function askTreasureHoardPreset() {
       },
       default: "apply",
       render: (html) => {
-        // Event-Listener für den Schieberegler
+        // Update the tier label when the slider changes.
         html.find("#hoard-tier").on("input change", function() {
           html.find("#presetTierLabel").text("Tier " + $(this).val());
         });

@@ -1,7 +1,11 @@
 const trinketTableName = "🎒 Trinkets & Plunder";
 const rollTableFolderName = "Loot";
 
-// Gemstone-Konfiguration mit Gewichtung
+function getTableResultText(result) {
+	return result?.name?.trim() || result?.description?.trim() || "";
+}
+
+// Weighted gemstone table configuration.
 const gemTableConfig = [
 	{ name: "10 GP Gemstones",  weight: 50 },
 	{ name: "50 GP Gemstones",  weight: 30 },
@@ -13,7 +17,7 @@ const lootTableFolder = game.folders.find(f => f.name === rollTableFolderName &&
 const lootTables = lootTableFolder?.contents || [];
 const trinketTable = lootTables.find(t => t.name === trinketTableName);
 
-// Hilfsfunktion zum Suchen von Tabellen (unscharf)
+// Find a table by exact or partial name.
 function findTable(name) {
 	if (!name) return null;
 	const nameLower = name.toLowerCase().trim();
@@ -42,7 +46,7 @@ function getRandomWeightedGemTable() {
 	return weightedGemTables[0].table;
 }
 
-// Bestimmt die DMG Magic Item Table (A-I) basierend auf der Monster-CR
+// Determine the DMG magic item table (A-I) from the monster CR.
 function getDMGMagicItemTableForCR(rangeId) {
 	const rand = Math.random();
 	if (rangeId === "range-0-4") {
@@ -95,7 +99,7 @@ function ensureIndividualTreasureSettingRegistered() {
 	}
 }
 
-// STANDARD-WURF (MIT ZURÜCKLEGEN) - für Gems & Magic Items
+// Standard roll with replacement for gems and magic items.
 async function rollAndGetLink(table, returnAsLink = true) {
 	if (!table) return null;
 	const rollResult = await table.roll();
@@ -103,26 +107,27 @@ async function rollAndGetLink(table, returnAsLink = true) {
 	if (!res) return null;
 
 	if (!returnAsLink) {
-		return { text: res.text, link: null };
+		return { text: getTableResultText(res), link: null };
 	}
 
+	const resultText = getTableResultText(res);
 	let link = null;
 	if (res.documentCollection && res.documentId) {
-		link = `@UUID[${res.documentCollection}.${res.documentId}]{${res.text}}`;
+		link = `@UUID[${res.documentCollection}.${res.documentId}]{${resultText}}`;
 	} else if (res.uuid) {
-		link = `@UUID[${res.uuid}]{${res.text}}`;
+		link = `@UUID[${res.uuid}]{${resultText}}`;
 	}
   
-	return { text: res.text, link: link || res.text };
+	return { text: resultText, link: link || resultText };
 }
 
-// ZIEHEN OHNE ZURÜCKLEGEN - für Trinkets & Plunder
+// Draw without replacement for trinkets and plunder.
 async function drawAndLockItem(table, returnAsLink = false) {
 	if (!table) return null;
   
 	const availableResults = table.results.filter(r => !r.drawn);
 	if (availableResults.length === 0) {
-		return { text: `*(Tabelle "${table.name}" ist leer - bitte zurücksetzen!)*`, link: null };
+		return { text: `*(Table "${table.name}" is empty - please reset it!)*`, link: null };
 	}
 
 	let result = null;
@@ -138,6 +143,7 @@ async function drawAndLockItem(table, returnAsLink = false) {
 	}
 
 	if (!result) result = availableResults[0];
+	const resultText = getTableResultText(result);
 
 	// Element als gezogen/gesperrt markieren
 	await table.updateEmbeddedDocuments("TableResult", [{ _id: result.id, drawn: true }]);
@@ -145,16 +151,16 @@ async function drawAndLockItem(table, returnAsLink = false) {
 	let link = null;
 	if (returnAsLink) {
 		if (result.documentCollection && result.documentId) {
-			link = `@UUID[${result.documentCollection}.${result.documentId}]{${result.text}}`;
+			link = `@UUID[${result.documentCollection}.${result.documentId}]{${resultText}}`;
 		} else if (result.uuid) {
-			link = `@UUID[${result.uuid}]{${result.text}}`;
+			link = `@UUID[${result.uuid}]{${resultText}}`;
 		}
 	}
   
-	return { text: result.text, link: link };
+	return { text: resultText, link: link };
 }
 
-async function runLootRolls(countResolver) {
+async function runLootRolls(countResolver, includeClaim = false) {
 	let totalFormulaParts = [];
 	let summaryText = "";
 	let totalMonsterCount = 0;
@@ -186,13 +192,13 @@ async function runLootRolls(countResolver) {
 	for (let m = 0; m < totalMonsterCount; m++) {
 		const monsterRangeId = monstersByRange[m];
 
-		// 1. Trinkets (OHNE ZURÜCKLEGEN)
+		// 1. Trinkets without replacement.
 		if (Math.random() < CHANCE_TRINKET && trinketTable) {
 			const itemData = await drawAndLockItem(trinketTable, false);
 			if (itemData) foundTrinkets.push(`<li>${itemData.text}</li>`);
 		}
 
-		// 2. Gems (MIT ZURÜCKLEGEN)
+		// 2. Gems with replacement.
 		if (Math.random() < CHANCE_GEM && weightedGemTables.length > 0) {
 			const randomGemTable = getRandomWeightedGemTable();
 			const gemData = await rollAndGetLink(randomGemTable, true);
@@ -202,7 +208,7 @@ async function runLootRolls(countResolver) {
 			}
 		}
 
-		// 3. Magic Items (MIT ZURÜCKLEGEN aus DMG Table A-I)
+		// 3. Magic items with replacement from DMG tables A-I.
 		if (Math.random() < CHANCE_MAGIC) {
 			const tableName = getDMGMagicItemTableForCR(monsterRangeId);
 			const magicTable = findTable(tableName);
@@ -264,13 +270,15 @@ async function runLootRolls(countResolver) {
 		speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })
 	});
 
-	await ChatMessage.create({
-		content: `<div style="text-align: center; color: #000000;">
+	if (includeClaim) {
+		await ChatMessage.create({
+			content: `<div style="text-align: center; color: #000000;">
 								<span style="display:none;">LOOT-CLAIM:INDIVIDUAL</span>
 								Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰
 							</div>`,
-		speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
-	});
+			speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
+		});
+	}
 }
 
 async function runWithDialog() {
@@ -315,7 +323,7 @@ async function runWithPreset() {
 	if (game.user.isGM) {
 		await game.settings.set(individualTreasureSettingsNamespace, individualTreasureSettingsKey, {});
 	}
-	await runLootRolls(rangeId => parseInt(preset.counts[rangeId]) || 0);
+	await runLootRolls(rangeId => parseInt(preset.counts[rangeId]) || 0, true);
 	return true;
 }
 

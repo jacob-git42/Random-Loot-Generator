@@ -1,5 +1,9 @@
 const tableName = "🧪 Potions and Poisons";
 const rollTableFolderName = "Loot";
+
+function getTableResultText(result) {
+  return result?.name?.trim() || result?.description?.trim() || "";
+}
 const potionsSettingsNamespace = "lootmakros";
 const potionsSettingsKey = "potionsPreset";
 
@@ -34,7 +38,7 @@ async function runWithPreset() {
     const rollResult = await table.roll();
     const result = rollResult.results[0];
     if (result) {
-      textResults.push(`<li>${result.text}</li>`);
+      textResults.push(`<li>${getTableResultText(result)}</li>`);
     }
   }
 
@@ -54,6 +58,12 @@ async function runWithPreset() {
     speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })
   });
 
+  await createPotionClaimMessage();
+
+  return true;
+}
+
+async function createPotionClaimMessage() {
   await ChatMessage.create({
     content: `<div style="text-align: center; color: #000000;">
                 <span style="display:none;">LOOT-CLAIM:POTIONS</span>
@@ -61,8 +71,6 @@ async function runWithPreset() {
               </div>`,
     speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
   });
-
-  return true;
 }
 
 async function runWithDialog() {
@@ -90,7 +98,7 @@ async function runWithDialog() {
           for (let i = 0; i < count; i++) {
             const rollResult = await table.roll();
             const result = rollResult.results[0];
-            if (result) textResults.push(`<li>${result.text}</li>`);
+            if (result) textResults.push(`<li>${getTableResultText(result)}</li>`);
           }
 
           const chatContent = `

@@ -1,7 +1,7 @@
 const MODULE_ID = 'jacobs-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 5;
+const MACRO_SYNC_VERSION = 7;
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
@@ -44,6 +44,13 @@ async function createMacroFromPath(name, path) {
     const res = await fetch(`${base}/${path}`);
     if (!res.ok) return null;
     const cmd = await res.text();
+    const AsyncFunction = Object.getPrototypeOf(async function() {}).constructor;
+    try {
+      new AsyncFunction(cmd);
+    } catch (syntaxError) {
+      console.error(`${MODULE_ID} | Invalid macro syntax in ${path}:`, syntaxError);
+      return null;
+    }
     const existing = game.macros.find(m => m.name === name);
     if (existing) {
       await existing.update({ command: cmd });
@@ -146,26 +153,30 @@ class LootPanel extends Application {
 
 let lootPanel = null;
 
-function addLootSidebarButton(sidebarHtml) {
-  const root = sidebarHtml?.[0] || sidebarHtml;
-  const tabs = root?.querySelector('#sidebar-tabs, .sidebar-tabs, #sidebar .tabs, #sidebar nav.tabs');
+function addLootSidebarButton() {
+  const tabs = document.querySelector('#sidebar-tabs')
+    || document.querySelector('#sidebar .sidebar-tabs')
+    || document.querySelector('#sidebar nav.tabs');
   if (!tabs || tabs.querySelector('.random-loot-button')) return;
 
-  const button = document.createElement('button');
-  button.type = 'button';
+  const button = document.createElement('a');
+  button.href = '#';
   button.className = 'item random-loot-button';
+  button.dataset.tab = 'random-loot-generator';
   button.innerHTML = '<i class="fas fa-dice-d20"></i>';
   button.title = 'Random Loot Generator';
   button.setAttribute('aria-label', 'Random Loot Generator');
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     if (!lootPanel) lootPanel = new LootPanel();
     lootPanel.render(true);
   });
-  tabs.appendChild(button);
+  tabs.append(button);
 }
 
-Hooks.on('renderSidebar', (_app, html) => addLootSidebarButton(html));
-Hooks.on('renderSidebarTab', (_app, html) => addLootSidebarButton(document.querySelector('#sidebar')));
+Hooks.on('renderSidebar', () => addLootSidebarButton());
+Hooks.on('renderSidebarTab', () => addLootSidebarButton());
 
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
@@ -251,7 +262,7 @@ Hooks.once('ready', async () => {
 
   // Add the module button to the sidebar tab bar.
   try {
-    addLootSidebarButton(document.querySelector('#sidebar'));
+    addLootSidebarButton();
   } catch (err) {
     console.warn(`${MODULE_ID} | Failed to add sidebar button:`, err);
   }

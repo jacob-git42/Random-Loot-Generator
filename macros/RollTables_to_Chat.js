@@ -1,5 +1,5 @@
 // RollTables-to-Chat macro (copied)
-const macroFolderName = "Loot";
+const moduleMacroNames = ["Individual Treasure", "Treasure Hoard", "Spells", "Potions", "Targeted Loot"];
 const individualTreasureMacroNames = ["Individual-Treasure", "Individual Treasure"];
 const individualTreasureSettingsNamespace = "lootmakros";
 const individualTreasureSettingsKey = "individualTreasurePreset";
@@ -302,17 +302,12 @@ const randomTitles = [
   "Proven superiority! Unlock your reward:"
 ];
 
-const targetFolder = game.folders.find(f => f.name === macroFolderName && f.type === "Macro");
-let options = "";
-
-if (!targetFolder) {
-  ui.notifications.error(`Macro folder "${macroFolderName}" not found!`);
-} else {
-  options = targetFolder.contents
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map(m => `<option value="${m.id}">${m.name}</option>`)
-    .join("");
-}
+const moduleMacros = game.macros
+  .filter(macro => moduleMacroNames.includes(macro.name))
+  .sort((a, b) => a.name.localeCompare(b.name));
+const options = moduleMacros
+  .map(macro => `<option value="${macro.id}">${macro.name}</option>`)
+  .join("");
 
 if (options) {
   new Dialog({
@@ -473,6 +468,8 @@ if (isTreasureHoardMacro(selectedMacro)) {
     },
     default: "post"
   }).render(true);
+} else {
+  ui.notifications.error("No Random Loot Generator macros found!");
 }
 
 async function askSpellsPreset() {

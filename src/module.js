@@ -1,7 +1,8 @@
 const MODULE_ID = 'jacobs-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
+const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 8;
+const MACRO_SYNC_VERSION = 9;
 
 // 1. Definition deines Sidebar-Tabs
 class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
@@ -16,11 +17,11 @@ class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
     return await super._prepareContext(options);
   }
 
-  activateListeners(html) {
-    super.activateListeners(html);
-    const root = html?.jquery ? html : $(html);
+  _onRender(context, options) {
+    super._onRender(context, options);
+    const html = $(this.element);
 
-    root.find('[data-action="run-macro"]').on('click', async (event) => {
+    html.find('[data-action="run-macro"]').on('click', async (event) => {
       event.preventDefault();
       const name = event.currentTarget.dataset.name;
       const macro = game.macros.find(m => m.name === name);
@@ -33,15 +34,9 @@ class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
   }
 }
 
-// 2. Direkt beim Laden des Skripts registrieren (VOR dem Init-Hook!)
-CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
-  id: 'jacobs-loot-generator',
-  tooltip: 'Loot Generator',
-  icon: 'fa-solid fa-dice-d4',
-  tab: LootSidebarTab
-};
+let lootTabInstance = null;
 
-// 3. Modul-Einstellungen registrieren
+// 2. Modul-Einstellungen registrieren
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
 
@@ -74,6 +69,54 @@ Hooks.once('init', () => {
     config: false,
     type: Boolean,
     default: false
+  });
+});
+
+// 3. Tab-Button & View in die Sidebar injizieren
+Hooks.on('renderSidebar', (app, html) => {
+  if (!game.settings.get(MODULE_ID, 'enabled')) return;
+
+  const root = html?.jquery ? html : $(html);
+  const tabsNav = root.find('#sidebar-tabs');
+
+  if (tabsNav.find('a[data-tab="jacobs-loot-generator"]').length > 0) return;
+
+  const tabButton = $(`
+    <a class="item" data-tab="jacobs-loot-generator" role="tab" title="Loot Generator">
+      <i class="fa-solid fa-dice-d4"></i>
+    </a>
+  `);
+  tabsNav.append(tabButton);
+
+  if (!lootTabInstance) {
+    lootTabInstance = new LootSidebarTab();
+  }
+
+  tabButton.on('click', async (event) => {
+    event.preventDefault();
+
+    tabsNav.find('.item').removeClass('active');
+    tabButton.addClass('active');
+
+    root.find('.sidebar-tab').hide();
+
+    let tabContainer = root.find('#jacobs-loot-generator');
+    if (tabContainer.length === 0) {
+      tabContainer = $(`<section class="tab sidebar-tab" id="jacobs-loot-generator" data-tab="jacobs-loot-generator"></section>`);
+      root.find('#sidebar').append(tabContainer);
+    }
+
+    tabContainer.show();
+
+    if (!lootTabInstance.rendered) {
+      await lootTabInstance.render(true);
+      tabContainer.empty().append(lootTabInstance.element);
+    }
+  });
+
+  tabsNav.find('a.item:not([data-tab="jacobs-loot-generator"])').on('click', () => {
+    tabButton.removeClass('active');
+    root.find('#jacobs-loot-generator').hide();
   });
 });
 
@@ -203,6 +246,9 @@ Hooks.once('ready', async () => {
         const files = await resp.json();
         const folder = game.folders.find(f => f.name === ROLL_TABLE_FOLDER_NAME && f.type === 'RollTable')
           || await Folder.create({ name: ROLL_TABLE_FOLDER_NAME, type: 'RollTable' });
+        const spellsFolder = game.folders.find(f =>
+          f.name === SPELLS_FOLDER_NAME && f.type === 'RollTable' && f.folder?.id === folder.id
+        ) || await Folder.create({ name: SPELLS_FOLDER_NAME, type: 'RollTable', folder: folder.id });
         let imported = 0;
         let normalized = 0;
 
@@ -216,17 +262,19 @@ Hooks.once('ready', async () => {
             }
             const data = await r.json();
             if (!data?.name) continue;
+            const isSpellTable = /^(wizard-)?spells-level-\d+\.json$/i.test(fname);
+            const targetFolder = isSpellTable ? spellsFolder : folder;
 
             const existing = game.tables.find(t => t.name === data.name);
             if (existing) {
-              await existing.update({ folder: folder.id, ownership: { default: OBSERVER_OWNERSHIP } });
+              await existing.update({ folder: targetFolder.id, ownership: { default: OBSERVER_OWNERSHIP } });
               normalized++;
               continue;
             }
 
             await RollTable.create({
               ...data,
-              folder: folder.id,
+              folder: targetFolder.id,
               ownership: { default: OBSERVER_OWNERSHIP }
             });
             imported++;
@@ -244,5 +292,4 @@ Hooks.once('ready', async () => {
       console.warn(`${MODULE_ID} | RollTables import failed`, err);
     }
   }
-
 });

@@ -1,9 +1,17 @@
 const spellsSettingsNamespace = "lootmakros";
 const spellsSettingsKey = "spellsPreset";
-const spellsFolderName = "Loot";
+const spellsFolderName = "Spells";
+const lootFolderName = "Loot";
+
+function getSpellsFolder() {
+  const lootFolder = game.folders.find(folder => folder.name === lootFolderName && folder.type === "RollTable");
+  return game.folders.find(folder =>
+    folder.name === spellsFolderName && folder.type === "RollTable" && folder.folder?.id === lootFolder?.id
+  );
+}
 
 function getLootTableById(id) {
-  const folder = game.folders.find(f => f.name === spellsFolderName && f.type === "RollTable");
+  const folder = getSpellsFolder();
   return folder?.contents.find(table => table.id === id) || null;
 }
 
@@ -73,7 +81,7 @@ async function runWithPreset() {
 }
 
 async function runWithDialog() {
-  const folder = game.folders.find(f => f.name === spellsFolderName && f.type === "RollTable");
+  const folder = getSpellsFolder();
   if (!folder) {
     ui.notifications.error(`Table folder "${spellsFolderName}" not found!`);
     return;

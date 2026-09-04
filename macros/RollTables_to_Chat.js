@@ -15,7 +15,8 @@ const treasureHoardSettingsKey = "treasureHoardPreset";
 const spellsMacroNames = ["Spells", "Spell", "Scrolls"];
 const spellsSettingsNamespace = "lootmakros";
 const spellsSettingsKey = "spellsPreset";
-const spellsFolderName = "Loot";
+const spellsFolderName = "Spells";
+const lootFolderName = "Loot";
 const potionsMacroNames = ["Potions", "Potion", "Potions and Poisons"];
 const potionsSettingsNamespace = "lootmakros";
 const potionsSettingsKey = "potionsPreset";
@@ -473,7 +474,10 @@ if (isTreasureHoardMacro(selectedMacro)) {
 }
 
 async function askSpellsPreset() {
-  const folder = game.folders.find(f => f.name === spellsFolderName && f.type === "RollTable");
+  const lootFolder = game.folders.find(f => f.name === lootFolderName && f.type === "RollTable");
+  const folder = game.folders.find(f =>
+    f.name === spellsFolderName && f.type === "RollTable" && f.folder?.id === lootFolder?.id
+  );
   if (!folder) {
     ui.notifications.error(`Table folder "${spellsFolderName}" not found!`);
     return null;

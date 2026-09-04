@@ -2,6 +2,7 @@ const treasureHoardSettingsNamespace = "lootmakros";
 const treasureHoardSettingsKey = "treasureHoardPreset";
 const treasureHoardCountersKey = "treasureHoardCounters";
 const rollTableFolderName = "Loot";
+const spellsFolderName = "Spells";
 
 const potionTableName = "🧪 Potions and Poisons"; 
 const BONUS_POTION_CHANCE = 0.40; // Von 0.50 auf 0.40 verringert
@@ -29,8 +30,15 @@ const SPELL_WEIGHTS = {
 function findTable(name) {
   if (!name) return null;
   const nameLower = name.toLowerCase().trim();
-  const folder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
-  const tables = folder?.contents || [];
+  const lootFolder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
+  const folders = game.folders.filter(folder =>
+    folder.type === "RollTable" && (
+      folder.id === lootFolder?.id ||
+      folder.folder?.id === lootFolder?.id ||
+      folder.folder?.id === game.folders.find(child => child.name === spellsFolderName && child.folder?.id === lootFolder?.id)?.id
+    )
+  );
+  const tables = game.tables.filter(table => folders.some(folder => folder.id === table.folder?.id));
   return tables.find(t => t.name.toLowerCase().trim() === nameLower) ||
          tables.find(t => t.name.toLowerCase().includes(nameLower) || nameLower.includes(t.name.toLowerCase()));
 }

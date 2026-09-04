@@ -5,7 +5,7 @@ const MACRO_PLAYER_FOLDER_NAME = 'Loot_Player';
 const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const NO_OWNERSHIP = 0;
-const MACRO_SYNC_VERSION = 12; // Version erhöht für Loot_DM & Loot_Player Trennung
+const MACRO_SYNC_VERSION = 13; // Version erhöht für Loot_DM & Loot_Player Trennung
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;

@@ -3,6 +3,10 @@ const moduleMacroNames = ["Individual Treasure", "Treasure Hoard", "Spells", "Po
 const individualTreasureMacroNames = ["Individual-Treasure", "Individual Treasure"];
 const individualTreasureSettingsNamespace = "lootmakros";
 const individualTreasureSettingsKey = "individualTreasurePreset";
+
+// Setting key for the global counter tracking
+const lootCounterSettingsKey = "lootCounters";
+
 const individualTreasureRanges = [
   { id: "range-0-4", label: "CR 1/8 to 4", formula: "4d6" },
   { id: "range-5-10", label: "CR 5 to 10", formula: "4d6 * 10" },
@@ -23,6 +27,64 @@ const potionsSettingsKey = "potionsPreset";
 const targetedLootMacroNames = ["Targeted-Loot", "Targeted Loot", "Treasure Presenter"];
 const targetedLootSettingsNamespace = "lootmakros";
 const targetedLootSettingsKey = "targetedLootPreset";
+
+// Helper function to register counter tracking setting
+function ensureCounterSettingRegistered() {
+  const settingId = `${individualTreasureSettingsNamespace}.${lootCounterSettingsKey}`;
+  if (!game.settings.settings.has(settingId)) {
+    game.settings.register(individualTreasureSettingsNamespace, lootCounterSettingsKey, {
+      name: "Loot Statistics Counters",
+      scope: "world",
+      config: false,
+      type: Object,
+      default: {
+        individual: {
+          "range-0-4": 0,
+          "range-5-10": 0,
+          "range-11-16": 0,
+          "range-17": 0
+        },
+        hoard: {
+          tier1: 0,
+          tier2: 0,
+          tier3: 0,
+          tier4: 0
+        }
+      }
+    });
+  }
+}
+
+// Function to retrieve current counters
+function getLootCounters() {
+  ensureCounterSettingRegistered();
+  return game.settings.get(individualTreasureSettingsNamespace, lootCounterSettingsKey) || {
+    individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
+    hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+  };
+}
+
+// Function to update counters upon clicking "Generate Loot"
+async function incrementLootCounters({ individual, hoard }) {
+  const counters = getLootCounters();
+
+  if (individual) {
+    for (const [key, amount] of Object.entries(individual)) {
+      if (counters.individual[key] !== undefined) {
+        counters.individual[key] += (parseInt(amount) || 0);
+      }
+    }
+  }
+
+  if (hoard) {
+    const tierKey = `tier${hoard.tier}`;
+    if (counters.hoard[tierKey] !== undefined) {
+      counters.hoard[tierKey] += (parseInt(hoard.count) || 0);
+    }
+  }
+
+  await game.settings.set(individualTreasureSettingsNamespace, lootCounterSettingsKey, counters);
+}
 
 function isIndividualTreasureMacro(macro) {
   if (!macro) return false;
@@ -154,6 +216,9 @@ function ensureTargetedLootSettingRegistered() {
 }
 
 async function askIndividualTreasurePreset() {
+  const counters = getLootCounters();
+  const indCounters = counters.individual || {};
+
   const rows = individualTreasureRanges.map(r => `
     <div class="form-group" style="display: flex; align-items: center; margin-bottom: 8px;">
       <label style="flex: 1.5; font-weight: bold;">${r.label}:</label>
@@ -162,11 +227,22 @@ async function askIndividualTreasurePreset() {
     </div>
   `).join("");
 
+  const statsBadge = `
+    <div style="background: rgba(0, 0, 0, 0.05); border: 1px solid #ccc; padding: 6px 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85em;">
+      <strong>Total Generated (Current Counter):</strong><br>
+      CR 0-4: <b>${indCounters["range-0-4"] || 0}</b> | 
+      CR 5-10: <b>${indCounters["range-5-10"] || 0}</b> | 
+      CR 11-16: <b>${indCounters["range-11-16"] || 0}</b> | 
+      CR 17+: <b>${indCounters["range-17"] || 0}</b>
+    </div>
+  `;
+
   return new Promise(resolve => {
     new Dialog({
       title: "Individual Treasure Preset",
       content: `
         <form style="padding: 5px;">
+          ${statsBadge}
           <p style="margin-bottom: 12px; font-style: italic;">Set defeated monsters per CR tier (applies to next loot click):</p>
           ${rows}
         </form>
@@ -206,8 +282,22 @@ async function askIndividualTreasurePreset() {
 }
 
 async function askTreasureHoardPreset() {
+  const counters = getLootCounters();
+  const hoardCounters = counters.hoard || {};
+
+  const statsBadge = `
+    <div style="background: rgba(0, 0, 0, 0.05); border: 1px solid #ccc; padding: 6px 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85em;">
+      <strong>Total Generated (Current Counter):</strong><br>
+      Tier 1: <b>${hoardCounters.tier1 || 0}</b> | 
+      Tier 2: <b>${hoardCounters.tier2 || 0}</b> | 
+      Tier 3: <b>${hoardCounters.tier3 || 0}</b> | 
+      Tier 4: <b>${hoardCounters.tier4 || 0}</b>
+    </div>
+  `;
+
   const dialogContent = `
     <form style="padding: 5px;">
+      ${statsBadge}
       <p style="margin-bottom: 12px; font-style: italic;">Set parameters for the Treasure Hoard:</p>
       
       <!-- Tier Slider -->
@@ -249,6 +339,7 @@ async function askTreasureHoardPreset() {
               ui.notifications.warn("Please enter at least 1 hoard.");
               return resolve(null);
             }
+
             resolve({ count, tier });
           }
         },
@@ -260,7 +351,6 @@ async function askTreasureHoardPreset() {
       },
       default: "apply",
       render: (html) => {
-        // Update the tier label when the slider changes.
         html.find("#hoard-tier").on("input change", function() {
           html.find("#presetTierLabel").text("Tier " + $(this).val());
         });
@@ -341,6 +431,8 @@ if (options) {
             const counts = await askIndividualTreasurePreset();
             if (!counts) return;
 
+            await incrementLootCounters({ individual: counts });
+
             await game.settings.set(individualTreasureSettingsNamespace, individualTreasureSettingsKey, {
               counts,
               createdBy: game.user.id,
@@ -348,23 +440,25 @@ if (options) {
             });
           }
 
-if (isTreasureHoardMacro(selectedMacro)) {
-  if (!game.user.isGM) {
-    ui.notifications.warn("Only a GM can preset Treasure Hoard values.");
-    return;
-  }
+          if (isTreasureHoardMacro(selectedMacro)) {
+            if (!game.user.isGM) {
+              ui.notifications.warn("Only a GM can preset Treasure Hoard values.");
+              return;
+            }
 
-  ensureTreasureHoardSettingRegistered();
-  const hoardPreset = await askTreasureHoardPreset();
-  if (!hoardPreset) return;
+            ensureTreasureHoardSettingRegistered();
+            const hoardPreset = await askTreasureHoardPreset();
+            if (!hoardPreset) return;
 
-  await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {
-    count: hoardPreset.count,
-    tier: hoardPreset.tier,
-    createdBy: game.user.id,
-    createdAt: Date.now()
-  });
-}
+            await incrementLootCounters({ hoard: hoardPreset });
+
+            await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {
+              count: hoardPreset.count,
+              tier: hoardPreset.tier,
+              createdBy: game.user.id,
+              createdAt: Date.now()
+            });
+          }
 
           if (isSpellsMacro(selectedMacro)) {
             if (!game.user.isGM) {
@@ -446,7 +540,7 @@ if (isTreasureHoardMacro(selectedMacro)) {
             if (isMatchingClaim) {
               const targetMsg = game.messages.get(chatMessage.id);
               
-              if (targetMsg && targetMsg.content.includes('⚡Press Button for Loot⚡')) {
+              if (targetMsg && targetMsg.content.includes('⚡ Reveal Loot ⚡')) {
                 const lockedContent = targetMsg.content.replace(
                   /<a class="content-link"[\s\S]*?⚡ Reveal Loot ⚡\s*<\/a>/,
                   `<span style="background: linear-gradient(180deg, #3e3a32, #2d2a24); color: #c4b8a4 !important; padding: 9px 16px; border-radius: 6px; display: inline-block; border: 1px solid #575044; font-weight: bold; cursor: not-allowed; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);">🔒 Loot Claimed 🔒</span>`

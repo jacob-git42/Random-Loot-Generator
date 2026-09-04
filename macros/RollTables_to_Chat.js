@@ -7,6 +7,13 @@ const individualTreasureSettingsKey = "individualTreasurePreset";
 // Setting key for the global counter tracking
 const lootCounterSettingsKey = "lootCounters";
 
+const RECOMMENDED_HOARDS = {
+  tier1: 7,
+  tier2: 18,
+  tier3: 6,
+  tier4: 4
+};
+
 const individualTreasureRanges = [
   { id: "range-0-4", label: "CR 1/8 to 4", formula: "4d6" },
   { id: "range-5-10", label: "CR 5 to 10", formula: "4d6 * 10" },
@@ -286,13 +293,13 @@ async function askTreasureHoardPreset() {
   const hoardCounters = counters.hoard || {};
 
   const statsBadge = `
-    <div style="background: rgba(0, 0, 0, 0.05); border: 1px solid #ccc; padding: 6px 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85em;">
-      <strong>Total Generated (Current Counter):</strong><br>
-      Tier 1: <b>${hoardCounters.tier1 || 0}</b> | 
-      Tier 2: <b>${hoardCounters.tier2 || 0}</b> | 
-      Tier 3: <b>${hoardCounters.tier3 || 0}</b> | 
-      Tier 4: <b>${hoardCounters.tier4 || 0}</b>
-    </div>
+  <div style="background: rgba(0, 0, 0, 0.05); border: 1px solid #ccc; padding: 6px 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85em;">
+    <strong>Total Generated </b> <span style="color: #666;">(/Recommended)</span></strong><br>
+    Tier 1: <b>${hoardCounters.tier1 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier1})</span> | 
+    Tier 2: <b>${hoardCounters.tier2 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier2})</span> | 
+    Tier 3: <b>${hoardCounters.tier3 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier3})</span> | 
+    Tier 4: <b>${hoardCounters.tier4 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier4})</span>
+  </div>
   `;
 
   const dialogContent = `

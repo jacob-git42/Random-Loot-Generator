@@ -4,7 +4,7 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 9;
 
-// 1. Definition deines Sidebar-Tabs
+// 1. Definition deines ApplicationV2 Sidebar-Tabs
 class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
   static DEFAULT_OPTIONS = {
     id: 'jacobs-loot-generator',
@@ -17,19 +17,21 @@ class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
     return await super._prepareContext(options);
   }
 
-  _onRender(context, options) {
-    super._onRender(context, options);
-    const html = $(this.element);
+  // Korrektes Event-Binding in AppV2
+  _attachPartListeners(partId, htmlElement, options) {
+    super._attachPartListeners(partId, htmlElement, options);
 
-    html.find('[data-action="run-macro"]').on('click', async (event) => {
-      event.preventDefault();
-      const name = event.currentTarget.dataset.name;
-      const macro = game.macros.find(m => m.name === name);
-      if (macro) {
-        await macro.execute();
-      } else {
-        ui.notifications.warn(`Macro not found: ${name}`);
-      }
+    htmlElement.querySelectorAll('[data-action="run-macro"]').forEach(button => {
+      button.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const name = event.currentTarget.dataset.name;
+        const macro = game.macros.find(m => m.name === name);
+        if (macro) {
+          await macro.execute();
+        } else {
+          ui.notifications.warn(`Macro not found: ${name}`);
+        }
+      });
     });
   }
 }
@@ -72,7 +74,7 @@ Hooks.once('init', () => {
   });
 });
 
-// 3. Tab-Button & View in die Sidebar injizieren
+// 3. Tab-Button injizieren & sauberes AppV2-Rendering ausführen
 Hooks.on('renderSidebar', (app, html) => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
@@ -81,6 +83,7 @@ Hooks.on('renderSidebar', (app, html) => {
 
   if (tabsNav.find('a[data-tab="jacobs-loot-generator"]').length > 0) return;
 
+  // Button erzeugen
   const tabButton = $(`
     <a class="item" data-tab="jacobs-loot-generator" role="tab" title="Loot Generator">
       <i class="fa-solid fa-dice-d4"></i>
@@ -92,14 +95,18 @@ Hooks.on('renderSidebar', (app, html) => {
     lootTabInstance = new LootSidebarTab();
   }
 
+  // Klick-Logik zum Umschalten
   tabButton.on('click', async (event) => {
     event.preventDefault();
 
+    // 1. Visuelles Umschalten der Sidebar-Icons
     tabsNav.find('.item').removeClass('active');
     tabButton.addClass('active');
 
+    // 2. Andere Tabs im DOM verstecken
     root.find('.sidebar-tab').hide();
 
+    // 3. Container für AppV2 erstellen/finden
     let tabContainer = root.find('#jacobs-loot-generator');
     if (tabContainer.length === 0) {
       tabContainer = $(`<section class="tab sidebar-tab" id="jacobs-loot-generator" data-tab="jacobs-loot-generator"></section>`);
@@ -108,12 +115,14 @@ Hooks.on('renderSidebar', (app, html) => {
 
     tabContainer.show();
 
+    // 4. Erstes Rendern veranlassen und DOM-Element einsetzen
     if (!lootTabInstance.rendered) {
-      await lootTabInstance.render(true);
-      tabContainer.empty().append(lootTabInstance.element);
+      await lootTabInstance.render({ force: true });
     }
+    tabContainer.empty().append(lootTabInstance.element);
   });
 
+  // Beim Wechsel auf andere Standard-Tabs unseren Tab verbergen
   tabsNav.find('a.item:not([data-tab="jacobs-loot-generator"])').on('click', () => {
     tabButton.removeClass('active');
     root.find('#jacobs-loot-generator').hide();

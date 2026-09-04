@@ -1,66 +1,43 @@
-<div class="jacobs-loot-panel flexcol">
-  <h2><i class="fa-solid fa-dice-d20"></i> Random Loot</h2>
+<section class="tab loot-generator-sidebar flexcol">
+  <header class="directory-header">
+    <div class="header-actions action-buttons flexrow">
+      <h2><i class="fa-solid fa-dice-d4"></i> Loot Generator</h2>
+    </div>
+  </header>
 
-  <div class="loot-actions flexcol">
-    <button type="button" data-action="run-macro" data-name="Individual Treasure">
-      <i class="fa-solid fa-coins"></i> Individual Treasure
-    </button>
+  <div class="loot-body flexcol">
+    <p class="notes">Select a loot category to generate rewards:</p>
 
-    <button type="button" data-action="run-macro" data-name="Treasure Hoard">
-      <i class="fa-solid fa-gem"></i> Treasure Hoard
-    </button>
+    <div class="macro-list flexcol">
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Individual Treasure">
+        <i class="fa-solid fa-coins"></i> Individual Treasure
+      </button>
 
-    <button type="button" data-action="run-macro" data-name="Potions">
-      <img src="icons/consumables/potions/bottle-bulb-corked-puple.webp" alt=""> Potions
-    </button>
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Treasure Hoard">
+        <i class="fa-solid fa-gem"></i> Treasure Hoard
+      </button>
 
-    <button type="button" data-action="run-macro" data-name="Spells">
-      <img src="icons/magic/symbols/chevron-elipse-circle-blue.webp" alt=""> Spells
-    </button>
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Potions">
+        <i class="fa-solid fa-flask"></i> Potions
+      </button>
 
-    <button type="button" data-action="run-macro" data-name="Targeted Loot">
-      <i class="fa-solid fa-crosshairs"></i> Targeted Loot
-    </button>
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Spells">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Spells
+      </button>
 
-    <button type="button" data-action="run-macro" data-name="RollTables to Chat">
-      <img src="icons/containers/boxes/box-gift-blue.webp" alt=""> Post Loot (Orchestrator)
-    </button>
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="Targeted Loot">
+        <i class="fa-solid fa-crosshairs"></i> Targeted Loot
+      </button>
+
+      <button type="button" class="loot-btn" data-action="runMacro" data-name="RollTables to Chat">
+        <i class="fa-solid fa-comment-dots"></i> RollTables to Chat
+      </button>
+    </div>
   </div>
-</div>
 
-<style>
-  .jacobs-loot-panel {
-    padding: 8px;
-    gap: 8px;
-  }
-  .jacobs-loot-panel h2 {
-    text-align: center;
-    border-bottom: 1px solid var(--color-border-light-2);
-    margin: 0 0 6px 0;
-    padding-bottom: 4px;
-  }
-  .jacobs-loot-panel .loot-actions {
-    gap: 6px;
-  }
-  .jacobs-loot-panel .loot-actions button {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    width: 100%;
-    padding: 6px 10px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .jacobs-loot-panel .loot-actions button img {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    flex: 0 0 22px;
-  }
-  .jacobs-loot-panel .loot-actions button i {
-    width: 22px;
-    text-align: center;
-    font-size: 1.1em;
-  }
-</style>
+  <footer class="directory-footer">
+    <button type="button" class="loot-btn danger" data-action="runMacro" data-name="Clean up Random Loot Generator">
+      <i class="fa-solid fa-trash"></i> Clean Up Data
+    </button>
+  </footer>
+</section>

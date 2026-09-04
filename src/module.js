@@ -4,15 +4,19 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 9;
 
-// Safely resolve AbstractSidebarTab for Foundry V12 AppV2 architecture
-const BaseAbstractSidebarTab = foundry.applications?.sidebar?.AbstractSidebarTab ?? globalThis.AbstractSidebarTab;
+// Extract AppV2 classes from foundry.applications
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { AbstractSidebarTab } = foundry.applications.sidebar;
 
-// 1. Define native Sidebar Tab using AppV2
-class JacobsLootSidebarTab extends BaseAbstractSidebarTab {
+// 1. Define Sidebar Tab using HandlebarsApplicationMixin + AbstractSidebarTab
+class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab) {
+  static tabName = 'lootGenerator';
+
   static DEFAULT_OPTIONS = {
     id: 'jacobs-loot-generator',
-    tabName: 'lootGenerator',
-    title: 'Loot Generator'
+    actions: {
+      runMacro: JacobsLootSidebarTab.#onRunMacro
+    }
   };
 
   static PARTS = {
@@ -22,23 +26,25 @@ class JacobsLootSidebarTab extends BaseAbstractSidebarTab {
   };
 
   /**
-   * Attach Vanilla JS event listeners for AppV2 template rendering
+   * Prepare context data for the Handlebars template
    */
-  _attachPartListeners(partId, htmlElement, options) {
-    super._attachPartListeners?.(partId, htmlElement, options);
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    return context;
+  }
 
-    htmlElement.querySelectorAll('[data-action="run-macro"]').forEach(button => {
-      button.addEventListener('click', async (event) => {
-        event.preventDefault();
-        const name = event.currentTarget.dataset.name;
-        const macro = game.macros.find(m => m.name === name);
-        if (macro) {
-          await macro.execute();
-        } else {
-          ui.notifications.warn(`Macro not found: ${name}`);
-        }
-      });
-    });
+  /**
+   * Handle macro execution triggered via data-action="runMacro"
+   */
+  static async #onRunMacro(event, target) {
+    event.preventDefault();
+    const name = target.dataset.name;
+    const macro = game.macros.find(m => m.name === name);
+    if (macro) {
+      await macro.execute();
+    } else {
+      ui.notifications.warn(`Macro not found: ${name}`);
+    }
   }
 }
 
@@ -88,7 +94,7 @@ Hooks.once('init', () => {
   // Bind sidebar tab class to CONFIG.ui
   CONFIG.ui.lootGenerator = JacobsLootSidebarTab;
 
-  // Inject the custom tab right before the settings gear icon
+  // Inject custom tab right before settings gear icon
   const settingsTab = CONFIG.ui.sidebar.TABS.settings;
   delete CONFIG.ui.sidebar.TABS.settings;
   CONFIG.ui.sidebar.TABS.settings = settingsTab;

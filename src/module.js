@@ -3,7 +3,7 @@ const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 8;
 
-// 1. Definition deines Sidebar-Tabs (Application V2 / AbstractSidebarTab)
+// 1. Klasse wie gehabt definieren
 class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
   static DEFAULT_OPTIONS = {
     id: 'jacobs-loot-generator',
@@ -33,12 +33,11 @@ class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
   }
 }
 
-let lootTabInstance = null;
-
-// 2. Registrierung der Einstellungen im init-Hook
+// 2. Registrierung direkt beim Init über die Foundry-Core-CONFIG
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
 
+  // Settings wie gewohnt...
   game.settings.register(MODULE_ID, 'enabled', {
     name: 'Enable Random Loot Generator',
     hint: 'Enable or disable the Random Loot Generator module features',
@@ -69,46 +68,14 @@ Hooks.once('init', () => {
     type: Boolean,
     default: false
   });
-});
 
-// 3. Den Tab sauber in die Sidebar injizieren
-Hooks.on('renderSidebar', (app, html) => {
-  if (!game.settings.get(MODULE_ID, 'enabled')) return;
-
-  const root = html?.jquery ? html : $(html);
-  const tabsNav = root.find('#sidebar-tabs');
-
-  if (tabsNav.find('a[data-tab="jacobs-loot-generator"]').length > 0) return;
-
-  const tabButton = $(`
-    <a class="item" data-tab="jacobs-loot-generator" role="tab" title="Loot Generator">
-      <i class="fas fa-dice-d4"></i>
-    </a>
-  `);
-
-  if (!lootTabInstance) {
-    lootTabInstance = new LootSidebarTab();
-  }
-
-  tabsNav.append(tabButton);
-
-  tabButton.on('click', (event) => {
-    event.preventDefault();
-
-    tabsNav.find('.item').removeClass('active');
-    tabButton.addClass('active');
-
-    root.find('.sidebar-tab').hide();
-
-    let tabContainer = root.find('#jacobs-loot-generator');
-    if (tabContainer.length === 0) {
-      tabContainer = $(`<section class="tab sidebar-tab" id="jacobs-loot-generator" data-tab="jacobs-loot-generator"></section>`);
-      root.find('#sidebar').append(tabContainer);
-    }
-
-    tabContainer.show();
-    lootTabInstance.render(true, { container: tabContainer[0] });
-  });
+  // NATIVE REGISTRIERUNG: Fügt den Tab korrekt in das Sidebar-Grid ein
+  CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
+    id: 'jacobs-loot-generator',
+    tooltip: 'Loot Generator',
+    icon: 'fa-solid fa-dice-d4',
+    cls: LootSidebarTab
+  };
 });
 
 async function createMacroFromPath(name, path) {

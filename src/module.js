@@ -32,6 +32,7 @@ Hooks.once('init', () => {
   });
 
   game.settings.register(MODULE_ID, 'tablesImported', {
+    name: 'Tables Imported',
     scope: 'world',
     config: false,
     type: Boolean,
@@ -40,8 +41,20 @@ Hooks.once('init', () => {
 
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
-  // AppV2 SidebarTab Definition (Erst hier deklarieren, damit foundry.applications geladen ist)
-  class JacobsLootSidebarTab extends foundry.applications.sidebar.SidebarTab {
+  // Dynamische Basisklasse (funktioniert in Foundry v12 sowie v13+)
+  const BaseSidebarTab = foundry.applications?.sidebar?.SidebarTab ?? SidebarTab;
+
+  class JacobsLootSidebarTab extends BaseSidebarTab {
+    // AppV1 Optionen
+    static get defaultOptions() {
+      return foundry.utils.mergeObject(super.defaultOptions, {
+        id: 'jacobs-loot-generator',
+        template: `modules/${MODULE_ID}/templates/loot-panel.html`,
+        title: 'Loot Generator'
+      });
+    }
+
+    // AppV2 Optionen
     static DEFAULT_OPTIONS = {
       id: 'jacobs-loot-generator',
       tabName: 'jacobs-loot-generator',
@@ -54,10 +67,25 @@ Hooks.once('init', () => {
       }
     };
 
-    _attachPartListeners(partId, htmlElement, options) {
-      super._attachPartListeners(partId, htmlElement, options);
+    // AppV1 Listener (jQuery)
+    activateListeners(html) {
+      super.activateListeners?.(html);
+      const root = html?.jquery ? html : $(html);
+      root.find('[data-action="run-macro"]').on('click', async (event) => {
+        event.preventDefault();
+        const name = event.currentTarget.dataset.name;
+        const macro = game.macros.find(m => m.name === name);
+        if (macro) {
+          await macro.execute();
+        } else {
+          ui.notifications.warn(`Macro not found: ${name}`);
+        }
+      });
+    }
 
-      // Klick-Events für die Buttons im Tab
+    // AppV2 Listener (Vanilla JS)
+    _attachPartListeners(partId, htmlElement, options) {
+      super._attachPartListeners?.(partId, htmlElement, options);
       htmlElement.querySelectorAll('[data-action="run-macro"]').forEach(button => {
         button.addEventListener('click', async (event) => {
           event.preventDefault();
@@ -73,7 +101,7 @@ Hooks.once('init', () => {
     }
   }
 
-  // Offizielle Registrierung im Foundry Core System
+  // Offizielle Registrierung im Core-System
   CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
     id: 'jacobs-loot-generator',
     tooltip: 'Loot Generator',

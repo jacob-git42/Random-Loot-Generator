@@ -402,3 +402,18 @@ async function runWithPreset() {
   ensureSettingsRegistered();
   const preset = game.settings.get(treasureHoardSettingsNamespace, treasureHoardSettingsKey);
   if (!preset?.count) return false;
+
+  const count = Math.max(1, parseInt(preset.count) || 1);
+  const tier = Math.min(4, Math.max(1, parseInt(preset.tier) || 1));
+  if (game.user.isGM) {
+    await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {});
+  }
+
+  await rollTreasureHoard(count, tier);
+  return true;
+}
+
+const usedPreset = await runWithPreset();
+if (!usedPreset) {
+  showLootDialog();
+}

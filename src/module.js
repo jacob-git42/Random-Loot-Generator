@@ -1,7 +1,7 @@
 const MODULE_ID = 'jacobs-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 7;
+const MACRO_SYNC_VERSION = 8;
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
@@ -162,16 +162,21 @@ function addLootSidebarButton() {
   const button = document.createElement('a');
   button.href = '#';
   button.className = 'item random-loot-button';
-  button.dataset.tab = 'random-loot-generator';
   button.innerHTML = '<i class="fas fa-dice-d20"></i>';
   button.title = 'Random Loot Generator';
   button.setAttribute('aria-label', 'Random Loot Generator');
   button.addEventListener('click', (event) => {
     event.preventDefault();
     event.stopPropagation();
-    if (!lootPanel) lootPanel = new LootPanel();
-    lootPanel.render(true);
-  });
+    try {
+      if (!lootPanel) lootPanel = new LootPanel();
+      lootPanel.render(true);
+    } catch (error) {
+      console.error(`${MODULE_ID} | Failed to open loot panel:`, error);
+      ui.notifications.error('Random Loot Generator: Loot panel could not be opened.');
+    }
+  }, true);
+  button.style.cursor = 'pointer';
   tabs.append(button);
 }
 

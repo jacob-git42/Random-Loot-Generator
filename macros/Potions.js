@@ -23,6 +23,15 @@ function ensurePotionsSettingRegistered() {
   }
 }
 
+// 1. Zuerst Setting registrieren
+ensurePotionsSettingRegistered();
+
+// 2. Danach altes Preset bei manuellem GM-Klick leeren (sicher abgefangen)
+const isFromClaim = typeof args !== "undefined" && args?.[0]?.fromClaim;
+if (game.user.isGM && !isFromClaim) {
+  await game.settings.set(potionsSettingsNamespace, potionsSettingsKey, {});
+}
+
 async function runWithPreset() {
   ensurePotionsSettingRegistered();
   const preset = game.settings.get(potionsSettingsNamespace, potionsSettingsKey);

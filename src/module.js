@@ -4,8 +4,9 @@ const MACRO_DM_FOLDER_NAME = 'Loot_DM';
 const MACRO_PLAYER_FOLDER_NAME = 'Loot_Player';
 const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
+const TABLE_OWNERSHIP = 3; 
 const NO_OWNERSHIP = 0;
-const MACRO_SYNC_VERSION = 20;
+const MACRO_SYNC_VERSION = 21;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -373,7 +374,7 @@ Hooks.once('ready', async () => {
 
             const existing = game.tables.find(t => t.name === data.name);
             if (existing) {
-              await existing.update({ folder: targetFolder.id, ownership: { default: OBSERVER_OWNERSHIP } });
+              await existing.update({ folder: targetFolder.id, ownership: { default: TABLE_OWNERSHIP } });
               normalized++;
               continue;
             }
@@ -381,7 +382,7 @@ Hooks.once('ready', async () => {
             await RollTable.create({
               ...data,
               folder: targetFolder.id,
-              ownership: { default: OBSERVER_OWNERSHIP }
+              ownership: { default: TABLE_OWNERSHIP }
             });
             imported++;
           } catch (e) {

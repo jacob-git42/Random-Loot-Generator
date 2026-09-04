@@ -32,6 +32,15 @@ function ensureSpellsSettingRegistered() {
   }
 }
 
+// 1. Zuerst Setting registrieren
+ensureSpellsSettingRegistered();
+
+// 2. Altes Preset leeren, wenn das Makro manuell geklickt wurde (nicht aus einer Claim-Card heraus)
+const isFromClaim = typeof args !== "undefined" && args?.[0]?.fromClaim;
+if (game.user.isGM && !isFromClaim) {
+  await game.settings.set(spellsSettingsNamespace, spellsSettingsKey, {});
+}
+
 async function runWithPreset() {
   ensureSpellsSettingRegistered();
   const preset = game.settings.get(spellsSettingsNamespace, spellsSettingsKey);

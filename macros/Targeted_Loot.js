@@ -14,6 +14,15 @@ function ensureTargetedLootSettingRegistered() {
   }
 }
 
+// 1. Zuerst Setting registrieren
+ensureTargetedLootSettingRegistered();
+
+// 2. Altes Preset leeren, wenn das Makro manuell geklickt wurde (nicht aus einer Claim-Card heraus)
+const isFromClaim = typeof args !== "undefined" && args?.[0]?.fromClaim;
+if (game.user.isGM && !isFromClaim) {
+  await game.settings.set(targetedLootSettingsNamespace, targetedLootSettingsKey, {});
+}
+
 async function resolveItemFromEntry(entry) {
   if (!entry) return null;
   let cleanId = String(entry).trim();

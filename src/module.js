@@ -6,7 +6,7 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const TABLE_OWNERSHIP = 3; 
 const NO_OWNERSHIP = 0;
-const MACRO_SYNC_VERSION = 21;
+const MACRO_SYNC_VERSION = 22;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;

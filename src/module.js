@@ -1,7 +1,7 @@
 const MODULE_ID = 'random-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 4;
+const MACRO_SYNC_VERSION = 5;
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
@@ -88,6 +88,35 @@ async function cleanupRandomLootGenerator(folderName = 'Loot') {
   ui.notifications.info('Random Loot Generator data was removed.');
 }
 
+const cleanupMacroCommand = `if (!game.user.isGM) {
+  return ui.notifications.warn('Only a GM can clean up Random Loot Generator data.');
+}
+
+const confirmed = await Dialog.confirm({
+  title: 'Clean up Random Loot Generator',
+  content: '<p>Delete the module macros, RollTables in the "Loot" folder, and the folder itself?</p><p>This cannot be undone.</p>'
+});
+if (!confirmed) return;
+
+const macroNames = [
+  'Individual Treasure',
+  'Potions',
+  'RollTables to Chat',
+  'Spells',
+  'Targeted Loot',
+  'Treasure Hoard',
+  'Clean up Random Loot Generator'
+];
+const macros = game.macros.filter(macro => macroNames.includes(macro.name));
+for (const macro of macros) await macro.delete();
+
+const folders = game.folders.filter(folder => folder.type === 'RollTable' && folder.name === 'Loot');
+const tables = game.tables.filter(table => folders.some(folder => folder.id === table.folder?.id));
+for (const table of tables) await table.delete();
+for (const folder of folders) await folder.delete();
+
+ui.notifications.info('Random Loot Generator data was removed.');`;
+
 class LootPanel extends Application {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -151,7 +180,7 @@ Hooks.once('ready', async () => {
       { name: 'Spells', path: 'macros/Spells.js' },
       { name: 'Targeted Loot', path: 'macros/Targeted_Loot.js' },
       { name: 'Treasure Hoard', path: 'macros/Treasure_Hoard.js' },
-      { name: 'Clean up Random Loot Generator', command: `(${cleanupRandomLootGenerator.toString()})();` }
+      { name: 'Clean up Random Loot Generator', command: cleanupMacroCommand }
     ];
 
     for (const m of macrosToCreate) {

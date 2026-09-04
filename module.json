@@ -2,7 +2,7 @@
   "id": "random-loot-generator",
   "title": "Random Loot Generator",
   "description": "Loot generation macros and roll tables packaged as a FoundryVTT module",
-  "version": "14.04",
+  "version": "14.02",
   "compatibility": {
     "minimum": "11",
     "verified": "14"

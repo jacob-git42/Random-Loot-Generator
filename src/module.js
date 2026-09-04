@@ -1,7 +1,7 @@
 const MODULE_ID = 'random-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
-const MACRO_SYNC_VERSION = 3;
+const MACRO_SYNC_VERSION = 4;
 
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
@@ -54,6 +54,38 @@ async function createMacroFromPath(name, path) {
     console.error(`${MODULE_ID} | Failed to create macro ${name}:`, err);
     return null;
   }
+}
+
+async function cleanupRandomLootGenerator(folderName = 'Loot') {
+  if (!game.user.isGM) {
+    ui.notifications.warn('Only a GM can clean up Random Loot Generator data.');
+    return;
+  }
+
+  const confirmed = await Dialog.confirm({
+    title: 'Clean up Random Loot Generator',
+    content: '<p>Delete the module macros, RollTables in the "Loot" folder, and the folder itself?</p><p>This cannot be undone.</p>'
+  });
+  if (!confirmed) return;
+
+  const macroNames = [
+    'Individual Treasure',
+    'Potions',
+    'RollTables to Chat',
+    'Spells',
+    'Targeted Loot',
+    'Treasure Hoard',
+    'Clean up Random Loot Generator'
+  ];
+  const macros = game.macros.filter(macro => macroNames.includes(macro.name));
+  for (const macro of macros) await macro.delete();
+
+  const folders = game.folders.filter(folder => folder.type === 'RollTable' && folder.name === folderName);
+  const tables = game.tables.filter(table => folders.some(folder => folder.id === table.folder?.id));
+  for (const table of tables) await table.delete();
+  for (const folder of folders) await folder.delete();
+
+  ui.notifications.info('Random Loot Generator data was removed.');
 }
 
 class LootPanel extends Application {
@@ -118,11 +150,18 @@ Hooks.once('ready', async () => {
       { name: 'RollTables to Chat', path: 'macros/RollTables_to_Chat.js' },
       { name: 'Spells', path: 'macros/Spells.js' },
       { name: 'Targeted Loot', path: 'macros/Targeted_Loot.js' },
-      { name: 'Treasure Hoard', path: 'macros/Treasure_Hoard.js' }
+      { name: 'Treasure Hoard', path: 'macros/Treasure_Hoard.js' },
+      { name: 'Clean up Random Loot Generator', command: `(${cleanupRandomLootGenerator.toString()})();` }
     ];
 
     for (const m of macrosToCreate) {
-      await createMacroFromPath(m.name, m.path);
+      if (m.command) {
+        const existing = game.macros.find(macro => macro.name === m.name);
+        if (existing) await existing.update({ command: m.command });
+        else await Macro.create({ name: m.name, type: 'script', scope: 'global', command: m.command });
+      } else {
+        await createMacroFromPath(m.name, m.path);
+      }
     }
 
     await game.settings.set(MODULE_ID, 'macrosCreated', true);

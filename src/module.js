@@ -4,11 +4,49 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 9;
 
-// 1. Modul-Initialisierung & Tab-Registrierung in CONFIG.ui.sidebar.TABS
+// Safely resolve AbstractSidebarTab for Foundry V12 AppV2 architecture
+const BaseAbstractSidebarTab = foundry.applications?.sidebar?.AbstractSidebarTab ?? globalThis.AbstractSidebarTab;
+
+// 1. Define native Sidebar Tab using AppV2
+class JacobsLootSidebarTab extends BaseAbstractSidebarTab {
+  static DEFAULT_OPTIONS = {
+    id: 'jacobs-loot-generator',
+    tabName: 'jacobs-loot-generator',
+    title: 'Loot Generator'
+  };
+
+  static PARTS = {
+    tab: {
+      template: `modules/${MODULE_ID}/templates/loot-panel.html`
+    }
+  };
+
+  /**
+   * Attach Vanilla JS event listeners for AppV2 template rendering
+   */
+  _attachPartListeners(partId, htmlElement, options) {
+    super._attachPartListeners?.(partId, htmlElement, options);
+
+    htmlElement.querySelectorAll('[data-action="run-macro"]').forEach(button => {
+      button.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const name = event.currentTarget.dataset.name;
+        const macro = game.macros.find(m => m.name === name);
+        if (macro) {
+          await macro.execute();
+        } else {
+          ui.notifications.warn(`Macro not found: ${name}`);
+        }
+      });
+    });
+  }
+}
+
+// 2. Module Initialization & Native Sidebar Tab Registration
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
 
-  // Modul-Einstellungen
+  // Register module settings
   game.settings.register(MODULE_ID, 'enabled', {
     name: 'Enable Random Loot Generator',
     scope: 'world',
@@ -41,47 +79,7 @@ Hooks.once('init', () => {
 
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
-  // Sichere Auflösung von AbstractSidebarTab für AppV2
-  const BaseAbstractSidebarTab = foundry.applications?.sidebar?.AbstractSidebarTab ?? globalThis.AbstractSidebarTab;
-
-  if (!BaseAbstractSidebarTab) {
-    console.error(`${MODULE_ID} | Could not find AbstractSidebarTab class.`);
-    return;
-  }
-
-  // Subclassing von AbstractSidebarTab (AppV2)
-  class JacobsLootSidebarTab extends BaseAbstractSidebarTab {
-    static DEFAULT_OPTIONS = {
-      id: 'jacobs-loot-generator',
-      tabName: 'jacobs-loot-generator',
-      title: 'Loot Generator'
-    };
-
-    static PARTS = {
-      tab: {
-        template: `modules/${MODULE_ID}/templates/loot-panel.html`
-      }
-    };
-
-    _attachPartListeners(partId, htmlElement, options) {
-      super._attachPartListeners?.(partId, htmlElement, options);
-
-      htmlElement.querySelectorAll('[data-action="run-macro"]').forEach(button => {
-        button.addEventListener('click', async (event) => {
-          event.preventDefault();
-          const name = event.currentTarget.dataset.name;
-          const macro = game.macros.find(m => m.name === name);
-          if (macro) {
-            await macro.execute();
-          } else {
-            ui.notifications.warn(`Macro not found: ${name}`);
-          }
-        });
-      });
-    }
-  }
-
-  // Registrierung in CONFIG.ui.sidebar.TABS
+  // Register native sidebar tab in Core CONFIG
   CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
     id: 'jacobs-loot-generator',
     tooltip: 'Loot Generator',
@@ -90,7 +88,7 @@ Hooks.once('init', () => {
   };
 });
 
-// 2. Hilfsfunktionen für Makro-Erstellung
+// 3. Helper functions for macro creation
 async function createMacroFromPath(name, path) {
   try {
     const base = `modules/${MODULE_ID}`;
@@ -145,7 +143,7 @@ for (const folder of folders) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
 
-// 3. Automatische Tabellen- & Makro-Synchronisation beim Welt-Start
+// 4. Automatic table & macro synchronization on world start
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 

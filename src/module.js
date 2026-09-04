@@ -3,6 +3,31 @@ const ROLL_TABLE_FOLDER_NAME = 'Loot';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 8;
 
+class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
+  static DEFAULT_OPTIONS = {
+    id: 'jacobs-loot-generator',
+    tabName: 'jacobs-loot-generator',
+    template: `modules/${MODULE_ID}/templates/loot-panel.html`,
+    title: 'Loot Generator'
+  };
+
+  async _prepareContext(options) {
+    return await super._prepareContext(options);
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+    const root = html?.jquery ? html : $(html);
+    root.find('[data-action="run-macro"]').on('click', async (event) => {
+      event.preventDefault();
+      const name = event.currentTarget.dataset.name;
+      const macro = game.macros.find(m => m.name === name);
+      if (macro) await macro.execute();
+      else ui.notifications.warn(`Macro not found: ${name}`);
+    });
+  }
+}
+
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
 
@@ -40,7 +65,7 @@ Hooks.once('init', () => {
   foundry.applications.sidebar.Sidebar.TABS.jacobsLootGenerator = {
     id: 'jacobs-loot-generator',
     label: 'Loot',
-    icon: '<i class="fas fa-dice-d4"></i>',
+    icon: 'fas fa-dice-d4',
     cls: LootSidebarTab
   };
 });
@@ -130,30 +155,6 @@ for (const table of tables) await table.delete();
 for (const folder of folders) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
-
-class LootSidebarTab extends foundry.applications.sidebar.AbstractSidebarTab {
-  static get DEFAULT_OPTIONS() {
-    return foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
-      id: 'jacobs-loot-generator',
-      template: `modules/${MODULE_ID}/templates/loot-panel.html`
-    });
-  }
-
-  async _prepareContext(options) {
-    return await super._prepareContext(options);
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-    html.find('[data-action="run-macro"]').on('click', async (event) => {
-      event.preventDefault();
-      const name = event.currentTarget.dataset.name;
-      const macro = game.macros.find(m => m.name === name);
-      if (macro) await macro.execute();
-      else ui.notifications.warn(`Macro not found: ${name}`);
-    });
-  }
-}
 
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;

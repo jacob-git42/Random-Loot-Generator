@@ -1,6 +1,5 @@
 const treasureHoardSettingsNamespace = "lootmakros";
 const treasureHoardSettingsKey = "treasureHoardPreset";
-const treasureHoardCountersKey = "treasureHoardCounters";
 const rollTableFolderName = "Loot";
 const spellsFolderName = "Spells";
 
@@ -9,10 +8,7 @@ function getTableResultText(result) {
 }
 
 const potionTableName = "🧪 Potions and Poisons"; 
-const BONUS_POTION_CHANCE = 0.40; // Von 0.50 auf 0.40 verringert
-
-// DMG recommendations shown in the UI
-const DMG_RECOMMENDED = { 1: 7, 2: 18, 3: 12, 4: 8 };
+const BONUS_POTION_CHANCE = 0.40;
 
 // Spell scroll chance configuration by tier
 const SCROLL_CHANCES = {
@@ -78,7 +74,7 @@ async function resolveTableRoll(table, depth = 0) {
   return resultText || "Unbekanntes Ergebnis";
 }
 
-// Gemstone table by tier (maximum 500 GP gemstones)
+// Gemstone table by tier
 function getGemTableNameForTier(tier) {
   const rand = Math.random();
   if (tier === 1) return rand < 0.80 ? "10 GP Gemstones" : "50 GP Gemstones";
@@ -151,47 +147,17 @@ async function rollSpellScroll(tier) {
 function ensureSettingsRegistered() {
   const presetId = `${treasureHoardSettingsNamespace}.${treasureHoardSettingsKey}`;
   if (!game.settings.settings.has(presetId)) {
-    game.settings.register(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {
-      name: "Treasure Hoard Preset", scope: "world", config: false, type: Object, default: {}
-    });
+    try {
+      game.settings.register(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {
+        name: "Treasure Hoard Preset", scope: "world", config: false, type: Object, default: {}
+      });
+    } catch (e) { /* Falls bereits registriert */ }
   }
-
-  const counterId = `${treasureHoardSettingsNamespace}.${treasureHoardCountersKey}`;
-  if (!game.settings.settings.has(counterId)) {
-    game.settings.register(treasureHoardSettingsNamespace, treasureHoardCountersKey, {
-      name: "Treasure Hoard Counters", scope: "world", config: false, type: Object, default: { 1: 0, 2: 0, 3: 0, 4: 0 }
-    });
-  }
-}
-
-async function updateCounter(tier, countAdd) {
-  ensureSettingsRegistered();
-  const counters = game.settings.get(treasureHoardSettingsNamespace, treasureHoardCountersKey) || { 1: 0, 2: 0, 3: 0, 4: 0 };
-  counters[tier] = (counters[tier] || 0) + countAdd;
-  await game.settings.set(treasureHoardSettingsNamespace, treasureHoardCountersKey, counters);
-  return counters;
-}
-
-async function resetCounter(tier = null) {
-  ensureSettingsRegistered();
-  let counters = game.settings.get(treasureHoardSettingsNamespace, treasureHoardCountersKey) || { 1: 0, 2: 0, 3: 0, 4: 0 };
-  if (tier && counters[tier] !== undefined) {
-    counters[tier] = 0;
-    ui.notifications.info(`Treasure counter for Tier ${tier} reset.`);
-  } else {
-    counters = { 1: 0, 2: 0, 3: 0, 4: 0 };
-    ui.notifications.info("All treasure counters reset.");
-  }
-  await game.settings.set(treasureHoardSettingsNamespace, treasureHoardCountersKey, counters);
 }
 
 async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false) {
   const safeHoards = Math.max(1, parseInt(hoardCount) || 1);
   const tier = Math.min(4, Math.max(1, parseInt(selectedTier) || 1));
-
-  // Increment the counter.
-  const allCounters = await updateCounter(tier, safeHoards);
-  const totalRolledForTier = allCounters[tier];
 
   const potionTable = findTable(potionTableName);
 
@@ -267,7 +233,7 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${bonusItems.join("")}</ul>
   ` : "";
 
-  // 1. Public card for players.
+  // Public card for players.
   const publicChatContent = `
     <div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);">
       <p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Treasure Hoard Tier ${tier} (${safeHoards}x)</p>
@@ -305,34 +271,10 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
       speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
     });
   }
-
-  // 2. Private GM card with the current roll and tier counters.
-  const gmChatContent = `
-  <div class="card" style="border: 1px solid var(--color-border-dark); padding: 10px; border-radius: 6px; background: rgba(0, 0, 0, 0.2); font-size: 0.85em;">
-      <div style="font-weight: bold; color: var(--color-text-hyperlink); margin-bottom: 4px; border-bottom: 1px solid var(--color-border-dark); padding-bottom: 4px;">
-      🔒 Treasure Hoard Tracker
-    </div>
-      <p style="margin: 4px 0 8px;"><b>Current roll:</b> Tier ${tier}, ${safeHoards} hoard${safeHoards > 1 ? 's' : ''}</p>
-    <div style="display: flex; flex-direction: column; gap: 3px; font-size: 0.85em;">
-      <span>Tier 1: ${allCounters[1] || 0} / ${DMG_RECOMMENDED[1]}</span>
-      <span>Tier 2: ${allCounters[2] || 0} / ${DMG_RECOMMENDED[2]}</span>
-      <span>Tier 3: ${allCounters[3] || 0} / ${DMG_RECOMMENDED[3]}</span>
-      <span>Tier 4: ${allCounters[4] || 0} / ${DMG_RECOMMENDED[4]}</span>
-    </div>
-  </div>
-  `;
-
-  const gmUsers = game.users.filter(u => u.isGM).map(u => u.id);
-  ChatMessage.create({
-    content: gmChatContent,
-    whisper: gmUsers,
-    speaker: ChatMessage.getSpeaker({ alias: "GM Tracker" })
-  });
 }
 
 function showLootDialog() {
   ensureSettingsRegistered();
-  const counters = game.settings.get(treasureHoardSettingsNamespace, treasureHoardCountersKey) || { 1: 0, 2: 0, 3: 0, 4: 0 };
 
   const dialogContent = `
     <div style="padding: 8px 4px;">
@@ -348,11 +290,6 @@ function showLootDialog() {
           <span>T3 (L11-16)</span>
           <span>T4 (L17-20)</span>
         </div>
-      </div>
-
-      <div style="background: rgba(0,0,0,0.05); padding: 8px 12px; border-radius: 6px; margin-bottom: 12px; font-size: 0.85em; text-align: center;">
-        <b>Hoard Counter (rolled / recommended):</b><br>
-        <span id="counterDisplay" style="color: #111; font-weight: bold;">${counters[2] || 0} / ${DMG_RECOMMENDED[2]} Hoards</span>
       </div>
 
       <div style="margin-bottom: 8px;">
@@ -380,7 +317,6 @@ function showLootDialog() {
       html.find("#tierRange").on("input change", function() {
         const val = $(this).val();
         html.find("#tierLabel").text("Tier " + val);
-        html.find("#counterDisplay").text(`${counters[val] || 0} / ${DMG_RECOMMENDED[val]} Hoards`);
       });
     }
   }).render(true);

@@ -1,11 +1,8 @@
 const MODULE_ID = 'jacobs-loot-generator';
 const ROLL_TABLE_FOLDER_NAME = 'Loot';
-const MACRO_DM_FOLDER_NAME = 'Loot_DM';
-const MACRO_PLAYER_FOLDER_NAME = 'Loot_Player';
 const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
-const NO_OWNERSHIP = 0;
-const MACRO_SYNC_VERSION = 12; // Version erhöht für Loot_DM & Loot_Player Trennung
+const MACRO_SYNC_VERSION = 19;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -16,14 +13,13 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
   static tabName = 'lootGenerator';
 
   static DEFAULT_OPTIONS = {
-    id: 'jacobs-loot-generator',
     actions: {
       runMacro: JacobsLootSidebarTab.#onRunMacro
     }
   };
 
   static PARTS = {
-    tab: {
+    loot: {
       template: `modules/${MODULE_ID}/templates/loot-panel.html`
     }
   };
@@ -90,7 +86,7 @@ Hooks.once('init', () => {
 
   // Register sidebar tab metadata
   CONFIG.ui.sidebar.TABS.lootGenerator = {
-    icon: 'fa-solid fa-dice-d4',
+    icon: 'fa-solid fa-coins',
     tooltip: 'Loot Generator'
   };
 
@@ -104,7 +100,7 @@ Hooks.once('init', () => {
 });
 
 // 3. Helper functions for macro creation
-async function createMacroFromPath(name, path, folderId, ownership) {
+async function createMacroFromPath(name, path) {
   try {
     const base = `modules/${MODULE_ID}`;
     const res = await fetch(`${base}/${path}`);
@@ -119,21 +115,10 @@ async function createMacroFromPath(name, path, folderId, ownership) {
     }
     const existing = game.macros.find(m => m.name === name);
     if (existing) {
-      await existing.update({ 
-        command: cmd,
-        folder: folderId,
-        ownership: { default: ownership }
-      });
+      await existing.update({ command: cmd });
       return existing;
     }
-    return await Macro.create({ 
-      name, 
-      type: 'script', 
-      scope: 'global', 
-      command: cmd,
-      folder: folderId,
-      ownership: { default: ownership }
-    });
+    return await Macro.create({ name, type: 'script', scope: 'global', command: cmd });
   } catch (err) {
     console.error(`${MODULE_ID} | Failed to create macro ${name}:`, err);
     return null;
@@ -146,7 +131,7 @@ const cleanupMacroCommand = `if (!game.user.isGM) {
 
 const confirmed = await Dialog.confirm({
   title: 'Clean up Random Loot Generator',
-  content: '<p>Delete the module macros, RollTables in the "Loot" folder, and the folders themselves?</p><p>This cannot be undone.</p>'
+  content: '<p>Delete the module macros, RollTables in the "Loot" folder, and the folder itself?</p><p>This cannot be undone.</p>'
 });
 if (!confirmed) return;
 
@@ -157,76 +142,66 @@ const macroNames = [
   'Spells',
   'Targeted Loot',
   'Treasure Hoard',
-  'Reset_Loot_Counters',
+  'Reset Treasure Hoard Counter',
   'Clean up Random Loot Generator'
 ];
 const macros = game.macros.filter(macro => macroNames.includes(macro.name));
 for (const macro of macros) await macro.delete();
 
-const targetFolderNames = ['Loot', 'Loot_DM', 'Loot_Player'];
-const folders = game.folders.filter(folder => (folder.type === 'RollTable' || folder.type === 'Macro') && targetFolderNames.includes(folder.name));
+const rootFolder = game.folders.find(folder => folder.type === 'RollTable' && folder.name === 'Loot');
+const folders = rootFolder
+  ? game.folders.filter(folder => folder.id === rootFolder.id || folder.folder?.id === rootFolder.id)
+  : [];
 const tables = game.tables.filter(table => folders.some(folder => folder.id === table.folder?.id));
 for (const table of tables) await table.delete();
-for (const folder of folders) await folder.delete();
+for (const folder of folders.sort((a, b) => b.id.localeCompare(a.id))) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
+
+const resetHoardCounterMacroCommand = `if (!game.user.isGM) {
+  return ui.notifications.warn('Only a GM can reset the Treasure Hoard counters.');
+}
+
+const settingId = 'lootmakros.treasureHoardCounters';
+if (!game.settings.settings.has(settingId)) {
+  game.settings.register('lootmakros', 'treasureHoardCounters', {
+    name: 'Treasure Hoard Counters', scope: 'world', config: false, type: Object,
+    default: { 1: 0, 2: 0, 3: 0, 4: 0 }
+  });
+}
+await game.settings.set('lootmakros', 'treasureHoardCounters', { 1: 0, 2: 0, 3: 0, 4: 0 });
+ui.notifications.info('All Treasure Hoard counters reset.');`;
 
 // 4. Automatic table & macro synchronization on world start
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
   if (game.user.isGM && game.settings.get(MODULE_ID, 'macroSyncVersion') < MACRO_SYNC_VERSION) {
-    console.log(`${MODULE_ID} | Creating/updating macros in "Loot_DM" and "Loot_Player" folders`);
-    
-    // Ensure Macro folders exist
-    const dmMacroFolder = game.folders.find(f => f.name === MACRO_DM_FOLDER_NAME && f.type === 'Macro')
-      || await Folder.create({ name: MACRO_DM_FOLDER_NAME, type: 'Macro' });
-
-    const playerMacroFolder = game.folders.find(f => f.name === MACRO_PLAYER_FOLDER_NAME && f.type === 'Macro')
-      || await Folder.create({ name: MACRO_PLAYER_FOLDER_NAME, type: 'Macro' });
-
-    // Define macro assignments, folders, and ownerships
+    console.log(`${MODULE_ID} | Creating macros from module files`);
     const macrosToCreate = [
-      // DM Folder Macros (Ownership: NONE / GM Only)
-      { name: 'RollTables to Chat', path: 'macros/RollTables_to_Chat.js', folderId: dmMacroFolder.id, ownership: NO_OWNERSHIP },
-      { name: 'Reset_Loot_Counters', path: 'macros/Reset_Loot_Counters.js', folderId: dmMacroFolder.id, ownership: NO_OWNERSHIP },
-      { name: 'Clean up Random Loot Generator', command: cleanupMacroCommand, folderId: dmMacroFolder.id, ownership: NO_OWNERSHIP },
-
-      // Player Folder Macros (Ownership: OBSERVER)
-      { name: 'Individual Treasure', path: 'macros/Individual_Treasure.js', folderId: playerMacroFolder.id, ownership: OBSERVER_OWNERSHIP },
-      { name: 'Potions', path: 'macros/Potions.js', folderId: playerMacroFolder.id, ownership: OBSERVER_OWNERSHIP },
-      { name: 'Spells', path: 'macros/Spells.js', folderId: playerMacroFolder.id, ownership: OBSERVER_OWNERSHIP },
-      { name: 'Targeted Loot', path: 'macros/Targeted_Loot.js', folderId: playerMacroFolder.id, ownership: OBSERVER_OWNERSHIP },
-      { name: 'Treasure Hoard', path: 'macros/Treasure_Hoard.js', folderId: playerMacroFolder.id, ownership: OBSERVER_OWNERSHIP }
+      { name: 'Individual Treasure', path: 'macros/Individual_Treasure.js' },
+      { name: 'Potions', path: 'macros/Potions.js' },
+      { name: 'RollTables to Chat', path: 'macros/RollTables_to_Chat.js' },
+      { name: 'Spells', path: 'macros/Spells.js' },
+      { name: 'Targeted Loot', path: 'macros/Targeted_Loot.js' },
+      { name: 'Treasure Hoard', path: 'macros/Treasure_Hoard.js' },
+      { name: 'Reset Treasure Hoard Counter', command: resetHoardCounterMacroCommand },
+      { name: 'Clean up Random Loot Generator', command: cleanupMacroCommand }
     ];
 
     for (const m of macrosToCreate) {
       if (m.command) {
         const existing = game.macros.find(macro => macro.name === m.name);
-        if (existing) {
-          await existing.update({ 
-            command: m.command,
-            folder: m.folderId,
-            ownership: { default: m.ownership }
-          });
-        } else {
-          await Macro.create({ 
-            name: m.name, 
-            type: 'script', 
-            scope: 'global', 
-            command: m.command,
-            folder: m.folderId,
-            ownership: { default: m.ownership }
-          });
-        }
+        if (existing) await existing.update({ command: m.command });
+        else await Macro.create({ name: m.name, type: 'script', scope: 'global', command: m.command });
       } else {
-        await createMacroFromPath(m.name, m.path, m.folderId, m.ownership);
+        await createMacroFromPath(m.name, m.path);
       }
     }
 
     await game.settings.set(MODULE_ID, 'macrosCreated', true);
     await game.settings.set(MODULE_ID, 'macroSyncVersion', MACRO_SYNC_VERSION);
-    ui.notifications.info('Random Loot Generator: Macros updated in "Loot_DM" and "Loot_Player" folders.');
+    ui.notifications.info('Random Loot Generator: Macros created.');
   }
 
   if (game.user.isGM) {

@@ -1,0 +1,120 @@
+// Reset Specific Loot Counters Macro (Styled - V12/V13 Compatible)
+const individualTreasureSettingsNamespace = "lootmakros";
+const lootCounterSettingsKey = "lootCounters";
+
+if (!game.user.isGM) {
+  ui.notifications.warn("Nur der GM kann die Loot-Zähler zurücksetzen.");
+} else {
+  const currentCounters = game.settings.get(individualTreasureSettingsNamespace, lootCounterSettingsKey) || {
+    individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
+    hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+  };
+
+  const ind = currentCounters.individual || {};
+  const hoard = currentCounters.hoard || {};
+
+  const renderItem = (name, label, value) => `
+    <label style="display: flex; align-items: center; justify-content: space-between; padding: 4px 8px; border-radius: 4px; background: rgba(0,0,0,0.03); cursor: pointer; border: 1px solid rgba(0,0,0,0.08); transition: background 0.15s ease;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <input type="checkbox" name="${name}" style="margin: 0; cursor: pointer;">
+        <span style="font-weight: 500;">${label}</span>
+      </div>
+      <span style="background: rgba(0,0,0,0.1); border-radius: 10px; padding: 1px 8px; font-size: 0.82em; font-weight: bold; color: ${value > 0 ? '#b45f06' : '#666'};">${value}</span>
+    </label>
+  `;
+
+  const dialogContent = `
+    <form style="padding: 2px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <p style="margin: 0; font-size: 0.9em; color: #444;">Wähle die Zähler zum Zurücksetzen:</p>
+        <button type="button" id="select-all-btn" style="width: auto; padding: 3px 10px; font-size: 0.8em; line-height: 1.2;">
+          <i class="fas fa-check-square"></i> Alle auswählen
+        </button>
+      </div>
+
+      <fieldset style="border: 1px solid #7a7971; border-radius: 5px; margin-bottom: 12px; padding: 8px 10px; background: rgba(0,0,0,0.02);">
+        <legend style="font-size: 0.85em; font-weight: bold; color: #4b4a44; padding: 0 4px;">Individual Treasure</legend>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.85em;">
+          ${renderItem("ind-range-0-4", "CR 0-4", ind["range-0-4"] || 0)}
+          ${renderItem("ind-range-5-10", "CR 5-10", ind["range-5-10"] || 0)}
+          ${renderItem("ind-range-11-16", "CR 11-16", ind["range-11-16"] || 0)}
+          ${renderItem("ind-range-17", "CR 17+", ind["range-17"] || 0)}
+        </div>
+      </fieldset>
+
+      <fieldset style="border: 1px solid #7a7971; border-radius: 5px; padding: 8px 10px; background: rgba(0,0,0,0.02);">
+        <legend style="font-size: 0.85em; font-weight: bold; color: #4b4a44; padding: 0 4px;">Treasure Hoard</legend>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.85em;">
+          ${renderItem("hoard-tier1", "Tier 1", hoard.tier1 || 0)}
+          ${renderItem("hoard-tier2", "Tier 2", hoard.tier2 || 0)}
+          ${renderItem("hoard-tier3", "Tier 3", hoard.tier3 || 0)}
+          ${renderItem("hoard-tier4", "Tier 4", hoard.tier4 || 0)}
+        </div>
+      </fieldset>
+    </form>
+  `;
+
+  new Dialog({
+    title: "Loot-Zähler zurücksetzen",
+    content: dialogContent,
+    buttons: {
+      reset: {
+        icon: '<i class="fas fa-undo"></i>',
+        label: "Zurücksetzen",
+        callback: async (html) => {
+          // Nutzt structuredClone statt des veralteten duplicate()
+          const updatedCounters = typeof structuredClone === "function" 
+            ? structuredClone(currentCounters) 
+            : foundry.utils.deepClone(currentCounters);
+
+          let resetCount = 0;
+
+          const indKeys = ["range-0-4", "range-5-10", "range-11-16", "range-17"];
+          for (const key of indKeys) {
+            if (html.find(`[name="ind-${key}"]`).is(":checked")) {
+              updatedCounters.individual[key] = 0;
+              resetCount++;
+            }
+          }
+
+          const hoardKeys = ["tier1", "tier2", "tier3", "tier4"];
+          for (const key of hoardKeys) {
+            if (html.find(`[name="hoard-${key}"]`).is(":checked")) {
+              updatedCounters.hoard[key] = 0;
+              resetCount++;
+            }
+          }
+
+          if (resetCount === 0) {
+            ui.notifications.warn("Keine Zähler zum Zurücksetzen ausgewählt.");
+            return;
+          }
+
+          await game.settings.set(individualTreasureSettingsNamespace, lootCounterSettingsKey, updatedCounters);
+          ui.notifications.info(`${resetCount} Zähler erfolgreich zurückgesetzt!`);
+        }
+      },
+      cancel: {
+        icon: '<i class="fas fa-times"></i>',
+        label: "Abbrechen"
+      }
+    },
+    default: "reset",
+    render: (html) => {
+      let allChecked = false;
+      html.find("#select-all-btn").on("click", (e) => {
+        allChecked = !allChecked;
+        html.find('input[type="checkbox"]').prop("checked", allChecked);
+        $(e.currentTarget).html(allChecked 
+          ? '<i class="fas fa-minus-square"></i> Alle abwählen' 
+          : '<i class="fas fa-check-square"></i> Alle auswählen'
+        );
+      });
+
+      html.find("label").hover(
+        function() { $(this).css("background", "rgba(0,0,0,0.08)"); },
+        function() { $(this).css("background", "rgba(0,0,0,0.03)"); }
+      );
+    }
+  }, { width: 420 }).render(true);
+}

@@ -1,1 +1,1640 @@
-{...truncated...}
+{
+  "name": "Spells - Level 1",
+  "formula": "1d64",
+  "description": "",
+  "results": [
+    {
+      "range": [
+        1,
+        1
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplAlarm00000]{Alarm}",
+      "_id": "SwrDnXWMCb3A8rhB",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800697,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        2,
+        2
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplAnimalFrie]{Animal Friendship}",
+      "_id": "k6WR4E7jRdTscYS3",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800698,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        3,
+        3
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.Qu14JKK8okMVCKN4]{Armor of Agathys}</p>",
+      "_id": "0Vye2vUKxOecJFUV",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463807591,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        4,
+        4
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.WfurpmHS5cDkS7oe]{Arms of Hadar}</p>",
+      "_id": "bjQD5GkQWcERPHRe",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463815523,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        5,
+        5
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplBane000000]{Bane}",
+      "_id": "F57EGVv3ISkgZFxU",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800700,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        6,
+        6
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplBless00000]{Bless}",
+      "_id": "h3RPHJcP9mcPplgx",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800700,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        7,
+        7
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplBurningHan]{Burning Hands}",
+      "_id": "YIYTuEefBS3Rxqqn",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800701,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        8,
+        8
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplCharmPerso]{Charm Person}",
+      "_id": "ErWzQGdkoMims0S4",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800701,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        9,
+        9
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplChromaticO]{Chromatic Orb}",
+      "_id": "CbYJsscni5SZK2u7",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800702,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        10,
+        10
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplColorSpray]{Color Spray}",
+      "_id": "pe5S84z7EgDq80jL",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800702,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        11,
+        11
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplCommand000]{Command}",
+      "_id": "SzgPkQW4zWDwTNfJ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800703,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        12,
+        12
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.npSFba0aQJeefmM4]{Compelled Duel}</p>",
+      "_id": "3rIjTF58JffClOQs",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463824123,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        13,
+        13
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplComprehend]{Comprehend Languages}",
+      "_id": "4vT3vnsJnEz4yScz",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800704,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        14,
+        14
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplCreateorDe]{Create or Destroy Water}",
+      "_id": "L9OOwqR7duvV2Nqw",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800704,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        15,
+        15
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplCureWounds]{Cure Wounds}",
+      "_id": "x1x51pjdKV7jSjXd",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800705,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        16,
+        16
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplDetectEvil]{Detect Evil and Good}",
+      "_id": "5PWUen7h9BQosGMl",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800705,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        17,
+        17
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplDetectMagi]{Detect Magic}",
+      "_id": "xsn6NmAut9V3b9Cf",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800706,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        18,
+        18
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplDetectPois]{Detect Poison and Disease}",
+      "_id": "Oq3Z1gUro9szkRA1",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800708,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        19,
+        19
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplDisguiseSe]{Disguise Self}",
+      "_id": "fGE53v7zgEs3hzl5",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800708,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        20,
+        20
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplDissonantW]{Dissonant Whispers}",
+      "_id": "ISMvPCjIyNkYnS5J",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800709,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        21,
+        21
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplDivineFavo]{Divine Favor}",
+      "_id": "1UUAUseRSlCQYzAW",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800709,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        22,
+        22
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplDivineSmit]{Divine Smite}",
+      "_id": "i7JdkGM4qZIgFfvh",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800710,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        23,
+        23
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplEnsnaringS]{Ensnaring Strike}",
+      "_id": "JDI8v9E4rP0rrr15",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800711,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        24,
+        24
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplEntangle00]{Entangle}",
+      "_id": "BCbkkvJdh7I7gfDH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800711,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        25,
+        25
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplExpeditiou]{Expeditious Retreat}",
+      "_id": "VyoyENPIM4OSpfRi",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800712,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        26,
+        26
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplFaerieFire]{Faerie Fire}",
+      "_id": "RARahtz7cfxC03bB",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800712,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        27,
+        27
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplFalseLife0]{False Life}",
+      "_id": "RhHw3elxt34pow7f",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800713,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        28,
+        28
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplFeatherFal]{Feather Fall}",
+      "_id": "s5x6dm36GqZvrIj9",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800713,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        29,
+        29
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplFindFamili]{Find Familiar}",
+      "_id": "LCDc29tJtYNpw23F",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800714,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        30,
+        30
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplFogCloud00]{Fog Cloud}",
+      "_id": "7iN4LhNhegdpKtzH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800714,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        31,
+        31
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplGoodberry0]{Goodberry}",
+      "_id": "sQKxzdj5YA8LQgBH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800715,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        32,
+        32
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplGrease0000]{Grease}",
+      "_id": "gFXJAu5G1cXvg8qD",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800715,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        33,
+        33
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplGuidingBol]{Guiding Bolt}",
+      "_id": "2PtMWevwr7qneEGO",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800716,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        34,
+        34
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.8V4nqVvLRW6km94j]{Hail of Thorns}</p>",
+      "_id": "PchzZukpfYW2jTuq",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463836593,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        35,
+        35
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplHealingWor]{Healing Word}",
+      "_id": "ummZrZKNewVLQt0M",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800717,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        36,
+        36
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplHellishReb]{Hellish Rebuke}",
+      "_id": "L2ZyECcbdFnGgNB1",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800718,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        37,
+        37
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplHeroism000]{Heroism}",
+      "_id": "OOMormjXMibyqint",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800718,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        38,
+        38
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplHex0000000]{Hex}",
+      "_id": "J3Xdbu30dBQqKMzu",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800719,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        39,
+        39
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplHuntersMar]{Hunter's Mark}",
+      "_id": "b3gInCHaigVVP1fP",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800719,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        40,
+        40
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplIceKnife00]{Ice Knife}",
+      "_id": "0FiOfB6TCpkytAUG",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800720,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        41,
+        41
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplIdentify00]{Identify}",
+      "_id": "1up3b2dwmjzMyEr6",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800720,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        42,
+        42
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplIllusorySc]{Illusory Script}",
+      "_id": "ZW3JrXL3kda7JSLs",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800721,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        43,
+        43
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplInflictWou]{Inflict Wounds}",
+      "_id": "QXhbe1RzfhVo3Y4A",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800721,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        44,
+        44
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplJump000000]{Jump}",
+      "_id": "zXMhYNmEaEfI9To5",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800722,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        45,
+        45
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplLongstride]{Longstrider}",
+      "_id": "hHGPtsZyIY0PqP0O",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800722,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        46,
+        46
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplMageArmor0]{Mage Armor}",
+      "_id": "u854pPWzbVexJt9C",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800723,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        47,
+        47
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplMagicMissi]{Magic Missile}",
+      "_id": "P4zXfSdHuDDJv7Py",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800723,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        48,
+        48
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplProtection]{Protection from Evil and Good}",
+      "_id": "Lq45YMyo5DcPS4pH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800724,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        49,
+        49
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplPurifyFood]{Purify Food and Drink}",
+      "_id": "Gg43cnqwlcPhY0Z7",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800724,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        50,
+        50
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplRayofSickn]{Ray of Sickness}",
+      "_id": "BvvXBYCSAfJTqVIA",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800725,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        51,
+        51
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.Ezeefo8Dnijbj3Bx]{Sanctuary}</p>",
+      "_id": "7Dj7x7eMPlzgtU03",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463845960,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        52,
+        52
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplSearingSmi]{Searing Smite}",
+      "_id": "zl3M0TyyoNSfEsM5",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800726,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        53,
+        53
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplShield0000]{Shield}",
+      "_id": "KfF6m5mFCGJYk0fd",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800727,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        54,
+        54
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplShieldofFa]{Shield of Faith}",
+      "_id": "mlOxuCAAprpf3KGy",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800727,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        55,
+        55
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplSilentImag]{Silent Image}",
+      "_id": "8D16PIhap1wr0COh",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800728,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        56,
+        56
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplSleep00000]{Sleep}",
+      "_id": "pqfE2THBI0rjdn68",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800728,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        57,
+        57
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplSpeakwithA]{Speak with Animals}",
+      "_id": "UGxKMb2AnZRUf0FW",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800729,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        58,
+        58
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplTashasHide]{Tasha's Hideous Laughter}",
+      "_id": "AegBPSrogFcmgM9p",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800729,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        59,
+        59
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplTensersFlo]{Tenser's Floating Disk}",
+      "_id": "03gr7uytefrXGHsD",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800730,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        60,
+        60
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.TCzbpjJlCwRefWWq]{Thunderous Smite}</p>",
+      "_id": "rWubgF06XteefoLU",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463859543,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        61,
+        61
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplThunderwav]{Thunderwave}",
+      "_id": "HRSDwr2bAFdWRmYW",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800731,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        62,
+        62
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.spells24.Item.phbsplUnseenServ]{Unseen Servant}",
+      "_id": "v2zmYxIdQhCOzhER",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463800731,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        63,
+        63
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.Uvs3HZPxMUnjFmoe]{Witch Bolt}</p>",
+      "_id": "kZ6nK19tkKrSAU6G",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463865176,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        64,
+        64
+      ],
+      "name": "",
+      "description": "<p>@UUID[Item.eMbl1buD2cge6jlV]{Wrathful Smite}</p>",
+      "_id": "R4ANqnArThyfPebu",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788463719655,
+        "modifiedTime": 1788463871697,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    }
+  ],
+  "folder": "ghtnLddXgNE4RNfo",
+  "img": "icons/svg/d20-grey.svg",
+  "replacement": true,
+  "displayRoll": true,
+  "ownership": {
+    "default": 2
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 1788463719655,
+    "modifiedTime": 1788471703120,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.sEBWxavyA09QDb5N",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

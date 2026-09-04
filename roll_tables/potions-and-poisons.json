@@ -27,6 +27,931 @@
         "duplicateSource": null,
         "exportSource": null
       }
+    },
+    {
+      "range": [
+        1501,
+        2300
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.phbagPoisonBasic]{Poison, Basic}",
+      "_id": "04VQC94JIYK3W70W",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681410,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        2301,
+        3000
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfClimb]{Potion of Climbing}",
+      "_id": "2hsDlHnMA7QiM1eP",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681410,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        3001,
+        3500
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgGreaterPotion]{Potion of Healing (Greater)}",
+      "_id": "LfiUWLSpyCGxVWG6",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681411,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        3501,
+        3900
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.L887NdWEP5NqHCrQ]{Potion of Greater Healing}",
+      "_id": "B2gANbeYCaHQtWYC",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681412,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        3901,
+        4100
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfGrowt]{Potion of Growth}",
+      "_id": "nO9XuhXdKJseZnv4",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681413,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4101,
+        4250
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfWater]{Potion of Water Breathing}",
+      "_id": "Ep1m9PlXj2D7Hs3O",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681413,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4251,
+        4380
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfAnima]{Potion of Animal Friendship}",
+      "_id": "URJXwIZP7yS5tnTp",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681414,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4381,
+        4420
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.34YKlIJVVWLeBv7R]{Potion of Cold Resistance}",
+      "_id": "m6q0w2ABbij6mNsl",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681415,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4421,
+        4460
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.8MPnSrvEeZhPhtTi]{Potion of Lightning Resistance}",
+      "_id": "NO62yVZWEW6K0Epm",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681415,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4461,
+        4500
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.Jj4iFQQGvckx8Wsj]{Potion of Fire Resistance}",
+      "_id": "JyT1PMikxaarCCrH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681416,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4501,
+        4535
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.LBQWNqX6hZOKhQ8a]{Potion of Radiant Resistance}",
+      "_id": "C9IOr461rzlpXVwC",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681417,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4536,
+        4570
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.c0luemOP0iW8L23R]{Potion of Psychic Resistance}",
+      "_id": "puPtdFCUuCy9nKfW",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681417,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4571,
+        4605
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.kKGJjVVlJVoakWgQ]{Potion of Force Resistance}",
+      "_id": "8DOsbol71D2Gyqgl",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681418,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4606,
+        4640
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.xw99pcqPBVwtMOLw]{Potion of Necrotic Resistance}",
+      "_id": "jQJxBwauD4O9m8kq",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681419,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4641,
+        4675
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.zBX8LLC2CjC89Dzl]{Potion of Thunder Resistance}",
+      "_id": "herrrdYKmclQnpIg",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681419,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4676,
+        4710
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.zgZkJAyFAfYmyn11]{Potion of Acid Resistance}",
+      "_id": "fLDXNcaRvsrtwNtn",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681420,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4711,
+        4745
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.f5chGcpQCi1HYPQw]{Potion of Poison Resistance}",
+      "_id": "8DkN9wuctMIvggcg",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681420,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4746,
+        4780
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.mhFBTY0egW8AeCHe]{Potion of Hill Giant Strength}",
+      "_id": "JQLkolvy7O6YOllo",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681421,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4781,
+        4815
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfGaseo]{Potion of Gaseous Form}",
+      "_id": "c23zd1oorB2wseY7",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681422,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4816,
+        4845
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfClair]{Potion of Clairvoyance}",
+      "_id": "2ZNbOpv5vsbY0ma5",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681422,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4846,
+        4875
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfInvis]{Potion of Invisibility}",
+      "_id": "BXdi9DT41OhdzLNF",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681423,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4876,
+        4905
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfSpeed]{Potion of Speed}",
+      "_id": "M9yieCZomuWWM9hD",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681423,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4906,
+        4935
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfHeroi]{Potion of Heroism}",
+      "_id": "m67ZAutsdqIS7Bda",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681424,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4936,
+        4955
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.5m9ErO9In8Uc5yyf]{Potion of Superior Healing}",
+      "_id": "E0Gzl3GYEV3tvAGk",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681424,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4956,
+        4970
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.items.Item.JFiSlgcm3uSSBM5t]{Potion of Supreme Healing}",
+      "_id": "oyDCCCnfrdNHHgY7",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681425,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4971,
+        4978
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfVital]{Potion of Vitality}",
+      "_id": "Kuq4xW0p3ea3Fg8a",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681425,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4979,
+        4984
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfInvul]{Potion of Invulnerability}",
+      "_id": "OvQEBoaO1aFNOlCl",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681426,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4985,
+        4988
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfMindR]{Potion of Mind Reading}",
+      "_id": "aS23IGOs6wvX6ZoH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681427,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4989,
+        4991
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfDimin]{Potion of Diminution}",
+      "_id": "PD6FaWkva5jQKSA1",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681427,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4992,
+        4993
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfFlyin]{Potion of Flying}",
+      "_id": "yTByFApxi9VUWv2z",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681428,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4994,
+        4994
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPhilterOfLove]{Philter of Love}",
+      "_id": "tcnQyeJVVVR50zlr",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681428,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4995,
+        4995
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgOilOfSlipperi]{Oil of Slipperiness}",
+      "_id": "VKFuJ7MeiKhDSq5p",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681429,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4996,
+        4996
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgOilOfEthereal]{Oil of Etherealness}",
+      "_id": "E4xjaFBg44HUw0rK",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681429,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4997,
+        4997
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgCarrionCrawle]{Crawler Mucus}",
+      "_id": "Rmr43tvhYZqMaL5L",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681430,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4998,
+        4998
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgTruthSerum000]{Truth Serum}",
+      "_id": "zP4m4LFMevLm9oQy",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681430,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4999,
+        4999
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgOilOfTaggit00]{Oil of Taggit}",
+      "_id": "gdW7PWlBs2ubO6Gx",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681431,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        5000,
+        5000
+      ],
+      "name": "",
+      "description": "@UUID[Compendium.dnd5e.equipment24.Item.dmgPaleTincture0]{Pale Tincture}",
+      "_id": "NZmyuLFf86T5nKdw",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1781041650654,
+        "modifiedTime": 1781041681431,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
     }
   ],
   "folder": "te4W4lyYNDuvKq72",

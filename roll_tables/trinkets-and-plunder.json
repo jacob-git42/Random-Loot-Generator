@@ -1,1 +1,2537 @@
-{...truncated...}
+{
+  "name": "🎒 Trinkets & Plunder",
+  "formula": "1d100",
+  "description": "",
+  "results": [
+    {
+      "range": [
+        1,
+        1
+      ],
+      "name": "",
+      "description": "Ein gefälschter Würfel, der immer auf der 6 landet",
+      "_id": "XVPCDcNMVolAEVSf",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        2,
+        2
+      ],
+      "name": "",
+      "description": "Ein Liebesbrief von jemandem, den niemand in der Gruppe kennt",
+      "_id": "fAqPj2HC7Ksf5nzh",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781178602780,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        3,
+        3
+      ],
+      "name": "",
+      "description": "Ein abgekauter Hühnerknochen, der an einer Schnur hängt",
+      "_id": "KZXNoR7EaoSYy84O",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048957,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        4,
+        4
+      ],
+      "name": "",
+      "description": "Ein rostiger Schlüssel, der in kein bekanntes Schloss passt",
+      "_id": "Vmu4Tnec4DHuP7JZ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1784753531806,
+        "lastModifiedBy": "ttAeMOK87uiRsg2B",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        5,
+        5
+      ],
+      "name": "",
+      "description": "Ein Steckbrief einer Person, die dem Finder verblüffend ähnlich sieht",
+      "_id": "AYh4z5mapmEvl0js",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048957,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        6,
+        6
+      ],
+      "name": "",
+      "description": "Ein winziger Beutel mit buntem Sand",
+      "_id": "XPn184FjuCrMEu7A",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667141,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        7,
+        7
+      ],
+      "name": "",
+      "description": "Eine Taschenuhr, die rückwärts läuft",
+      "_id": "U8vRzi1dF9dyDYYG",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667141,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        8,
+        8
+      ],
+      "name": "",
+      "description": "Ein Stück Kreide, das im Dunkeln schwach leuchtet",
+      "_id": "7q8teDeExxm1TPjQ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080839,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        9,
+        9
+      ],
+      "name": "",
+      "description": "Ein einzelner, abgetragener linker Handschuh",
+      "_id": "9xSQGS3Io7mBR3St",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1784753531930,
+        "lastModifiedBy": "ttAeMOK87uiRsg2B",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        10,
+        10
+      ],
+      "name": "",
+      "description": "Eine Pfeife, die beim Blasen das Geräusch einer Ente macht",
+      "_id": "AWuIEB7y2NFgg2Su",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048958,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        11,
+        11
+      ],
+      "name": "",
+      "description": "Ein leeres Tintenfass, das nach Vanille riecht",
+      "_id": "RRin6o8d5cF8Pw1y",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781178602782,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        12,
+        12
+      ],
+      "name": "",
+      "description": "Ein Tagebuch, in dem alle Seiten bis auf die letzte herausgerissen wurden",
+      "_id": "ILsN61Nqr1CgI1gM",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667142,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        13,
+        13
+      ],
+      "name": "",
+      "description": "Ein runder, perfekt glatter Stein vom Meeresgrund",
+      "_id": "fXbStNFzsKKpTjBQ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080840,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        14,
+        14
+      ],
+      "name": "",
+      "description": "Ein hölzerner Zahnstocher, der niemals splittert",
+      "_id": "RZEbu3zeUwHXqZ2Z",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048959,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        15,
+        15
+      ],
+      "name": "",
+      "description": "Eine Münze aus einem fernen, untergangenen Reich",
+      "_id": "efJlmhnEq69Lnofo",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048959,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        16,
+        16
+      ],
+      "name": "",
+      "description": "Ein kleines Glas mit getrockneten Kleeblättern",
+      "_id": "fv6FPYXlvDUHhbpG",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080841,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        17,
+        17
+      ],
+      "name": "",
+      "description": "Ein Messingkompass, der immer nach Westen zeigt",
+      "_id": "tl2e7aA135ud6c4Z",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048959,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        18,
+        18
+      ],
+      "name": "",
+      "description": "Ein Siegelring mit einem unleserlichen Wappen",
+      "_id": "7wVkH24lmtwD5NEF",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048959,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        19,
+        19
+      ],
+      "name": "",
+      "description": "Ein Stück Pergament mit einer unvollständigen Backrezept-Skizze",
+      "_id": "d5vQnE3H1ABnOIXm",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048959,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        20,
+        20
+      ],
+      "name": "",
+      "description": "Ein kleiner Stoffbeutel voller getrockneter Erbsen",
+      "_id": "E8gFgmu2OkxdOqtI",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048960,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        21,
+        21
+      ],
+      "name": "",
+      "description": "Ein abgebrochener Dolchgriff ohne Klinge",
+      "_id": "RC00SiDsMEQ3HKfW",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048960,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        22,
+        22
+      ],
+      "name": "",
+      "description": "Ein kleiner Handspiegel, dessen Glas gesprungen ist",
+      "_id": "V92tYWp5ehedPt9J",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048960,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        23,
+        23
+      ],
+      "name": "",
+      "description": "Ein schrumpeliger, magisch konservierter Apfel",
+      "_id": "UgfEsf0grFOxxIOD",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781040920758,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        24,
+        24
+      ],
+      "name": "",
+      "description": "Eine Haarlocke, zusammengebunden mit einem silbernen Faden",
+      "_id": "e3H52j4UdurZS8Ol",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048960,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        25,
+        25
+      ],
+      "name": "",
+      "description": "Ein Würfelbecher, der von innen mit Moos ausgekleidet ist",
+      "_id": "qPC2IRMfMZldbTA5",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781209640285,
+        "lastModifiedBy": "yqphi0suaik583hn",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        26,
+        26
+      ],
+      "name": "",
+      "description": "Eine Feder eines exotischen Vogels, die die Farbe wechselt",
+      "_id": "iagDyeFM9cZt39jU",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048961,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        27,
+        27
+      ],
+      "name": "",
+      "description": "Ein Korken, der im Wasser nach unten sinkt",
+      "_id": "eYUtXkVqP0SKKlTN",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781178602785,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        28,
+        28
+      ],
+      "name": "",
+      "description": "Ein Miniatur-Hufeisen aus Blei",
+      "_id": "3PaHwCmSbSPNCBxV",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048961,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        29,
+        29
+      ],
+      "name": "",
+      "description": "Ein Beutel mit Fingernagel-Abschnitten eines Trolls",
+      "_id": "q72AsCvBKB3WaFNm",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667144,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        30,
+        30
+      ],
+      "name": "",
+      "description": "Eine verbeulte Blechdose, die verdächtig klappert, aber versiegelt ist",
+      "_id": "2u1ztbGEypC1gLm2",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048961,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        31,
+        31
+      ],
+      "name": "",
+      "description": "Ein hölzerner Soldatenkopf ohne Rumpf",
+      "_id": "ZiaUKWTQ5Dt7YfJH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048961,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        32,
+        32
+      ],
+      "name": "",
+      "description": "Ein Stück Seife, das extrem stark nach nasser Katze riecht",
+      "_id": "ija3qGmcnfdVYZjP",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1786304388028,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        33,
+        33
+      ],
+      "name": "",
+      "description": "Ein verrosteter Angelhaken",
+      "_id": "bt2E2jwlHzLP7tnV",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080843,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        34,
+        34
+      ],
+      "name": "",
+      "description": "Eine Brille mit nur einem verbliebenen, getönten Glas",
+      "_id": "gx9jwHyPTlo7n71k",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667144,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        35,
+        35
+      ],
+      "name": "",
+      "description": "Ein Fläschchen mit Glühwürmchen, die vor kurzem erloschen sind",
+      "_id": "gyf2stNlqRUfyfEA",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048962,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        36,
+        36
+      ],
+      "name": "",
+      "description": "Ein handgroßes Stück einer weichen, unbestimmbaren Tierhaut",
+      "_id": "CpcreJMSVghFGHUZ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667144,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        37,
+        37
+      ],
+      "name": "",
+      "description": "Ein geheimnisvoller Zahn, der viel zu groß für einen Menschen ist",
+      "_id": "DVxKnC2rPbAQX94p",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048962,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        38,
+        38
+      ],
+      "name": "",
+      "description": "Ein ledernes Lesezeichen mit einer eingebrannten Runenzeile",
+      "_id": "3ZZcZlSwRFnkqkpH",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080843,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        39,
+        39
+      ],
+      "name": "",
+      "description": "Ein kleiner, plattgedrückter Zinnbecher",
+      "_id": "vKSFLCET2xCT3LYB",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667146,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        40,
+        40
+      ],
+      "name": "",
+      "description": "Ein Wollknäuel, in dem eine Nadel steckt",
+      "_id": "R6KfmPDq4Agf6YvZ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667146,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        41,
+        41
+      ],
+      "name": "",
+      "description": "Eine kleine Flöte, aus der kein Ton herauskommt",
+      "_id": "5Uuu107q508tuafr",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667147,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        42,
+        42
+      ],
+      "name": "",
+      "description": "Ein gläsernes Auge, das trüb in eine Richtung starrt",
+      "_id": "D94WJxMyMwNtKOYa",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048963,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        43,
+        43
+      ],
+      "name": "",
+      "description": "Ein Metallwürfel, der sich magnetisch an alles heftet",
+      "_id": "ixvaCRBNlK1ORIrO",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048963,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        44,
+        44
+      ],
+      "name": "",
+      "description": "Ein Beutel mit getrockneten Lavendelblüten",
+      "_id": "9VJmGC6a6DpJXsda",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667147,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        45,
+        45
+      ],
+      "name": "",
+      "description": "Ein winziges, leeres Buch mit einem Ledereinband",
+      "_id": "TP4MAfmj7TEMNcLm",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781040920761,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        46,
+        46
+      ],
+      "name": "",
+      "description": "Ein Hufeisennagel, der zu einem Ring gebogen wurde",
+      "_id": "tdLzO6SZl7nUCYf9",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048964,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        47,
+        47
+      ],
+      "name": "",
+      "description": "Eine zerbrochene Pfeifenspitze aus Ton",
+      "_id": "wMsZ6wnAgbM8SBov",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080845,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        48,
+        48
+      ],
+      "name": "",
+      "description": "<p>Eine getrocknete Schlangenhaut</p>",
+      "_id": "QZuPMu5O7Oiml8eg",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048964,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "range": [
+        49,
+        49
+      ],
+      "name": "",
+      "description": "Ein Stück Kohle, das die Form eines Schädels hat",
+      "_id": "GNZKY37efLdySvWw",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048964,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        50,
+        50
+      ],
+      "name": "",
+      "description": "Ein kleiner Messingknopf mit dem Relief einer Eule",
+      "_id": "GAtjzAIBhDM5peWy",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048964,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        51,
+        51
+      ],
+      "name": "",
+      "description": "Ein Beutel mit glitzernden Flusskieseln",
+      "_id": "AwvoROBcC3H7PQQG",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667148,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        52,
+        52
+      ],
+      "name": "",
+      "description": "Ein hölzerner Kreisel, der sehr lange spinnt",
+      "_id": "tYeCkjWt9OCFerIc",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048964,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        53,
+        53
+      ],
+      "name": "",
+      "description": "Ein Stück Seil, das an beiden Enden sauber verknotet ist",
+      "_id": "rnzIyR4fEaT3MTSU",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048965,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        54,
+        54
+      ],
+      "name": "",
+      "description": "Ein kleines Fläschchen voll Regenwasser von einem Friedhof",
+      "_id": "XCfHKmuuc63QApF4",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080845,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        55,
+        55
+      ],
+      "name": "",
+      "description": "Ein alter, abgewetzter Spielkartensatz, dem das Pik-As fehlt",
+      "_id": "dJt3R8UvFegMBUDF",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048965,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        56,
+        56
+      ],
+      "name": "",
+      "description": "Ein Tuch, auf dem Blutflecken ein Muster bilden",
+      "_id": "KYm7ctBgJzIBcIxm",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080846,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        57,
+        57
+      ],
+      "name": "",
+      "description": "Eine rostige Gürtelschnalle",
+      "_id": "n2WWFiwvMg8AvanV",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048965,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        58,
+        58
+      ],
+      "name": "",
+      "description": "Ein kleiner Schlüssel aus Knochen geschnitzt",
+      "_id": "cYNFRg1LBkjnXtQh",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781040920762,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        59,
+        59
+      ],
+      "name": "",
+      "description": "Ein Beutel voll bitterer Eicheln",
+      "_id": "JpX5ghdmrr6IIsJt",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048965,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        60,
+        60
+      ],
+      "name": "",
+      "description": "Eine einzelne, schwere Eisenmurmel",
+      "_id": "tQoJsLOhRXbz2Z46",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080846,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        61,
+        61
+      ],
+      "name": "",
+      "description": "Ein Stück getrocknetes Fleisch, das unzerstörbar wirkt",
+      "_id": "OxJ8vOrMQ0HLel6b",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048966,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        62,
+        62
+      ],
+      "name": "",
+      "description": "Ein kleines Vorhängeschloss ohne passenden Schlüssel",
+      "_id": "sp5S8dK8o9SAnvXT",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048966,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        63,
+        63
+      ],
+      "name": "",
+      "description": "Eine winzige, leere Parfümflasche aus geschliffenem Glas",
+      "_id": "KlxJoZ6v33W27ARl",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048966,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        64,
+        64
+      ],
+      "name": "",
+      "description": "Ein ausgeblichenes rotes Stoffband",
+      "_id": "GV0hPPPjxBoJxuiZ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048966,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        65,
+        65
+      ],
+      "name": "",
+      "description": "Eine Kerze, die eine tiefschwarze Flamme wirft",
+      "_id": "tQmR4Yjk2aqopgiN",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.365",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1786301229884,
+        "lastModifiedBy": "wtJM4lVvzdpvY2xf",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        66,
+        66
+      ],
+      "name": "",
+      "description": "Ein kleines Stück einer alten Schatzkarte, das nur Wald zeigt",
+      "_id": "bNOfHxxYeDJMAyoO",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048966,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        67,
+        67
+      ],
+      "name": "",
+      "description": "Ein grob geschnitztes Holztier, das einem Hund ähnelt",
+      "_id": "Gi2Ip9SJIYrLa3Ei",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080847,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        68,
+        68
+      ],
+      "name": "",
+      "description": "Eine Handvoll Vogelfedern, mit Draht zusammengebunden",
+      "_id": "HQbk77iL0WqMhbxC",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080847,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        69,
+        69
+      ],
+      "name": "",
+      "description": "Ein silberner Löffel mit abgebrochenem Stiel",
+      "_id": "rk9rZCQ88dlKEWud",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048967,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        70,
+        70
+      ],
+      "name": "",
+      "description": "Ein Stück Baumrinde, in das ein Herz geritzt wurde",
+      "_id": "mLjmk4p7lwtQkZ2O",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080847,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        71,
+        71
+      ],
+      "name": "",
+      "description": "Eine Metallpfeife, die verstopft ist",
+      "_id": "WgZiNJ5LsVkNfWZZ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048967,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        72,
+        72
+      ],
+      "name": "",
+      "description": "Ein Beutel mit getrockneten Pilzen, die blau schimmern",
+      "_id": "EzmKABFjU0n5fEHs",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667150,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        73,
+        73
+      ],
+      "name": "",
+      "description": "Ein kleiner, runder Messingspiegel, der das Bild verzerrt",
+      "_id": "sRPWvNxNlgPv5C1U",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048968,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        74,
+        74
+      ],
+      "name": "",
+      "description": "Eine Kette aus bunten Glasperlen",
+      "_id": "zW7Q5N5nqnTti5OA",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781040920764,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        75,
+        75
+      ],
+      "name": "",
+      "description": "Ein verrosteter Dolch, dessen Klinge stumpf ist",
+      "_id": "YQM8gN1dZp9OF5qT",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1781033667151,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        76,
+        76
+      ],
+      "name": "",
+      "description": "Ein kleines Fläschchen mit funkelndem, goldenem Öl",
+      "_id": "3Q0zzvjbind0eS7S",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048968,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        77,
+        77
+      ],
+      "name": "",
+      "description": "Ein lederner Geldbeutel, der innen mit Samt gefüttert ist",
+      "_id": "70TS9QUjbXdlBr8K",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048968,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        78,
+        78
+      ],
+      "name": "",
+      "description": "Ein Stück Kreide, das rot schreibt",
+      "_id": "hMiw2lym1mFF6aIj",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048968,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        79,
+        79
+      ],
+      "name": "",
+      "description": "Ein kleiner, töpferner Krug mit Deckel",
+      "_id": "VOcTXskLaRV2GxI1",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048968,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        80,
+        80
+      ],
+      "name": "",
+      "description": "Eine alte Münze, die in der Mitte durchgebohrt wurde",
+      "_id": "BFsQZsCMVLLXGnbY",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048969,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        81,
+        81
+      ],
+      "name": "",
+      "description": "Ein kleiner Beutel mit Weihrauch",
+      "_id": "v7sWctfLwDI0UkfT",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048969,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        82,
+        82
+      ],
+      "name": "",
+      "description": "Ein hölzerner Kamm, dem einige Zacken fehlen",
+      "_id": "pZhJzJ87lSWSM79T",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048969,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        83,
+        83
+      ],
+      "name": "",
+      "description": "Ein Stück Pergament mit einer Skizze einer unbekannten Blume",
+      "_id": "Nz1tazKJznwN1tNU",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048969,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        84,
+        84
+      ],
+      "name": "",
+      "description": "Ein kleiner, eiserner Ring, der zu eng für Finger ist",
+      "_id": "ZrFkm5cTQvuy82kr",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048969,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        85,
+        85
+      ],
+      "name": "",
+      "description": "Eine Handvoll getrockneter Beeren",
+      "_id": "0wMLqxgLHXNkA7CM",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048969,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        86,
+        86
+      ],
+      "name": "",
+      "description": "Ein kleiner Beutel mit feinem, weißem Sand",
+      "_id": "gdo9hmhqEJ4VoiGe",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080849,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        87,
+        87
+      ],
+      "name": "",
+      "description": "Ein Stück Seife, das nach Honig duftet",
+      "_id": "QEyBtc8frR92H0pt",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048970,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        88,
+        88
+      ],
+      "name": "",
+      "description": "Eine kleine, leere Blechschachtel",
+      "_id": "lPN2auLJWVCTRUzl",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080849,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        89,
+        89
+      ],
+      "name": "",
+      "description": "Ein verrosteter Nagel, der krumm gebogen ist",
+      "_id": "V4XWyo6XhHPqF2oM",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048970,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        90,
+        90
+      ],
+      "name": "",
+      "description": "Ein kleiner, gläserner Flakon mit klarem Wasser",
+      "_id": "VNaTD6g4TUrnsaII",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048970,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        91,
+        91
+      ],
+      "name": "",
+      "description": "Ein ledernes Band mit einer kleinen Messingschnalle",
+      "_id": "kwvdKlFEXocFIVBJ",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080850,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        92,
+        92
+      ],
+      "name": "",
+      "description": "Ein Stück Kohle, das nicht abfärbt",
+      "_id": "NdVO5OHKJkA1X2Bz",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048970,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        93,
+        93
+      ],
+      "name": "",
+      "description": "Ein kleiner Beutel voll getrockneter Rosenblätter",
+      "_id": "G5AWUVuTwuPAMUP0",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048970,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        94,
+        94
+      ],
+      "name": "",
+      "description": "Ein kleiner, eiserner Schlüssel, sehr kunstvoll gefertigt",
+      "_id": "TfoD2pAvskNWuwZf",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048971,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        95,
+        95
+      ],
+      "name": "",
+      "description": "Ein Stück Stoff mit einer feinen Goldstickerei am Rand",
+      "_id": "PobXdhKRp5h8XiqK",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048971,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        96,
+        96
+      ],
+      "name": "",
+      "description": "Ein kleiner, hölzerner Löffel",
+      "_id": "rUNgFL0XWMdSYCt3",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048971,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        97,
+        97
+      ],
+      "name": "",
+      "description": "Eine kleine Flasche voll dickflüssiger, roter Tinte",
+      "_id": "3qvoK9CIeSgOUB8J",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048971,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        98,
+        98
+      ],
+      "name": "",
+      "description": "Ein kleiner, runder Stein mit einem natürlichen Loch in der Mitte",
+      "_id": "bEihxPzGYAHquJGV",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048971,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        99,
+        99
+      ],
+      "name": "",
+      "description": "Ein Stück Pergament mit Notizen über das Wetter",
+      "_id": "vQats2MjdLViawcn",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957080851,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "range": [
+        100,
+        100
+      ],
+      "name": "",
+      "description": "Ein kleiner, silberner Ring mit einem winzigen Riss",
+      "_id": "PyCsua6MOzDxo5h0",
+      "type": "text",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "weight": 1,
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780954241591,
+        "modifiedTime": 1780957048972,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "folder": "te4W4lyYNDuvKq72",
+  "img": "icons/svg/d20-grey.svg",
+  "replacement": true,
+  "displayRoll": true,
+  "ownership": {
+    "default": 2
+  },
+  "flags": {
+    "scene-packer": {
+      "hash": "7352b6b428ad0b4bb2e2d29f044a5f4fe82e7cab"
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.3",
+    "createdTime": 1780954241591,
+    "modifiedTime": 1788471708767,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.ow7Q2JlvekX2VKQF",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

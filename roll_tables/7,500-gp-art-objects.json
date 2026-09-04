@@ -1,1 +1,331 @@
-{...truncated...}
+{
+  "name": "7,500 GP Art Objects",
+  "formula": "1d10",
+  "description": "<div class=\"ve-muted\"><i>Object</i></div>",
+  "results": [
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Jeweled gold crown|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "1-1"
+        }
+      },
+      "_id": "tHNtEjn59mgyNrub",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Jeweled platinum ring|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "2-2"
+        }
+      },
+      "_id": "8wSqJbgL3U1tO3Wq",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Gold statuette set with rubies|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "3-3"
+        }
+      },
+      "_id": "gvI5quSQ2bWZocW8",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Gold cup set with emeralds|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "4-4"
+        }
+      },
+      "_id": "tJ9VQJbtruTewpqz",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Gold jewelry box with platinum filigree|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "5-5"
+        }
+      },
+      "_id": "CaBDWq4jnAs5Kn37",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Set of gold nesting dolls|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "6-6"
+        }
+      },
+      "_id": "QWqGw4A0BHh3j5ny",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Jade game board with gold playing pieces|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "7-7"
+        }
+      },
+      "_id": "BzLfzXjHGupYyk4r",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Bejeweled ivory drinking horn with gold filigree|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "8-8"
+        }
+      },
+      "_id": "D3fuSg3fZwivwpqf",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Gilded royal coach or funeral barge|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "9-9"
+        }
+      },
+      "_id": "v3waoIoJLwO1Iklz",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Ceremonial gold armor with black pearls|XDMG]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "10-10"
+        }
+      },
+      "_id": "PXsZKfzUynRgqq0r",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780944987956,
+        "modifiedTime": 1780944987956,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "ownership": {
+    "default": 2
+  },
+  "flags": {
+    "plutonium": {
+      "page": "tables.html",
+      "source": "XDMG",
+      "hash": "7%2c500%20gp%20art%20objects_xdmg"
+    },
+    "scene-packer": {
+      "hash": "f966a72c6cd9c5ab88406615a926efef3130123c"
+    }
+  },
+  "folder": "cmW65dgLwso0LeUl",
+  "_stats": {
+    "systemVersion": "5.3.3",
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "createdTime": 1780944987956,
+    "modifiedTime": 1788471694750,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.JRnbuJ4IyttOFpKA",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

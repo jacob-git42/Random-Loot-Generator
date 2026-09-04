@@ -1,1 +1,331 @@
-{...truncated...}
+{
+  "name": "100 GP Gemstones",
+  "formula": "1d10",
+  "description": "<div class=\"ve-muted\"><i>Stone</i></div>",
+  "results": [
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Amber|XDMG] (watery gold to rich gold)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "1-1"
+        }
+      },
+      "_id": "Ohpj8KSeQyU2NYlj",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Amethyst|XDMG] (deep purple)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "2-2"
+        }
+      },
+      "_id": "D2RpcfpYAapqeGkz",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Chrysoberyl|XDMG] (yellow green to pale green)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "3-3"
+        }
+      },
+      "_id": "2KV8LM00L5ZsnKMR",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Coral|XDMG] (crimson)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "4-4"
+        }
+      },
+      "_id": "DVCJ2uulmPm8qZSN",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Garnet|XDMG] (red, brown green, or violet)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "5-5"
+        }
+      },
+      "_id": "UIsDVZfZJVa2yJcb",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Jade|XDMG] (light green, deep green, or white)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "6-6"
+        }
+      },
+      "_id": "aybphOjTq9MC0JlJ",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Jet|XDMG] (deep black)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "7-7"
+        }
+      },
+      "_id": "Mll2iVz3PDPJblIg",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Pearl|XDMG] (lustrous white, yellow, or pink)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "8-8"
+        }
+      },
+      "_id": "WAk7B5nL49rnXGLf",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Spinel|XDMG] (red, red brown, or deep green)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "9-9"
+        }
+      },
+      "_id": "MAb0OWh9sKYcHb5P",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Tourmaline|XDMG] (pale green, blue, brown, or red)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "10-10"
+        }
+      },
+      "_id": "AitLV84HwiC8Y0TE",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077145,
+        "modifiedTime": 1780956077145,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "ownership": {
+    "default": 2
+  },
+  "flags": {
+    "plutonium": {
+      "page": "tables.html",
+      "source": "XDMG",
+      "hash": "100%20gp%20gemstones_xdmg"
+    },
+    "scene-packer": {
+      "hash": "2f3df7d7a30320a3ec3015db13c04ce31b1baf8c"
+    }
+  },
+  "folder": "cmW65dgLwso0LeUl",
+  "_stats": {
+    "systemVersion": "5.3.3",
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "createdTime": 1780956077145,
+    "modifiedTime": 1788471694732,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.jMSa0D3VishGEgcA",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

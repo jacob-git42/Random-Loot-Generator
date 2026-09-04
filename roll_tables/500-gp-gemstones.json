@@ -1,1 +1,215 @@
-{...truncated...}
+{
+  "name": "500 GP Gemstones",
+  "formula": "1d6",
+  "description": "<div class=\"ve-muted\"><i>Stone</i></div>",
+  "results": [
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Alexandrite|XDMG] (dark green)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "1-1"
+        }
+      },
+      "_id": "rV9wcuRLLKaB3G4S",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077206,
+        "modifiedTime": 1780956077206,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Aquamarine|XDMG] (pale blue green)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "2-2"
+        }
+      },
+      "_id": "KKWfN8e26np2Hdw6",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077206,
+        "modifiedTime": 1780956077206,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Black pearl|XDMG] (pure black)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "3-3"
+        }
+      },
+      "_id": "0qBc2KBwv0OTWO95",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077206,
+        "modifiedTime": 1780956077206,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Blue spinel|XDMG] (deep blue)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "4-4"
+        }
+      },
+      "_id": "v040NhWU9cDD6pRV",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077206,
+        "modifiedTime": 1780956077206,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Peridot|XDMG] (rich olive green)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "5-5"
+        }
+      },
+      "_id": "1uSyuSMvbFFUfJO0",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077206,
+        "modifiedTime": 1780956077206,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Topaz|XDMG] (golden yellow)",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "6-6"
+        }
+      },
+      "_id": "3zE0xSbU1qPyfE0N",
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1780956077206,
+        "modifiedTime": 1780956077206,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "ownership": {
+    "default": 2
+  },
+  "flags": {
+    "plutonium": {
+      "page": "tables.html",
+      "source": "XDMG",
+      "hash": "500%20gp%20gemstones_xdmg"
+    },
+    "scene-packer": {
+      "hash": "46c03c493d6ab88ed251bf82f5c9162563f7028d"
+    }
+  },
+  "folder": "cmW65dgLwso0LeUl",
+  "_stats": {
+    "systemVersion": "5.3.3",
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "createdTime": 1780956077206,
+    "modifiedTime": 1788471694750,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.scn16SJ5Eyx1mPtu",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

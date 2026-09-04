@@ -1,1 +1,502 @@
-{...truncated...}
+{
+  "name": "Magic Item Table D",
+  "formula": "d100",
+  "description": "<div class=\"ve-muted\"><i>Magic Item</i></div>",
+  "results": [
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of supreme healing]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        20
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "1-20"
+        }
+      },
+      "_id": "IgtRQqgHNaaKFiCw",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of invisibility]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        21,
+        30
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "21-30"
+        }
+      },
+      "_id": "qzYcSuOZrqqom8PX",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of speed]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        31,
+        40
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "31-40"
+        }
+      },
+      "_id": "ZWFyqUQ6ZccpgiB2",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Spell scroll (6th level)]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        41,
+        50
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "41-50"
+        }
+      },
+      "_id": "SmPFJ6EaRAZy7O82",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Spell scroll (7th level)]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        51,
+        57
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "51-57"
+        }
+      },
+      "_id": "ptH4rOJeCQSWFgQk",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[+3 ammunition]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        58,
+        62
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "58-62"
+        }
+      },
+      "_id": "3m07OlXcZ9np1786",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Oil of sharpness]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        63,
+        67
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "63-67"
+        }
+      },
+      "_id": "UokwXnXd6DIs8dM2",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of flying]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        68,
+        72
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "68-72"
+        }
+      },
+      "_id": "7ufwEQ8xEAeuPEGb",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of cloud giant strength]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        73,
+        77
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "73-77"
+        }
+      },
+      "_id": "8m6WRtbvgSXqxYlG",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of longevity]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        78,
+        82
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "78-82"
+        }
+      },
+      "_id": "OnrhEVONWgQ9hZL3",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of vitality]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        83,
+        87
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "83-87"
+        }
+      },
+      "_id": "iB9mHc590eCSMAFx",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Spell scroll (8th level)]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        88,
+        92
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "88-92"
+        }
+      },
+      "_id": "cDp4UtCKfMXaanb1",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Horseshoes of a zephyr]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        93,
+        95
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "93-95"
+        }
+      },
+      "_id": "rB1WEOcdhvPeFq6M",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Nolzur's marvelous pigments]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        96,
+        98
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "96-98"
+        }
+      },
+      "_id": "0yS4xrLMNj5DyL6C",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Bag of devouring]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        99,
+        99
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "99-99"
+        }
+      },
+      "_id": "evE0yPuDET0zJTJv",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Portable hole]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "100-100"
+        }
+      },
+      "_id": "l8VI91ynGql375bC",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697652,
+        "modifiedTime": 1788467697652,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "ownership": {
+    "default": 2
+  },
+  "flags": {
+    "plutonium": {
+      "page": "tables.html",
+      "source": "DMG",
+      "hash": "magic%20item%20table%20d_dmg"
+    }
+  },
+  "folder": "cmW65dgLwso0LeUl",
+  "_stats": {
+    "systemVersion": "5.3.3",
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "createdTime": 1788467697652,
+    "modifiedTime": 1788471694757,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.hD234IrZeH0gDWY0",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

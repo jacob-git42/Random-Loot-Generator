@@ -1,1 +1,1053 @@
-{...truncated...}
+{
+  "name": "Magic Item Table B",
+  "formula": "d100",
+  "description": "<div class=\"ve-muted\"><i>Magic Item</i></div>",
+  "results": [
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of greater healing]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        1,
+        15
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "1-15"
+        }
+      },
+      "_id": "pfzbSJSGQJbZi0x3",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of fire breath]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        16,
+        22
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "16-22"
+        }
+      },
+      "_id": "Y7lyO1hkKbgxPFjE",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of resistance]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        23,
+        29
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "23-29"
+        }
+      },
+      "_id": "uMCZcbx4PcstBa3i",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[+1 ammunition]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        30,
+        34
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "30-34"
+        }
+      },
+      "_id": "L2IvucBQDFag1lhn",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of animal friendship]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        35,
+        39
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "35-39"
+        }
+      },
+      "_id": "xvhsm3yTDNEq0pSr",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of hill giant strength]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        40,
+        44
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "40-44"
+        }
+      },
+      "_id": "Umg3BBTka3koJDFd",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of growth]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        45,
+        49
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "45-49"
+        }
+      },
+      "_id": "DbckFiBSbrEYT7y1",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of water breathing]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        50,
+        54
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "50-54"
+        }
+      },
+      "_id": "tsy6VOL1KmaamIT8",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Spell scroll (2nd level)]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        55,
+        59
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "55-59"
+        }
+      },
+      "_id": "0TzawP98RZKW7zDI",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Spell scroll (3rd level)]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        60,
+        64
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "60-64"
+        }
+      },
+      "_id": "Irn2Q4nxqhE23otN",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Bag of holding]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        65,
+        67
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "65-67"
+        }
+      },
+      "_id": "eaFM7q6HC3jhzicO",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Keoghtom's ointment]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        68,
+        70
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "68-70"
+        }
+      },
+      "_id": "LNFkv5CX7FbO47Gp",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Oil of slipperiness]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        71,
+        73
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "71-73"
+        }
+      },
+      "_id": "Pnuc7266SctnIGlJ",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Dust of disappearance]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        74,
+        75
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "74-75"
+        }
+      },
+      "_id": "W3J943aYqRH041ED",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Dust of dryness]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        76,
+        77
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "76-77"
+        }
+      },
+      "_id": "B1HoZpgnSd4xwPl2",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Dust of sneezing and choking]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        78,
+        79
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "78-79"
+        }
+      },
+      "_id": "aJ19ECQryw8N3LvI",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Elemental gem]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        80,
+        81
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "80-81"
+        }
+      },
+      "_id": "AcjZ8RKjmb3E0IMm",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Philter of love]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        82,
+        83
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "82-83"
+        }
+      },
+      "_id": "W7pHBXxaIUBYHGgQ",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Alchemy jug]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        84,
+        84
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "84-84"
+        }
+      },
+      "_id": "QcUex3UmeHFF1Qza",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Cap of water breathing]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        85,
+        85
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "85-85"
+        }
+      },
+      "_id": "CLlaLamaw2cFbwjH",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Cloak of the manta ray]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        86,
+        86
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "86-86"
+        }
+      },
+      "_id": "iThqnudZ6PjkpJCf",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Driftglobe]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        87,
+        87
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "87-87"
+        }
+      },
+      "_id": "FUNTfAPwrsEpvWlx",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Goggles of night]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        88,
+        88
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "88-88"
+        }
+      },
+      "_id": "zXjzSOJm8m8dgn8r",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Helm of comprehending languages]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        89,
+        89
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "89-89"
+        }
+      },
+      "_id": "5oC8UhweelaovWIT",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Immovable rod]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        90,
+        90
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "90-90"
+        }
+      },
+      "_id": "HH9Ify7qHlzR3Mlv",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Lantern of revealing]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        91,
+        91
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "91-91"
+        }
+      },
+      "_id": "aNz4qZVD3hMwVpx3",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Mariner's armor]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        92,
+        92
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "92-92"
+        }
+      },
+      "_id": "xVRZODX6ij2cISPa",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Mithral armor]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        93,
+        93
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "93-93"
+        }
+      },
+      "_id": "0aIWQdgAEcmg3lol",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Potion of poison]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        94,
+        94
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "94-94"
+        }
+      },
+      "_id": "yUv4xVmYm2BU1xQI",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Ring of swimming]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        95,
+        95
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "95-95"
+        }
+      },
+      "_id": "PH2KRaYxnDZby1e6",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Robe of useful items]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        96,
+        96
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "96-96"
+        }
+      },
+      "_id": "zz4X0LJgOzaH9l2A",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Rope of climbing]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        97,
+        97
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "97-97"
+        }
+      },
+      "_id": "YSuc7G76t2u65UvR",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Saddle of the cavalier]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        98,
+        98
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "98-98"
+        }
+      },
+      "_id": "0Nc7aAOleqlUj7If",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Wand of magic detection]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        99,
+        99
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "99-99"
+        }
+      },
+      "_id": "djm1wklKiH60s8EF",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "type": "text",
+      "name": "",
+      "description": "@item[Wand of secrets]",
+      "img": "icons/svg/d20-black.svg",
+      "weight": 1,
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "flags": {
+        "plutonium": {
+          "dedupeId": "100-100"
+        }
+      },
+      "_id": "xWxABDivufLfkYUf",
+      "_stats": {
+        "coreVersion": "14.367",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.3",
+        "createdTime": 1788467697216,
+        "modifiedTime": 1788467697216,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "ownership": {
+    "default": 2
+  },
+  "flags": {
+    "plutonium": {
+      "page": "tables.html",
+      "source": "DMG",
+      "hash": "magic%20item%20table%20b_dmg"
+    }
+  },
+  "folder": "cmW65dgLwso0LeUl",
+  "_stats": {
+    "systemVersion": "5.3.3",
+    "coreVersion": "14.367",
+    "systemId": "dnd5e",
+    "createdTime": 1788467697216,
+    "modifiedTime": 1788471694754,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.sBW8jf8SX1x3lplV",
+      "coreVersion": "14.367",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    }
+  }
+}

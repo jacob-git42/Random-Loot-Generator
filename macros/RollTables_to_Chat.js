@@ -10,8 +10,8 @@ const lootCounterSettingsKey = "lootCounters";
 const RECOMMENDED_HOARDS = {
   tier1: 7,
   tier2: 18,
-  tier3: 6,
-  tier4: 4
+  tier3: 12,
+  tier4: 6
 };
 
 const individualTreasureRanges = [

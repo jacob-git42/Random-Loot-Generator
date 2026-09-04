@@ -4,40 +4,34 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 9;
 
-// 1. Definition des Sidebar-Tabs über das Core-SidebarTab-System
-class LootSidebarPanel extends SidebarTab {
-  constructor(options) {
-    super(options);
-    this.tabName = 'jacobs-loot-generator';
-  }
-
+// 1. Eigenständiges Fenster für den Loot Generator
+class JacobsLootGeneratorApp extends Application {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: 'jacobs-loot-generator',
+      id: 'jacobs-loot-generator-app',
+      title: 'Loot Generator',
       template: `modules/${MODULE_ID}/templates/loot-panel.html`,
-      title: 'Loot Generator'
+      width: 320,
+      height: 'auto',
+      resizable: true
     });
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Events für die 6 Makro-Buttons
     html.find('[data-action="run-macro"]').on('click', async (event) => {
       event.preventDefault();
       const name = event.currentTarget.dataset.name;
       const macro = game.macros.find(m => m.name === name);
-      
       if (macro) {
         await macro.execute();
       } else {
-        ui.notifications.warn(`Makro nicht gefunden: ${name}`);
+        ui.notifications.warn(`Macro not found: ${name}`);
       }
     });
   }
 }
-
-let lootPanelInstance = null;
 
 // 2. Modul-Einstellungen
 Hooks.once('init', () => {
@@ -45,6 +39,7 @@ Hooks.once('init', () => {
 
   game.settings.register(MODULE_ID, 'enabled', {
     name: 'Enable Random Loot Generator',
+    hint: 'Enable or disable the Random Loot Generator module features',
     scope: 'world',
     config: true,
     type: Boolean,
@@ -66,6 +61,7 @@ Hooks.once('init', () => {
   });
 
   game.settings.register(MODULE_ID, 'tablesImported', {
+    name: 'Tables Imported',
     scope: 'world',
     config: false,
     type: Boolean,
@@ -73,50 +69,30 @@ Hooks.once('init', () => {
   });
 });
 
-// 3. Tab instanziieren und registrieren
+// 3. Würfel-Button in die Sidebar einfügen
 Hooks.on('renderSidebar', (app, html) => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
   const root = html?.jquery ? html : $(html);
   const tabsNav = root.find('#sidebar-tabs');
 
-  if (tabsNav.find('a[data-tab="jacobs-loot-generator"]').length > 0) return;
+  if (tabsNav.find('a[data-action="open-loot-generator"]').length > 0) return;
 
-  // Button in die Leiste einfügen
-  const tabButton = $(`
-    <a class="item" data-tab="jacobs-loot-generator" role="tab" title="Loot Generator">
+  const button = $(`
+    <a class="item" data-action="open-loot-generator" title="Loot Generator">
       <i class="fa-solid fa-dice-d4"></i>
     </a>
   `);
-  tabsNav.append(tabButton);
 
-  // Instanz erstellen und in Foundry UI registrieren
-  if (!lootPanelInstance) {
-    lootPanelInstance = new LootSidebarPanel();
-    ui.sidebar.tabs['jacobs-loot-generator'] = lootPanelInstance;
-  }
-
-  // Klick-Event verknüpfen
-  tabButton.on('click', async (event) => {
+  button.on('click', (event) => {
     event.preventDefault();
-
-    // Container erstellen, falls noch nicht existent
-    let tabContainer = root.find('#jacobs-loot-generator');
-    if (tabContainer.length === 0) {
-      tabContainer = $(`<section class="tab sidebar-tab" id="jacobs-loot-generator" data-tab="jacobs-loot-generator"></section>`);
-      root.find('#sidebar').append(tabContainer);
-    }
-
-    // Erstes Rendern des Templates
-    if (!lootPanelInstance._element) {
-      await lootPanelInstance.render(true, { container: tabContainer });
-    }
-
-    // Foundry Core sagen, dass dieser Tab jetzt aktiv ist (öffnet die Sidebar automatisch)
-    ui.sidebar.activateTab('jacobs-loot-generator');
+    new JacobsLootGeneratorApp().render(true);
   });
+
+  tabsNav.append(button);
 });
 
+// 4. Hilfsfunktionen für Makros und Säuberung
 async function createMacroFromPath(name, path) {
   try {
     const base = `modules/${MODULE_ID}`;
@@ -203,6 +179,7 @@ for (const folder of folders) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
 
+// 5. Automatische Synchronisation beim Start der Welt
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 

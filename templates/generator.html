@@ -1,0 +1,73 @@
+<div class="jacobs-loot-generator-panel flexcol">
+  <header class="panel-header">
+    <h2><i class="fa-solid fa-dice-d20"></i> Loot Generator</h2>
+  </header>
+
+  <hr>
+
+  <div class="button-group flexcol">
+    <button type="button" class="loot-btn" data-action="run-macro" data-name="Individual Treasure">
+      <i class="fa-solid fa-coins"></i> Individual Treasure
+    </button>
+
+    <button type="button" class="loot-btn" data-action="run-macro" data-name="Treasure Hoard">
+      <i class="fa-solid fa-gem"></i> Treasure Hoard
+    </button>
+
+    <button type="button" class="loot-btn" data-action="run-macro" data-name="Potions">
+      <i class="fa-solid fa-flask" style="color: #a855f7;"></i> Potions
+    </button>
+
+    <button type="button" class="loot-btn" data-action="run-macro" data-name="Spells">
+      <i class="fa-solid fa-wand-magic-sparkles" style="color: #3b82f6;"></i> Spells
+    </button>
+
+    <button type="button" class="loot-btn" data-action="run-macro" data-name="Targeted Loot">
+      <i class="fa-solid fa-crosshairs"></i> Targeted Loot
+    </button>
+
+    <button type="button" class="loot-btn" data-action="run-macro" data-name="RollTables to Chat">
+      <i class="fa-solid fa-comments"></i> RollTables to Chat
+    </button>
+  </div>
+
+  <hr>
+
+  <footer class="panel-footer">
+    <button type="button" class="loot-btn cleanup-btn" data-action="run-macro" data-name="Clean up Random Loot Generator">
+      <i class="fa-solid fa-trash"></i> Clean up Data
+    </button>
+  </footer>
+</div>
+
+<style>
+  .jacobs-loot-generator-panel {
+    gap: 8px;
+    padding: 6px;
+  }
+
+  .jacobs-loot-generator-panel .panel-header h2 {
+    text-align: center;
+    border-bottom: none;
+    margin: 4px 0;
+  }
+
+  .jacobs-loot-generator-panel .button-group {
+    gap: 6px;
+  }
+
+  .jacobs-loot-generator-panel button.loot-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 6px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  .jacobs-loot-generator-panel button.cleanup-btn {
+    color: #ef4444;
+  }
+</style>

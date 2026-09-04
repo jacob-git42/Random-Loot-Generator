@@ -11,7 +11,7 @@ const BaseAbstractSidebarTab = foundry.applications?.sidebar?.AbstractSidebarTab
 class JacobsLootSidebarTab extends BaseAbstractSidebarTab {
   static DEFAULT_OPTIONS = {
     id: 'jacobs-loot-generator',
-    tabName: 'jacobs-loot-generator',
+    tabName: 'lootGenerator',
     title: 'Loot Generator'
   };
 
@@ -79,13 +79,19 @@ Hooks.once('init', () => {
 
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
-  // Register native sidebar tab in Core CONFIG
-  CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
-    id: 'jacobs-loot-generator',
-    tooltip: 'Loot Generator',
+  // Register sidebar tab metadata
+  CONFIG.ui.sidebar.TABS.lootGenerator = {
     icon: 'fa-solid fa-dice-d4',
-    cls: JacobsLootSidebarTab
+    tooltip: 'Loot Generator'
   };
+
+  // Bind sidebar tab class to CONFIG.ui
+  CONFIG.ui.lootGenerator = JacobsLootSidebarTab;
+
+  // Inject the custom tab right before the settings gear icon
+  const settingsTab = CONFIG.ui.sidebar.TABS.settings;
+  delete CONFIG.ui.sidebar.TABS.settings;
+  CONFIG.ui.sidebar.TABS.settings = settingsTab;
 });
 
 // 3. Helper functions for macro creation

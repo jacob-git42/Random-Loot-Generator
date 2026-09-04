@@ -4,20 +4,25 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 9;
 
-// 1. Definition des Panels (Klassische Application für verlässliches Rendering)
-class LootSidebarPanel extends Application {
+// 1. Definition des Sidebar-Tabs über das Core-SidebarTab-System
+class LootSidebarPanel extends SidebarTab {
+  constructor(options) {
+    super(options);
+    this.tabName = 'jacobs-loot-generator';
+  }
+
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: 'jacobs-loot-generator-panel',
+      id: 'jacobs-loot-generator',
       template: `modules/${MODULE_ID}/templates/loot-panel.html`,
-      popOut: false
+      title: 'Loot Generator'
     });
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Klick-Logik für die Buttons im Panel
+    // Events für die 6 Makro-Buttons
     html.find('[data-action="run-macro"]').on('click', async (event) => {
       event.preventDefault();
       const name = event.currentTarget.dataset.name;
@@ -68,7 +73,7 @@ Hooks.once('init', () => {
   });
 });
 
-// 3. Button in die Leiste einbauen & Klick-Verhalten steuern
+// 3. Tab instanziieren und registrieren
 Hooks.on('renderSidebar', (app, html) => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
@@ -77,7 +82,7 @@ Hooks.on('renderSidebar', (app, html) => {
 
   if (tabsNav.find('a[data-tab="jacobs-loot-generator"]').length > 0) return;
 
-  // Button-HTML erzeugen
+  // Button in die Leiste einfügen
   const tabButton = $(`
     <a class="item" data-tab="jacobs-loot-generator" role="tab" title="Loot Generator">
       <i class="fa-solid fa-dice-d4"></i>
@@ -85,40 +90,30 @@ Hooks.on('renderSidebar', (app, html) => {
   `);
   tabsNav.append(tabButton);
 
-  // HTML-Container für den Tab in der Sidebar anlegen
-  let tabContainer = root.find('#jacobs-loot-generator');
-  if (tabContainer.length === 0) {
-    tabContainer = $(`<section class="tab sidebar-tab" id="jacobs-loot-generator" data-tab="jacobs-loot-generator"></section>`);
-    root.find('#sidebar').append(tabContainer);
+  // Instanz erstellen und in Foundry UI registrieren
+  if (!lootPanelInstance) {
+    lootPanelInstance = new LootSidebarPanel();
+    ui.sidebar.tabs['jacobs-loot-generator'] = lootPanelInstance;
   }
 
-  // Klick auf das Würfel-Icon
+  // Klick-Event verknüpfen
   tabButton.on('click', async (event) => {
     event.preventDefault();
 
-    // Aktiven Tab-Button optisch hervorheben
-    tabsNav.find('.item').removeClass('active');
-    tabButton.addClass('active');
-
-    // Alle anderen Tabs ausblenden & unseren anzeigen
-    root.find('.sidebar-tab').hide().removeClass('active');
-    tabContainer.show().addClass('active');
-
-    // Instanz erstellen und Template in den Container rendern
-    if (!lootPanelInstance) {
-      lootPanelInstance = new LootSidebarPanel();
+    // Container erstellen, falls noch nicht existent
+    let tabContainer = root.find('#jacobs-loot-generator');
+    if (tabContainer.length === 0) {
+      tabContainer = $(`<section class="tab sidebar-tab" id="jacobs-loot-generator" data-tab="jacobs-loot-generator"></section>`);
+      root.find('#sidebar').append(tabContainer);
     }
-    
-    // Inhalt rendern und direkt in das Tab-Fenster einsetzen
-    const renderedHtml = await lootPanelInstance._renderInner();
-    tabContainer.html(renderedHtml);
-    lootPanelInstance.activateListeners(tabContainer);
-  });
 
-  // Wenn man auf ein anderes Standard-Icon klickt, unseren Bereich ausblenden
-  tabsNav.find('a.item:not([data-tab="jacobs-loot-generator"])').on('click', () => {
-    tabButton.removeClass('active');
-    tabContainer.hide().removeClass('active');
+    // Erstes Rendern des Templates
+    if (!lootPanelInstance._element) {
+      await lootPanelInstance.render(true, { container: tabContainer });
+    }
+
+    // Foundry Core sagen, dass dieser Tab jetzt aktiv ist (öffnet die Sidebar automatisch)
+    ui.sidebar.activateTab('jacobs-loot-generator');
   });
 });
 

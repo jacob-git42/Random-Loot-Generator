@@ -4,47 +4,11 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const MACRO_SYNC_VERSION = 9;
 
-// 1. Fenster-Klasse für den Loot Generator
-class JacobsLootGeneratorApp extends Application {
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      id: 'jacobs-loot-generator-app',
-      title: 'Loot Generator',
-      template: `modules/${MODULE_ID}/templates/loot-panel.html`,
-      width: 320,
-      height: 'auto',
-      resizable: true
-    });
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    html.find('[data-action="run-macro"]').on('click', async (event) => {
-      event.preventDefault();
-      const name = event.currentTarget.dataset.name;
-      const macro = game.macros.find(m => m.name === name);
-      if (macro) {
-        await macro.execute();
-      } else {
-        ui.notifications.warn(`Macro not found: ${name}`);
-      }
-    });
-  }
-}
-
-// 2. Globaler Click-Listener (fängt den Klick vor Foundry ab)
-$(document).on('click', '[data-action="open-loot-generator"]', (event) => {
-  event.preventDefault();
-  event.stopPropagation();
-  console.log(`${MODULE_ID} | Opening Loot Generator Window`);
-  new JacobsLootGeneratorApp().render(true);
-});
-
-// 3. Modul-Einstellungen
+// 1. Modul-Initialisierung & Tab-Registrierung in CONFIG.ui.sidebar.TABS
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
 
+  // Modul-Einstellungen
   game.settings.register(MODULE_ID, 'enabled', {
     name: 'Enable Random Loot Generator',
     scope: 'world',
@@ -73,45 +37,52 @@ Hooks.once('init', () => {
     type: Boolean,
     default: false
   });
-});
 
-// 4. Button in die rechte Sidebar-Leiste einfügen
-Hooks.on('renderSidebar', (app, html) => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
-  const root = html?.jquery ? html : $(html);
-  const tabsNav = root.find('#sidebar-tabs');
+  // AppV2 SidebarTab Definition (Erst hier deklarieren, damit foundry.applications geladen ist)
+  class JacobsLootSidebarTab extends foundry.applications.sidebar.SidebarTab {
+    static DEFAULT_OPTIONS = {
+      id: 'jacobs-loot-generator',
+      tabName: 'jacobs-loot-generator',
+      title: 'Loot Generator'
+    };
 
-  if (tabsNav.find('[data-action="open-loot-generator"]').length > 0) return;
+    static PARTS = {
+      tab: {
+        template: `modules/${MODULE_ID}/templates/loot-panel.html`
+      }
+    };
 
-  const button = $(`
-    <a class="item" data-action="open-loot-generator" title="Loot Generator" style="cursor: pointer;">
-      <i class="fa-solid fa-dice-d4"></i>
-    </a>
-  `);
+    _attachPartListeners(partId, htmlElement, options) {
+      super._attachPartListeners(partId, htmlElement, options);
 
-  tabsNav.append(button);
+      // Klick-Events für die Buttons im Tab
+      htmlElement.querySelectorAll('[data-action="run-macro"]').forEach(button => {
+        button.addEventListener('click', async (event) => {
+          event.preventDefault();
+          const name = event.currentTarget.dataset.name;
+          const macro = game.macros.find(m => m.name === name);
+          if (macro) {
+            await macro.execute();
+          } else {
+            ui.notifications.warn(`Macro not found: ${name}`);
+          }
+        });
+      });
+    }
+  }
+
+  // Offizielle Registrierung im Foundry Core System
+  CONFIG.ui.sidebar.TABS['jacobs-loot-generator'] = {
+    id: 'jacobs-loot-generator',
+    tooltip: 'Loot Generator',
+    icon: 'fa-solid fa-dice-d4',
+    cls: JacobsLootSidebarTab
+  };
 });
 
-// 5. ZUSÄTZLICH: Button im Kopfteil der Würfeltabellen (RollTables) einbinden
-Hooks.on('renderRollTableDirectory', (app, html) => {
-  if (!game.settings.get(MODULE_ID, 'enabled')) return;
-
-  const root = html?.jquery ? html : $(html);
-  const header = root.find('.directory-header .action-buttons');
-
-  if (header.find('[data-action="open-loot-generator"]').length > 0) return;
-
-  const btn = $(`
-    <button type="button" data-action="open-loot-generator" class="open-loot-btn">
-      <i class="fa-solid fa-dice-d4"></i> Loot Generator
-    </button>
-  `);
-
-  header.append(btn);
-});
-
-// 6. Hilfsfunktionen für Makros & Cleanup
+// 2. Hilfsfunktionen für Makro-Erstellung
 async function createMacroFromPath(name, path) {
   try {
     const base = `modules/${MODULE_ID}`;
@@ -166,7 +137,7 @@ for (const folder of folders) await folder.delete();
 
 ui.notifications.info('Random Loot Generator data was removed.');`;
 
-// 7. Automatische Tabellen- & Makro-Erstellung beim Start
+// 3. Automatische Tabellen- & Makro-Synchronisation beim Welt-Start
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 

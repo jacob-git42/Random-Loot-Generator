@@ -527,11 +527,11 @@ if (options) {
           });
 
           const chatContent = `
-            <div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.18), rgba(20,18,12,0.10)); text-align: center; box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.18);">
-              <p style="margin: 0 0 4px 0; font-size: 0.78em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Treasure Opportunity</p>
-              <p style="margin: 0 0 10px 0; font-weight: bold; font-size: 1.08em; color: #2f2a1d;">${randomTitle}</p>
+            <div class="loot-card loot-card--reveal">
+              <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Treasure Opportunity</p>
+              <p class="loot-card__headline">${randomTitle}</p>
 
-              <a class="content-link" data-link data-type="Macro" data-uuid="Macro.${selectedMacro.id}" style="background: linear-gradient(180deg, #8e6c2e, #6c5122); color: #fff7e6 !important; padding: 9px 16px; border-radius: 6px; display: inline-block; text-decoration: none; border: 1px solid #4d3a17; font-weight: bold; box-shadow: 0 1px 0 rgba(255,231,176,0.28) inset, 0 2px 6px rgba(0,0,0,0.25);">
+              <a class="content-link loot-card__button" data-link data-type="Macro" data-uuid="Macro.${selectedMacro.id}">
                 ⚡ Reveal Loot ⚡
               </a>
             </div>
@@ -549,8 +549,8 @@ if (options) {
               
               if (targetMsg && targetMsg.content.includes('⚡ Reveal Loot ⚡')) {
                 const lockedContent = targetMsg.content.replace(
-                  /<a class="content-link"[\s\S]*?⚡ Reveal Loot ⚡\s*<\/a>/,
-                  `<span style="background: linear-gradient(180deg, #3e3a32, #2d2a24); color: #c4b8a4 !important; padding: 9px 16px; border-radius: 6px; display: inline-block; border: 1px solid #575044; font-weight: bold; cursor: not-allowed; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);">🔒 Loot Claimed 🔒</span>`
+                  /<a class="content-link[^\"]*"[\s\S]*?⚡ Reveal Loot ⚡\s*<\/a>/,
+                  `<span class="loot-card__button--locked">🔒 Loot Claimed 🔒</span>`
                 );
                 
                 await targetMsg.update({ content: lockedContent });

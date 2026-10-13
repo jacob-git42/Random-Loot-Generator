@@ -184,6 +184,7 @@ async function runLootRolls(countResolver, includeClaim = false) {
 	}
 
 	let goldRoll = await new Roll(totalFormulaParts.join(" + ")).evaluate();
+	const goldPerPlayer = Math.ceil(goldRoll.total / 4);
   
 	let foundTrinkets = [];
 	let foundGems = [];
@@ -227,30 +228,30 @@ async function runLootRolls(countResolver, includeClaim = false) {
   
 	if (foundTrinkets.length > 0) {
 		lootSections += `
-			<p style="margin: 10px 0 3px 0; font-weight: bold; color: #8a6d3b;"><i class="fas fa-backpack"></i> Pocket Contents / Plunder:</p>
+			<p class="loot-card__section loot-card__section--plunder" style="margin: 10px 0 3px 0; font-weight: bold;"><i class="fas fa-backpack"></i> Pocket Contents / Plunder:</p>
 			<ul style="font-size: 0.85em; margin: 0; padding-left: 20px;">${foundTrinkets.join("")}</ul>
 		`;
 	}
 
 	if (foundGems.length > 0) {
 		lootSections += `
-			<p style="margin: 10px 0 3px 0; font-weight: bold; color: #31708f;"><i class="fas fa-gem"></i> Gemstones:</p>
+			<p class="loot-card__section loot-card__section--gems" style="margin: 10px 0 3px 0; font-weight: bold;"><i class="fas fa-gem"></i> Gemstones:</p>
 			<ul style="font-size: 0.85em; margin: 0; padding-left: 20px;">${foundGems.join("")}</ul>
 		`;
 	}
 
 	if (foundMagic.length > 0) {
 		lootSections += `
-			<p style="margin: 10px 0 3px 0; font-weight: bold; color: #3c763d;"><i class="fas fa-wand-magic-sparkles"></i> Rare Find! (Magic):</p>
+			<p class="loot-card__section loot-card__section--magic" style="margin: 10px 0 3px 0; font-weight: bold;"><i class="fas fa-wand-magic-sparkles"></i> Rare Find! (Magic):</p>
 			<ul style="font-size: 0.85em; margin: 0; padding-left: 20px;">${foundMagic.join("")}</ul>
 		`;
 	}
 
 	const chatContent = `
-		<div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);">
-			<p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Encounter Reward</p>
-			<h3 style="margin-top: 0; border-bottom: 1px solid rgba(123,99,48,0.45); padding-bottom: 6px; font-size: 1.1em; color: #2f2a1d;">
-				<i class="fas fa-coins" style="color: #dfa511;"></i> Individual Loot
+		<div class="loot-card">
+			<p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Encounter Reward</p>
+			<h3>
+				<i class="fas fa-coins loot-card__icon--gold"></i> Individual Loot
 			</h3>
 			<p style="font-size: 0.9em; margin: 0;">Defeated creatures by tier:</p>
 			<ul style="font-size: 0.85em; margin-top: 5px; padding-left: 20px;">${summaryText}</ul>
@@ -258,7 +259,7 @@ async function runLootRolls(countResolver, includeClaim = false) {
 			${lootSections}
 			<hr>
 			<p style="margin-top: 10px; font-size: 1.1em; font-weight: bold;">
-				Gold Found: <span style="color: #dfa511;"><i class="fas fa-coins"></i> ${goldRoll.total} gp</span>
+				Gold per Player (4 players): <span class="loot-card__gold"><i class="fas fa-coins"></i> ${goldPerPlayer} gp each</span>
 			</p>
 		</div>
 	`;
@@ -272,9 +273,9 @@ async function runLootRolls(countResolver, includeClaim = false) {
 
 	if (includeClaim) {
 		await ChatMessage.create({
-			content: `<div style="text-align: center; color: #000000;">
+			content: `<div class="loot-card__claim">
 								<span style="display:none;">LOOT-CLAIM:INDIVIDUAL</span>
-								Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰
+								Loot Claimed: <span class="loot-card__claim-name">${game.user.name}</span> 💰
 							</div>`,
 			speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
 		});

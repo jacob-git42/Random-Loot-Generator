@@ -23,14 +23,7 @@ function ensurePotionsSettingRegistered() {
   }
 }
 
-// 1. Zuerst Setting registrieren
 ensurePotionsSettingRegistered();
-
-// 2. Danach altes Preset bei manuellem GM-Klick leeren (sicher abgefangen)
-const isFromClaim = typeof args !== "undefined" && args?.[0]?.fromClaim;
-if (game.user.isGM && !isFromClaim) {
-  await game.settings.set(potionsSettingsNamespace, potionsSettingsKey, {});
-}
 
 async function runWithPreset() {
   ensurePotionsSettingRegistered();
@@ -52,9 +45,9 @@ async function runWithPreset() {
   }
 
   const chatContent = `
-    <div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);">
-      <p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Alchemical Prize</p>
-      <h3 style="margin-top: 0; border-bottom: 1px solid rgba(123,99,48,0.45); padding-bottom: 6px; font-size: 1.1em; color: #2f2a1d;">🧪 Potions</h3>
+    <div class="loot-card">
+      <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Alchemical Prize</p>
+      <h3>🧪 Potions</h3>
       <p>Rolled <b>${count}x</b> potions:</p>
       <ul style="margin: 5px 0; padding-left: 20px;">
         ${textResults.join("")}
@@ -74,9 +67,9 @@ async function runWithPreset() {
 
 async function createPotionClaimMessage() {
   await ChatMessage.create({
-    content: `<div style="text-align: center; color: #000000;">
+    content: `<div class="loot-card__claim">
                 <span style="display:none;">LOOT-CLAIM:POTIONS</span>
-                Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰
+          Loot Claimed: <span class="loot-card__claim-name">${game.user.name}</span> 💰
               </div>`,
     speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
   });
@@ -111,9 +104,9 @@ async function runWithDialog() {
           }
 
           const chatContent = `
-            <div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);">
-              <p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Alchemical Prize</p>
-              <h3 style="margin-top: 0; border-bottom: 1px solid rgba(123,99,48,0.45); padding-bottom: 6px; font-size: 1.1em; color: #2f2a1d;">🧪 Potions</h3>
+            <div class="loot-card">
+              <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Alchemical Prize</p>
+              <h3>🧪 Potions</h3>
               <p>Rolled <b>${count}x</b> potions:</p>
               <ul style="margin: 5px 0; padding-left: 20px;">
                 ${textResults.join("")}

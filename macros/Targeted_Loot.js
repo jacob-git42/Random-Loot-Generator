@@ -14,14 +14,7 @@ function ensureTargetedLootSettingRegistered() {
   }
 }
 
-// 1. Zuerst Setting registrieren
 ensureTargetedLootSettingRegistered();
-
-// 2. Altes Preset leeren, wenn das Makro manuell geklickt wurde (nicht aus einer Claim-Card heraus)
-const isFromClaim = typeof args !== "undefined" && args?.[0]?.fromClaim;
-if (game.user.isGM && !isFromClaim) {
-  await game.settings.set(targetedLootSettingsNamespace, targetedLootSettingsKey, {});
-}
 
 async function resolveItemFromEntry(entry) {
   if (!entry) return null;
@@ -188,13 +181,13 @@ async function postTargetedLoot(entries, includeClaim = false) {
   }
 
   await ChatMessage.create({
-    content: await TextEditor.enrichHTML(`<div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);"><p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Curated Reward</p><h3 style="margin-top: 0; border-bottom: 1px solid rgba(123,99,48,0.45); padding-bottom: 6px; font-size: 1.1em; color: #2f2a1d;">💎 Treasure Found!</h3><ul style="margin: 5px 0; padding-left: 0; list-style-type: none; line-height: 1.6em;">${itemsListHtml}</ul></div>`, { async: true }),
+    content: await TextEditor.enrichHTML(`<div class="loot-card"><p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Curated Reward</p><h3>💎 Treasure Found!</h3><ul style="margin: 5px 0; padding-left: 0; list-style-type: none; line-height: 1.6em;">${itemsListHtml}</ul></div>`, { async: true }),
     speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })
   });
 
   if (includeClaim) {
     await ChatMessage.create({
-      content: `<div style="text-align: center; color: #000000;"><span style="display:none;">LOOT-CLAIM:TARGETED</span>Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰</div>`,
+      content: `<div class="loot-card__claim"><span style="display:none;">LOOT-CLAIM:TARGETED</span>Loot Claimed: <span class="loot-card__claim-name">${game.user.name}</span> 💰</div>`,
       speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
     });
   }

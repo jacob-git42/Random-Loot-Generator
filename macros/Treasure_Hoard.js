@@ -227,31 +227,33 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
     }
   }
 
+  const goldPerPlayer = Math.ceil(totalGoldValue / 4);
+
   let bonusSection = bonusItems.length > 0 ? `
     <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
-    <p style="margin: 0 0 5px 0; font-weight: bold; color: #d97706;"><i class="fas fa-magic"></i> Consumables & Scrolls:</p>
+    <p class="loot-card__section loot-card__section--magic" style="margin: 0 0 5px 0; font-weight: bold;"><i class="fas fa-magic"></i> Consumables & Scrolls:</p>
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${bonusItems.join("")}</ul>
   ` : "";
 
   // Public card for players.
   const publicChatContent = `
-    <div style="border: 1px solid #7b6330; padding: 12px; border-radius: 8px; background: linear-gradient(160deg, rgba(66,50,18,0.16), rgba(20,18,12,0.08)); box-shadow: inset 0 0 0 1px rgba(235,197,120,0.22), 0 2px 8px rgba(0,0,0,0.16);">
-      <p style="margin: 0 0 4px 0; font-size: 0.76em; letter-spacing: 0.12em; text-transform: uppercase; color: #8b6d2e; font-weight: 700;">Treasure Hoard Tier ${tier} (${safeHoards}x)</p>
-      <h3 style="margin-top: 0; border-bottom: 1px solid rgba(123,99,48,0.45); padding-bottom: 6px; font-size: 1.1em; color: #2f2a1d;">💎 Treasure Found!</h3>
+    <div class="loot-card">
+      <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Treasure Hoard Tier ${tier} (${safeHoards}x)</p>
+      <h3>💎 Treasure Found!</h3>
       
-      <p style="margin: 5px 0; font-weight: bold; color: #b45f06;"><i class="fas fa-coins"></i> Total Gold:</p>
-      <p style="margin: 0 0 8px 15px; font-size: 1.1em; font-weight: bold; color: #111111;">${totalGoldValue.toLocaleString()} GP</p>
+      <p class="loot-card__section loot-card__section--gold" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-coins"></i> Gold per Player (4 players):</p>
+      <p class="loot-card__gold" style="margin: 0 0 8px 15px; font-size: 1.1em; font-weight: bold;">${goldPerPlayer.toLocaleString()} GP each</p>
 
       <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
-      <p style="margin: 5px 0; font-weight: bold; color: #2e7d32;"><i class="fas fa-gem"></i> Gemstones:</p>
+      <p class="loot-card__section loot-card__section--gems" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-gem"></i> Gemstones:</p>
       <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${gemResults.join("")}</ul>
 
       <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
-      <p style="margin: 5px 0; font-weight: bold; color: #a84300;"><i class="fas fa-palette"></i> Art Objects:</p>
+      <p class="loot-card__section loot-card__section--art" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-palette"></i> Art Objects:</p>
       <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${artResults.join("")}</ul>
 
       <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
-      <p style="margin: 5px 0; font-weight: bold; color: #6a1b9a;"><i class="fas fa-hat-wizard"></i> Magic Items:</p>
+      <p class="loot-card__section loot-card__section--magic" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-hat-wizard"></i> Magic Items:</p>
       <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${magicItemResults.join("")}</ul>
       ${bonusSection}
     </div>
@@ -264,9 +266,9 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
   
   if (includeClaim) {
     ChatMessage.create({
-      content: `<div style="text-align: center; color: #000000;">
+      content: `<div class="loot-card__claim">
                   <span style="display:none;">LOOT-CLAIM:HOARD</span>
-                  Loot Claimed: <span style="color: #8b0000; font-weight: bold;">${game.user.name}</span> 💰
+          Loot Claimed: <span class="loot-card__claim-name">${game.user.name}</span> 💰
                 </div>`,
       speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
     });

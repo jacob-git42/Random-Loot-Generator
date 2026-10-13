@@ -1,0 +1,117 @@
+.loot-card {
+  --loot-ink: #f0ece1;
+  --loot-muted: #b9c1bb;
+  --loot-gold: #f0c96f;
+  color: var(--loot-ink);
+  background: linear-gradient(145deg, #222a28, #151a19 72%);
+  border: 1px solid #4b5b54;
+  border-top: 2px solid #b99652;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.loot-card p,
+.loot-card li,
+.loot-card h3 {
+  color: inherit;
+}
+
+.loot-card h3 {
+  margin-top: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(240, 201, 111, 0.3);
+  font-size: 1.1em;
+}
+
+.loot-card hr {
+  border: 0;
+  border-top: 1px solid rgba(185, 193, 187, 0.22);
+}
+
+.loot-card__eyebrow {
+  color: #e2c47d !important;
+  font-size: 0.76em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.loot-card__meta {
+  color: var(--loot-muted) !important;
+}
+
+.loot-card__gold,
+.loot-card__section--gold,
+.loot-card__icon--gold {
+  color: var(--loot-gold) !important;
+}
+
+.loot-card__section--plunder {
+  color: #dfc48c !important;
+}
+
+.loot-card__section--gems {
+  color: #8bd8c4 !important;
+}
+
+.loot-card__section--art {
+  color: #e8a989 !important;
+}
+
+.loot-card__section--magic {
+  color: #c5aff0 !important;
+}
+
+.loot-card a.content-link {
+  color: #f0d28a !important;
+  background: rgba(240, 201, 111, 0.1);
+  border-color: rgba(240, 201, 111, 0.28);
+}
+
+.loot-card__claim {
+  color: var(--loot-ink);
+  text-align: center;
+}
+
+.loot-card__claim-name {
+  color: #e8a989;
+  font-weight: 700;
+}
+
+.loot-card--reveal {
+  text-align: center;
+}
+
+.loot-card__headline {
+  margin: 0 0 10px;
+  color: var(--loot-ink) !important;
+  font-size: 1.08em;
+  font-weight: 700;
+}
+
+.loot-card__button {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid #e3bd69;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #e2bd6d, #b58b3f) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.22), 0 2px 6px rgba(0, 0, 0, 0.3);
+  color: #171a17 !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.loot-card__button:hover {
+  background: linear-gradient(180deg, #f0d28a, #c59b4f) !important;
+  color: #111411 !important;
+}
+
+.loot-card__button--locked {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid #59625d;
+  border-radius: 4px;
+  background: #303735;
+  color: #c4ccc6;
+  font-weight: 700;
+}

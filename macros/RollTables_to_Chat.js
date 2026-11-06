@@ -7,17 +7,6 @@ const individualTreasureSettingsKey = "individualTreasurePreset";
 // Setting key for the global counter tracking
 const lootCounterSettingsKey = "lootCounters";
 
-// Helper function to check if darkmode is enabled in Foundry settings
-function isDarkmodeEnabled() {
-  try {
-    return document.body.classList.contains("dark-mode") || 
-           (game.settings && game.settings.get("core", "colorScheme") === "dark");
-  } catch (err) {
-    // colorScheme setting doesn't exist in this version, fallback to DOM class
-    return document.body.classList.contains("dark-mode");
-  }
-}
-
 const RECOMMENDED_HOARDS = {
   tier1: 7,
   tier2: 12,
@@ -323,7 +312,7 @@ async function askIndividualTreasurePreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
+    }, { classes: [] }).render(true);
   });
 }
 
@@ -412,7 +401,7 @@ async function askTreasureHoardPreset() {
         });
       },
       close: () => resolve(null)
-    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
+    }, { classes: [] }).render(true);
   });
 }
 
@@ -713,7 +702,7 @@ async function askSpellsPreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
+    }, { classes: [] }).render(true);
   });
 }
 
@@ -750,7 +739,7 @@ async function askPotionsPreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
+    }, { classes: [] }).render(true);
   });
 }
 

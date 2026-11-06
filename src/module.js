@@ -255,17 +255,6 @@ const resetLootCountersCommand = `// Reset Specific Loot Counters Macro (Styled 
 const individualTreasureSettingsNamespace = "lootmakros";
 const lootCounterSettingsKey = "lootCounters";
 
-// Helper function to check if darkmode is enabled
-function isDarkmodeEnabled() {
-  try {
-    return document.body.classList.contains("dark-mode") || 
-           (game.settings && game.settings.get("core", "colorScheme") === "dark");
-  } catch (err) {
-    // colorScheme setting doesn't exist in this version, fallback to DOM class
-    return document.body.classList.contains("dark-mode");
-  }
-}
-
 // Helper function to format hoard counters as thirds
 // Handles both old decimal format (0.666...) and new thirds format (whole numbers)
 function formatHoardCounter(value) {
@@ -292,7 +281,7 @@ function formatHoardCounter(value) {
 }
 
 if (!game.user.isGM) {
-  ui.notifications.warn("Nur der GM kann die Loot-Zähler zurücksetzen.");
+  ui.notifications.warn("Only the GM can reset loot counters.");
 } else {
   let currentCounters;
   try {
@@ -327,9 +316,9 @@ if (!game.user.isGM) {
   const dialogContent = \`
     <form style="padding: 2px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <p style="margin: 0; font-size: 0.9em; color: #444;">Wähle die Zähler zum Zurücksetzen:</p>
+        <p style="margin: 0; font-size: 0.9em; color: #444;">Select counters to reset:</p>
         <button type="button" id="select-all-btn" style="width: auto; padding: 3px 10px; font-size: 0.8em; line-height: 1.2;">
-          <i class="fas fa-check-square"></i> Alle auswählen
+          <i class="fas fa-check-square"></i> Select All
         </button>
       </div>
 
@@ -356,12 +345,12 @@ if (!game.user.isGM) {
   \`;
 
   new Dialog({
-    title: "Loot-Zähler zurücksetzen",
+    title: "Reset Loot Counters",
     content: dialogContent,
     buttons: {
       reset: {
         icon: '<i class="fas fa-undo"></i>',
-        label: "Zurücksetzen",
+        label: "Reset",
         callback: async (html) => {
           const updatedCounters = typeof structuredClone === "function" 
             ? structuredClone(currentCounters) 
@@ -386,17 +375,17 @@ if (!game.user.isGM) {
           }
 
           if (resetCount === 0) {
-            ui.notifications.warn("Keine Zähler zum Zurücksetzen ausgewählt.");
+            ui.notifications.warn("No counters selected for reset.");
             return;
           }
 
           await game.settings.set(individualTreasureSettingsNamespace, lootCounterSettingsKey, updatedCounters);
-          ui.notifications.info(\`\${resetCount} Zähler erfolgreich zurückgesetzt!\`);
+          ui.notifications.info(\`\${resetCount} counters successfully reset!\`);
         }
       },
       cancel: {
         icon: '<i class="fas fa-times"></i>',
-        label: "Abbrechen"
+        label: "Cancel"
       }
     },
     default: "reset",
@@ -406,8 +395,8 @@ if (!game.user.isGM) {
         allChecked = !allChecked;
         html.find('input[type="checkbox"]').prop("checked", allChecked);
         $(e.currentTarget).html(allChecked 
-          ? '<i class="fas fa-minus-square"></i> Alle abwählen' 
-          : '<i class="fas fa-check-square"></i> Alle auswählen'
+          ? '<i class="fas fa-minus-square"></i> Deselect All' 
+          : '<i class="fas fa-check-square"></i> Select All'
         );
       });
 
@@ -416,7 +405,7 @@ if (!game.user.isGM) {
         function() { $(this).css("background", "rgba(0,0,0,0.03)"); }
       );
     }
-  }, { width: 420, classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
+  }, { width: 420, classes: [] }).render(true);
 }`;
 
 // 4. Automatic table & macro synchronization on world start

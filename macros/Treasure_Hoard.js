@@ -277,6 +277,12 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
     <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${artResults.join("")}</ul>
   ` : "";
 
+  let magicSection = magicItemResults.length > 0 ? `
+    <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
+    <p class="loot-card__section loot-card__section--magic" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-hat-wizard"></i> Magic Items:</p>
+    <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${magicItemResults.join("")}</ul>
+  ` : "";
+
   // Public card for players.
   const publicChatContent = `
     <div class="loot-card">
@@ -288,10 +294,7 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
 
       ${gemsSection}
       ${artSection}
-
-      <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
-      <p class="loot-card__section loot-card__section--magic" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-hat-wizard"></i> Magic Items:</p>
-      <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${magicItemResults.join("")}</ul>
+      ${magicSection}
       ${bonusSection}
     </div>
   `;

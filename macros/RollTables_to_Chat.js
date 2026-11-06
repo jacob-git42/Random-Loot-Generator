@@ -36,9 +36,19 @@ const targetedLootSettingsNamespace = "lootmakros";
 const targetedLootSettingsKey = "targetedLootPreset";
 
 // Helper function to display thirds as "X + Y/3" format
-function formatHoardCounter(thirds) {
+// Handles both old decimal format (0.666...) and new thirds format (2)
+function formatHoardCounter(value) {
+  // If value is a small decimal (0-1), it's the old format (count / 3)
+  // Convert to thirds: multiply by 3 and round
+  let thirds = value;
+  
+  if (value < 3 && value > 0 && value !== Math.floor(value)) {
+    // This looks like decimal format (e.g., 0.333, 0.666)
+    thirds = Math.round(value * 3);
+  }
+  
   const wholeHoards = Math.floor(thirds / 3);
-  const remainder = thirds % 3;
+  const remainder = Math.round(thirds % 3);
   
   if (remainder === 0) {
     return wholeHoards.toString();

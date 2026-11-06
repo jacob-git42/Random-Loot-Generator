@@ -116,37 +116,3 @@
   color: #c4ccc6;
   font-weight: 700;
 }
-
-/* Dialog button styles - ensure normal appearance */
-.dialog .dialog-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.dialog .dialog-buttons button {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1;
-  border: 1px solid #7a7971;
-  border-radius: 3px;
-  background: #f0ece1;
-  color: #1a1a1a;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.dialog .dialog-buttons button:hover {
-  background: #f5f2eb;
-  border-color: #999;
-}
-
-.dialog .dialog-buttons button i {
-  font-size: 1em;
-}

@@ -285,42 +285,6 @@ async function processGoldPayout(goldPerPlayer, selectedConfig) {
 }
 
 /**
- * Create a chat card with payout results
- */
-async function createPayoutResultCard(results, goldPerPlayer) {
-  const detailsHtml = results.details.map(detail => `<li>${detail}</li>`).join('');
-  
-  const statusColor = results.failed === 0 ? '#28a745' : (results.success > 0 ? '#ffc107' : '#dc3545');
-  const statusIcon = results.failed === 0 ? 'fa-check-circle' : (results.success > 0 ? 'fa-exclamation-circle' : 'fa-times-circle');
-  
-  const chatContent = `
-    <div class="loot-card" style="border-left: 4px solid ${statusColor};">
-      <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Gold Distribution</p>
-      <h3 style="color: ${statusColor};">
-        <i class="fas ${statusIcon}"></i> Payout Result
-      </h3>
-      <hr>
-      <p style="margin: 8px 0; font-size: 0.95em;">
-        <strong>Per Player:</strong> <i class="fas fa-coins"></i> ${goldPerPlayer.toLocaleString()} gp
-      </p>
-      <p style="margin: 8px 0; font-size: 0.9em; color: #666;">
-        Successful: ${results.success} | Failed: ${results.failed}
-      </p>
-      <ul style="font-size: 0.85em; margin: 8px 0; padding-left: 20px; color: #333;">
-        ${detailsHtml}
-      </ul>
-    </div>
-  `;
-  
-  const enrichedContent = await TextEditor.enrichHTML(chatContent, { async: true });
-  
-  await ChatMessage.create({
-    content: enrichedContent,
-    speaker: ChatMessage.getSpeaker({ alias: 'Loot System' })
-  });
-}
-
-/**
  * Main entry point: Handle gold payout workflow
  * Should be called after loot generation
  */
@@ -370,9 +334,6 @@ async function handleGoldPayout(goldPerPlayer) {
     
     // Process payout
     const results = await processGoldPayout(goldPerPlayer, selectedConfig);
-    
-    // Create result card
-    await createPayoutResultCard(results, goldPerPlayer);
     
     if (results.failed === 0) {
       ui.notifications.info(`✅ Gold successfully distributed to ${results.success} players!`);

@@ -87,7 +87,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
       formRows += `
         <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-bottom: 1px solid #ddd; background: rgba(255,165,0,0.1);">
           <label style="flex: 1; font-weight: bold; min-width: 120px;">${ownerName}</label>
-          <div style="flex: 1; color: #f39c12; font-style: italic;">Kein Charakter verfügbar</div>
+          <div style="flex: 1; color: #f39c12; font-style: italic;">No character available</div>
           <input type="checkbox" name="include-${userId}" disabled style="cursor: not-allowed; opacity: 0.5;">
         </div>
       `;
@@ -119,23 +119,23 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
   const dialogContent = `
     <form style="padding: 10px;">
       <p style="margin-bottom: 12px; font-size: 0.9em; color: #666;">
-        <strong>Wähle aus, welche Charaktere Gold erhalten sollen:</strong>
+        <strong>Select which characters should receive gold:</strong>
       </p>
       <div style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; border-radius: 4px;">
         ${formRows}
       </div>
-      <p style="margin-top: 12px; font-size: 0.85em; color: #999;">Diese Einstellung wird gespeichert und für zukünftige Auszahlungen verwendet.</p>
+      <p style="margin-top: 12px; font-size: 0.85em; color: #999;">This configuration will be saved and used for future payouts.</p>
     </form>
   `;
   
   return new Promise((resolve) => {
     new Dialog({
-      title: "Gold-Auszahlung konfigurieren",
+      title: "Configure Gold Payout",
       content: dialogContent,
       buttons: {
         save: {
           icon: '<i class="fas fa-save"></i>',
-          label: "Speichern",
+          label: "Save",
           callback: async (html) => {
             const config = {};
             
@@ -163,7 +163,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
         },
         cancel: {
           icon: '<i class="fas fa-times"></i>',
-          label: "Abbrechen",
+          label: "Cancel",
           callback: () => resolve(null)
         }
       },
@@ -192,13 +192,13 @@ async function showPayoutConfirmationDialog(goldPerPlayer, selectedPlayers, play
   const dialogContent = `
     <div style="padding: 10px;">
       <p style="margin-bottom: 15px; font-size: 0.95em;">
-        <strong>Bestätigung: Gold-Auszahlung</strong>
+        <strong>Confirm: Gold Distribution</strong>
       </p>
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 0.9em;">
         <thead>
           <tr style="background: rgba(0,0,0,0.05);">
-            <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ccc;">Spieler</th>
-            <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ccc;">Charakter</th>
+            <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ccc;">Player</th>
+            <th style="padding: 8px; text-align: left; border-bottom: 2px solid #ccc;">Character</th>
             <th style="padding: 8px; text-align: right; border-bottom: 2px solid #ccc;">Gold</th>
           </tr>
         </thead>
@@ -207,28 +207,28 @@ async function showPayoutConfirmationDialog(goldPerPlayer, selectedPlayers, play
         </tbody>
         <tfoot>
           <tr style="background: rgba(0,0,0,0.08); font-weight: bold;">
-            <td colspan="2" style="padding: 8px; border-top: 2px solid #ccc;">Insgesamt:</td>
+            <td colspan="2" style="padding: 8px; border-top: 2px solid #ccc;">Total:</td>
             <td style="padding: 8px; border-top: 2px solid #ccc; text-align: right;"><i class="fas fa-coins"></i> ${totalGold.toLocaleString()} gp</td>
           </tr>
         </tfoot>
       </table>
-      <p style="color: #666; font-size: 0.85em;">Fortfahren?</p>
+      <p style="color: #666; font-size: 0.85em;">Proceed?</p>
     </div>
   `;
   
   return new Promise((resolve) => {
     new Dialog({
-      title: "Gold-Auszahlung bestätigen",
+      title: "Confirm Gold Distribution",
       content: dialogContent,
       buttons: {
         confirm: {
           icon: '<i class="fas fa-check"></i>',
-          label: "Bestätigen & Auszahlen",
+          label: "Confirm & Distribute",
           callback: () => resolve(true)
         },
         cancel: {
           icon: '<i class="fas fa-times"></i>',
-          label: "Abbrechen",
+          label: "Cancel",
           callback: () => resolve(false)
         }
       },
@@ -273,11 +273,11 @@ async function processGoldPayout(goldPerPlayer, selectedConfig) {
       });
       
       results.success++;
-      results.details.push(`✅ ${config.characterName}: +${goldPerPlayer.toLocaleString()} gp (gesamt: ${newGold.toLocaleString()} gp)`);
+      results.details.push(`✅ ${config.characterName}: +${goldPerPlayer.toLocaleString()} gp (total: ${newGold.toLocaleString()} gp)`);
     } catch (err) {
       console.error(`${MODULE_ID} | Gold payout error for ${config.characterName}:`, err);
       results.failed++;
-      results.details.push(`❌ ${config.characterName}: Fehler beim Speichern`);
+      results.details.push(`❌ ${config.characterName}: Error saving`);
     }
   }
   
@@ -295,16 +295,16 @@ async function createPayoutResultCard(results, goldPerPlayer) {
   
   const chatContent = `
     <div class="loot-card" style="border-left: 4px solid ${statusColor};">
-      <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Gold-Auszahlung</p>
+      <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Gold Distribution</p>
       <h3 style="color: ${statusColor};">
-        <i class="fas ${statusIcon}"></i> Auszahlungsergebnis
+        <i class="fas ${statusIcon}"></i> Payout Result
       </h3>
       <hr>
       <p style="margin: 8px 0; font-size: 0.95em;">
-        <strong>Pro Spieler:</strong> <i class="fas fa-coins"></i> ${goldPerPlayer.toLocaleString()} gp
+        <strong>Per Player:</strong> <i class="fas fa-coins"></i> ${goldPerPlayer.toLocaleString()} gp
       </p>
       <p style="margin: 8px 0; font-size: 0.9em; color: #666;">
-        Erfolgreich: ${results.success} | Fehler: ${results.failed}
+        Successful: ${results.success} | Failed: ${results.failed}
       </p>
       <ul style="font-size: 0.85em; margin: 8px 0; padding-left: 20px; color: #333;">
         ${detailsHtml}
@@ -326,7 +326,7 @@ async function createPayoutResultCard(results, goldPerPlayer) {
  */
 async function handleGoldPayout(goldPerPlayer) {
   if (!game.user?.isGM) {
-    ui.notifications.warn('Nur der GM kann Gold auszahlen.');
+    ui.notifications.warn('Only the GM can distribute gold.');
     return;
   }
   
@@ -335,7 +335,7 @@ async function handleGoldPayout(goldPerPlayer) {
     const playerCharactersMap = await getPlayerCharactersMap();
     
     if (Object.keys(playerCharactersMap).length === 0) {
-      ui.notifications.warn('Keine Spieler-Charaktere gefunden.');
+      ui.notifications.warn('No player characters found.');
       return;
     }
     
@@ -344,11 +344,11 @@ async function handleGoldPayout(goldPerPlayer) {
     
     // If no config exists or is incomplete, show configuration dialog
     if (Object.keys(selectedConfig).length === 0) {
-      ui.notifications.info('Gold-Auszahlung: Bitte wähle die Charaktere aus.');
+      ui.notifications.info('Gold payout: Please select which characters should receive gold.');
       selectedConfig = await showPayoutConfigurationDialog(playerCharactersMap);
       
       if (!selectedConfig) {
-        ui.notifications.info('Gold-Auszahlung abgebrochen.');
+        ui.notifications.info('Gold payout cancelled.');
         return;
       }
     }
@@ -364,7 +364,7 @@ async function handleGoldPayout(goldPerPlayer) {
     );
     
     if (!confirmed) {
-      ui.notifications.info('Gold-Auszahlung abgebrochen.');
+      ui.notifications.info('Gold payout cancelled.');
       return;
     }
     
@@ -375,16 +375,16 @@ async function handleGoldPayout(goldPerPlayer) {
     await createPayoutResultCard(results, goldPerPlayer);
     
     if (results.failed === 0) {
-      ui.notifications.info(`✅ Gold erfolgreich an ${results.success} Spieler ausgezahlt!`);
+      ui.notifications.info(`✅ Gold successfully distributed to ${results.success} players!`);
     } else if (results.success > 0) {
-      ui.notifications.warn(`⚠️ Gold teilweise ausgezahlt (${results.success}/${results.success + results.failed})`);
+      ui.notifications.warn(`⚠️ Gold partially distributed (${results.success}/${results.success + results.failed})`);
     } else {
-      ui.notifications.error('❌ Gold-Auszahlung fehlgeschlagen.');
+      ui.notifications.error('❌ Gold distribution failed.');
     }
     
   } catch (err) {
     console.error(`${MODULE_ID} | Gold payout workflow error:`, err);
-    ui.notifications.error('Fehler bei der Gold-Auszahlung. Siehe Console für Details.');
+    ui.notifications.error('Error distributing gold. Check console for details.');
   }
 }
 
@@ -441,7 +441,7 @@ async function debugCharactersAndOwnership() {
  */
 async function openPayoutConfigurationDialog() {
   if (!game.user?.isGM) {
-    ui.notifications.warn('Nur der GM kann die Gold-Auszahlung konfigurieren.');
+    ui.notifications.warn('Only the GM can configure gold payout.');
     return;
   }
 
@@ -452,20 +452,20 @@ async function openPayoutConfigurationDialog() {
     console.log(`${MODULE_ID} | Character Map:`, playerCharactersMap);
     
     if (Object.keys(playerCharactersMap).length === 0) {
-      ui.notifications.warn('Keine Spieler-Charaktere gefunden.');
+      ui.notifications.warn('No player characters found.');
       return;
     }
     
     const config = await showPayoutConfigurationDialog(playerCharactersMap);
     
     if (config) {
-      ui.notifications.info('✅ Gold-Payout-Konfiguration gespeichert!');
+      ui.notifications.info('✅ Gold payout configuration saved!');
     } else {
-      ui.notifications.info('Konfiguration abgebrochen.');
+      ui.notifications.info('Configuration cancelled.');
     }
   } catch (err) {
     console.error(`${MODULE_ID} | Configuration dialog error:`, err);
-    ui.notifications.error('Fehler beim Öffnen des Konfigurationsdialogs.');
+    ui.notifications.error('Error opening configuration dialog.');
   }
 }
 
@@ -538,7 +538,7 @@ Hooks.on('lootRevealed', async (data) => {
     // Check if config exists
     const configuredCount = Object.keys(savedConfig).length;
     if (configuredCount === 0) {
-      ui.notifications.warn('Keine Spieler-Konfiguration für Gold-Auszahlung gefunden. Bitte konfigurieren Sie die Spieler zuerst.');
+      ui.notifications.warn('No player configuration found for gold distribution. Please configure players first.');
       return;
     }
     
@@ -547,6 +547,6 @@ Hooks.on('lootRevealed', async (data) => {
     
   } catch (err) {
     console.error(`${MODULE_ID} | Error in lootRevealed hook:`, err);
-    ui.notifications.error('Fehler bei der Gold-Auszahlung.');
+    ui.notifications.error('Error distributing gold.');
   }
 });

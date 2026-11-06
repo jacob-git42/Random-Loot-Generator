@@ -8,45 +8,38 @@ const GOLD_PAYOUT_SETTINGS_KEY = 'goldPayoutCharacters';
 
 /**
  * Get all player-owned characters grouped by user
- * Uses game.users[].character which contains the actor ID directly
+ * Uses ownership levels to determine player character assignment
  * Returns: { [userId]: [{ id, name, owner }] }
  */
 async function getPlayerCharactersMap() {
   const map = {};
-  
-  // Get all non-GM users and their characters via the character property
   const allUsers = game.users || [];
   
   for (const user of allUsers) {
     // Skip GM users
     if (user.isGM) continue;
     
-    // Get the character ID from the user's character property
-    const characterId = user.character;
-    
-    if (characterId) {
-      // Fetch the actual actor from the character ID
-      const actor = game.actors?.get(characterId);
+    // Find all actors where this user is OWNER and the actor is a CHARACTER (not NPC/monster)
+    const owned = game.actors.filter(a => {
+      // Only player characters, not NPCs or monsters
+      if (a.type !== 'character') return false;
       
-      if (actor && actor.type === 'character') {
-        // Add to map
-        if (!map[user.id]) {
-          map[user.id] = [];
-        }
-        
-        map[user.id].push({
-          id: actor.id,
-          name: actor.name,
-          owner: user.name
-        });
-        
-        console.log(`${MODULE_ID} | Character Map: ${user.name} → ${actor.name}`);
-      }
+      // Check ownership level: user owns it or default allows owner access
+      const perm = a.ownership[user.id] ?? a.ownership.default;
+      return perm >= CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER;
+    });
+    
+    if (owned.length > 0) {
+      map[user.id] = owned.map(a => ({
+        id: a.id,
+        name: a.name,
+        owner: user.name
+      }));
+      
+      console.log(`${MODULE_ID} | Character Map: ${user.name} → ${owned.map(a => a.name).join(', ')}`);
     } else {
       // Player without character
-      if (!map[user.id]) {
-        map[user.id] = [];
-      }
+      map[user.id] = [];
       console.warn(`${MODULE_ID} | User "${user.name}" has no character assigned`);
     }
   }

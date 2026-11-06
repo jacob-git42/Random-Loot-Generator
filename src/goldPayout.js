@@ -8,79 +8,46 @@ const GOLD_PAYOUT_SETTINGS_KEY = 'goldPayoutCharacters';
 
 /**
  * Get all player-owned characters grouped by user
- * Also includes players without any characters
- * Returns: { [userId]: { id, name, owner } }
+ * Uses game.users[].character which contains the actor ID directly
+ * Returns: { [userId]: [{ id, name, owner }] }
  */
 async function getPlayerCharactersMap() {
   const map = {};
   
-  // First, add all non-GM users (even without characters)
+  // Get all non-GM users and their characters via the character property
   const allUsers = game.users || [];
+  
   for (const user of allUsers) {
-    if (!user.isGM) {
+    // Skip GM users
+    if (user.isGM) continue;
+    
+    // Get the character ID from the user's character property
+    const characterId = user.character;
+    
+    if (characterId) {
+      // Fetch the actual actor from the character ID
+      const actor = game.actors?.get(characterId);
+      
+      if (actor && actor.type === 'character') {
+        // Add to map
+        if (!map[user.id]) {
+          map[user.id] = [];
+        }
+        
+        map[user.id].push({
+          id: actor.id,
+          name: actor.name,
+          owner: user.name
+        });
+        
+        console.log(`${MODULE_ID} | Character Map: ${user.name} → ${actor.name}`);
+      }
+    } else {
+      // Player without character
       if (!map[user.id]) {
         map[user.id] = [];
       }
-    }
-  }
-  
-  // Then, add their characters
-  const actors = game.actors || [];
-  
-  for (const actor of actors) {
-    // Check if this is a player-owned character (type "character")
-    if (actor.type !== 'character') continue;
-    
-    // Get the owner (player user) - try multiple methods
-    let userId = null;
-    
-    // Method 1: Check ownership object (Ownership level 3 = owner)
-    const owners = Object.entries(actor.ownership || {})
-      .filter(([key, val]) => val === 3)
-      .map(([key]) => key);
-    
-    if (owners.length > 0) {
-      userId = owners[0];
-    }
-    
-    // Method 2: Check if actor has a direct user assignment
-    if (!userId && actor.data?.ownership) {
-      const ownershipEntries = Object.entries(actor.data.ownership);
-      const ownerEntry = ownershipEntries.find(([key, val]) => val === 3);
-      if (ownerEntry) {
-        userId = ownerEntry[0];
-      }
-    }
-    
-    // Method 3: Alternative ownership check (some systems might store it differently)
-    if (!userId && actor.ownership) {
-      // Sometimes ownership might be stored differently
-      for (const [key, val] of Object.entries(actor.ownership)) {
-        if (key !== 'default' && val >= 3) {
-          userId = key;
-          break;
-        }
-      }
-    }
-    
-    // Debug log
-    if (!userId) {
-      console.warn(`${MODULE_ID} | No owner found for character: ${actor.name}, ownership:`, actor.ownership);
-    }
-    
-    if (!userId) continue;
-    
-    const user = game.users?.get(userId);
-    
-    if (user && !user.isGM) {
-      if (!map[userId]) {
-        map[userId] = [];
-      }
-      map[userId].push({
-        id: actor.id,
-        name: actor.name,
-        owner: user.name
-      });
+      console.warn(`${MODULE_ID} | User "${user.name}" has no character assigned`);
     }
   }
   

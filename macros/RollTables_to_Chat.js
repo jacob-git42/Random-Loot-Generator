@@ -615,7 +615,7 @@ if (options) {
       }
     },
     default: "post"
-  }).render(true);
+  }, { width: 400, classes: [] }).render(true);
 } else {
   ui.notifications.error("No Random Loot Generator macros found!");
 }

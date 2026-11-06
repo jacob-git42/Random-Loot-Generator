@@ -555,6 +555,14 @@ if (options) {
                 
                 await targetMsg.update({ content: lockedContent });
                 ui.notifications.info("Loot card locked.");
+                
+                // Trigger custom hook for Gold Payout System
+                // This allows the payout system to react when loot is revealed
+                Hooks.callAll("lootRevealed", {
+                  claimMarker: expectedClaimMarker,
+                  macroName: selectedMacro.name,
+                  revealedBy: msgDoc.author
+                });
               }
               
               Hooks.off("createChatMessage", hookId);

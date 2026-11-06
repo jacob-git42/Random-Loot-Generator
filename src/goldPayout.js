@@ -64,7 +64,7 @@ async function savePayoutConfig(config) {
 
 /**
  * Show dialog to configure which players receive gold
- * First time: auto-select default character per player
+ * Loads and displays previously saved configuration
  * Returns: { [userId]: { characterId, characterName } } or null if cancelled
  */
 async function showPayoutConfigurationDialog(playerCharactersMap) {
@@ -94,8 +94,11 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
       continue;
     }
     
-    // Default to first character if not saved, else use saved
+    // Use saved character if exists, otherwise use first character
     const defaultCharId = savedChar?.characterId || characters[0]?.id;
+    
+    // Checkbox: checked if previously saved, otherwise checked (first time)
+    const shouldBeChecked = savedChar ? 'checked' : 'checked';
     
     // Build select options
     const options = characters.map(char => 
@@ -108,7 +111,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
         <select name="user-${userId}" style="flex: 1; min-width: 150px;">
           ${options}
         </select>
-        <input type="checkbox" name="include-${userId}" checked style="cursor: pointer;">
+        <input type="checkbox" name="include-${userId}" ${shouldBeChecked} style="cursor: pointer;">
       </div>
     `;
   }
@@ -132,7 +135,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
       buttons: {
         save: {
           icon: '<i class="fas fa-save"></i>',
-          label: "Speichern & Auszahlen",
+          label: "Speichern",
           callback: async (html) => {
             const config = {};
             
@@ -141,7 +144,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
               if (!isIncluded) continue;
               
               const characters = playerCharactersMap[userId];
-              if (characters.length === 0) continue; // Skip players without characters
+              if (characters.length === 0) continue;
               
               const selectedCharId = html.find(`[name="user-${userId}"]`).val();
               const selectedChar = characters.find(c => c.id === selectedCharId);
@@ -164,11 +167,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
           callback: () => resolve(null)
         }
       },
-      default: "save",
-      render: (html) => {
-        // Optional: Add select-all functionality
-        const selectAllBtn = html.find('button:contains("Speichern")');
-      }
+      default: "save"
     }).render(true);
   });
 }
@@ -476,4 +475,102 @@ Hooks.once('setup', () => {
   window.showPayoutConfigurationDialog = showPayoutConfigurationDialog;
   window.openPayoutConfigurationDialog = openPayoutConfigurationDialog;
   window.jacobs_loot_debugCharacters = debugCharactersAndOwnership;
+});
+
+/**
+ * Register hook to listen for loot reveal events
+ * This allows GM to confirm gold payout after a player reveals loot
+ */
+Hooks.on('lootRevealed', async (data) => {
+  // Only GM can process payouts
+  if (!game.user?.isGM) return;
+  
+  console.log(`${MODULE_ID} | Loot revealed:`, data);
+  
+  // Determine gold amount based on macro type
+  let goldPerPlayer = 0;
+  
+  if (data.claimMarker === 'LOOT-CLAIM:INDIVIDUAL') {
+    // For Individual Treasure, we need to calculate based on the preset that was used
+    // This will be retrieved from settings
+    const preset = game.settings.get('lootmakros', 'individualTreasurePreset') || {};
+    if (preset.counts) {
+      // Calculate total gold from the individual treasure rolls
+      // Formula per the Individual Treasure macro: 4d6 * multiplier
+      let totalGold = 0;
+      totalGold += (preset.counts['range-0-4'] || 0) * 14; // 4d6 average = 14
+      totalGold += (preset.counts['range-5-10'] || 0) * 140; // 4d6*10 average
+      totalGold += (preset.counts['range-11-16'] || 0) * 1400; // 4d6*100 average
+      totalGold += (preset.counts['range-17'] || 0) * 14000; // 4d6*1000 average
+      goldPerPlayer = Math.ceil(totalGold / 4);
+    }
+  } else if (data.claimMarker === 'LOOT-CLAIM:HOARD') {
+    // For Treasure Hoard, get from preset
+    const preset = game.settings.get('lootmakros', 'treasureHoardPreset') || {};
+    if (preset.tier) {
+      // Base gold amounts for each hoard tier (these are approximate)
+      const tierGold = {
+        1: 180,
+        2: 540,
+        3: 2700,
+        4: 13500
+      };
+      goldPerPlayer = Math.ceil((tierGold[preset.tier] || 0) / 4);
+    }
+  } else if (data.claimMarker === 'LOOT-CLAIM:SPELLS' || 
+             data.claimMarker === 'LOOT-CLAIM:POTIONS' || 
+             data.claimMarker === 'LOOT-CLAIM:TARGETED') {
+    // For other loot types, no automatic gold payout
+    console.log(`${MODULE_ID} | No automatic gold payout for ${data.claimMarker}`);
+    return;
+  }
+  
+  if (goldPerPlayer <= 0) {
+    console.warn(`${MODULE_ID} | Could not calculate gold for ${data.claimMarker}`);
+    return;
+  }
+  
+  // Show confirmation dialog to GM
+  try {
+    const playerCharactersMap = await getPlayerCharactersMap();
+    const savedConfig = loadSavedPayoutConfig();
+    
+    // Build confirmation message
+    let confirmMessage = `<p><strong>Gold Payout bestätigen?</strong></p>`;
+    confirmMessage += `<p>Gold pro Spieler: <strong>${goldPerPlayer} GP</strong></p>`;
+    confirmMessage += `<p style="font-size: 0.9em; color: #666; margin-top: 12px;">`;
+    
+    // List configured players
+    let configuredCount = 0;
+    for (const [userId, charConfig] of Object.entries(savedConfig)) {
+      const user = game.users?.get(userId);
+      if (user) {
+        confirmMessage += `✓ ${user.name} → ${charConfig.characterName}<br>`;
+        configuredCount++;
+      }
+    }
+    
+    if (configuredCount === 0) {
+      ui.notifications.warn('Keine Spieler-Konfiguration für Gold-Auszahlung gefunden. Bitte konfigurieren Sie die Spieler zuerst.');
+      return;
+    }
+    
+    confirmMessage += `</p>`;
+    
+    // Show dialog
+    const confirmed = await Dialog.confirm({
+      title: '💰 Gold-Auszahlung bestätigen',
+      content: confirmMessage,
+      yes: () => true,
+      no: () => false
+    });
+    
+    if (confirmed) {
+      await handleGoldPayout(goldPerPlayer);
+    }
+    
+  } catch (err) {
+    console.error(`${MODULE_ID} | Error in lootRevealed hook:`, err);
+    ui.notifications.error('Fehler bei der Gold-Auszahlung.');
+  }
 });

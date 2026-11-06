@@ -9,8 +9,13 @@ const lootCounterSettingsKey = "lootCounters";
 
 // Helper function to check if darkmode is enabled in Foundry settings
 function isDarkmodeEnabled() {
-  return document.body.classList.contains("dark-mode") || 
-         (game.settings && game.settings.get("core", "colorScheme") === "dark");
+  try {
+    return document.body.classList.contains("dark-mode") || 
+           (game.settings && game.settings.get("core", "colorScheme") === "dark");
+  } catch (err) {
+    // colorScheme setting doesn't exist in this version, fallback to DOM class
+    return document.body.classList.contains("dark-mode");
+  }
 }
 
 const RECOMMENDED_HOARDS = {

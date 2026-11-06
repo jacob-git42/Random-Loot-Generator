@@ -155,6 +155,17 @@ Hooks.once('init', () => {
     default: {}
   });
 
+  game.settings.register(MODULE_ID, 'lootCounters', {
+    name: 'Loot Counters',
+    scope: 'world',
+    config: false,
+    type: Object,
+    default: {
+      individual: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 },
+      hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+    }
+  });
+
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
   // Register sidebar tab metadata (Korrektes fa-coins Icon)

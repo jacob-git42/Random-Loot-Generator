@@ -1,43 +1,7 @@
 const treasureHoardSettingsNamespace = "lootmakros";
 const treasureHoardSettingsKey = "treasureHoardPreset";
-const lootCounterSettingsKey = "lootCounters";
 const rollTableFolderName = "Loot";
 const spellsFolderName = "Spells";
-
-// Helper function to get loot counters
-function getLootCounters() {
-  const settingId = `${treasureHoardSettingsNamespace}.${lootCounterSettingsKey}`;
-  if (!game.settings.settings.has(settingId)) {
-    game.settings.register(treasureHoardSettingsNamespace, lootCounterSettingsKey, {
-      name: "Loot Statistics Counters",
-      scope: "world",
-      config: false,
-      type: Object,
-      default: {
-        hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
-      }
-    });
-  }
-  return game.settings.get(treasureHoardSettingsNamespace, lootCounterSettingsKey) || {
-    hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
-  };
-}
-
-// Helper function to update hoard counter
-async function updateHoardCounter(tier, count, isMiniHoard) {
-  const counters = getLootCounters();
-  const tierKey = `tier${tier}`;
-  
-  // Store in thirds to avoid decimal precision issues
-  // Normal hoard = 3 thirds, Mini hoard = 1 third
-  const thirdsToAdd = isMiniHoard ? (count * 1) : (count * 3);
-  
-  if (counters.hoard && counters.hoard[tierKey] !== undefined) {
-    counters.hoard[tierKey] += thirdsToAdd;
-  }
-  
-  await game.settings.set(treasureHoardSettingsNamespace, lootCounterSettingsKey, counters);
-}
 
 function getTableResultText(result) {
   return result?.name?.trim() || result?.description?.trim() || "";
@@ -350,9 +314,6 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
   // Gold Payout (only if GM)
   if (game.user?.isGM) {
     await handleGoldPayout(goldPerPlayer);
-    
-    // Update loot counters
-    await updateHoardCounter(tier, safeHoards, isMiniHoard);
   }
 }
 

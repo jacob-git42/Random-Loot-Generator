@@ -312,7 +312,7 @@ async function askIndividualTreasurePreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }, { classes: [] }).render(true);
+    }).render(true);
   });
 }
 
@@ -401,7 +401,7 @@ async function askTreasureHoardPreset() {
         });
       },
       close: () => resolve(null)
-    }, { classes: [] }).render(true);
+    }).render(true);
   });
 }
 
@@ -615,7 +615,7 @@ if (options) {
       }
     },
     default: "post"
-  }, { width: 400, classes: [] }).render(true);
+  }).render(true);
 } else {
   ui.notifications.error("No Random Loot Generator macros found!");
 }
@@ -702,7 +702,7 @@ async function askSpellsPreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }, { classes: [] }).render(true);
+    }).render(true);
   });
 }
 
@@ -739,7 +739,7 @@ async function askPotionsPreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }, { classes: [] }).render(true);
+    }).render(true);
   });
 }
 
@@ -877,6 +877,6 @@ async function askTargetedLootPreset() {
           await resolveAndSetTargetedLootPresetItem(e.currentTarget.value, e.currentTarget.getAttribute("data-slot"), html);
         });
       }
-    }, { width: 460, classes: [] }).render(true);
+    }, { width: 460 }).render(true);
   });
 }

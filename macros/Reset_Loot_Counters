@@ -3,16 +3,17 @@ const individualTreasureSettingsNamespace = "lootmakros";
 const lootCounterSettingsKey = "lootCounters";
 
 // Helper function to format hoard counters as thirds
-// Handles both old decimal format (0.666...) and new thirds format (2)
+// Handles both old decimal format (0.666...) and new thirds format (whole numbers)
 function formatHoardCounter(value) {
-  // If value is a small decimal (0-1), it's the old format (count / 3)
-  // Convert to thirds: multiply by 3 and round
   let thirds = value;
   
-  if (value < 3 && value > 0 && value !== Math.floor(value)) {
+  // If value is a decimal between 0 and 1, it's the old format (count / 3)
+  // Convert to thirds: multiply by 3 and round
+  if (value > 0 && value < 1 && value !== Math.floor(value)) {
     // This looks like decimal format (e.g., 0.333, 0.666)
     thirds = Math.round(value * 3);
   }
+  // Otherwise assume it's already in thirds format (whole number)
   
   const wholeHoards = Math.floor(thirds / 3);
   const remainder = Math.round(thirds % 3);

@@ -6,7 +6,7 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const TABLE_OWNERSHIP = 3; 
 const NO_OWNERSHIP = 0;
-const MACRO_SYNC_VERSION = 46;
+const MACRO_SYNC_VERSION = 45;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -255,6 +255,31 @@ const resetLootCountersCommand = `// Reset Specific Loot Counters Macro (Styled 
 const individualTreasureSettingsNamespace = "lootmakros";
 const lootCounterSettingsKey = "lootCounters";
 
+// Helper function to format hoard counters as thirds
+// Handles both old decimal format (0.666...) and new thirds format (whole numbers)
+function formatHoardCounter(value) {
+  let thirds = value;
+  
+  // If value is a decimal between 0 and 1, it's the old format (count / 3)
+  // Convert to thirds: multiply by 3 and round
+  if (value > 0 && value < 1 && value !== Math.floor(value)) {
+    // This looks like decimal format (e.g., 0.333, 0.666)
+    thirds = Math.round(value * 3);
+  }
+  // Otherwise assume it's already in thirds format (whole number)
+  
+  const wholeHoards = Math.floor(thirds / 3);
+  const remainder = Math.round(thirds % 3);
+  
+  if (remainder === 0) {
+    return wholeHoards.toString();
+  } else if (wholeHoards === 0) {
+    return \`\${remainder}/3\`;
+  } else {
+    return \`\${wholeHoards} + \${remainder}/3\`;
+  }
+}
+
 if (!game.user.isGM) {
   ui.notifications.warn("Nur der GM kann die Loot-Zähler zurücksetzen.");
 } else {
@@ -266,15 +291,18 @@ if (!game.user.isGM) {
   const ind = currentCounters.individual || {};
   const hoard = currentCounters.hoard || {};
 
-  const renderItem = (name, label, value) => \`
+  const renderItem = (name, label, value, isHoard = false) => {
+    const displayValue = isHoard ? formatHoardCounter(value) : value;
+    return \`
     <label style="display: flex; align-items: center; justify-content: space-between; padding: 4px 8px; border-radius: 4px; background: rgba(0,0,0,0.03); cursor: pointer; border: 1px solid rgba(0,0,0,0.08); transition: background 0.15s ease;">
       <div style="display: flex; align-items: center; gap: 8px;">
         <input type="checkbox" name="\${name}" style="margin: 0; cursor: pointer;">
         <span style="font-weight: 500;">\${label}</span>
       </div>
-      <span style="background: rgba(0,0,0,0.1); border-radius: 10px; padding: 1px 8px; font-size: 0.82em; font-weight: bold; color: \${value > 0 ? '#b45f06' : '#666'};\">\${value}</span>
+      <span style="background: rgba(0,0,0,0.1); border-radius: 10px; padding: 1px 8px; font-size: 0.82em; font-weight: bold; color: \${value > 0 ? '#b45f06' : '#666'};\">\${displayValue}</span>
     </label>
   \`;
+  };
 
   const dialogContent = \`
     <form style="padding: 2px;">
@@ -288,20 +316,20 @@ if (!game.user.isGM) {
       <fieldset style="border: 1px solid #7a7971; border-radius: 5px; margin-bottom: 12px; padding: 8px 10px; background: rgba(0,0,0,0.02);">
         <legend style="font-size: 0.85em; font-weight: bold; color: #4b4a44; padding: 0 4px;">Individual Treasure</legend>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.85em;">
-          \${renderItem("ind-range-0-4", "CR 0-4", ind["range-0-4"] || 0)}
-          \${renderItem("ind-range-5-10", "CR 5-10", ind["range-5-10"] || 0)}
-          \${renderItem("ind-range-11-16", "CR 11-16", ind["range-11-16"] || 0)}
-          \${renderItem("ind-range-17", "CR 17+", ind["range-17"] || 0)}
+          \${renderItem("ind-range-0-4", "CR 0-4", ind["range-0-4"] || 0, false)}
+          \${renderItem("ind-range-5-10", "CR 5-10", ind["range-5-10"] || 0, false)}
+          \${renderItem("ind-range-11-16", "CR 11-16", ind["range-11-16"] || 0, false)}
+          \${renderItem("ind-range-17", "CR 17+", ind["range-17"] || 0, false)}
         </div>
       </fieldset>
 
       <fieldset style="border: 1px solid #7a7971; border-radius: 5px; padding: 8px 10px; background: rgba(0,0,0,0.02);">
         <legend style="font-size: 0.85em; font-weight: bold; color: #4b4a44; padding: 0 4px;">Treasure Hoard</legend>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.85em;">
-          \${renderItem("hoard-tier1", "Tier 1", hoard.tier1 || 0)}
-          \${renderItem("hoard-tier2", "Tier 2", hoard.tier2 || 0)}
-          \${renderItem("hoard-tier3", "Tier 3", hoard.tier3 || 0)}
-          \${renderItem("hoard-tier4", "Tier 4", hoard.tier4 || 0)}
+          \${renderItem("hoard-tier1", "Tier 1", hoard.tier1 || 0, true)}
+          \${renderItem("hoard-tier2", "Tier 2", hoard.tier2 || 0, true)}
+          \${renderItem("hoard-tier3", "Tier 3", hoard.tier3 || 0, true)}
+          \${renderItem("hoard-tier4", "Tier 4", hoard.tier4 || 0, true)}
         </div>
       </fieldset>
     </form>

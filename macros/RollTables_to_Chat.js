@@ -35,6 +35,20 @@ const targetedLootMacroNames = ["Targeted-Loot", "Targeted Loot", "Treasure Pres
 const targetedLootSettingsNamespace = "lootmakros";
 const targetedLootSettingsKey = "targetedLootPreset";
 
+// Helper function to display thirds as "X + Y/3" format
+function formatHoardCounter(thirds) {
+  const wholeHoards = Math.floor(thirds / 3);
+  const remainder = thirds % 3;
+  
+  if (remainder === 0) {
+    return wholeHoards.toString();
+  } else if (wholeHoards === 0) {
+    return `${remainder}/3`;
+  } else {
+    return `${wholeHoards} + ${remainder}/3`;
+  }
+}
+
 // Helper function to register counter tracking setting
 function ensureCounterSettingRegistered() {
   const settingId = `${individualTreasureSettingsNamespace}.${lootCounterSettingsKey}`;
@@ -86,9 +100,10 @@ async function incrementLootCounters({ individual, hoard }) {
   if (hoard) {
     const tierKey = `tier${hoard.tier}`;
     if (counters.hoard[tierKey] !== undefined) {
-      // For mini hoards, increment by 1/3
-      const incrementValue = hoard.isMiniHoard ? (hoard.count / 3) : hoard.count;
-      counters.hoard[tierKey] += incrementValue;
+      // Store in thirds to avoid decimal precision issues
+      // Normal hoard = 3 thirds, Mini hoard = 1 third
+      const thirdsToAdd = hoard.isMiniHoard ? (hoard.count * 1) : (hoard.count * 3);
+      counters.hoard[tierKey] += thirdsToAdd;
     }
   }
 
@@ -297,10 +312,10 @@ async function askTreasureHoardPreset() {
   const statsBadge = `
   <div style="background: rgba(0, 0, 0, 0.05); border: 1px solid #ccc; padding: 6px 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85em;">
     <strong>Total Generated </b> <span style="color: #666;">(/Recommended)</span></strong><br>
-    Tier 1: <b>${hoardCounters.tier1 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier1})</span> | 
-    Tier 2: <b>${hoardCounters.tier2 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier2})</span> | 
-    Tier 3: <b>${hoardCounters.tier3 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier3})</span> | 
-    Tier 4: <b>${hoardCounters.tier4 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier4})</span>
+    Tier 1: <b>${formatHoardCounter(hoardCounters.tier1 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier1})</span> | 
+    Tier 2: <b>${formatHoardCounter(hoardCounters.tier2 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier2})</span> | 
+    Tier 3: <b>${formatHoardCounter(hoardCounters.tier3 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier3})</span> | 
+    Tier 4: <b>${formatHoardCounter(hoardCounters.tier4 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier4})</span>
   </div>
   `;
 

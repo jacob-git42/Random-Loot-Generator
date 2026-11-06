@@ -28,11 +28,12 @@ async function updateHoardCounter(tier, count, isMiniHoard) {
   const counters = getLootCounters();
   const tierKey = `tier${tier}`;
   
-  // For mini hoards, increment by 1/3
-  const incrementValue = isMiniHoard ? (count / 3) : count;
+  // Store in thirds to avoid decimal precision issues
+  // Normal hoard = 3 thirds, Mini hoard = 1 third
+  const thirdsToAdd = isMiniHoard ? (count * 1) : (count * 3);
   
   if (counters.hoard && counters.hoard[tierKey] !== undefined) {
-    counters.hoard[tierKey] += incrementValue;
+    counters.hoard[tierKey] += thirdsToAdd;
   }
   
   await game.settings.set(treasureHoardSettingsNamespace, lootCounterSettingsKey, counters);

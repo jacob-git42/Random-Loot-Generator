@@ -1,7 +1,42 @@
 const treasureHoardSettingsNamespace = "lootmakros";
 const treasureHoardSettingsKey = "treasureHoardPreset";
+const lootCounterSettingsKey = "lootCounters";
 const rollTableFolderName = "Loot";
 const spellsFolderName = "Spells";
+
+// Helper function to get loot counters
+function getLootCounters() {
+  const settingId = `${treasureHoardSettingsNamespace}.${lootCounterSettingsKey}`;
+  if (!game.settings.settings.has(settingId)) {
+    game.settings.register(treasureHoardSettingsNamespace, lootCounterSettingsKey, {
+      name: "Loot Statistics Counters",
+      scope: "world",
+      config: false,
+      type: Object,
+      default: {
+        hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+      }
+    });
+  }
+  return game.settings.get(treasureHoardSettingsNamespace, lootCounterSettingsKey) || {
+    hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+  };
+}
+
+// Helper function to update hoard counter
+async function updateHoardCounter(tier, count, isMiniHoard) {
+  const counters = getLootCounters();
+  const tierKey = `tier${tier}`;
+  
+  // For mini hoards, increment by 1/3
+  const incrementValue = isMiniHoard ? (count / 3) : count;
+  
+  if (counters.hoard && counters.hoard[tierKey] !== undefined) {
+    counters.hoard[tierKey] += incrementValue;
+  }
+  
+  await game.settings.set(treasureHoardSettingsNamespace, lootCounterSettingsKey, counters);
+}
 
 function getTableResultText(result) {
   return result?.name?.trim() || result?.description?.trim() || "";
@@ -155,7 +190,7 @@ function ensureSettingsRegistered() {
   }
 }
 
-async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false) {
+async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false, isMiniHoard = false) {
   const safeHoards = Math.max(1, parseInt(hoardCount) || 1);
   const tier = Math.min(4, Math.max(1, parseInt(selectedTier) || 1));
 
@@ -167,6 +202,10 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
   let artResults = [];
   let bonusItems = [];
 
+  // Mini Hoard modifier: 1/3 size
+  const hoardMultiplier = isMiniHoard ? (1/3) : 1;
+  const displayTitle = isMiniHoard ? `Mini Treasure Hoard Tier ${tier}` : `Treasure Hoard Tier ${tier}`;
+
   for (let h = 0; h < safeHoards; h++) {
     // 1. Gold
     let gpFormula = "5d6 * 100";
@@ -177,53 +216,78 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
 
     const gpRoll = await new Roll(gpFormula).evaluate();
     const spRoll = await new Roll(spFormula).evaluate();
-    totalGoldValue += gpRoll.total + (spRoll.total / 10);
+    let hoardGold = gpRoll.total + (spRoll.total / 10);
+    
+    // Apply mini hoard reduction
+    hoardGold = hoardGold * hoardMultiplier;
+    totalGoldValue += hoardGold;
 
-    // 2. Gemstones
-    const gemRoll = await new Roll("1d2").evaluate();
-    for (let g = 0; g < gemRoll.total; g++) {
-      const gemName = getGemTableNameForTier(tier);
-      const gemTable = findTable(gemName);
-      if (gemTable) gemResults.push(`<li>${await resolveTableRoll(gemTable)}</li>`);
-      else gemResults.push(`<li>(Table "${gemName}" is missing)</li>`);
-    }
-
-    // 3. Art objects
-    const artRoll = await new Roll("1d2").evaluate();
-    for (let a = 0; a < artRoll.total; a++) {
-      const artName = getArtTableNameForTier(tier);
-      const artTable = findTable(artName);
-      if (artTable) artResults.push(`<li>${await resolveTableRoll(artTable)}</li>`);
-      else artResults.push(`<li>(Table "${artName}" is missing)</li>`);
-    }
-
-    // 4. Magic Items (DMG Table A-I)
-    const itemRollCount = (await new Roll("1d4").evaluate()).total;
-    for (let i = 0; i < itemRollCount; i++) {
-      const targetTableName = getDMGMagicItemTableForTier(tier);
-      const magicTable = findTable(targetTableName);
-
-      if (magicTable) {
-        const resText = await resolveTableRoll(magicTable);
-        magicItemResults.push(`<li>${resText}</li>`);
-      } else {
-        magicItemResults.push(`<li><b>[${targetTableName}]:</b> (Table not found)</li>`);
+    // 2. Gemstones - skip for mini hoard
+    if (!isMiniHoard) {
+      const gemRoll = await new Roll("1d2").evaluate();
+      for (let g = 0; g < gemRoll.total; g++) {
+        const gemName = getGemTableNameForTier(tier);
+        const gemTable = findTable(gemName);
+        if (gemTable) gemResults.push(`<li>${await resolveTableRoll(gemTable)}</li>`);
+        else gemResults.push(`<li>(Table "${gemName}" is missing)</li>`);
       }
     }
 
-    // 5. Scrolls
-    const config = SCROLL_CHANCES[tier];
-    bonusItems.push(`<li>${await rollSpellScroll(tier)}</li>`);
-    if (Math.random() < config.extraChance2) {
+    // 3. Art objects - skip for mini hoard
+    if (!isMiniHoard) {
+      const artRoll = await new Roll("1d2").evaluate();
+      for (let a = 0; a < artRoll.total; a++) {
+        const artName = getArtTableNameForTier(tier);
+        const artTable = findTable(artName);
+        if (artTable) artResults.push(`<li>${await resolveTableRoll(artTable)}</li>`);
+        else artResults.push(`<li>(Table "${artName}" is missing)</li>`);
+      }
+    }
+
+    // 4. Magic Items (DMG Table A-I) - reduced chance for mini hoard
+    let magicItemChance = 1.0; // Normal: always roll
+    if (isMiniHoard) {
+      // Mini Hoard magic item chances by tier
+      const miniMagicChances = {
+        1: 0.50,  // 50%
+        2: 0.65,  // 65%
+        3: 0.85,  // 85%
+        4: 1.00   // 100%
+      };
+      magicItemChance = miniMagicChances[tier] || 0.50;
+    }
+
+    // Roll magic items based on chance
+    if (Math.random() < magicItemChance) {
+      const itemRollCount = isMiniHoard ? 1 : (await new Roll("1d4").evaluate()).total;
+      for (let i = 0; i < itemRollCount; i++) {
+        const targetTableName = getDMGMagicItemTableForTier(tier);
+        const magicTable = findTable(targetTableName);
+
+        if (magicTable) {
+          const resText = await resolveTableRoll(magicTable);
+          magicItemResults.push(`<li>${resText}</li>`);
+        } else {
+          magicItemResults.push(`<li><b>[${targetTableName}]:</b> (Table not found)</li>`);
+        }
+      }
+    }
+
+    // 5. Scrolls and Potions - skip for mini hoard
+    if (!isMiniHoard) {
+      const config = SCROLL_CHANCES[tier];
       bonusItems.push(`<li>${await rollSpellScroll(tier)}</li>`);
-      if (Math.random() < config.extraChance3) {
+      if (Math.random() < config.extraChance2) {
         bonusItems.push(`<li>${await rollSpellScroll(tier)}</li>`);
+        if (Math.random() < config.extraChance3) {
+          bonusItems.push(`<li>${await rollSpellScroll(tier)}</li>`);
+        }
       }
-    }
 
-    // 6. Potions
-    if (Math.random() < BONUS_POTION_CHANCE && potionTable) {
-      bonusItems.push(`<li><b>🧪 Potion:</b> ${await resolveTableRoll(potionTable)}</li>`);
+      // 6. Potions
+      if (Math.random() < BONUS_POTION_CHANCE && potionTable) {
+        bonusItems.push(`<li><b>🧪 Potion:</b> ${await resolveTableRoll(potionTable)}</li>`);
+      }
     }
   }
 
@@ -235,22 +299,30 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${bonusItems.join("")}</ul>
   ` : "";
 
+  // Conditionally show gems and art objects (not in mini hoard)
+  let gemsSection = !isMiniHoard && gemResults.length > 0 ? `
+    <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
+    <p class="loot-card__section loot-card__section--gems" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-gem"></i> Gemstones:</p>
+    <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${gemResults.join("")}</ul>
+  ` : "";
+
+  let artSection = !isMiniHoard && artResults.length > 0 ? `
+    <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
+    <p class="loot-card__section loot-card__section--art" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-palette"></i> Art Objects:</p>
+    <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${artResults.join("")}</ul>
+  ` : "";
+
   // Public card for players.
   const publicChatContent = `
     <div class="loot-card">
-      <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Treasure Hoard Tier ${tier} (${safeHoards}x)</p>
+      <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">${displayTitle} (${safeHoards}x)</p>
       <h3>💎 Treasure Found!</h3>
       
       <p class="loot-card__section loot-card__section--gold" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-coins"></i> Gold per Player (4 players):</p>
       <p class="loot-card__gold" style="margin: 0 0 8px 15px; font-size: 1.1em; font-weight: bold;">${goldPerPlayer.toLocaleString()} GP each</p>
 
-      <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
-      <p class="loot-card__section loot-card__section--gems" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-gem"></i> Gemstones:</p>
-      <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${gemResults.join("")}</ul>
-
-      <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
-      <p class="loot-card__section loot-card__section--art" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-palette"></i> Art Objects:</p>
-      <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${artResults.join("")}</ul>
+      ${gemsSection}
+      ${artSection}
 
       <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
       <p class="loot-card__section loot-card__section--magic" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-hat-wizard"></i> Magic Items:</p>
@@ -277,6 +349,9 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
   // Gold Payout (only if GM)
   if (game.user?.isGM) {
     await handleGoldPayout(goldPerPlayer);
+    
+    // Update loot counters
+    await updateHoardCounter(tier, safeHoards, isMiniHoard);
   }
 }
 
@@ -303,6 +378,14 @@ function showLootDialog() {
         <label style="font-weight: bold; font-size: 0.95em; display: block; margin-bottom: 6px;">Number of hoards:</label>
         <input type="number" id="hoardCount" value="1" min="1" max="10" style="width: 100%; text-align: center;">
       </div>
+
+      <div style="margin-bottom: 8px; padding: 10px; background: rgba(180, 95, 6, 0.1); border-radius: 4px; border: 1px solid rgba(180, 95, 6, 0.3);">
+        <label style="font-weight: bold; font-size: 0.95em; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="miniHoard" style="cursor: pointer;">
+          Mini Hoard (1/3 size & gold)
+        </label>
+        <p style="margin: 6px 0 0 24px; font-size: 0.8em; color: #666;">Generates 1/3 of a normal hoard with reduced rewards</p>
+      </div>
     </div>
   `;
 
@@ -314,7 +397,8 @@ function showLootDialog() {
         icon: '<i class="fas fa-dice-d20"></i>',
         label: "Generate Loot",
         callback: async (html) => {
-          await rollTreasureHoard(html.find("#hoardCount").val(), html.find("#tierRange").val());
+          const isMini = html.find("#miniHoard").is(":checked");
+          await rollTreasureHoard(html.find("#hoardCount").val(), html.find("#tierRange").val(), false, isMini);
         }
       },
       cancel: { icon: '<i class="fas fa-times"></i>', label: "Close" }

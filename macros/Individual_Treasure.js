@@ -280,6 +280,11 @@ async function runLootRolls(countResolver, includeClaim = false) {
 			speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
 		});
 	}
+
+	// Gold Payout (only if GM)
+	if (game.user?.isGM) {
+		await handleGoldPayout(goldPerPlayer);
+	}
 }
 
 async function runWithDialog() {

@@ -86,6 +86,14 @@ Hooks.once('init', () => {
     default: false
   });
 
+  game.settings.register(MODULE_ID, 'goldPayoutCharacters', {
+    name: 'Gold Payout Character Configuration',
+    scope: 'world',
+    config: false,
+    type: Object,
+    default: {}
+  });
+
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
   // Register sidebar tab metadata (Korrektes fa-coins Icon)

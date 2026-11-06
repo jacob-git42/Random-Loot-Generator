@@ -273,6 +273,11 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false)
       speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
     });
   }
+
+  // Gold Payout (only if GM)
+  if (game.user?.isGM) {
+    await handleGoldPayout(goldPerPlayer);
+  }
 }
 
 function showLootDialog() {

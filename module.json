@@ -13,7 +13,8 @@
     }
   ],
   "esmodules": [
-    "src/module.js"
+    "src/module.js",
+    "src/goldPayout.js"
   ],
   "styles": [
     "styles/loot-cards.css"

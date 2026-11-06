@@ -877,6 +877,6 @@ async function askTargetedLootPreset() {
           await resolveAndSetTargetedLootPresetItem(e.currentTarget.value, e.currentTarget.getAttribute("data-slot"), html);
         });
       }
-    }, { width: 460, classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
+    }, { width: 460, classes: [] }).render(true);
   });
 }

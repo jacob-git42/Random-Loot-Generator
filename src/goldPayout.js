@@ -97,8 +97,8 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
     // Use saved character if exists, otherwise use first character
     const defaultCharId = savedChar?.characterId || characters[0]?.id;
     
-    // Checkbox: checked if previously saved, otherwise checked (first time)
-    const shouldBeChecked = savedChar ? 'checked' : 'checked';
+    // Checkbox: checked only if previously saved
+    const isChecked = savedChar ? 'checked' : '';
     
     // Build select options
     const options = characters.map(char => 
@@ -111,7 +111,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
         <select name="user-${userId}" style="flex: 1; min-width: 150px;">
           ${options}
         </select>
-        <input type="checkbox" name="include-${userId}" ${shouldBeChecked} style="cursor: pointer;">
+        <input type="checkbox" name="include-${userId}" ${isChecked} style="cursor: pointer;">
       </div>
     `;
   }
@@ -530,44 +530,20 @@ Hooks.on('lootRevealed', async (data) => {
     return;
   }
   
-  // Show confirmation dialog to GM
+  // Process payout directly (handleGoldPayout shows its own confirmation dialog)
   try {
     const playerCharactersMap = await getPlayerCharactersMap();
     const savedConfig = loadSavedPayoutConfig();
     
-    // Build confirmation message
-    let confirmMessage = `<p><strong>Gold Payout bestätigen?</strong></p>`;
-    confirmMessage += `<p>Gold pro Spieler: <strong>${goldPerPlayer} GP</strong></p>`;
-    confirmMessage += `<p style="font-size: 0.9em; color: #666; margin-top: 12px;">`;
-    
-    // List configured players
-    let configuredCount = 0;
-    for (const [userId, charConfig] of Object.entries(savedConfig)) {
-      const user = game.users?.get(userId);
-      if (user) {
-        confirmMessage += `✓ ${user.name} → ${charConfig.characterName}<br>`;
-        configuredCount++;
-      }
-    }
-    
+    // Check if config exists
+    const configuredCount = Object.keys(savedConfig).length;
     if (configuredCount === 0) {
       ui.notifications.warn('Keine Spieler-Konfiguration für Gold-Auszahlung gefunden. Bitte konfigurieren Sie die Spieler zuerst.');
       return;
     }
     
-    confirmMessage += `</p>`;
-    
-    // Show dialog
-    const confirmed = await Dialog.confirm({
-      title: '💰 Gold-Auszahlung bestätigen',
-      content: confirmMessage,
-      yes: () => true,
-      no: () => false
-    });
-    
-    if (confirmed) {
-      await handleGoldPayout(goldPerPlayer);
-    }
+    // Call handleGoldPayout which shows the confirmation dialog
+    await handleGoldPayout(goldPerPlayer);
     
   } catch (err) {
     console.error(`${MODULE_ID} | Error in lootRevealed hook:`, err);

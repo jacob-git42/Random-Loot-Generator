@@ -31,14 +31,45 @@ async function getPlayerCharactersMap() {
     // Check if this is a player-owned character (type "character")
     if (actor.type !== 'character') continue;
     
-    // Get the owner (player user)
+    // Get the owner (player user) - try multiple methods
+    let userId = null;
+    
+    // Method 1: Check ownership object (Ownership level 3 = owner)
     const owners = Object.entries(actor.ownership || {})
-      .filter(([key, val]) => val === 3) // 3 = owner
+      .filter(([key, val]) => val === 3)
       .map(([key]) => key);
     
-    if (owners.length === 0) continue;
+    if (owners.length > 0) {
+      userId = owners[0];
+    }
     
-    const userId = owners[0];
+    // Method 2: Check if actor has a direct user assignment
+    if (!userId && actor.data?.ownership) {
+      const ownershipEntries = Object.entries(actor.data.ownership);
+      const ownerEntry = ownershipEntries.find(([key, val]) => val === 3);
+      if (ownerEntry) {
+        userId = ownerEntry[0];
+      }
+    }
+    
+    // Method 3: Alternative ownership check (some systems might store it differently)
+    if (!userId && actor.ownership) {
+      // Sometimes ownership might be stored differently
+      for (const [key, val] of Object.entries(actor.ownership)) {
+        if (key !== 'default' && val >= 3) {
+          userId = key;
+          break;
+        }
+      }
+    }
+    
+    // Debug log
+    if (!userId) {
+      console.warn(`${MODULE_ID} | No owner found for character: ${actor.name}, ownership:`, actor.ownership);
+    }
+    
+    if (!userId) continue;
+    
     const user = game.users?.get(userId);
     
     if (user && !user.isGM) {
@@ -399,6 +430,53 @@ async function handleGoldPayout(goldPerPlayer) {
 }
 
 /**
+ * Debug function: Log all characters and ownership
+ * Run in console: game.jacobs_loot_debugCharacters()
+ */
+async function debugCharactersAndOwnership() {
+  console.log(`%c=== ${MODULE_ID} Character Debug ===`, 'color: #ffc107; font-weight: bold');
+  
+  // Log all users
+  console.log('%cUSERS:', 'color: #2196F3; font-weight: bold');
+  const allUsers = game.users || [];
+  for (const user of allUsers) {
+    console.log(`  [${user.id}] ${user.name} (isGM: ${user.isGM})`);
+  }
+  
+  // Log all characters and their ownership
+  console.log('%cCHARACTERS:', 'color: #2196F3; font-weight: bold');
+  const actors = game.actors || [];
+  for (const actor of actors) {
+    if (actor.type === 'character') {
+      console.log(`  [${actor.id}] ${actor.name}`);
+      console.log(`    Type: ${actor.type}`);
+      console.log(`    Ownership:`, actor.ownership);
+      
+      // Try to find owner
+      let ownerId = null;
+      const owners = Object.entries(actor.ownership || {})
+        .filter(([key, val]) => val === 3)
+        .map(([key]) => key);
+      if (owners.length > 0) ownerId = owners[0];
+      
+      if (ownerId) {
+        const owner = game.users?.get(ownerId);
+        console.log(`    Owner: ${owner?.name || 'Unknown'} (${ownerId})`);
+      } else {
+        console.warn(`    ⚠️ NO OWNER FOUND (ownership might be stored differently)`);
+      }
+    }
+  }
+  
+  // Show character map
+  console.log('%cCHARACTER MAP:', 'color: #2196F3; font-weight: bold');
+  const map = await getPlayerCharactersMap();
+  console.log(map);
+  
+  console.log(`%c=== Debug Complete ===`, 'color: #ffc107; font-weight: bold');
+}
+
+/**
  * Open configuration dialog from sidebar button
  * Allows GM to change player/character configuration at any time
  */
@@ -410,6 +488,9 @@ async function openPayoutConfigurationDialog() {
 
   try {
     const playerCharactersMap = await getPlayerCharactersMap();
+    
+    // Debug log
+    console.log(`${MODULE_ID} | Character Map:`, playerCharactersMap);
     
     if (Object.keys(playerCharactersMap).length === 0) {
       ui.notifications.warn('Keine Spieler-Charaktere gefunden.');
@@ -434,4 +515,5 @@ Hooks.once('setup', () => {
   window.handleGoldPayout = handleGoldPayout;
   window.showPayoutConfigurationDialog = showPayoutConfigurationDialog;
   window.openPayoutConfigurationDialog = openPayoutConfigurationDialog;
+  window.jacobs_loot_debugCharacters = debugCharactersAndOwnership;
 });

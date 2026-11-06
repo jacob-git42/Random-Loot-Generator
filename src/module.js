@@ -375,6 +375,20 @@ if (!game.user.isGM) {
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
 
+  // Migration: Ensure lootCounters setting is initialized
+  try {
+    const lootCounters = game.settings.get(MODULE_ID, 'lootCounters');
+    if (!lootCounters || typeof lootCounters !== 'object' || Object.keys(lootCounters).length === 0) {
+      await game.settings.set(MODULE_ID, 'lootCounters', {
+        individual: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 },
+        hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+      });
+      console.log(`${MODULE_ID} | Initialized lootCounters setting`);
+    }
+  } catch (err) {
+    console.error(`${MODULE_ID} | Failed to initialize lootCounters:`, err);
+  }
+
   if (game.user.isGM && game.settings.get(MODULE_ID, 'macroSyncVersion') < MACRO_SYNC_VERSION) {
     console.log(`${MODULE_ID} | Synchronizing macros into DM and Player folders...`);
     

@@ -30,10 +30,19 @@ function formatHoardCounter(value) {
 if (!game.user.isGM) {
   ui.notifications.warn("Nur der GM kann die Loot-Zähler zurücksetzen.");
 } else {
-  const currentCounters = game.settings.get(individualTreasureSettingsNamespace, lootCounterSettingsKey) || {
-    individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
-    hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
-  };
+  let currentCounters;
+  try {
+    currentCounters = game.settings.get(individualTreasureSettingsNamespace, lootCounterSettingsKey) || {
+      individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
+      hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+    };
+  } catch (err) {
+    // Setting not registered yet, use defaults
+    currentCounters = {
+      individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
+      hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+    };
+  }
 
   const ind = currentCounters.individual || {};
   const hoard = currentCounters.hoard || {};

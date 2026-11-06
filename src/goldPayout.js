@@ -8,12 +8,23 @@ const GOLD_PAYOUT_SETTINGS_KEY = 'goldPayoutCharacters';
 
 /**
  * Get all player-owned characters grouped by user
+ * Also includes players without any characters
  * Returns: { [userId]: { id, name, owner } }
  */
 async function getPlayerCharactersMap() {
   const map = {};
   
-  // Get all actors
+  // First, add all non-GM users (even without characters)
+  const allUsers = game.users || [];
+  for (const user of allUsers) {
+    if (!user.isGM) {
+      if (!map[user.id]) {
+        map[user.id] = [];
+      }
+    }
+  }
+  
+  // Then, add their characters
   const actors = game.actors || [];
   
   for (const actor of actors) {
@@ -76,11 +87,24 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
     const characters = playerCharactersMap[userId];
     const savedChar = savedConfig[userId];
     
+    // Get player user
+    const user = game.users?.get(userId);
+    const ownerName = user?.name || 'Unknown';
+    
+    // If no characters, show message
+    if (characters.length === 0) {
+      formRows += `
+        <div style="display: flex; align-items: center; gap: 10px; padding: 8px; border-bottom: 1px solid #ddd; background: rgba(255,165,0,0.1);">
+          <label style="flex: 1; font-weight: bold; min-width: 120px;">${ownerName}</label>
+          <div style="flex: 1; color: #f39c12; font-style: italic;">Kein Charakter verfügbar</div>
+          <input type="checkbox" name="include-${userId}" disabled style="cursor: not-allowed; opacity: 0.5;">
+        </div>
+      `;
+      continue;
+    }
+    
     // Default to first character if not saved, else use saved
     const defaultCharId = savedChar?.characterId || characters[0]?.id;
-    const defaultCharName = savedChar?.characterName || characters[0]?.name;
-    
-    const ownerName = characters[0]?.owner || 'Unknown';
     
     // Build select options
     const options = characters.map(char => 
@@ -106,9 +130,7 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
       <div style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; border-radius: 4px;">
         ${formRows}
       </div>
-      <p style="margin-top: 12px; font-size: 0.85em; color: #999;">
-        Diese Einstellung wird gespeichert und für zukünftige Auszahlungen verwendet.
-      </p>
+      <p style="margin-top: 12px; font-size: 0.85em; color: #999;">Diese Einstellung wird gespeichert und für zukünftige Auszahlungen verwendet.</p>
     </form>
   `;
   
@@ -127,8 +149,10 @@ async function showPayoutConfigurationDialog(playerCharactersMap) {
               const isIncluded = html.find(`[name="include-${userId}"]`).is(':checked');
               if (!isIncluded) continue;
               
-              const selectedCharId = html.find(`[name="user-${userId}"]`).val();
               const characters = playerCharactersMap[userId];
+              if (characters.length === 0) continue; // Skip players without characters
+              
+              const selectedCharId = html.find(`[name="user-${userId}"]`).val();
               const selectedChar = characters.find(c => c.id === selectedCharId);
               
               if (selectedChar) {
@@ -374,8 +398,40 @@ async function handleGoldPayout(goldPerPlayer) {
   }
 }
 
+/**
+ * Open configuration dialog from sidebar button
+ * Allows GM to change player/character configuration at any time
+ */
+async function openPayoutConfigurationDialog() {
+  if (!game.user?.isGM) {
+    ui.notifications.warn('Nur der GM kann die Gold-Auszahlung konfigurieren.');
+    return;
+  }
+
+  try {
+    const playerCharactersMap = await getPlayerCharactersMap();
+    
+    if (Object.keys(playerCharactersMap).length === 0) {
+      ui.notifications.warn('Keine Spieler-Charaktere gefunden.');
+      return;
+    }
+    
+    const config = await showPayoutConfigurationDialog(playerCharactersMap);
+    
+    if (config) {
+      ui.notifications.info('✅ Gold-Payout-Konfiguration gespeichert!');
+    } else {
+      ui.notifications.info('Konfiguration abgebrochen.');
+    }
+  } catch (err) {
+    console.error(`${MODULE_ID} | Configuration dialog error:`, err);
+    ui.notifications.error('Fehler beim Öffnen des Konfigurationsdialogs.');
+  }
+}
+
 // Export functions globally for macro access
 Hooks.once('setup', () => {
   window.handleGoldPayout = handleGoldPayout;
   window.showPayoutConfigurationDialog = showPayoutConfigurationDialog;
+  window.openPayoutConfigurationDialog = openPayoutConfigurationDialog;
 });

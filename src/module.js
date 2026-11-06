@@ -6,7 +6,7 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const TABLE_OWNERSHIP = 3; 
 const NO_OWNERSHIP = 0;
-const MACRO_SYNC_VERSION = 31;
+const MACRO_SYNC_VERSION = 32;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -18,7 +18,8 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
 
   static DEFAULT_OPTIONS = {
     actions: {
-      runMacro: JacobsLootSidebarTab.#onRunMacro
+      runMacro: JacobsLootSidebarTab.#onRunMacro,
+      configureGoldPayout: JacobsLootSidebarTab.#onConfigureGoldPayout
     }
   };
 
@@ -47,6 +48,18 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
       await macro.execute();
     } else {
       ui.notifications.warn(`Macro not found: ${name}`);
+    }
+  }
+
+  /**
+   * Handle gold payout configuration dialog
+   */
+  static async #onConfigureGoldPayout(event, target) {
+    event.preventDefault();
+    if (window.openPayoutConfigurationDialog) {
+      await window.openPayoutConfigurationDialog();
+    } else {
+      ui.notifications.error('Gold Payout System not ready yet. Please wait for the module to load.');
     }
   }
 }

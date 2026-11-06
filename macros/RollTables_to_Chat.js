@@ -7,6 +7,12 @@ const individualTreasureSettingsKey = "individualTreasurePreset";
 // Setting key for the global counter tracking
 const lootCounterSettingsKey = "lootCounters";
 
+// Helper function to check if darkmode is enabled in Foundry settings
+function isDarkmodeEnabled() {
+  return document.body.classList.contains("dark-mode") || 
+         (game.settings && game.settings.get("core", "colorScheme") === "dark");
+}
+
 const RECOMMENDED_HOARDS = {
   tier1: 7,
   tier2: 12,
@@ -312,7 +318,7 @@ async function askIndividualTreasurePreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }).render(true);
+    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
   });
 }
 
@@ -401,7 +407,7 @@ async function askTreasureHoardPreset() {
         });
       },
       close: () => resolve(null)
-    }).render(true);
+    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
   });
 }
 
@@ -702,7 +708,7 @@ async function askSpellsPreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }).render(true);
+    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
   });
 }
 
@@ -739,7 +745,7 @@ async function askPotionsPreset() {
       },
       default: "apply",
       close: () => resolve(null)
-    }).render(true);
+    }, { classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
   });
 }
 
@@ -877,6 +883,6 @@ async function askTargetedLootPreset() {
           await resolveAndSetTargetedLootPresetItem(e.currentTarget.value, e.currentTarget.getAttribute("data-slot"), html);
         });
       }
-    }, { width: 460 }).render(true);
+    }, { width: 460, classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
   });
 }

@@ -255,6 +255,12 @@ const resetLootCountersCommand = `// Reset Specific Loot Counters Macro (Styled 
 const individualTreasureSettingsNamespace = "lootmakros";
 const lootCounterSettingsKey = "lootCounters";
 
+// Helper function to check if darkmode is enabled
+function isDarkmodeEnabled() {
+  return document.body.classList.contains("dark-mode") || 
+         (game.settings && game.settings.get("core", "colorScheme") === "dark");
+}
+
 // Helper function to format hoard counters as thirds
 // Handles both old decimal format (0.666...) and new thirds format (whole numbers)
 function formatHoardCounter(value) {
@@ -405,7 +411,7 @@ if (!game.user.isGM) {
         function() { $(this).css("background", "rgba(0,0,0,0.03)"); }
       );
     }
-  }, { width: 420 }).render(true);
+  }, { width: 420, classes: isDarkmodeEnabled() ? ["loot-darkmode"] : [] }).render(true);
 }`;
 
 // 4. Automatic table & macro synchronization on world start

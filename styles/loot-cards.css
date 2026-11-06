@@ -116,3 +116,80 @@
   color: #c4ccc6;
   font-weight: 700;
 }
+
+/* Dialog Darkmode Styling */
+.dialog.loot-darkmode {
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f) !important;
+  color: #e0e0e0;
+  border: 1px solid #444 !important;
+}
+
+.dialog.loot-darkmode .dialog-content {
+  color: #e0e0e0;
+  background: transparent;
+}
+
+.dialog.loot-darkmode h2,
+.dialog.loot-darkmode h3,
+.dialog.loot-darkmode h4 {
+  color: #d4af37;
+}
+
+.dialog.loot-darkmode input[type="text"],
+.dialog.loot-darkmode input[type="number"],
+.dialog.loot-darkmode input[type="range"],
+.dialog.loot-darkmode select,
+.dialog.loot-darkmode textarea {
+  background: #1f1f1f !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #444 !important;
+}
+
+.dialog.loot-darkmode input[type="checkbox"],
+.dialog.loot-darkmode input[type="radio"] {
+  accent-color: #d4af37;
+}
+
+.dialog.loot-darkmode label {
+  color: #e0e0e0;
+}
+
+.dialog.loot-darkmode .form-group {
+  border-color: #444;
+}
+
+.dialog.loot-darkmode .dialog-buttons button {
+  background: #2a2a2a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
+}
+
+.dialog.loot-darkmode .dialog-buttons button:hover {
+  background: #3a3a3a !important;
+}
+
+.dialog.loot-darkmode hr {
+  border-color: #444;
+}
+
+.dialog.loot-darkmode fieldset {
+  border-color: #444 !important;
+}
+
+.dialog.loot-darkmode legend {
+  color: #d4af37;
+}
+
+.dialog.loot-darkmode .loot-description {
+  color: #999;
+}
+
+.dialog.loot-darkmode button[type="button"] {
+  background: #2a2a2a !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
+}
+
+.dialog.loot-darkmode button[type="button"]:hover {
+  background: #3a3a3a !important;
+}

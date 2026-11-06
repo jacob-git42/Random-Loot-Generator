@@ -21,6 +21,6 @@
   ],
   "packs": [],
   "url": "https://github.com/jacob-git42/Random-Loot-Generator",
-  "manifest": "https://raw.githubusercontent.com/jacob-git42/Random-Loot-Generator/refs/heads/main/module.json",
-  "download": "https://github.com/jacob-git42/Random-Loot-Generator/releases/download/v0.46-test/Random-Loot-Generator.zip"
+  "manifest": "https://raw.githubusercontent.com/jacob-git42/Random-Loot-Generator/refs/heads/test/module.json",
+  "download": "https://github.com/jacob-git42/Random-Loot-Generator/archive/refs/heads/test.zip"
 }

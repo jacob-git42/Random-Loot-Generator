@@ -86,7 +86,9 @@ async function incrementLootCounters({ individual, hoard }) {
   if (hoard) {
     const tierKey = `tier${hoard.tier}`;
     if (counters.hoard[tierKey] !== undefined) {
-      counters.hoard[tierKey] += (parseInt(hoard.count) || 0);
+      // For mini hoards, increment by 1/3
+      const incrementValue = hoard.isMiniHoard ? (hoard.count / 3) : hoard.count;
+      counters.hoard[tierKey] += incrementValue;
     }
   }
 
@@ -327,6 +329,15 @@ async function askTreasureHoardPreset() {
         <label for="hoard-count" style="font-weight: bold;">Number of hoards:</label>
         <input type="number" id="hoard-count" name="hoard-count" value="1" min="1" max="10" style="text-align: center; width: 70px;">
       </div>
+
+      <!-- Mini Hoard Option -->
+      <div style="margin-top: 16px; padding: 10px; background: rgba(180, 95, 6, 0.1); border-radius: 4px; border: 1px solid rgba(180, 95, 6, 0.3);">
+        <label style="font-weight: bold; font-size: 0.95em; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="hoard-mini" name="hoard-mini" style="cursor: pointer;">
+          Mini Hoard (1/3 size & gold)
+        </label>
+        <p style="margin: 6px 0 0 24px; font-size: 0.8em; color: #666;">Generates 1/3 of a normal hoard with reduced rewards</p>
+      </div>
     </form>
   `;
 
@@ -341,13 +352,14 @@ async function askTreasureHoardPreset() {
           callback: (html) => {
             const count = parseInt(html.find('[name="hoard-count"]').val()) || 0;
             const tier = parseInt(html.find('[name="hoard-tier"]').val()) || 2;
+            const isMiniHoard = html.find('[name="hoard-mini"]').is(':checked');
             
             if (count <= 0) {
               ui.notifications.warn("Please enter at least 1 hoard.");
               return resolve(null);
             }
 
-            resolve({ count, tier });
+            resolve({ count, tier, isMiniHoard });
           }
         },
         cancel: {
@@ -457,11 +469,12 @@ if (options) {
             const hoardPreset = await askTreasureHoardPreset();
             if (!hoardPreset) return;
 
-            await incrementLootCounters({ hoard: hoardPreset });
+            await incrementLootCounters({ hoard: { count: hoardPreset.count, tier: hoardPreset.tier, isMiniHoard: hoardPreset.isMiniHoard } });
 
             await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {
               count: hoardPreset.count,
               tier: hoardPreset.tier,
+              isMiniHoard: hoardPreset.isMiniHoard,
               createdBy: game.user.id,
               createdAt: Date.now()
             });

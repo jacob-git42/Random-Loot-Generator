@@ -420,11 +420,13 @@ async function runWithPreset() {
 
   const count = Math.max(1, parseInt(preset.count) || 1);
   const tier = Math.min(4, Math.max(1, parseInt(preset.tier) || 1));
+  const isMiniHoard = preset.isMiniHoard || false;
+  
   if (game.user.isGM) {
     await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {});
   }
 
-  await rollTreasureHoard(count, tier, true);
+  await rollTreasureHoard(count, tier, true, isMiniHoard);
   return true;
 }
 

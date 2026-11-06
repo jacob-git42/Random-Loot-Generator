@@ -64,6 +64,54 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
   }
 }
 
+/**
+ * Debug: Log all characters and ownership
+ * Available in console after module loads: debugGoldPayoutCharacters()
+ */
+async function debugGoldPayoutCharacters() {
+  console.log(`%c=== ${MODULE_ID} Character Debug ===`, 'color: #ffc107; font-weight: bold');
+  
+  // Log all users
+  console.log('%cUSERS:', 'color: #2196F3; font-weight: bold');
+  const allUsers = game.users || [];
+  for (const user of allUsers) {
+    console.log(`  [${user.id}] ${user.name} (isGM: ${user.isGM})`);
+  }
+  
+  // Log all characters and their ownership
+  console.log('%cCHARACTERS:', 'color: #2196F3; font-weight: bold');
+  const actors = game.actors || [];
+  for (const actor of actors) {
+    if (actor.type === 'character') {
+      console.log(`  [${actor.id}] ${actor.name}`);
+      console.log(`    Type: ${actor.type}`);
+      console.log(`    Ownership:`, actor.ownership);
+      
+      // Try to find owner
+      let ownerId = null;
+      const owners = Object.entries(actor.ownership || {})
+        .filter(([key, val]) => val === 3)
+        .map(([key]) => key);
+      if (owners.length > 0) ownerId = owners[0];
+      
+      if (ownerId) {
+        const owner = game.users?.get(ownerId);
+        console.log(`    Owner: ${owner?.name || 'Unknown'} (${ownerId})`);
+      } else {
+        console.warn(`    ⚠️ NO OWNER FOUND (ownership might be stored differently)`);
+        // Try alternative ownership checks
+        for (const [key, val] of Object.entries(actor.ownership || {})) {
+          if (key !== 'default' && val !== 0) {
+            console.log(`    Alternative ownership: [${key}] = ${val}`);
+          }
+        }
+      }
+    }
+  }
+  
+  console.log(`%c=== Debug Complete ===`, 'color: #ffc107; font-weight: bold');
+}
+
 // 2. Module Initialization & Native Sidebar Tab Registration
 Hooks.once('init', () => {
   console.log(`${MODULE_ID} | Initializing Random Loot Generator`);
@@ -368,6 +416,9 @@ Hooks.once('ready', async () => {
     await game.settings.set(MODULE_ID, 'macroSyncVersion', MACRO_SYNC_VERSION);
     ui.notifications.info('Random Loot Generator: Macros updated in "Loot_DM" and "Loot_Player" folders.');
   }
+
+  // Make debug function available globally
+  window.debugGoldPayoutCharacters = debugGoldPayoutCharacters;
 
   if (game.user.isGM) {
     try {

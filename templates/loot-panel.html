@@ -121,7 +121,13 @@
     /* Trennlinien */
     .loot-divider { width: calc(100% - 4px); margin: 8px 2px; border: 0; border-top: 1px solid var(--color-border-light-2, rgba(255,255,255,0.2)); }
     .loot-description { margin: 0 2px 4px; font-size: 0.78em; line-height: 1.25; color: var(--color-text-secondary, #aaa); }
-    .directory-footer { margin-top: auto; padding-top: 2px; }
+    .directory-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      padding-top: 2px;
+      gap: 8px !important;
+    }
 
     /* Einklappbarer Warnhinweis */
     .loot-warning-details { margin: 2px 2px 0; font-size: 0.78em; }

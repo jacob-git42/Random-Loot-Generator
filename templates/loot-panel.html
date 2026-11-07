@@ -47,10 +47,9 @@
     <hr class="loot-divider">
   </div>
 
-  <footer class="directory-footer">
-    <section class="loot-section loot-settings-section">
-      <h3 class="loot-heading">Settings</h3>
-      
+  <section class="loot-section">
+    <h3 class="loot-heading">Tools</h3>
+    <div class="macro-list flexcol">
       <button type="button" class="loot-btn" data-action="configureGoldPayout">
         <i class="fa-solid fa-user-group"></i> Configure Players
       </button>
@@ -64,13 +63,13 @@
       </button>
       
       <p class="loot-description">Reset all Treasure Hoard counters for every tier. Removes module macros, roll tables, and Loot folders if cleanup is clicked.</p>
-    </section>
 
-    <details class="loot-warning-details">
-      <summary><i class="fa-solid fa-circle-info"></i> Show warning info</summary>
-      <p class="loot-description">Only click Clean Up Data if you encounter serious issues or if you want to remove the module completely. You will have to reinstall the module to use it again.</p>
-    </details>
-  </footer>
+      <details class="loot-warning-details">
+        <summary><i class="fa-solid fa-circle-info"></i> Show warning info</summary>
+        <p class="loot-description">Only click Clean Up Data if you encounter serious issues or if you want to remove the module completely. You will have to reinstall the module to use it again.</p>
+      </details>
+    </div>
+  </section>
 
   <style>
     .loot-generator-sidebar { min-height: 100%; padding: 8px; gap: 6px; }

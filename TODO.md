@@ -12,6 +12,7 @@
 - [ ] **Enhance Mini Hoard** - Add Art and Gems in addition to Gold and potentially a magic item, instead of only gold
 
 ## Item piles Integration
+Dependencies (Modules): socketLib, Item piles
 - [ ] **Die Vorbereitungsphase (GM-Client)**
 - Preset-Auswahl: Der Spielleiter startet RollTabels_to_Chat Makro und wählt das gewünschte Loot Makro und Presets aus.
 - Sichere Session-ID: Bei Bestätigung des RollTabels_to_Chat-Dialogs generiert das Modul eine zufällige, einmalige ID (z. B. lootSessionId). Die eigentlichen Würfel-Presets werden ausschließlich im Speicher des GMs unter dieser ID abgelegt.

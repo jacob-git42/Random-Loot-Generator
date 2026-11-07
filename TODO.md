@@ -25,13 +25,433 @@ Dependencies (Modules): socketLib, Item piles
 - [ ] **Die Ausführungsphase (GM-Client via Socket-Listener)**
 Der GM-Client empfängt das Signal, validiert die lootSessionId gegen seinen Speicher und führt das Loot Makro aus:
 - Loot auswürfeln: Die Tabellen werden gezogen. Goldbeträge werden ermittelt.
-- Dynamische Spruchrollen-und Item-Generierung: Falls das Tabellenergebnis einen Zauber (spell) liefert, nutzt der GM-Client die systemeigene Funktion game.dnd5e.documents.SpellScroll5e.createFromSpell(item), um im Speicher eine voll funktionsfähige, systemkonforme Schriftrolle mit passendem Rettungswurf-SG, Texten und Wert zu erzeugen. Gleiches Vorgehen (mit den entsprechenden Funktionen) für +x Waffen oder Rüstungen oder andere Items, die nicht direkt im Compendium vorhanden sind. 
+- Dynamische Spruchrollen-und Item-Generierung: Falls das Tabellenergebnis einen Zauber (spell) liefert, nutzt der GM-Client die systemeigenen Funktion, um im Speicher eine voll funktionsfähige, systemkonforme Schriftrolle mit passendem Rettungswurf-SG, Texten und Wert zu erzeugen. Gleiches Vorgehen (mit den entsprechenden Funktionen) für +x Waffen oder Rüstungen oder andere Items, die nicht direkt im Compendium vorhanden sind. 
 - Error handling für Items die nicht generiert werden konnten oder im Compendium nicht gefunden wurden: Diese Items müssen in der Chatkarte, die im nächsten Schritt generiert wird, hervorgehoben werden. Fallback Option einbauen, damit das Skript weiter läuft und nicht abbricht.
 - Automatische Goldverteilung: Die bestehende Funktion goldPayout teilt das ausgewürfelte Gold direkt im Hintergrund auf die Charakterbögen der Spieler auf.
 
-- [ ] **Das visuelle Finale auf dem Canvas (Wände & Grid-Vermeidung)**
-Damit die Gegenstände organisch auf dem Boden landen, berechnet der GM-Client für jedes Item eine eigene Koordinate im Raum:
-- Wand-Prüfung (Raycasting): Das Modul nutzt CONFIG.Canvas.polygonBacking.sight.create, um ausgehend vom Spieler-Token einen unsichtbaren Radius (z. B. 25 ft.) zu spannen. Wände blockieren diesen Bereich. Gegenstände können nicht durch geschlossene Türen oder in Wände hineinfliegen.
-- Überschneidungsschutz: Das Modul merkt sich jedes bereits belegte Feld in einem Set (inklusive des Feldes, auf dem der Spieler selbst steht). Jedes Item sucht sich per Zufallswinkel ein freies Feld. Ist kein freies Feld mehr vorhanden, dürfen Items überlagert werden.
-- Grid-Snapping & Echtes Aussehen: Die Items rasten perfekt oben links in den Ecken des Foundry-Rasters ein. Das Modul übergibt die originalen Item-Bilder (itemData.img) an Item Piles und skaliert die Tokens auf 0.5 herunter.
+- [ ] **Finale auf dem Canvas**
+- Damit die Gegenstände organisch auf dem Boden landen, berechnet der GM-Client für jedes Item eine eigene Koordinate im Raum:
+    - Wand-Prüfung (Raycasting): Das Modul nutzt CONFIG.Canvas.polygonBacking.sight.create, um ausgehend vom Spieler-Token einen unsichtbaren Radius (z. B. 25 ft.) zu spannen. Wände blockieren diesen Bereich. Gegenstände können nicht durch geschlossene Türen oder in Wände hineinfliegen.
+    - Überschneidungsschutz: Das Modul merkt sich jedes bereits belegte Feld in einem Set (inklusive des Feldes, auf dem der Spieler selbst steht). Jedes Item sucht sich per Zufallswinkel ein freies Feld. Ist kein freies Feld mehr vorhanden, dürfen Items überlagert werden.
+- Das Modul übergibt die originalen Item-Bilder (itemData.img) an Item Piles
 - Die Explosion: Jedes Gegenstands-Icon (sei es ein Schwert, eine Rüstung oder die dynamisch generierte Spruchrolle) wird einzeln per Item Piles API an seiner berechneten Position gespawnt und löst die visuelle Loot-Explosion aus. Gleichzeitig wird eine detaillierte Loot-Übersicht für alle im Chat gepostet.
+
+**Makro-Beispiele, um aus Compendium UUID ein Item auf dem Canvas abzulegen:**
+
+- Radius um Player Token (hier: vom GM ausgewählter Token)
+- Items werden im Sichtbereich des Spielers platziert
+- Items können sich leicht überlagern, aber nicht exakt gleiche Koordinaten nutzen
+
+``` (async () => {
+  // === 1. SPIELER / TOKEN ERMITTELN ===
+  const targetToken = canvas.tokens.controlled[0];
+  
+  if (!targetToken) {
+    return ui.notifications.warn("Bitte wähle zuerst einen Token auf dem Canvas aus!");
+  }
+
+  const center = targetToken.center;
+
+  // === 2. KONFIGURATION ===
+  const itemUUID = "Compendium.dnd5e.equipment24.Item.phbarmShield0000";
+  const item = await fromUuid(itemUUID);
+  
+  if (!item) {
+    return ui.notifications.error("Item nicht gefunden: " + itemUUID);
+  }
+
+  const scene = canvas.scene;
+  const gridDist = scene.grid.distance; // 5 ft pro Feld
+  const gridSize = canvas.grid.size;   // Pixel pro Feld
+  
+  // 10 ft in Pixel umrechnen
+  const maxRadiusFt = 10;
+  const maxRadiusPx = (maxRadiusFt / gridDist) * gridSize;
+
+  // === 3. BEREITS BESETZTE POSITIONEN ERFASSEN (Vorab-Scan der Tokens) ===
+  const occupiedPositions = [];
+  for (const t of canvas.tokens.placeables) {
+    // Radius entspricht der halben Token-Größe, damit Items nicht auf Tokens spawnen
+    const radius = Math.max(t.w, t.h) / 2;
+    occupiedPositions.push({ x: t.center.x, y: t.center.y, radius: radius });
+  }
+
+  // Mindestabstand zwischen den Items, damit sie sich nicht überlappen
+  const minItemSpacing = gridSize * 0.4;
+
+  const count = 3;
+  const maxTriesPerItem = 40;
+  let placedCount = 0;
+
+  for (let i = 0; i < count; i++) {
+    let validPosition = null;
+    let lastWallFreePosition = null; // Fallback, falls der Bereich voll ist und Überlappung erzwungen werden muss
+
+    // Versuche, einen freien, sichtbaren Platz zu finden
+    for (let attempt = 0; attempt < maxTriesPerItem; attempt++) {
+      const angle = Math.random() * Math.PI * 2;
+      const distancePx = Math.sqrt(Math.random()) * maxRadiusPx; 
+
+      const targetX = Math.round(center.x + Math.cos(angle) * distancePx);
+      const targetY = Math.round(center.y + Math.sin(angle) * distancePx);
+
+      // Sichtlinie / Wand-Prüfung (v14-kompatibel)
+      const ray = new foundry.canvas.geometry.Ray(center, { x: targetX, y: targetY });
+      let hasWallCollision = false;
+      try {
+        hasWallCollision = canvas.walls.checkCollision(ray, { type: "sight", mode: "any" });
+      } catch (e) {
+        hasWallCollision = canvas.walls.placeables.some(wall => {
+          if (wall.document.sight === 0) return false;
+          if (wall.document.door === 1) return false;
+          return ray.intersectSegment(wall.document.c);
+        });
+      }
+
+      if (hasWallCollision) continue;
+
+      // Merke diesen Punkt als potenziellen Fallback (falls absolut kein freier Platz frei bleibt)
+      if (!lastWallFreePosition) {
+        lastWallFreePosition = { x: targetX, y: targetY };
+      }
+
+      // Prüfe, ob der Punkt mit einem Token oder bereits platzierten Items kollidiert
+      let conflicts = false;
+      for (const pos of occupiedPositions) {
+        const dist = Math.hypot(pos.x - targetX, pos.y - targetY);
+        const threshold = pos.radius ? (pos.radius + minItemSpacing) : minItemSpacing;
+        if (dist < threshold) {
+          conflicts = true;
+          break;
+        }
+      }
+
+      if (!conflicts) {
+        validPosition = { x: targetX, y: targetY };
+        break;
+      }
+    }
+
+    // Wenn kein komplett freier Platz gefunden wurde, greift der Fallback (Überlappung erlauben, da Platzmangel)
+    if (!validPosition && lastWallFreePosition) {
+      validPosition = lastWallFreePosition;
+    }
+
+    if (validPosition) {
+      // Item Pile erstellen
+      await game.itempiles.API.createItemPile({
+        position: validPosition,
+        items: [
+          {
+            item: item.toObject(),
+            quantity: 1
+          }
+        ]
+      });
+
+      // Neue Position zur Sperrliste hinzufügen, damit das nächste Item Abstand hält
+      occupiedPositions.push({ x: validPosition.x, y: validPosition.y, radius: minItemSpacing });
+      placedCount++;
+    }
+  }
+
+  if (placedCount > 0) {
+    ui.notifications.info(`${placedCount}x "${item.name}" überschneidungsfrei im 10-ft-Umkreis platziert.`);
+  } else {
+    ui.notifications.warn("Kein gültiger Platz im Umkreis gefunden.");
+  }
+})();
+```
+
+- Spell Scroll creation
+
+``` (async () => {
+  // === 1. LISTE DER VERSCHIEDENEN ZAUBER (Hier deine 3 gewünschten UUIDs eintragen) ===
+  const spellUUIDs = [
+    "Compendium.dnd5e.spells24.Item.phbsplAlarm00000",
+    "Compendium.dnd5e.spells24.Item.phbsplAnimalFrie",
+    "Compendium.dnd5e.spells24.Item.phbsplBane000000"
+  ];
+
+  const scene = canvas.scene;
+  const margin = 100;
+  let placedCount = 0;
+
+  // === 2. FÜR JEDEN ZAUBER EINZELN DIALOG ÖFFNEN UND PLATZIEREN ===
+  for (const uuid of spellUUIDs) {
+    const spell = await fromUuid(uuid);
+    if (!spell) {
+      ui.notifications.warn(`Zauber nicht gefunden: ${uuid}`);
+      continue;
+    }
+
+    // Öffnet für diesen Zauber den offiziellen Erstellungs-Dialog
+    const scrollData = await Item.implementation.createScrollFromSpell(spell);
+    if (!scrollData) continue; // Überspringen, falls der Dialog abgebrochen wurde
+
+    // Zufällige Position für diese spezifische Rolle berechnen
+    const x = Math.floor(Math.random() * (scene.width - margin * 2) + margin);
+    const y = Math.floor(Math.random() * (scene.height - margin * 2) + margin);
+
+    // Item Pile für diese Rolle erstellen
+    await game.itempiles.API.createItemPile({
+      position: { x, y },
+      items: [
+        {
+          item: scrollData,
+          quantity: 1
+        }
+      ]
+    });
+
+    placedCount++;
+  }
+
+  if (placedCount > 0) {
+    ui.notifications.info(`${placedCount} Spruchrollen einzeln auf dem Canvas platziert.`);
+  }
+})();
+```
+
+- +1/2/3 Armor/Shield/Weapon/Wand of War Mage/Ammunition enchantment
+
+```(async () => {
+  // === DEFINITION DER +1 GEGENSTÄNDE ===
+  const itemsToGenerate = [
+    {
+      name: "Schild +1",
+      baseUuid: "Compendium.dnd5e.equipment24.Item.phbarmShield0000",     // Korrigierte Schild-UUID
+      enchantUuid: "Compendium.dnd5e.equipment24.Item.dmgShield12or300",  // Schild-Verzauberung
+      type: "shield"
+    },
+    {
+      name: "Rüstung +1 (Kettenhemd)",
+      baseUuid: "Compendium.dnd5e.equipment24.Item.phbarmChainMail0",    // Kettenhemd
+      enchantUuid: "Compendium.dnd5e.equipment24.Item.dmgArmor12or3000", // Rüstungs-Verzauberung
+      type: "armor"
+    },
+    {
+      name: "Waffe +1 (Langschwert)",
+      baseUuid: "Compendium.dnd5e.equipment24.Item.phbwepLongsword0",    // Basis-Waffe
+      enchantUuid: "Compendium.dnd5e.equipment24.Item.dmgWeapon12or300",  // Waffen-Verzauberung
+      type: "weapon"
+    },
+    {
+      name: "Munition +1 (Pfeile)",
+      baseUuid: "Compendium.dnd5e.equipment24.Item.phbamoArrows0000",    // Korrigierte Pfeile-UUID
+      enchantUuid: "Compendium.dnd5e.equipment24.Item.dmgAmmunition12o",  // Munitions-Verzauberung
+      type: "ammo"
+    },
+    {
+      name: "Wand of the War Mage +1",
+      directUuid: "Compendium.dnd5e.equipment24.Item.dmg1WandOfTheWar",  // Direktes magisches Item
+      type: "direct"
+    }
+  ];
+
+  const scene = canvas.scene;
+  const margin = 100;
+  let count = 0;
+
+  for (const config of itemsToGenerate) {
+    let itemData;
+
+    // Methode A: Direktes fertiges Item laden
+    if (config.type === "direct" && config.directUuid) {
+      const directItem = await fromUuid(config.directUuid);
+      if (!directItem) {
+        ui.notifications.warn(`Direktes Item nicht gefunden: ${config.directUuid}`);
+        continue;
+      }
+      itemData = directItem.toObject();
+    } 
+    // Methode B: Basis-Item + Verzauberung kombinieren
+    else {
+      const baseItem = await fromUuid(config.baseUuid);
+      const enchantment = await fromUuid(config.enchantUuid);
+
+      if (!baseItem || !enchantment) {
+        ui.notifications.warn(`Konnte Basis oder Verzauberung für "${config.name}" nicht laden!`);
+        continue;
+      }
+
+      itemData = baseItem.toObject();
+      itemData.name = `${baseItem.name} +1`;
+      itemData.system.magical = true;
+      itemData.system.rarity = "uncommon";
+
+      // Typspezifische Werte anpassen
+      if (config.type === "shield" || config.type === "armor") {
+        if (itemData.system.armor?.value !== undefined) {
+          itemData.system.armor.value += 1;
+        }
+      } else if (config.type === "weapon" || config.type === "ammo") {
+        if (!itemData.system.magicalBonus) itemData.system.magicalBonus = 1;
+        if (!itemData.system.bonus) itemData.system.bonus = {};
+        itemData.system.bonus.attack = "1";
+        itemData.system.bonus.damage = "1";
+      }
+
+      // Verzauberungs-Effekte einbetten
+      const effects = enchantment.effects.map(e => e.toObject());
+      itemData.effects = [...(itemData.effects || []), ...effects];
+    }
+
+    // Zufällige Position auf dem Spielfeld berechnen
+    const x = Math.floor(Math.random() * (scene.width - margin * 2) + margin);
+    const y = Math.floor(Math.random() * (scene.height - margin * 2) + margin);
+
+    // Als Item Pile auf dem Canvas platzieren
+    await game.itempiles.API.createItemPile({
+      position: { x, y },
+      items: [itemData]
+    });
+
+    count++;
+  }
+
+  if (count > 0) {
+    ui.notifications.info(`${count} +1 Gegenstände erfolgreich auf dem Canvas platziert!`);
+  }
+})();
+```
+
+- Armor/Ring/Potion of Resistance
+
+```(async () => {
+  // === 1. COMPENDIUM UUIDS & WIDERSTÄNDE ===
+  const itemsToCreate = [
+    {
+      uuid: "Compendium.dnd5e.equipment24.Item.dmgArmorOfResist", // Armor of Resistance
+      name: "Chain Mail of Resistance",
+      type: "armor",
+      resistance: "fire",       // Feuerwiderstand
+      label: "Feuer"
+    },
+    {
+      uuid: "Compendium.dnd5e.equipment24.Item.dmgPotionOfResis", // Potion of Resistance
+      name: "Trank des Widerstands",
+      type: "potion",
+      resistance: "cold",       // Kältewiderstand
+      label: "Kälte"
+    },
+    {
+      uuid: "Compendium.dnd5e.equipment24.Item.dmgRingOfResista", // Ring of Resistance
+      name: "Ring des Widerstands",
+      type: "ring",
+      resistance: "lightning",  // Blitzwiderstand
+      label: "Blitz"
+    }
+  ];
+
+  const scene = canvas.scene;
+  const margin = 100;
+  let count = 0;
+
+  // === 2. ITEMS ERZEUGEN UND PASSENDE RESISTENZ EINSETZEN ===
+  for (const config of itemsToCreate) {
+    const baseItem = await fromUuid(config.uuid);
+    if (!baseItem) {
+      ui.notifications.warn(`Item nicht gefunden: ${config.uuid}`);
+      continue;
+    }
+
+    const itemData = baseItem.toObject();
+
+    // Namen mit dem Schadens-Typ erweitern
+    itemData.name = `${config.name} (${config.label})`;
+    itemData.system.magical = true;
+
+    // Schadenswiderstand im System-Dokument setzen
+    if (!itemData.system.damage) itemData.system.damage = {};
+    itemData.system.damage.resistance = config.resistance;
+
+    // Beschreibung um den Widerstand ergänzen (falls gewünscht)
+    if (itemData.system.description?.value) {
+      itemData.system.description.value += `<p><strong>Gewährter Widerstand:</strong> ${config.label}</p>`;
+    }
+
+    // Zufällige Position auf dem Canvas
+    const x = Math.floor(Math.random() * (scene.width - margin * 2) + margin);
+    const y = Math.floor(Math.random() * (scene.height - margin * 2) + margin);
+
+    // Item Pile anlegen
+    await game.itempiles.API.createItemPile({
+      position: { x, y },
+      items: [itemData]
+    });
+
+    count++;
+  }
+
+  if (count > 0) {
+    ui.notifications.info(`${count} Resistance-Items mit unterschiedlichen Widerständen platziert!`);
+  }
+})();
+```
+- Error handling
+
+```(async () => {
+  // === DEFINITION DER ZWEI EINFACHEN GEGENSTÄNDE ===
+  const itemsToGenerate = [
+    {
+      name: "Schild",
+      uuid: "Compendium.dnd5e.equipment24.Item.phbarmShied0000"
+    },
+    {
+      name: "Langschwert",
+      uuid: "Compendium.dnd5e.equipment24.Item.phbwepLongsword0"
+    }
+  ];
+
+  const scene = canvas.scene;
+  if (!scene) return ui.notifications.error("Keine aktive Szene gefunden!");
+
+  const margin = 100;
+  let successCount = 0;
+  let failCount = 0;
+
+  // Alle aktiven GM-IDs für den Whisper ermitteln
+  const gmIds = game.users.filter(u => u.isGM).map(u => u.id);
+
+  for (const config of itemsToGenerate) {
+    try {
+      const itemEntity = await fromUuid(config.uuid);
+      if (!itemEntity) throw new Error(`UUID nicht gefunden: ${config.uuid}`);
+
+      const itemData = itemEntity.toObject();
+
+      // Zufällige Position auf dem Canvas berechnen
+      const x = Math.floor(Math.random() * (scene.width - margin * 2) + margin);
+      const y = Math.floor(Math.random() * (scene.height - margin * 2) + margin);
+
+      // Als Item Pile auf dem Canvas platzieren
+      await game.itempiles.API.createItemPile({
+        position: { x, y },
+        items: [itemData]
+      });
+
+      successCount++;
+
+    } catch (err) {
+      console.warn(`[Item Generator] Fehler bei "${config.name}":`, err);
+      failCount++;
+
+      // Reduzierte, Darkmode-kompatible GM-Chatkarte
+      await ChatMessage.create({
+        content: `
+          <div style="border-left: 3px solid #e74c3c; padding: 4px 8px; background: rgba(231, 76, 60, 0.1); font-size: 0.85em; line-height: 1.3;">
+            <span style="color: #e74c3c; font-weight: bold;">⚠️ Loot-Fehler:</span> 
+            <strong>${config.name}</strong>
+            <div style="opacity: 0.75; font-size: 0.9em; margin-top: 2px;">${err.message}</div>
+          </div>
+        `,
+        whisper: gmIds
+      });
+    }
+  }
+
+  ui.notifications.info(`Erstellung abgeschlossen: ${successCount} erfolgreich, ${failCount} fehlerhaft.`);
+})();
+```
+

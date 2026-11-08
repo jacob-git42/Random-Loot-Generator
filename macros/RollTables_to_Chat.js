@@ -9,7 +9,7 @@ const lootCounterSettingsKey = "lootCounters";
 
 const RECOMMENDED_HOARDS = {
   tier1: 7,
-  tier2: 18,
+  tier2: 12,
   tier3: 12,
   tier4: 6
 };
@@ -34,6 +34,31 @@ const potionsSettingsKey = "potionsPreset";
 const targetedLootMacroNames = ["Targeted-Loot", "Targeted Loot", "Treasure Presenter"];
 const targetedLootSettingsNamespace = "lootmakros";
 const targetedLootSettingsKey = "targetedLootPreset";
+
+// Helper function to display thirds as "X + Y/3" format
+// Handles both old decimal format (0.666...) and new thirds format (whole numbers)
+function formatHoardCounter(value) {
+  let thirds = value;
+  
+  // If value is a decimal between 0 and 1, it's the old format (count / 3)
+  // Convert to thirds: multiply by 3 and round
+  if (value > 0 && value < 1 && value !== Math.floor(value)) {
+    // This looks like decimal format (e.g., 0.333, 0.666)
+    thirds = Math.round(value * 3);
+  }
+  // Otherwise assume it's already in thirds format (whole number)
+  
+  const wholeHoards = Math.floor(thirds / 3);
+  const remainder = Math.round(thirds % 3);
+  
+  if (remainder === 0) {
+    return wholeHoards.toString();
+  } else if (wholeHoards === 0) {
+    return `${remainder}/3`;
+  } else {
+    return `${wholeHoards} + ${remainder}/3`;
+  }
+}
 
 // Helper function to register counter tracking setting
 function ensureCounterSettingRegistered() {
@@ -86,7 +111,10 @@ async function incrementLootCounters({ individual, hoard }) {
   if (hoard) {
     const tierKey = `tier${hoard.tier}`;
     if (counters.hoard[tierKey] !== undefined) {
-      counters.hoard[tierKey] += (parseInt(hoard.count) || 0);
+      // Store in thirds to avoid decimal precision issues
+      // Normal hoard = 3 thirds, Mini hoard = 1 third
+      const thirdsToAdd = hoard.isMiniHoard ? (hoard.count * 1) : (hoard.count * 3);
+      counters.hoard[tierKey] += thirdsToAdd;
     }
   }
 
@@ -295,10 +323,10 @@ async function askTreasureHoardPreset() {
   const statsBadge = `
   <div style="background: rgba(0, 0, 0, 0.05); border: 1px solid #ccc; padding: 6px 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85em;">
     <strong>Total Generated </b> <span style="color: #666;">(/Recommended)</span></strong><br>
-    Tier 1: <b>${hoardCounters.tier1 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier1})</span> | 
-    Tier 2: <b>${hoardCounters.tier2 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier2})</span> | 
-    Tier 3: <b>${hoardCounters.tier3 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier3})</span> | 
-    Tier 4: <b>${hoardCounters.tier4 || 0}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier4})</span>
+    Tier 1: <b>${formatHoardCounter(hoardCounters.tier1 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier1})</span> | 
+    Tier 2: <b>${formatHoardCounter(hoardCounters.tier2 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier2})</span> | 
+    Tier 3: <b>${formatHoardCounter(hoardCounters.tier3 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier3})</span> | 
+    Tier 4: <b>${formatHoardCounter(hoardCounters.tier4 || 0)}</b> <span style="color: #666;">(/${RECOMMENDED_HOARDS.tier4})</span>
   </div>
   `;
 
@@ -327,6 +355,15 @@ async function askTreasureHoardPreset() {
         <label for="hoard-count" style="font-weight: bold;">Number of hoards:</label>
         <input type="number" id="hoard-count" name="hoard-count" value="1" min="1" max="10" style="text-align: center; width: 70px;">
       </div>
+
+      <!-- Mini Hoard Option -->
+      <div style="margin-top: 16px; padding: 10px; background: rgba(180, 95, 6, 0.1); border-radius: 4px; border: 1px solid rgba(180, 95, 6, 0.3);">
+        <label style="font-weight: bold; font-size: 0.95em; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <input type="checkbox" id="hoard-mini" name="hoard-mini" style="cursor: pointer;">
+          Mini Hoard (1/3 size & gold)
+        </label>
+        <p style="margin: 6px 0 0 24px; font-size: 0.8em; color: #666;">Generates 1/3 of a normal hoard with reduced rewards</p>
+      </div>
     </form>
   `;
 
@@ -341,13 +378,14 @@ async function askTreasureHoardPreset() {
           callback: (html) => {
             const count = parseInt(html.find('[name="hoard-count"]').val()) || 0;
             const tier = parseInt(html.find('[name="hoard-tier"]').val()) || 2;
+            const isMiniHoard = html.find('[name="hoard-mini"]').is(':checked');
             
             if (count <= 0) {
               ui.notifications.warn("Please enter at least 1 hoard.");
               return resolve(null);
             }
 
-            resolve({ count, tier });
+            resolve({ count, tier, isMiniHoard });
           }
         },
         cancel: {
@@ -457,11 +495,12 @@ if (options) {
             const hoardPreset = await askTreasureHoardPreset();
             if (!hoardPreset) return;
 
-            await incrementLootCounters({ hoard: hoardPreset });
+            await incrementLootCounters({ hoard: { count: hoardPreset.count, tier: hoardPreset.tier, isMiniHoard: hoardPreset.isMiniHoard } });
 
             await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {
               count: hoardPreset.count,
               tier: hoardPreset.tier,
+              isMiniHoard: hoardPreset.isMiniHoard,
               createdBy: game.user.id,
               createdAt: Date.now()
             });
@@ -555,6 +594,14 @@ if (options) {
                 
                 await targetMsg.update({ content: lockedContent });
                 ui.notifications.info("Loot card locked.");
+                
+                // Trigger custom hook for Gold Payout System
+                // This allows the payout system to react when loot is revealed
+                Hooks.callAll("lootRevealed", {
+                  claimMarker: expectedClaimMarker,
+                  macroName: selectedMacro.name,
+                  revealedBy: msgDoc.author
+                });
               }
               
               Hooks.off("createChatMessage", hookId);

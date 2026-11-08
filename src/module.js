@@ -6,7 +6,7 @@ const SPELLS_FOLDER_NAME = 'Spells';
 const OBSERVER_OWNERSHIP = 2;
 const TABLE_OWNERSHIP = 3; 
 const NO_OWNERSHIP = 0;
-const MACRO_SYNC_VERSION = 30;
+const MACRO_SYNC_VERSION = 68;
 
 // Extract AppV2 classes from foundry.applications
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -18,7 +18,8 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
 
   static DEFAULT_OPTIONS = {
     actions: {
-      runMacro: JacobsLootSidebarTab.#onRunMacro
+      runMacro: JacobsLootSidebarTab.#onRunMacro,
+      configureGoldPayout: JacobsLootSidebarTab.#onConfigureGoldPayout
     }
   };
 
@@ -49,6 +50,66 @@ class JacobsLootSidebarTab extends HandlebarsApplicationMixin(AbstractSidebarTab
       ui.notifications.warn(`Macro not found: ${name}`);
     }
   }
+
+  /**
+   * Handle gold payout configuration dialog
+   */
+  static async #onConfigureGoldPayout(event, target) {
+    event.preventDefault();
+    if (window.openPayoutConfigurationDialog) {
+      await window.openPayoutConfigurationDialog();
+    } else {
+      ui.notifications.error('Gold Payout System not ready yet. Please wait for the module to load.');
+    }
+  }
+}
+
+/**
+ * Debug: Log all characters and ownership
+ * Available in console after module loads: debugGoldPayoutCharacters()
+ */
+async function debugGoldPayoutCharacters() {
+  console.log(`%c=== ${MODULE_ID} Character Debug ===`, 'color: #ffc107; font-weight: bold');
+  
+  // Log all users
+  console.log('%cUSERS:', 'color: #2196F3; font-weight: bold');
+  const allUsers = game.users || [];
+  for (const user of allUsers) {
+    console.log(`  [${user.id}] ${user.name} (isGM: ${user.isGM})`);
+  }
+  
+  // Log all characters and their ownership
+  console.log('%cCHARACTERS:', 'color: #2196F3; font-weight: bold');
+  const actors = game.actors || [];
+  for (const actor of actors) {
+    if (actor.type === 'character') {
+      console.log(`  [${actor.id}] ${actor.name}`);
+      console.log(`    Type: ${actor.type}`);
+      console.log(`    Ownership:`, actor.ownership);
+      
+      // Try to find owner
+      let ownerId = null;
+      const owners = Object.entries(actor.ownership || {})
+        .filter(([key, val]) => val === 3)
+        .map(([key]) => key);
+      if (owners.length > 0) ownerId = owners[0];
+      
+      if (ownerId) {
+        const owner = game.users?.get(ownerId);
+        console.log(`    Owner: ${owner?.name || 'Unknown'} (${ownerId})`);
+      } else {
+        console.warn(`    ⚠️ NO OWNER FOUND (ownership might be stored differently)`);
+        // Try alternative ownership checks
+        for (const [key, val] of Object.entries(actor.ownership || {})) {
+          if (key !== 'default' && val !== 0) {
+            console.log(`    Alternative ownership: [${key}] = ${val}`);
+          }
+        }
+      }
+    }
+  }
+  
+  console.log(`%c=== Debug Complete ===`, 'color: #ffc107; font-weight: bold');
 }
 
 // 2. Module Initialization & Native Sidebar Tab Registration
@@ -84,6 +145,25 @@ Hooks.once('init', () => {
     config: false,
     type: Boolean,
     default: false
+  });
+
+  game.settings.register(MODULE_ID, 'goldPayoutCharacters', {
+    name: 'Gold Payout Character Configuration',
+    scope: 'world',
+    config: false,
+    type: Object,
+    default: {}
+  });
+
+  game.settings.register(MODULE_ID, 'lootCounters', {
+    name: 'Loot Counters',
+    scope: 'world',
+    config: false,
+    type: Object,
+    default: {
+      individual: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 },
+      hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+    }
   });
 
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
@@ -175,65 +255,102 @@ const resetLootCountersCommand = `// Reset Specific Loot Counters Macro (Styled 
 const individualTreasureSettingsNamespace = "lootmakros";
 const lootCounterSettingsKey = "lootCounters";
 
+// Helper function to format hoard counters as thirds
+// Handles both old decimal format (0.666...) and new thirds format (whole numbers)
+function formatHoardCounter(value) {
+  let thirds = value;
+  
+  // If value is a decimal between 0 and 1, it's the old format (count / 3)
+  // Convert to thirds: multiply by 3 and round
+  if (value > 0 && value < 1 && value !== Math.floor(value)) {
+    // This looks like decimal format (e.g., 0.333, 0.666)
+    thirds = Math.round(value * 3);
+  }
+  // Otherwise assume it's already in thirds format (whole number)
+  
+  const wholeHoards = Math.floor(thirds / 3);
+  const remainder = Math.round(thirds % 3);
+  
+  if (remainder === 0) {
+    return wholeHoards.toString();
+  } else if (wholeHoards === 0) {
+    return \`\${remainder}/3\`;
+  } else {
+    return \`\${wholeHoards} + \${remainder}/3\`;
+  }
+}
+
 if (!game.user.isGM) {
-  ui.notifications.warn("Nur der GM kann die Loot-Zähler zurücksetzen.");
+  ui.notifications.warn("Only the GM can reset loot counters.");
 } else {
-  const currentCounters = game.settings.get(individualTreasureSettingsNamespace, lootCounterSettingsKey) || {
-    individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
-    hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
-  };
+  let currentCounters;
+  try {
+    currentCounters = game.settings.get(individualTreasureSettingsNamespace, lootCounterSettingsKey) || {
+      individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
+      hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+    };
+  } catch (err) {
+    // Setting not registered yet, use defaults
+    currentCounters = {
+      individual: { "range-0-4": 0, "range-5-10": 0, "range-11-16": 0, "range-17": 0 },
+      hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+    };
+  }
 
   const ind = currentCounters.individual || {};
   const hoard = currentCounters.hoard || {};
 
-  const renderItem = (name, label, value) => \`
+  const renderItem = (name, label, value, isHoard = false) => {
+    const displayValue = isHoard ? formatHoardCounter(value) : value;
+    return \`
     <label style="display: flex; align-items: center; justify-content: space-between; padding: 4px 8px; border-radius: 4px; background: rgba(0,0,0,0.03); cursor: pointer; border: 1px solid rgba(0,0,0,0.08); transition: background 0.15s ease;">
       <div style="display: flex; align-items: center; gap: 8px;">
         <input type="checkbox" name="\${name}" style="margin: 0; cursor: pointer;">
         <span style="font-weight: 500;">\${label}</span>
       </div>
-      <span style="background: rgba(0,0,0,0.1); border-radius: 10px; padding: 1px 8px; font-size: 0.82em; font-weight: bold; color: \${value > 0 ? '#b45f06' : '#666'};\">\${value}</span>
+      <span style="background: rgba(0,0,0,0.1); border-radius: 10px; padding: 1px 8px; font-size: 0.82em; font-weight: bold; color: \${value > 0 ? '#b45f06' : '#666'};\">\${displayValue}</span>
     </label>
   \`;
+  };
 
   const dialogContent = \`
     <form style="padding: 2px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <p style="margin: 0; font-size: 0.9em; color: #444;">Wähle die Zähler zum Zurücksetzen:</p>
+        <p style="margin: 0; font-size: 0.9em; color: #444;">Select counters to reset:</p>
         <button type="button" id="select-all-btn" style="width: auto; padding: 3px 10px; font-size: 0.8em; line-height: 1.2;">
-          <i class="fas fa-check-square"></i> Alle auswählen
+          <i class="fas fa-check-square"></i> Select All
         </button>
       </div>
 
       <fieldset style="border: 1px solid #7a7971; border-radius: 5px; margin-bottom: 12px; padding: 8px 10px; background: rgba(0,0,0,0.02);">
         <legend style="font-size: 0.85em; font-weight: bold; color: #4b4a44; padding: 0 4px;">Individual Treasure</legend>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.85em;">
-          \${renderItem("ind-range-0-4", "CR 0-4", ind["range-0-4"] || 0)}
-          \${renderItem("ind-range-5-10", "CR 5-10", ind["range-5-10"] || 0)}
-          \${renderItem("ind-range-11-16", "CR 11-16", ind["range-11-16"] || 0)}
-          \${renderItem("ind-range-17", "CR 17+", ind["range-17"] || 0)}
+          \${renderItem("ind-range-0-4", "CR 0-4", ind["range-0-4"] || 0, false)}
+          \${renderItem("ind-range-5-10", "CR 5-10", ind["range-5-10"] || 0, false)}
+          \${renderItem("ind-range-11-16", "CR 11-16", ind["range-11-16"] || 0, false)}
+          \${renderItem("ind-range-17", "CR 17+", ind["range-17"] || 0, false)}
         </div>
       </fieldset>
 
       <fieldset style="border: 1px solid #7a7971; border-radius: 5px; padding: 8px 10px; background: rgba(0,0,0,0.02);">
         <legend style="font-size: 0.85em; font-weight: bold; color: #4b4a44; padding: 0 4px;">Treasure Hoard</legend>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.85em;">
-          \${renderItem("hoard-tier1", "Tier 1", hoard.tier1 || 0)}
-          \${renderItem("hoard-tier2", "Tier 2", hoard.tier2 || 0)}
-          \${renderItem("hoard-tier3", "Tier 3", hoard.tier3 || 0)}
-          \${renderItem("hoard-tier4", "Tier 4", hoard.tier4 || 0)}
+          \${renderItem("hoard-tier1", "Tier 1", hoard.tier1 || 0, true)}
+          \${renderItem("hoard-tier2", "Tier 2", hoard.tier2 || 0, true)}
+          \${renderItem("hoard-tier3", "Tier 3", hoard.tier3 || 0, true)}
+          \${renderItem("hoard-tier4", "Tier 4", hoard.tier4 || 0, true)}
         </div>
       </fieldset>
     </form>
   \`;
 
   new Dialog({
-    title: "Loot-Zähler zurücksetzen",
+    title: "Reset Loot Counters",
     content: dialogContent,
     buttons: {
       reset: {
         icon: '<i class="fas fa-undo"></i>',
-        label: "Zurücksetzen",
+        label: "Reset",
         callback: async (html) => {
           const updatedCounters = typeof structuredClone === "function" 
             ? structuredClone(currentCounters) 
@@ -258,17 +375,17 @@ if (!game.user.isGM) {
           }
 
           if (resetCount === 0) {
-            ui.notifications.warn("Keine Zähler zum Zurücksetzen ausgewählt.");
+            ui.notifications.warn("No counters selected for reset.");
             return;
           }
 
           await game.settings.set(individualTreasureSettingsNamespace, lootCounterSettingsKey, updatedCounters);
-          ui.notifications.info(\`\${resetCount} Zähler erfolgreich zurückgesetzt!\`);
+          ui.notifications.info(\`\${resetCount} counters successfully reset!\`);
         }
       },
       cancel: {
         icon: '<i class="fas fa-times"></i>',
-        label: "Abbrechen"
+        label: "Cancel"
       }
     },
     default: "reset",
@@ -278,8 +395,8 @@ if (!game.user.isGM) {
         allChecked = !allChecked;
         html.find('input[type="checkbox"]').prop("checked", allChecked);
         $(e.currentTarget).html(allChecked 
-          ? '<i class="fas fa-minus-square"></i> Alle abwählen' 
-          : '<i class="fas fa-check-square"></i> Alle auswählen'
+          ? '<i class="fas fa-minus-square"></i> Deselect All' 
+          : '<i class="fas fa-check-square"></i> Select All'
         );
       });
 
@@ -288,12 +405,26 @@ if (!game.user.isGM) {
         function() { $(this).css("background", "rgba(0,0,0,0.03)"); }
       );
     }
-  }, { width: 420 }).render(true);
+  }, { width: 420, classes: [] }).render(true);
 }`;
 
 // 4. Automatic table & macro synchronization on world start
 Hooks.once('ready', async () => {
   if (!game.settings.get(MODULE_ID, 'enabled')) return;
+
+  // Migration: Ensure lootCounters setting is initialized
+  try {
+    const lootCounters = game.settings.get(MODULE_ID, 'lootCounters');
+    if (!lootCounters || typeof lootCounters !== 'object' || Object.keys(lootCounters).length === 0) {
+      await game.settings.set(MODULE_ID, 'lootCounters', {
+        individual: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 },
+        hoard: { tier1: 0, tier2: 0, tier3: 0, tier4: 0 }
+      });
+      console.log(`${MODULE_ID} | Initialized lootCounters setting`);
+    }
+  } catch (err) {
+    console.error(`${MODULE_ID} | Failed to initialize lootCounters:`, err);
+  }
 
   if (game.user.isGM && game.settings.get(MODULE_ID, 'macroSyncVersion') < MACRO_SYNC_VERSION) {
     console.log(`${MODULE_ID} | Synchronizing macros into DM and Player folders...`);
@@ -347,6 +478,9 @@ Hooks.once('ready', async () => {
     await game.settings.set(MODULE_ID, 'macroSyncVersion', MACRO_SYNC_VERSION);
     ui.notifications.info('Random Loot Generator: Macros updated in "Loot_DM" and "Loot_Player" folders.');
   }
+
+  // Make debug function available globally
+  window.debugGoldPayoutCharacters = debugGoldPayoutCharacters;
 
   if (game.user.isGM) {
     try {

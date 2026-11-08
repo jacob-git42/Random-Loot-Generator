@@ -2,10 +2,19 @@
   "id": "jacobs-loot-generator",
   "title": "Jacobs-Loot-Generator",
   "description": "Loot generation macros and roll tables packaged as a FoundryVTT module",
-  "version": "0.45",
+  "version": "0.72",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
+  },
+  "socket": true,
+  "relationships": {
+    "requires": [
+      {
+        "id": "socketlib",
+        "type": "module"
+      }
+    ]
   },
   "authors": [
     {
@@ -13,13 +22,14 @@
     }
   ],
   "esmodules": [
-    "src/module.js"
+    "src/module.js",
+    "src/goldPayout.js"
   ],
   "styles": [
     "styles/loot-cards.css"
   ],
   "packs": [],
   "url": "https://github.com/jacob-git42/Random-Loot-Generator",
-  "manifest": "https://raw.githubusercontent.com/jacob-git42/Random-Loot-Generator/refs/heads/main/module.json",
-  "download": "https://github.com/jacob-git42/Random-Loot-Generator/archive/refs/heads/main.zip"
+  "manifest": "https://raw.githubusercontent.com/jacob-git42/Random-Loot-Generator/refs/heads/test/module.json",
+  "download": "https://github.com/jacob-git42/Random-Loot-Generator/archive/refs/heads/test.zip"
 }

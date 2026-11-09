@@ -135,7 +135,7 @@ async function resolveItem(result, kind) {
     if (category === 'shield') {
       base = await fromUuid('Compendium.dnd5e.equipment24.Item.phbarmShield0000');
     } else if (category === 'ammunition') {
-      base = await fromUuid('Compendium.dnd5e.equipment24.Item.phbamoArrows0000');
+      base = await rollBaseItem('Ammunition');
     } else {
       base = await rollBaseItem(category === 'weapon' ? 'Weapons' : 'Armor');
     }
@@ -153,8 +153,6 @@ async function resolveItem(result, kind) {
       accept = result => /breastplate|chain|half plate|scale|plate|ring mail|splint/i.test(labelOf(result));
     } else if (/^defender$/i.test(label)) {
       accept = result => /longsword|greatsword|shortsword|scimitar|rapier/i.test(labelOf(result));
-    } else if (/^demon armor$/i.test(label)) {
-      accept = result => /^plate armor$/i.test(labelOf(result));
     } else if (/^elven chain$/i.test(label)) {
       accept = result => /^chain shirt$/i.test(labelOf(result));
     }

@@ -19,5 +19,9 @@ are reported in the chat card instead of stopping the remaining loot. Some
 tables refer to `Compendium.world.jacobs-loot-generator`, which must exist in
 the world until that compendium is included in this module.
 
+Magical ammunition uses a random base item from the `Ammunition` roll table.
+Demon Armor can select any base armor from `Armor`, but remains a manual
+fallback because its enchantment also requires a dependent Clawed Gauntlets item.
+
 The lightweight unit tests can be run with `node --test tests/*.test.cjs`;
 they mock Foundry and do not replace testing inside Foundry VTT.

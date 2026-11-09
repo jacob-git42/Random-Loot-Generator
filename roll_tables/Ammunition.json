@@ -1,0 +1,167 @@
+{
+  "name": "Ammunition",
+  "description": "<p>A random table created from the contents of the Ammunition Folder.</p>",
+  "results": [
+    {
+      "name": "Arrows",
+      "type": "document",
+      "documentUuid": "Compendium.dnd5e.equipment24.Item.phbamoArrows0000",
+      "img": "icons/weapons/ammunition/arrows-broadhead-white.webp",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "sOn3zbkHRsrE7OHd",
+      "description": "",
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794233968037,
+        "modifiedTime": 1794233968037,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Bolts",
+      "type": "document",
+      "documentUuid": "Compendium.dnd5e.equipment24.Item.phbamoBolts00000",
+      "img": "icons/weapons/ammunition/arrow-broadhead-white.webp",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "gbb3zjNHxFGflYSy",
+      "description": "",
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794233968037,
+        "modifiedTime": 1794233968037,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Bullets, Firearm",
+      "type": "document",
+      "documentUuid": "Compendium.dnd5e.equipment24.Item.phbamoBulletsFir",
+      "img": "icons/containers/ammunition/bullets-belt.webp",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "spwjG3HohMuiRg8g",
+      "description": "",
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794233968037,
+        "modifiedTime": 1794233968037,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Bullets, Sling",
+      "type": "document",
+      "documentUuid": "Compendium.dnd5e.equipment24.Item.phbamoBulletsSli",
+      "img": "icons/weapons/ammunition/shot-round-blue.webp",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "_id": "GhKKPaCAo15tkhml",
+      "description": "",
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794233968037,
+        "modifiedTime": 1794233968037,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    },
+    {
+      "name": "Needles",
+      "type": "document",
+      "documentUuid": "Compendium.dnd5e.equipment24.Item.phbamoNeedles000",
+      "img": "icons/weapons/ammunition/arrows-fletching.webp",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "_id": "4CmmDU7AGCIr8ncd",
+      "description": "",
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794233968037,
+        "modifiedTime": 1794233968037,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      }
+    }
+  ],
+  "formula": "1d6",
+  "img": "icons/svg/d20-grey.svg",
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "UHyv3fZzT45p6nV4",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "scene-packer": {
+      "hash": "9a825f74ca352ba47bea248996b3e5b85c17c282",
+      "sourceId": "RollTable.QrVXdHzGSbltjxJk"
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "dnd5e",
+    "systemVersion": "6.0.6",
+    "createdTime": 1794233968037,
+    "modifiedTime": 1794233988077,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.QrVXdHzGSbltjxJk",
+      "coreVersion": "14.369",
+      "systemId": "dnd5e",
+      "systemVersion": "6.0.6"
+    }
+  }
+}

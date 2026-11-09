@@ -140,6 +140,77 @@ test('applies the selected +2 system profile to a base weapon', async () => {
   assert.equal(data.img, 'Sword.png');
 });
 
+test('all ammunition table entries use the requested +1, +2 or +3 profile', async () => {
+  const table = JSON.parse(fs.readFileSync('roll_tables/Ammunition.json', 'utf8'));
+  const manifest = JSON.parse(fs.readFileSync('roll_tables/manifest.json', 'utf8'));
+  assert.ok(manifest.includes('Ammunition.json'));
+  assert.ok(table.results.length > 1);
+  for (const result of table.results) {
+    for (const bonus of [1, 2, 3]) {
+      const f = fixture();
+      const effects = new Map([1, 2, 3].map(value => {
+        const name = `Ammunition +${value}`;
+        return [String(value), {
+          name,
+          clone: () => ({ toObject: () => ({
+            name, system: { changes: [{ key: 'system.magicalBonus', value: String(value) }] }
+          }) })
+        }];
+      }));
+      const activity = {
+        type: 'enchant', uuid: 'Activity.ammunition',
+        effects: [1, 2, 3].map(value => ({ _id: String(value) })),
+        canEnchant: () => true, getAppliedEffectChanges: () => ({})
+      };
+      f.documents.set('Item.ammunition', {
+        name: 'Ammunition, +1, +2, or +3', type: 'consumable', documentName: 'Item',
+        system: { activities: [activity] }, effects
+      });
+      f.documents.set(result.documentUuid, f.item(result.name, 'consumable'));
+      f.context.game.tables.push({ name: table.name, folder: { name: 'Loot' }, results: [result] });
+      f.context.Item.implementation = function(data) { Object.assign(this, data); };
+      f.context.ActiveEffect = { implementation: { forApplication: async changes => changes } };
+      f.context.foundry = { utils: { randomID: () => 'id', mergeObject: obj => obj } };
+      const data = await f.resolveItem({
+        description: `@UUID[Item.ammunition]{Ammunition, +${bonus}}`
+      }, 'item');
+      assert.equal(data.name, result.name);
+      assert.equal(data.effects[0].name, `Ammunition +${bonus}`);
+      assert.equal(data.effects[0].system.changes[0].value, String(bonus));
+    }
+  }
+});
+
+test('demon armor can select every base armor and reports its unsupported rider', async () => {
+  const table = JSON.parse(fs.readFileSync('roll_tables/Armor.json', 'utf8'));
+  assert.ok(table.results.length > 1);
+  for (const result of table.results) {
+    const f = fixture();
+    const label = result.description.match(/\{([^}]+)\}/)[1];
+    const uuid = result.description.match(/@UUID\[([^\]]+)\]/)[1];
+    f.documents.set(uuid, f.item(label));
+    let selected;
+    const source = { clone: () => ({ toObject: () => ({ system: { changes: [] } }) }) };
+    const activity = {
+      type: 'enchant', uuid: 'Activity.demon',
+      effects: [{ _id: 'profile', riders: { item: ['Compendium.dnd5e.equipment24.Item.dmgClawedGauntle'] } }],
+      canEnchant: target => { selected = target.name; return true; },
+      getAppliedEffectChanges: () => ({})
+    };
+    f.documents.set('Item.demon', {
+      name: 'Demon Armor', type: 'equipment', documentName: 'Item',
+      system: { activities: [activity] }, effects: new Map([['profile', source]])
+    });
+    f.context.game.tables.push({ name: 'Armor', folder: { name: 'Loot' }, results: [result] });
+    f.context.Item.implementation = function(data) { Object.assign(this, data); };
+    f.context.ActiveEffect = { implementation: { forApplication: async changes => changes } };
+    f.context.foundry = { utils: { randomID: () => 'id', mergeObject: obj => obj } };
+    await assert.rejects(() => f.resolveItem({ documentUuid: 'Item.demon', name: 'Demon Armor' }, 'item'),
+      /requires additional activities or items/);
+    assert.equal(selected, label);
+  }
+});
+
 test('reports an enchantment with no suitable base table', async () => {
   const f = fixture();
   f.documents.set('Item.warning', f.item('Weapon of Warning', 'weapon'));

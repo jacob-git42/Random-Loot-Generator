@@ -40,6 +40,7 @@ async function runWithPreset() {
     const rollResult = await table.roll();
     const result = rollResult.results[0];
     if (result) {
+      scope?.lootCollector?.add(result);
       textResults.push(`<li>${getTableResultText(result)}</li>`);
     }
   }
@@ -55,6 +56,7 @@ async function runWithPreset() {
     </div>
   `;
 
+  if (scope?.lootCollector) await scope.lootCollector.finish();
   await ChatMessage.create({
     content: chatContent,
     speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })

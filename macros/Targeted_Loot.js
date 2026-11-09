@@ -169,12 +169,14 @@ async function postTargetedLoot(entries, includeClaim = false) {
   let itemsCount = 0;
 
   for (const entry of entries) {
+    scope?.lootCollector?.add(entry);
     const item = await resolveItemFromEntry(entry);
     if (!item) continue;
     itemsCount++;
     itemsListHtml += `<li style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;"><img src="${item.img}" style="width: 24px; height: 24px; border: 1px solid #7a7975; border-radius: 4px; flex-shrink: 0;"><a class="content-link" data-link data-uuid="${item.uuid}"><i class="fas fa-suit-case"></i> ${item.name}</a></li>`;
   }
 
+  if (scope?.lootCollector) await scope.lootCollector.finish();
   if (itemsCount === 0) {
     ui.notifications.warn("No valid items found.");
     return;

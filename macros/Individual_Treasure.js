@@ -105,6 +105,7 @@ async function rollAndGetLink(table, returnAsLink = true) {
 	const rollResult = await table.roll();
 	const res = rollResult.results[0];
 	if (!res) return null;
+	scope?.lootCollector?.add(res);
 
 	if (!returnAsLink) {
 		return { text: getTableResultText(res), link: null };
@@ -144,6 +145,7 @@ async function drawAndLockItem(table, returnAsLink = false) {
 
 	if (!result) result = availableResults[0];
 	const resultText = getTableResultText(result);
+	scope?.lootCollector?.add(result);
 
 	// Element als gezogen/gesperrt markieren
 	await table.updateEmbeddedDocuments("TableResult", [{ _id: result.id, drawn: true }]);
@@ -264,6 +266,7 @@ async function runLootRolls(countResolver, includeClaim = false) {
 		</div>
 	`;
 
+	if (scope?.lootCollector) await scope.lootCollector.finish();
 	const enrichedContent = await TextEditor.enrichHTML(chatContent, {async: true});
 
 	await ChatMessage.create({

@@ -44,7 +44,7 @@ function findTable(name) {
 }
 
 // Recursively resolve nested table results.
-async function resolveTableRoll(table, depth = 0) {
+async function resolveTableRoll(table, depth = 0, kind = 'item') {
   if (!table || depth > 5) return "Unbekannter Gegenstand";
 
   const rollResult = await table.roll();
@@ -54,10 +54,11 @@ async function resolveTableRoll(table, depth = 0) {
   if (res.type === "document" && res.documentCollection === "RollTable") {
     const folder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
     const nextTable = folder?.contents.find(table => table.id === res.documentId);
-    if (nextTable) return await resolveTableRoll(nextTable, depth + 1);
+    if (nextTable) return await resolveTableRoll(nextTable, depth + 1, kind);
   }
 
   if (res.type === "pack" || (res.type === "document" && res.documentCollection === "Item")) {
+    scope?.lootCollector?.add(res, kind);
     const uuid = res.uuid || (res.documentCollection ? `Compendium.${res.documentCollection}.${res.documentId}` : null);
     if (uuid) {
       return `<a class="content-link" data-link data-type="Item" data-uuid="${uuid}">${getTableResultText(res)}</a>`;
@@ -68,9 +69,10 @@ async function resolveTableRoll(table, depth = 0) {
   const textClean = resultText.toLowerCase().trim();
   const subTableMatch = findTable(textClean);
   if (subTableMatch && subTableMatch.id !== table.id) {
-    return await resolveTableRoll(subTableMatch, depth + 1);
+    return await resolveTableRoll(subTableMatch, depth + 1, kind);
   }
 
+  scope?.lootCollector?.add(res, kind);
   return resultText || "Unbekanntes Ergebnis";
 }
 
@@ -137,7 +139,7 @@ async function rollSpellScroll(tier) {
   const scrollTable = findTable(scrollTableName);
 
   if (scrollTable) {
-    const resText = await resolveTableRoll(scrollTable);
+    const resText = await resolveTableRoll(scrollTable, 0, 'spell');
     return `<b>📜 Scroll (Level ${targetLevel}):</b> ${resText}`;
   } else {
     return `<b>📜 Scroll (Level ${targetLevel}):</b> (Table "${scrollTableName}" is missing)`;
@@ -299,13 +301,14 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
     </div>
   `;
 
-  ChatMessage.create({
+  if (scope?.lootCollector) await scope.lootCollector.finish();
+  await ChatMessage.create({
     content: await TextEditor.enrichHTML(publicChatContent, {async: true}),
     speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })
   });
   
   if (includeClaim) {
-    ChatMessage.create({
+    await ChatMessage.create({
       content: `<div class="loot-card__claim">
                   <span style="display:none;">LOOT-CLAIM:HOARD</span>
           Loot Claimed: <span class="loot-card__claim-name">${scope?.claimerName ?? game.user.name}</span> 💰

@@ -77,7 +77,9 @@ async function runLootMacro(session, scope) {
   if (session.preset) {
     await game.settings.set(session.preset.namespace, session.preset.key, session.preset.value);
   }
-  await macro.execute(scope);
+  const createCollector = game.modules.get(MODULE_ID)?.api?.createLootCollector;
+  if (!createCollector) throw new Error('Item Piles integration is not available.');
+  await macro.execute({ ...scope, lootCollector: createCollector(scope) });
 }
 
 function bindRevealButtons(message, html) {

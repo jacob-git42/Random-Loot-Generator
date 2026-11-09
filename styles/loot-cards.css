@@ -121,3 +121,8 @@
   color: #c4ccc6;
   font-weight: 700;
 }
+
+.loot-card__item-error {
+  color: #b82020;
+  font-weight: 600;
+}

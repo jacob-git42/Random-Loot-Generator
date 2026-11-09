@@ -6,7 +6,7 @@
       "name": "Bottle stopper cork embossed with gold leaf and set with amethysts",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.f2S9EclMTsAK4kMc",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         1,
@@ -32,7 +32,7 @@
       "name": "Bundle of sheet music representing the lost dirges of a famous composer",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.pJtQPWsPWGete89A",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         2,
@@ -58,7 +58,7 @@
       "name": "Carved wooden harp with ivory inlay and zircon gems",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.lVDppks0aWqtVwlL",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         3,
@@ -84,7 +84,7 @@
       "name": "Detailed, life-sized dragonborn skull cast in electrum",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.e5C6KaOMq6QAiYIT",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         4,
@@ -110,7 +110,7 @@
       "name": "Gold comb shaped like a dragon with red garnets as eyes",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.mPlYVOAuxO5njeaJ",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         5,
@@ -136,7 +136,7 @@
       "name": "Gold idol",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.V84ox9B8OR63aqoP",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         6,
@@ -162,7 +162,7 @@
       "name": "Obsidian statuette with gold fittings and inlay",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.fj8WGIEhjVvVNKVJ",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         7,
@@ -188,7 +188,7 @@
       "name": "Painted gold war mask",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.DViy8QmMWbsbCXJ9",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         8,
@@ -214,7 +214,7 @@
       "name": "Silver and gold brooch",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.A0Z7hS7y2EYc4Jzl",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         9,
@@ -240,7 +240,7 @@
       "name": "Silver chalice set with moonstones",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.L4N54aO3ZdrVXs22",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         10,

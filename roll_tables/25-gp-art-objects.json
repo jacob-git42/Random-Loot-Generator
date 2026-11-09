@@ -6,7 +6,7 @@
       "name": "Black velvet mask stitched with silver thread",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.9tAFOvb234rDpvyY",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         1,
@@ -32,7 +32,7 @@
       "name": "Carved bone statuette",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.57r50IUne5Hx6zi4",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         2,
@@ -58,7 +58,7 @@
       "name": "Cloth-of-gold vestments",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.jGBfAcRdOJ0LwJVj",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         3,
@@ -84,7 +84,7 @@
       "name": "Copper chalice with silver filigree",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.9wscvZC87ASXv17r",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         4,
@@ -110,7 +110,7 @@
       "name": "Embroidered silk handkerchief",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.AZyDvIMzIVCvnbFO",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         5,
@@ -136,7 +136,7 @@
       "name": "Gold bracelet",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.IGqz7elekSyDX7z5",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         6,
@@ -162,7 +162,7 @@
       "name": "Gold locket with a painted portrait inside",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.5xpJoKWOETpFTshH",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         7,
@@ -188,7 +188,7 @@
       "name": "Handheld mirror set in a painted wooden frame",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.OiCpM7plsk8XZ1h7",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         8,
@@ -214,7 +214,7 @@
       "name": "Pair of engraved bone dice",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.aweXOLP5fhXts0ax",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         9,
@@ -240,7 +240,7 @@
       "name": "Silver ewer",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.c3gH7Yts6ih9Qqw9",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         10,

@@ -6,7 +6,7 @@
       "name": "Bejeweled gold bracelet",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.Mp17GeRE1TQiGFbZ",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         1,
@@ -32,7 +32,7 @@
       "name": "Box of turquoise animal figurines",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.wNidUIOM9OP2R8vV",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         2,
@@ -58,7 +58,7 @@
       "name": "Brass mug with jade inlay",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.rsgPX3Trf1f7erYF",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         3,
@@ -84,7 +84,7 @@
       "name": "Bronze crown",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.00b4qtWc3rm1elan",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         4,
@@ -110,7 +110,7 @@
       "name": "Carved ivory statuette",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.TXnDcdy0vWdpNB7u",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         5,
@@ -136,7 +136,7 @@
       "name": "Gold birdcage with electrum filigree",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.F2cbad3V9NFdfTeV",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         6,
@@ -162,7 +162,7 @@
       "name": "Gold ring set with bloodstones",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.XiUh1HQSoPGW0sUl",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         7,
@@ -188,7 +188,7 @@
       "name": "Silk vestments with gold embroidery",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.epLJ3poyzC65xohe",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         8,
@@ -214,7 +214,7 @@
       "name": "Silver necklace with a gemstone pendant",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.1QErwYQsfQESyD5V",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         9,
@@ -240,7 +240,7 @@
       "name": "Well-made tapestry that is 10 feet by 10 feet",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.dlIQACR3HCXZdutp",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         10,

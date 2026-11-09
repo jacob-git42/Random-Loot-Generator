@@ -6,7 +6,7 @@
       "name": "Bejeweled ivory drinking horn with gold filigree",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.FBuubFWd5hFfH1T2",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         1,
@@ -32,7 +32,7 @@
       "name": "Ceremonial gold armor with black pearls",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.625shnlcWfNy0uTo",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         2,
@@ -58,7 +58,7 @@
       "name": "Gilded royal coach or funeral barge",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.MhvYwAk8JrBP1cuf",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         3,
@@ -84,7 +84,7 @@
       "name": "Gold cup set with emeralds",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.b13Xd0HiBcgwgv7u",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         4,
@@ -110,7 +110,7 @@
       "name": "Gold jewelry box with platinum filigree",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.59t8T78py84sHzv3",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         5,
@@ -136,7 +136,7 @@
       "name": "Gold statuette set with rubies",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.gj4qBGqvkYJoRVQw",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         6,
@@ -162,7 +162,7 @@
       "name": "Jade game board with gold playing pieces",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.vlW3tx5o7FFyaRtM",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         7,
@@ -188,7 +188,7 @@
       "name": "Jeweled gold crown",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.E1iQFmqEu141aJUr",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         8,
@@ -214,7 +214,7 @@
       "name": "Jeweled platinum ring",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.HGqwAi7Kchw6fiE2",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         9,
@@ -240,7 +240,7 @@
       "name": "Set of gold nesting dolls",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.wGU9zUyy6rEJQvHz",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         10,

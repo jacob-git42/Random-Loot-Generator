@@ -6,7 +6,7 @@
       "name": "Embroidered glove set with jewel chips",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.RdQg91A8ne4YpeS5",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         1,
@@ -32,7 +32,7 @@
       "name": "Embroidered silk and velvet mantle set with numerous moonstones",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.mA6KIBNzXrEV2kD2",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         2,
@@ -58,7 +58,7 @@
       "name": "Eye patch decorated with tiny blue sapphires and moonstones",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.rOelZ58AL5NwqNEu",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         3,
@@ -84,7 +84,7 @@
       "name": "Fine gold chain set with a fire opal",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.oomyeC1szjwk2Z8T",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         4,
@@ -110,7 +110,7 @@
       "name": "Gold circlet set with four aquamarines",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.JAuzCCk1KvCJdMrR",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         5,
@@ -136,7 +136,7 @@
       "name": "Gold circlet set with four aquamarines",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.tkqcH1XW5oTX6TaD",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         6,
@@ -162,7 +162,7 @@
       "name": "Gold music box",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.G5uzR2kkdnsb0jso",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         7,
@@ -188,7 +188,7 @@
       "name": "Jeweled anklet",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.WlKAjit7207oGLPQ",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         8,
@@ -214,7 +214,7 @@
       "name": "Necklace string of small pink pearls",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.ByYJsstYBN8f87hQ",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         9,
@@ -240,7 +240,7 @@
       "name": "Old masterpiece painting",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.zWfHXmBivcYtTnoP",
-      "img": "systems/dnd5e/icons/svg/items/loot.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         10,
@@ -266,7 +266,7 @@
       "name": "Platinum bracelet set with an emerald",
       "type": "document",
       "documentUuid": "Compendium.world.jacobs-loot-generator.Item.XShsidpnxEt8JdSB",
-      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
+      "img": "assets/Art/golden%20necklace.png",
       "weight": 1,
       "range": [
         11,

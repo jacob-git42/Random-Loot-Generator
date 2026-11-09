@@ -16,10 +16,15 @@ existing gold payout and GM confirmation remain unchanged.
 Newly generated piles use 0.5 icon scale and a compact canvas label colored by
 the prepared item's rarity. The label is bounded to the token's grid cell and
 is restored on scene load or client reload. Items without a rarity use the
-common colors. Art objects are labelled `Art Object`, and the `Spell Scroll:`
-prefix is omitted from scroll labels; actual item names and chat results remain
-unchanged. Art objects are recognized by the hoard's art table or the D&D 5e
-loot type `art`. Existing piles retain their saved names, though scroll prefixes
+common colors. Art objects and gemstones instead use the item's price in GP:
+under 100 is common, 100–250 uncommon, over 250–750 rare, over 750–2,500
+very rare, and over 2,500 legendary. If the item has no usable price, the
+value in the source table's name is used; otherwise its rarity or common colors
+are used and a warning is logged. Art objects are labelled `Art Object`, and the
+`Spell Scroll:` prefix is omitted from scroll labels; actual item names and chat
+results remain unchanged. Art objects and gemstones are recognized by the loot
+tables or D&D 5e loot types `art` and `gem`. Existing piles retain their saved
+names and colors, though scroll prefixes
 are removed when their labels are drawn. Later item changes do not update labels.
 Piles that occupy the same cell can still have overlapping labels.
 After updating the module, reload the GM client to synchronize the bundled

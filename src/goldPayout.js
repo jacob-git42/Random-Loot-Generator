@@ -243,7 +243,7 @@ async function showPayoutConfirmationDialog(goldPerPlayer, selectedPlayers, play
  */
 async function processGoldPayout(goldPerPlayer, selectedConfig) {
   if (!selectedConfig || Object.keys(selectedConfig).length === 0) {
-    ui.notifications.warn('Keine Spieler konfiguriert für Gold-Auszahlung.');
+    ui.notifications.warn('No players configured for gold payout.');
     return false;
   }
   
@@ -259,7 +259,7 @@ async function processGoldPayout(goldPerPlayer, selectedConfig) {
       
       if (!actor) {
         results.failed++;
-        results.details.push(`❌ ${config.characterName}: Charakter nicht gefunden`);
+        results.details.push(`❌ ${config.characterName}: Character not found`);
         continue;
       }
       

@@ -53,7 +53,7 @@ test('Treasure Hoard forwards art table results as art through nested tables', a
   lootFolder.contents = [artTable, nestedTable, gemTable];
   const context = {
     console, Math: Object.assign(Object.create(Math), { random: () => 0.9 }),
-    scope: { lootCollector: { add: (value, kind = 'item') => results.push({ value, kind }), finish: async () => {} } },
+    scope: { lootCollector: { add: (value, kind = 'item', options) => results.push({ value, kind, options }), finish: async () => {} } },
     game: {
       user: { isGM: false, name: 'Player' }, folders: [lootFolder], tables: lootFolder.contents,
       settings: { settings: new Map(), register() {}, get: () => ({ count: 1, tier: 1 }) }
@@ -67,5 +67,45 @@ test('Treasure Hoard forwards art table results as art through nested tables', a
   await vm.runInContext(`(async (scope) => { ${source}\n})(scope)`, context);
   assert.equal(results.length, 2);
   assert.equal(results.find(entry => entry.value === artResult).kind, 'art');
-  assert.equal(results.find(entry => entry.value === gemResult).kind, 'item');
+  assert.equal(results.find(entry => entry.value === artResult).options.tableName, '250 GP Art Objects');
+  assert.equal(results.find(entry => entry.value === gemResult).kind, 'gem');
+  assert.equal(results.find(entry => entry.value === gemResult).options.tableName, '50 GP Gemstones');
+});
+
+test('Individual Treasure forwards gem category and source table', async () => {
+  const results = [];
+  const gem = { name: 'Ruby', documentUuid: 'Item.ruby' };
+  const table = { name: '500 GP Gemstones', roll: async () => ({ results: [gem] }) };
+  const folder = { name: 'Loot', type: 'RollTable', contents: [table] };
+  const context = {
+    console, Math: Object.assign(Object.create(Math), { random: () => 0 }),
+    scope: { lootCollector: { add: (value, kind, options) => results.push({ value, kind, options }), finish: async () => {} } },
+    game: { user: { isGM: false }, folders: [folder],
+      settings: { settings: new Map(), register() {}, get: () => ({ counts: { 'range-0-4': 1 } }) } },
+    Roll: class { async evaluate() { return { total: 4 }; } },
+    ChatMessage: { create: async () => {}, getSpeaker: () => ({}) },
+    TextEditor: { enrichHTML: async text => text }
+  };
+  vm.createContext(context);
+  const source = fs.readFileSync('macros/Individual_Treasure.js', 'utf8');
+  await vm.runInContext(`(async (scope) => { ${source}\n})(scope)`, context);
+  assert.equal(results.length, 1);
+  assert.equal(results[0].value, gem);
+  assert.equal(results[0].kind, 'gem');
+  assert.equal(results[0].options.tableName, '500 GP Gemstones');
+});
+
+test('Treasure Hoard uses English fallback messages for unavailable results', async () => {
+  const context = {
+    scope: {},
+    game: { folders: [], tables: [] }
+  };
+  vm.createContext(context);
+  const source = fs.readFileSync('macros/Treasure_Hoard.js', 'utf8')
+    .replace('const usedPreset = await runWithPreset();', 'return { resolveTableRoll };\nconst usedPreset = await runWithPreset();');
+  const { resolveTableRoll } = await vm.runInContext(`(async (scope) => { ${source}\n})(scope)`, context);
+  assert.equal(await resolveTableRoll(null), 'Unknown item');
+  assert.equal(await resolveTableRoll({}, 6), 'Unknown item');
+  assert.equal(await resolveTableRoll({ roll: async () => ({ results: [] }) }), 'Empty result');
+  assert.equal(await resolveTableRoll({ id: 'table', roll: async () => ({ results: [{}] }) }), 'Unknown result');
 });

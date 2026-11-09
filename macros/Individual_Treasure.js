@@ -100,12 +100,12 @@ function ensureIndividualTreasureSettingRegistered() {
 }
 
 // Standard roll with replacement for gems and magic items.
-async function rollAndGetLink(table, returnAsLink = true) {
+async function rollAndGetLink(table, returnAsLink = true, kind = 'item') {
 	if (!table) return null;
 	const rollResult = await table.roll();
 	const res = rollResult.results[0];
 	if (!res) return null;
-	scope?.lootCollector?.add(res);
+	scope?.lootCollector?.add(res, kind, { tableName: table.name });
 
 	if (!returnAsLink) {
 		return { text: getTableResultText(res), link: null };
@@ -204,7 +204,7 @@ async function runLootRolls(countResolver, includeClaim = false) {
 		// 2. Gems with replacement.
 		if (Math.random() < CHANCE_GEM && weightedGemTables.length > 0) {
 			const randomGemTable = getRandomWeightedGemTable();
-			const gemData = await rollAndGetLink(randomGemTable, true);
+			const gemData = await rollAndGetLink(randomGemTable, true, 'gem');
 			if (gemData) {
 				const displayOutput = gemData.link ? gemData.link : gemData.text;
 				foundGems.push(`<li>${displayOutput} <span style="font-size:0.75em; color:#777;">(${randomGemTable.name})</span></li>`);

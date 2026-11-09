@@ -44,21 +44,21 @@ function findTable(name) {
 }
 
 // Recursively resolve nested table results.
-async function resolveTableRoll(table, depth = 0, kind = 'item') {
-  if (!table || depth > 5) return "Unbekannter Gegenstand";
+async function resolveTableRoll(table, depth = 0, kind = 'item', sourceTableName = table?.name) {
+  if (!table || depth > 5) return "Unknown item";
 
   const rollResult = await table.roll();
   const res = rollResult.results[0];
-  if (!res) return "Leeres Ergebnis";
+  if (!res) return "Empty result";
 
   if (res.type === "document" && res.documentCollection === "RollTable") {
     const folder = game.folders.find(f => f.name === rollTableFolderName && f.type === "RollTable");
     const nextTable = folder?.contents.find(table => table.id === res.documentId);
-    if (nextTable) return await resolveTableRoll(nextTable, depth + 1, kind);
+    if (nextTable) return await resolveTableRoll(nextTable, depth + 1, kind, sourceTableName);
   }
 
   if (res.type === "pack" || (res.type === "document" && res.documentCollection === "Item")) {
-    scope?.lootCollector?.add(res, kind);
+    scope?.lootCollector?.add(res, kind, { tableName: sourceTableName });
     const uuid = res.uuid || (res.documentCollection ? `Compendium.${res.documentCollection}.${res.documentId}` : null);
     if (uuid) {
       return `<a class="content-link" data-link data-type="Item" data-uuid="${uuid}">${getTableResultText(res)}</a>`;
@@ -69,11 +69,11 @@ async function resolveTableRoll(table, depth = 0, kind = 'item') {
   const textClean = resultText.toLowerCase().trim();
   const subTableMatch = findTable(textClean);
   if (subTableMatch && subTableMatch.id !== table.id) {
-    return await resolveTableRoll(subTableMatch, depth + 1, kind);
+    return await resolveTableRoll(subTableMatch, depth + 1, kind, sourceTableName);
   }
 
-  scope?.lootCollector?.add(res, kind);
-  return resultText || "Unbekanntes Ergebnis";
+  scope?.lootCollector?.add(res, kind, { tableName: sourceTableName });
+  return resultText || "Unknown result";
 }
 
 // Gemstone table by tier
@@ -195,7 +195,7 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
       for (let g = 0; g < gemRoll.total; g++) {
         const gemName = getGemTableNameForTier(tier);
         const gemTable = findTable(gemName);
-        if (gemTable) gemResults.push(`<li>${await resolveTableRoll(gemTable)}</li>`);
+        if (gemTable) gemResults.push(`<li>${await resolveTableRoll(gemTable, 0, 'gem')}</li>`);
         else gemResults.push(`<li>(Table "${gemName}" is missing)</li>`);
       }
     }

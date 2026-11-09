@@ -27,7 +27,11 @@ function fixture() {
     console, Math,
     Hooks: { once() {} },
     CONST: { GRID_TYPES: { GRIDLESS: 0 }, TOKEN_DISPLAY_MODES: { NONE: 0 } },
-    CONFIG: { Canvas: { polygonBackends: { sight: { create: () => ({ contains: x => x >= 0 }) } } } },
+    CONFIG: {
+      Canvas: { polygonBackends: { sight: { create: () => ({ contains: x => x >= 0 }) } } },
+      DND5E: { currencies: { cp: { conversion: 100 }, sp: { conversion: 10 },
+        gp: { conversion: 1 }, pp: { conversion: 0.1 } } }
+    },
     canvas: {
       ready: true, scene: { id: 'scene', grid: { type: 1, distance: 5 } }, grid,
       dimensions: { sceneRect: { contains: () => true } },
@@ -54,7 +58,7 @@ function fixture() {
   };
   vm.createContext(context);
   vm.runInContext(fs.readFileSync('src/itemPiles.js', 'utf8') +
-    '\nglobalThis.testAPI = { createLootCollector, availablePositions, resolveItem };', context);
+    '\nglobalThis.testAPI = { createLootCollector, availablePositions, resolveItem, treasureRarity };', context);
   return { ...context.testAPI, calls, messages, warnings, documents, context, item, token };
 }
 
@@ -125,6 +129,53 @@ test('labels art by table category or loot type without changing items', async (
   assert.deepEqual(f.calls.map(call => call.items[0].item.name),
     ['Carved bone statuette', 'Silver necklace', 'Gemstone']);
   assert.match(f.messages[0].content, /Carved bone statuette/);
+});
+
+test('treasure colors follow exact gold value boundaries and currency conversion', () => {
+  const f = fixture();
+  for (const [value, rarity] of [
+    [1, 'common'], [99.99, 'common'], [100, 'uncommon'], [250, 'uncommon'],
+    [250.01, 'rare'], [750, 'rare'], [750.01, 'veryRare'], [2500, 'veryRare'],
+    [2500.01, 'legendary'], [7500, 'legendary'], [10000, 'legendary']
+  ]) {
+    assert.equal(f.treasureRarity({ name: 'Treasure', system: { price: { value, denomination: 'gp' } } }), rarity);
+  }
+  assert.equal(f.treasureRarity({ name: 'Gem', system: { price: { value: 1000, denomination: 'sp' } } }), 'uncommon');
+  assert.equal(f.treasureRarity({ name: 'Gem', system: { price: { value: 251, denomination: 'pp' } } }), 'legendary');
+  assert.equal(f.treasureRarity({ name: 'Gem', system: { price: { value: 0, denomination: 'gp' } } }, '2,500 GP Art Objects'), 'veryRare');
+  assert.equal(f.treasureRarity({ name: 'Gem', system: {} }, '500 GP Gemstones'), 'rare');
+  assert.equal(f.treasureRarity({ name: 'Gem', system: { price: { value: 750, denomination: 'gp' } } }, '100 GP Gemstones'), 'rare');
+});
+
+test('treasure without a usable value falls back to item rarity and logs a warning', () => {
+  const f = fixture();
+  const warnings = [];
+  f.context.console = { warn: message => warnings.push(message) };
+  assert.equal(f.treasureRarity({ name: 'Artwork', system: { rarity: 'rare' } }), 'rare');
+  assert.equal(f.treasureRarity({ name: 'Gem', system: { price: { value: 500, denomination: 'unknown' } } }), '');
+  assert.equal(warnings.length, 2);
+  assert.match(warnings[0], /No usable gold value.*Artwork/);
+});
+
+test('treasure value controls art and gem label colors without changing their item data', async () => {
+  const f = fixture();
+  const art = f.item('Painting', 'loot');
+  art.toObject = () => ({ name: art.name, type: 'loot', img: art.img,
+    system: { type: { value: 'art' }, price: { value: 750, denomination: 'gp' }, rarity: 'legendary' } });
+  const gem = f.item('Ruby', 'loot');
+  gem.toObject = () => ({ name: gem.name, type: 'loot', img: gem.img,
+    system: { type: { value: 'gem' }, price: { value: 0, denomination: 'gp' } } });
+  f.documents.set('Item.painting', art);
+  f.documents.set('Item.ruby', gem);
+  const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'scene' });
+  collector.add('Item.painting');
+  collector.add('Item.ruby', 'gem', { tableName: '100 GP Gemstones' });
+  await collector.finish();
+  const [artPile, gemPile] = f.calls;
+  assert.equal(artPile.tokenOverrides.flags['jacobs-loot-generator'].lootLabel.rarity, 'rare');
+  assert.equal(gemPile.tokenOverrides.flags['jacobs-loot-generator'].lootLabel.rarity, 'uncommon');
+  assert.equal(artPile.items[0].item.system.rarity, 'legendary');
+  assert.equal(gemPile.items[0].item.name, 'Ruby');
 });
 
 test('reports every item when the GM changes scenes', async () => {

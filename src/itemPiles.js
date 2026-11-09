@@ -215,11 +215,36 @@ function availablePositions(token) {
   return all;
 }
 
+function treasureRarity(item, tableName) {
+  const price = item.system?.price;
+  const conversion = CONFIG.DND5E?.currencies?.[price?.denomination]?.conversion;
+  const gpConversion = CONFIG.DND5E?.currencies?.gp?.conversion;
+  let goldValue;
+  if (Number.isFinite(price?.value) && price.value > 0 &&
+      Number.isFinite(conversion) && conversion > 0 && Number.isFinite(gpConversion) && gpConversion > 0) {
+    goldValue = price.value * gpConversion / conversion;
+  } else {
+    const tableValue = typeof tableName === 'string'
+      ? tableName.match(/^([\d,]+)\s+gp\s+(?:gemstones|art objects)$/i)
+      : null;
+    if (tableValue) goldValue = Number(tableValue[1].replace(/,/g, ''));
+  }
+  if (!Number.isFinite(goldValue)) {
+    console.warn(`${MODULE_ID} | No usable gold value for treasure "${item.name}"; using item rarity or common.`);
+    return item.system?.rarity || '';
+  }
+  if (goldValue < 100) return 'common';
+  if (goldValue <= 250) return 'uncommon';
+  if (goldValue <= 750) return 'rare';
+  if (goldValue <= 2500) return 'veryRare';
+  return 'legendary';
+}
+
 function createLootCollector({ tokenId, sceneId }) {
   const entries = [];
   return {
-    add(result, kind = 'item') {
-      entries.push({ result, kind });
+    add(result, kind = 'item', options = {}) {
+      entries.push({ result, kind, tableName: options.tableName });
     },
     async finish() {
       if (!entries.length) return;
@@ -243,6 +268,9 @@ function createLootCollector({ tokenId, sceneId }) {
           const item = await resolveItem(entry.result, entry.kind);
           if (placementError) throw new Error(placementError);
           const preparedItem = new Item.implementation(item);
+          const lootType = preparedItem.type === 'loot' ? preparedItem.system?.type?.value : undefined;
+          const isArt = entry.kind === 'art' || lootType === 'art';
+          const isValuable = isArt || entry.kind === 'gem' || lootType === 'gem';
           const position = positions[placed % positions.length];
           const topLeft = canvas.grid.getTopLeftPoint(position.offset);
           const pile = await game.itempiles.API.createItemPile({
@@ -254,9 +282,8 @@ function createLootCollector({ tokenId, sceneId }) {
               displayName: CONST.TOKEN_DISPLAY_MODES.NONE,
               texture: { src: item.img, scaleX: 0.5, scaleY: 0.5 },
               flags: { [MODULE_ID]: { lootLabel: {
-                name: entry.kind === 'art' || (preparedItem.type === 'loot' && preparedItem.system?.type?.value === 'art')
-                  ? 'Art Object' : preparedItem.name,
-                rarity: preparedItem.system?.rarity || ''
+                name: isArt ? 'Art Object' : preparedItem.name,
+                rarity: isValuable ? treasureRarity(preparedItem, entry.tableName) : preparedItem.system?.rarity || ''
               } } }
             },
             itemPileFlags: {

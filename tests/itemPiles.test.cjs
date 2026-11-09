@@ -178,6 +178,57 @@ test('treasure value controls art and gem label colors without changing their it
   assert.equal(gemPile.items[0].item.name, 'Ruby');
 });
 
+test('targeted loot identifies a world-table artwork by its actual UUID', async () => {
+  const f = fixture();
+  const table = JSON.parse(fs.readFileSync('roll_tables/2,500-gp-art-objects.json', 'utf8'));
+  const result = table.results.find(entry => entry.name === 'Embroidered glove set with jewel chips');
+  assert.ok(result);
+  f.context.game.tables = [table];
+  f.documents.set(result.documentUuid, f.item(result.name, 'equipment'));
+  const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'scene' });
+  collector.add(result.documentUuid);
+  await collector.finish();
+  const pile = f.calls[0];
+  assert.equal(pile.tokenOverrides.flags['jacobs-loot-generator'].lootLabel.name, 'Art Object');
+  assert.equal(pile.tokenOverrides.flags['jacobs-loot-generator'].lootLabel.rarity, 'veryRare');
+  assert.equal(pile.items[0].item.name, result.name);
+});
+
+test('targeted gemstone table lookup uses UUID and keeps unrelated items unchanged', async () => {
+  const f = fixture();
+  f.context.game.tables = [
+    { name: '500 GP Gemstones', results: [{ documentUuid: 'Item.gem' }] },
+    { name: '250 GP Art Objects', results: [{ documentUuid: 'Item.other' }] }
+  ];
+  f.documents.set('Item.gem', f.item('Ruby', 'loot'));
+  const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'scene' });
+  collector.add('Item.gem');
+  collector.add('Item.sword');
+  await collector.finish();
+  assert.equal(f.calls[0].tokenOverrides.flags['jacobs-loot-generator'].lootLabel.rarity, 'rare');
+  assert.equal(f.calls[0].tokenOverrides.flags['jacobs-loot-generator'].lootLabel.name, 'Ruby');
+  assert.equal(f.calls[1].tokenOverrides.flags['jacobs-loot-generator'].lootLabel.name, 'Sword');
+});
+
+test('ambiguous treasure table values do not override the item price or guess a table value', async () => {
+  const f = fixture();
+  const warnings = [];
+  f.context.console = { warn: message => warnings.push(message), error: console.error };
+  f.context.game.tables = ['250 GP Art Objects', '2,500 GP Art Objects'].map(name =>
+    ({ name, results: [{ documentUuid: 'Item.art' }] }));
+  const art = f.item('Painting', 'loot');
+  art.toObject = () => ({ name: art.name, type: 'loot', img: art.img,
+    system: { price: { value: 750, denomination: 'gp' } } });
+  f.documents.set('Item.art', art);
+  const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'scene' });
+  collector.add('Item.art');
+  await collector.finish();
+  const label = f.calls[0].tokenOverrides.flags['jacobs-loot-generator'].lootLabel;
+  assert.equal(label.name, 'Art Object');
+  assert.equal(label.rarity, 'rare');
+  assert.match(warnings[0], /multiple value tables/);
+});
+
 test('reports every item when the GM changes scenes', async () => {
   const f = fixture();
   const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'old-scene' });

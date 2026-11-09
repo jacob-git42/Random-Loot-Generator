@@ -19,10 +19,15 @@ function escapeHTML(value) {
   })[char]);
 }
 
-async function findItem(result) {
+function itemUuid(result) {
   const text = textOf(result);
   let uuid = result?.documentUuid || text.match(/@(?:UUID|Compendium)\[([^\]]+)\]/i)?.[1];
   if (!uuid && typeof result === 'string' && /^(?:Item|Compendium)\./.test(result)) uuid = result;
+  return uuid;
+}
+
+async function findItem(result) {
+  const uuid = itemUuid(result);
   if (uuid) {
     const document = await fromUuid(uuid);
     if (!document) throw new Error(`Document not found: ${uuid}`);
@@ -215,6 +220,27 @@ function availablePositions(token) {
   return all;
 }
 
+function treasureTableFor(result) {
+  const uuid = itemUuid(result);
+  if (!uuid) return null;
+  const matches = [];
+  for (const table of game.tables) {
+    const match = table.name.match(/^[\d,]+\s+gp\s+(art objects|gemstones)$/i);
+    if (!match || !table.results?.some(entry => itemUuid(entry) === uuid)) continue;
+    matches.push({ kind: match[1].toLowerCase() === 'art objects' ? 'art' : 'gem', name: table.name });
+  }
+  if (!matches.length) return null;
+  if (matches.some(match => match.kind !== matches[0].kind)) {
+    console.warn(`${MODULE_ID} | Treasure item ${uuid} appears in both art and gemstone tables; using item type.`);
+    return null;
+  }
+  const tableName = matches.every(match => match.name === matches[0].name) ? matches[0].name : undefined;
+  if (!tableName) {
+    console.warn(`${MODULE_ID} | Treasure item ${uuid} appears in multiple value tables; using item price or rarity.`);
+  }
+  return { kind: matches[0].kind, tableName };
+}
+
 function treasureRarity(item, tableName) {
   const price = item.system?.price;
   const conversion = CONFIG.DND5E?.currencies?.[price?.denomination]?.conversion;
@@ -269,8 +295,12 @@ function createLootCollector({ tokenId, sceneId }) {
           if (placementError) throw new Error(placementError);
           const preparedItem = new Item.implementation(item);
           const lootType = preparedItem.type === 'loot' ? preparedItem.system?.type?.value : undefined;
-          const isArt = entry.kind === 'art' || lootType === 'art';
-          const isValuable = isArt || entry.kind === 'gem' || lootType === 'gem';
+          const table = entry.kind === 'item' ? treasureTableFor(entry.result) : null;
+          const treasureKind = entry.kind === 'art' || entry.kind === 'gem' ? entry.kind
+            : lootType === 'art' || lootType === 'gem' ? lootType : table?.kind;
+          const isArt = treasureKind === 'art';
+          const isValuable = isArt || treasureKind === 'gem';
+          const tableName = entry.tableName || (table && table.kind === treasureKind ? table.tableName : undefined);
           const position = positions[placed % positions.length];
           const topLeft = canvas.grid.getTopLeftPoint(position.offset);
           const pile = await game.itempiles.API.createItemPile({
@@ -283,7 +313,7 @@ function createLootCollector({ tokenId, sceneId }) {
               texture: { src: item.img, scaleX: 0.5, scaleY: 0.5 },
               flags: { [MODULE_ID]: { lootLabel: {
                 name: isArt ? 'Art Object' : preparedItem.name,
-                rarity: isValuable ? treasureRarity(preparedItem, entry.tableName) : preparedItem.system?.rarity || ''
+                rarity: isValuable ? treasureRarity(preparedItem, tableName) : preparedItem.system?.rarity || ''
               } } }
             },
             itemPileFlags: {

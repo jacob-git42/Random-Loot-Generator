@@ -23,7 +23,10 @@ value in the source table's name is used; otherwise its rarity or common colors
 are used and a warning is logged. Art objects are labelled `Art Object`, and the
 `Spell Scroll:` prefix is omitted from scroll labels; actual item names and chat
 results remain unchanged. Art objects and gemstones are recognized by the loot
-tables or D&D 5e loot types `art` and `gem`. Existing piles retain their saved
+tables or D&D 5e loot types `art` and `gem`. For targeted loot, items without
+those types are also identified by UUID in world art and gemstone tables. If an
+item occurs in multiple value tables, its price takes precedence and the table
+value is not guessed. Existing piles retain their saved
 names and colors, though scroll prefixes
 are removed when their labels are drawn. Later item changes do not update labels.
 Piles that occupy the same cell can still have overlapping labels.

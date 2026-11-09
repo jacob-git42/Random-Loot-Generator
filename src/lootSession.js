@@ -22,33 +22,44 @@ Hooks.once('socketlib.ready', () => {
   lootSocket.register('claimLoot', handleClaimLoot);
 });
 
-async function handleClaimLoot({ sessionId, messageId, tokenId, userId } = {}) {
+async function handleClaimLoot({ sessionId, messageId, tokenId, sceneId, userId } = {}) {
   if (!game.user.isGM) return;
 
   const session = lootSessions.get(sessionId);
   if (!session) {
-    ui.notifications.warn(`Loot session ${sessionId} is invalid or already claimed.`);
-    return;
+    throw new Error('Loot session is invalid or already claimed on this GM client.');
   }
-  // Single use: delete before doing anything async so a second signal is rejected
-  lootSessions.delete(sessionId);
 
   const user = game.users.get(userId);
+  if (!user || !canvas.ready || canvas.scene?.id !== sceneId) {
+    throw new Error('The GM must view the same scene as the player.');
+  }
   const token = tokenId ? canvas.tokens?.get(tokenId) : null;
-  const claimerName = token?.name ?? user?.character?.name ?? user?.name ?? 'Unknown';
-
+  if (!token || (!user.isGM && !token.document.testUserPermission(user, 'OWNER'))) {
+    throw new Error('Select a token owned by your user before revealing the loot.');
+  }
   const message = game.messages.get(messageId);
-  if (message) {
-    const lockedContent = message.content.replace(
-      /<button[^>]*reveal-loot-btn[^>]*>[\s\S]*?<\/button>/,
-      '<span class="loot-card__button--locked">🔒 Loot Claimed 🔒</span>'
-    );
+  if (!message || !message.content.includes(`data-session-id="${sessionId}"`)) {
+    throw new Error('The loot card does not match this session.');
+  }
+
+  // Claim before the first await so simultaneous clicks cannot execute twice.
+  lootSessions.delete(sessionId);
+  const claimerName = token.name;
+  const lockedContent = message.content.replace(
+    /<button[^>]*reveal-loot-btn[^>]*>[\s\S]*?<\/button>/,
+    '<span class="loot-card__button--locked">🔒 Loot Claimed 🔒</span>'
+  );
+  try {
     await message.update({ content: lockedContent });
+  } catch (error) {
+    lootSessions.set(sessionId, session);
+    throw error;
   }
 
   // Loot macros read their preset from a world setting, so runs are serialized
   executionQueue = executionQueue
-    .then(() => runLootMacro(session, { claimerName, tokenId, userId }))
+    .then(() => runLootMacro(session, { claimerName, tokenId, sceneId, userId }))
     .catch(err => {
       console.error(`${MODULE_ID} | Error executing loot macro:`, err);
       ui.notifications.error('Loot macro failed. See console for details.');
@@ -84,22 +95,27 @@ function bindRevealButtons(message, html) {
         return;
       }
 
+      const controlledToken = canvas.tokens?.controlled[0];
+      if (!canvas.ready || !canvas.scene || !controlledToken) {
+        ui.notifications.warn('Select a token on the active scene before revealing loot.');
+        return;
+      }
+
       const originalLabel = button.textContent;
       button.disabled = true;
       button.textContent = 'Sending...';
-
-      const controlledToken = canvas.tokens?.controlled[0] ?? game.user.character?.getActiveTokens()[0];
 
       try {
         await lootSocket.executeAsGM('claimLoot', {
           sessionId: button.dataset.sessionId,
           messageId: message.id,
-          tokenId: controlledToken?.id ?? null,
+          tokenId: controlledToken.id,
+          sceneId: canvas.scene.id,
           userId: game.user.id
         });
       } catch (err) {
         console.error(`${MODULE_ID} | Failed to send loot claim to GM:`, err);
-        ui.notifications.error('Could not reach a GM to reveal the loot.');
+        ui.notifications.error(`Could not reveal loot: ${err.message}`);
         button.disabled = false;
         button.textContent = originalLabel;
       }

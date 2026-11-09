@@ -206,7 +206,7 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
       for (let a = 0; a < artRoll.total; a++) {
         const artName = getArtTableNameForTier(tier);
         const artTable = findTable(artName);
-        if (artTable) artResults.push(`<li>${await resolveTableRoll(artTable)}</li>`);
+        if (artTable) artResults.push(`<li>${await resolveTableRoll(artTable, 0, 'art')}</li>`);
         else artResults.push(`<li>(Table "${artName}" is missing)</li>`);
       }
     }

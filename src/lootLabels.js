@@ -22,13 +22,14 @@ function drawLootLabel(token) {
   if (!data?.name || !(token.w > 0) || !(token.h > 0)) return;
 
   const style = Object.hasOwn(STYLES, data.rarity) ? STYLES[data.rarity] : STYLES.common;
-  const margin = Math.max(2, Math.min(token.w, token.h) * 0.03);
+  const margin = Math.max(1, Math.min(token.w, token.h) * 0.01);
   const maxWidth = token.w - 2 * margin;
   const maxHeight = token.h * 0.45;
   const padding = Math.max(2, Math.min(token.w, token.h) * 0.025);
   if (maxWidth <= padding * 2 || maxHeight <= padding * 2) return;
   const fontSize = Math.max(8, Math.min(14, token.h * 0.13));
-  const text = new PIXI.Text(data.name, {
+  const name = data.name.replace(/^spell scroll:\s*(?=\S)/i, '');
+  const text = new PIXI.Text(name, {
     fontFamily: 'Arial, sans-serif',
     fontSize,
     fontWeight: style.weight,
@@ -40,14 +41,14 @@ function drawLootLabel(token) {
   });
   const scale = Math.min(1, (maxWidth - padding * 2) / text.width, (maxHeight - padding * 2) / text.height);
   text.scale.set(scale);
-  const width = text.width + padding * 2;
+  const width = maxWidth;
   const height = text.height + padding * 2;
   const background = new PIXI.Graphics();
   background.lineStyle(1, style.foreground, 1);
   background.beginFill(style.background, 0.95);
   background.drawRect(0, 0, width, height);
   background.endFill();
-  text.position.set(padding, padding);
+  text.position.set((width - text.width) / 2, padding);
 
   const label = new PIXI.Container();
   label.eventMode = 'none';

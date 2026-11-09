@@ -24,7 +24,7 @@ function fixture() {
       this.unscaledHeight = Math.ceil(text.length * style.fontSize * 0.6 / style.wordWrapWidth) * style.fontSize;
       this.factor = 1;
       this.scale = { set: value => { this.factor = value; } };
-      this.position = { set() {} };
+      this.position = { set: (x, y) => { this.x = x; this.y = y; } };
     }
     get width() { return this.unscaledWidth * this.factor; }
     get height() { return this.unscaledHeight * this.factor; }
@@ -68,9 +68,28 @@ test('draws each rarity with its specified colors inside the grid field', () => 
     assert.equal(box.border, foreground);
     assert.equal(text.style.fill, foreground);
     assert.equal(text.style.fontWeight, rarity === 'legendary' ? 'bold' : 'normal');
+    assert.ok(box.width >= f.token.w * 0.95);
+    assert.equal(text.x, (box.width - text.width) / 2);
+    assert.ok(text.style.wordWrapWidth >= f.token.w * 0.90);
     assert.ok(label.x >= 0 && label.x + box.width <= f.token.w);
     assert.ok(label.y >= 0 && label.y + box.height <= f.token.h);
     assert.ok(text.style.wordWrap && text.style.breakWords);
+  }
+});
+
+test('removes only a nonempty spell scroll prefix from displayed names', () => {
+  const f = fixture();
+  for (const [name, expected] of [
+    ['Spell Scroll: Fireball', 'Fireball'],
+    ['spell scroll:   Shield', 'Shield'],
+    ['Spell Scroll:', 'Spell Scroll:'],
+    ['Scroll of Protection', 'Scroll of Protection'],
+    ['Sword', 'Sword']
+  ]) {
+    f.token.data = { name };
+    f.hooks.drawToken(f.token);
+    assert.equal(f.token.children[0].children[1].text, expected);
+    assert.equal(f.token.data.name, name);
   }
 });
 

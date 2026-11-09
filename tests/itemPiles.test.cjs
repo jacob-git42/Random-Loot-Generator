@@ -104,6 +104,29 @@ test('stores the prepared item name and rarity in the pile token', async () => {
   assert.equal(label.rarity, 'uncommon');
 });
 
+test('labels art by table category or loot type without changing items', async () => {
+  const f = fixture();
+  const artwork = f.item('Carved bone statuette', 'loot');
+  const typedArt = f.item('Silver necklace', 'loot');
+  typedArt.toObject = () => ({
+    name: typedArt.name, type: 'loot', img: typedArt.img, system: { type: { value: 'art' } }
+  });
+  const ordinaryLoot = f.item('Gemstone', 'loot');
+  f.documents.set('Item.art', artwork);
+  f.documents.set('Item.typed-art', typedArt);
+  f.documents.set('Item.gem', ordinaryLoot);
+  const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'scene' });
+  collector.add({ documentUuid: 'Item.art', name: artwork.name }, 'art');
+  collector.add('Item.typed-art');
+  collector.add({ documentUuid: 'Item.gem', name: ordinaryLoot.name });
+  await collector.finish();
+  assert.deepEqual(f.calls.map(call => call.tokenOverrides.flags['jacobs-loot-generator'].lootLabel.name),
+    ['Art Object', 'Art Object', 'Gemstone']);
+  assert.deepEqual(f.calls.map(call => call.items[0].item.name),
+    ['Carved bone statuette', 'Silver necklace', 'Gemstone']);
+  assert.match(f.messages[0].content, /Carved bone statuette/);
+});
+
 test('reports every item when the GM changes scenes', async () => {
   const f = fixture();
   const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'old-scene' });

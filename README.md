@@ -16,9 +16,14 @@ existing gold payout and GM confirmation remain unchanged.
 Newly generated piles use 0.5 icon scale and a compact canvas label colored by
 the prepared item's rarity. The label is bounded to the token's grid cell and
 is restored on scene load or client reload. Items without a rarity use the
-common colors. Existing piles are not modified.
-The label records the name and rarity at creation; later item changes do not
-update it. Piles that occupy the same cell can still have overlapping labels.
+common colors. Art objects are labelled `Art Object`, and the `Spell Scroll:`
+prefix is omitted from scroll labels; actual item names and chat results remain
+unchanged. Art objects are recognized by the hoard's art table or the D&D 5e
+loot type `art`. Existing piles retain their saved names, though scroll prefixes
+are removed when their labels are drawn. Later item changes do not update labels.
+Piles that occupy the same cell can still have overlapping labels.
+After updating the module, reload the GM client to synchronize the bundled
+macros; synchronization replaces the commands of existing module macros.
 
 The D&D 5e system supplies scrolls and enchantment effects. Missing compendium
 entries, unsupported enchantment riders, failed placement, or a scene change

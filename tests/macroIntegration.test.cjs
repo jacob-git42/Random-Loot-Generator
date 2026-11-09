@@ -38,3 +38,34 @@ for (const scenario of [
     assert.ok(messages.length > 0);
   });
 }
+
+test('Treasure Hoard forwards art table results as art through nested tables', async () => {
+  const results = [];
+  const artResult = { type: 'document', documentCollection: 'Item', name: 'Statuette' };
+  const gemResult = { type: 'document', documentCollection: 'Item', name: 'Gem' };
+  const lootFolder = { id: 'loot', name: 'Loot', type: 'RollTable', contents: [] };
+  const artTable = { id: 'art', name: '250 GP Art Objects', folder: lootFolder,
+    roll: async () => ({ results: [{ type: 'document', documentCollection: 'RollTable', documentId: 'nested' }] }) };
+  const nestedTable = { id: 'nested', name: 'Nested artwork', folder: lootFolder,
+    roll: async () => ({ results: [artResult] }) };
+  const gemTable = { id: 'gem', name: '50 GP Gemstones', folder: lootFolder,
+    roll: async () => ({ results: [gemResult] }) };
+  lootFolder.contents = [artTable, nestedTable, gemTable];
+  const context = {
+    console, Math: Object.assign(Object.create(Math), { random: () => 0.9 }),
+    scope: { lootCollector: { add: (value, kind = 'item') => results.push({ value, kind }), finish: async () => {} } },
+    game: {
+      user: { isGM: false, name: 'Player' }, folders: [lootFolder], tables: lootFolder.contents,
+      settings: { settings: new Map(), register() {}, get: () => ({ count: 1, tier: 1 }) }
+    },
+    Roll: class { async evaluate() { return { total: 1 }; } },
+    ChatMessage: { create: async () => {}, getSpeaker: () => ({}) },
+    TextEditor: { enrichHTML: async text => text }
+  };
+  vm.createContext(context);
+  const source = fs.readFileSync('macros/Treasure_Hoard.js', 'utf8');
+  await vm.runInContext(`(async (scope) => { ${source}\n})(scope)`, context);
+  assert.equal(results.length, 2);
+  assert.equal(results.find(entry => entry.value === artResult).kind, 'art');
+  assert.equal(results.find(entry => entry.value === gemResult).kind, 'item');
+});

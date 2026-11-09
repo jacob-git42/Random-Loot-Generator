@@ -26,7 +26,7 @@ function fixture() {
   const context = {
     console, Math,
     Hooks: { once() {} },
-    CONST: { GRID_TYPES: { GRIDLESS: 0 } },
+    CONST: { GRID_TYPES: { GRIDLESS: 0 }, TOKEN_DISPLAY_MODES: { NONE: 0 } },
     CONFIG: { Canvas: { polygonBackends: { sight: { create: () => ({ contains: x => x >= 0 }) } } } },
     canvas: {
       ready: true, scene: { id: 'scene', grid: { type: 1, distance: 5 } }, grid,
@@ -34,10 +34,13 @@ function fixture() {
       tokens: { placeables: [token], get: id => id === token.id ? token : null }
     },
     fromUuid: async uuid => documents.get(uuid),
-    Item: { implementation: { createScrollFromSpell: async (spell, options, config) => {
-      assert.equal(config.dialog, false);
-      return item(`Scroll of ${spell.name}`).toObject();
-    } } },
+    Item: { implementation: class {
+      constructor(data) { Object.assign(this, data); }
+      static async createScrollFromSpell(spell, options, config) {
+        assert.equal(config.dialog, false);
+        return item(`Scroll of ${spell.name}`).toObject();
+      }
+    } },
     game: {
       items: [], packs: [], tables: [],
       itempiles: { API: { createItemPile: async options => {
@@ -67,6 +70,13 @@ test('places individual items, makes scrolls and reports failures without stoppi
   assert.equal(f.calls[0].items[0].item.name, 'Sword');
   assert.equal(f.calls[1].items[0].item.name, 'Scroll of Fireball');
   assert.equal(f.calls[0].tokenOverrides.texture.src, 'Sword.png');
+  assert.equal(f.calls[0].tokenOverrides.texture.scaleX, 0.5);
+  assert.equal(f.calls[0].tokenOverrides.texture.scaleY, 0.5);
+  assert.equal(f.calls[0].tokenOverrides.displayName, f.context.CONST.TOKEN_DISPLAY_MODES.NONE);
+  assert.equal(f.calls[0].itemPileFlags.overrideSingleItemScale, true);
+  assert.equal(f.calls[0].itemPileFlags.singleItemScale, 0.5);
+  assert.equal(f.calls[0].itemPileFlags.deleteWhenEmpty, true);
+  assert.equal(f.calls[0].tokenOverrides.flags['jacobs-loot-generator'].lootLabel.name, 'Sword');
   assert.notDeepEqual(f.calls[0].position, f.calls[1].position);
   for (const call of f.calls) {
     assert.ok(call.position.x >= 0);
@@ -76,6 +86,22 @@ test('places individual items, makes scrolls and reports failures without stoppi
   assert.match(f.messages[0].content, /Missing/);
   assert.match(f.messages[0].content, /Pile failed/);
   assert.equal(f.warnings.length, 1);
+});
+
+test('stores the prepared item name and rarity in the pile token', async () => {
+  const f = fixture();
+  f.context.Item.implementation = class {
+    constructor(data) {
+      this.name = `${data.name} +1`;
+      this.system = { rarity: 'uncommon' };
+    }
+  };
+  const collector = f.createLootCollector({ tokenId: 'hero', sceneId: 'scene' });
+  collector.add({ documentUuid: 'Item.sword', name: 'Sword' });
+  await collector.finish();
+  const label = f.calls[0].tokenOverrides.flags['jacobs-loot-generator'].lootLabel;
+  assert.equal(label.name, 'Sword +1');
+  assert.equal(label.rarity, 'uncommon');
 });
 
 test('reports every item when the GM changes scenes', async () => {

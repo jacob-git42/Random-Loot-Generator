@@ -242,12 +242,23 @@ function createLootCollector({ tokenId, sceneId }) {
         try {
           const item = await resolveItem(entry.result, entry.kind);
           if (placementError) throw new Error(placementError);
+          const preparedItem = new Item.implementation(item);
           const position = positions[placed % positions.length];
           const topLeft = canvas.grid.getTopLeftPoint(position.offset);
           const pile = await game.itempiles.API.createItemPile({
             sceneId,
             position: topLeft,
-            tokenOverrides: { width: 1, height: 1, texture: { src: item.img } },
+            tokenOverrides: {
+              width: 1,
+              height: 1,
+              displayName: CONST.TOKEN_DISPLAY_MODES.NONE,
+              texture: { src: item.img, scaleX: 0.5, scaleY: 0.5 },
+              flags: { [MODULE_ID]: { lootLabel: { name: preparedItem.name, rarity: preparedItem.system?.rarity || '' } } }
+            },
+            itemPileFlags: {
+              displayOne: true, showItemName: true, overrideSingleItemScale: true, singleItemScale: 0.5,
+              deleteWhenEmpty: true
+            },
             items: [{ item, quantity: 1 }]
           });
           if (!pile?.tokenUuid) throw new Error('Item Piles did not return a token.');

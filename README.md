@@ -13,6 +13,13 @@ spaces run out, piles can overlap. A public Item Piles chat card lists successes
 and items requiring manual placement. Gold is not placed on the canvas: the
 existing gold payout and GM confirmation remain unchanged.
 
+Newly generated piles use 0.5 icon scale and a compact canvas label colored by
+the prepared item's rarity. The label is bounded to the token's grid cell and
+is restored on scene load or client reload. Items without a rarity use the
+common colors. Existing piles are not modified.
+The label records the name and rarity at creation; later item changes do not
+update it. Piles that occupy the same cell can still have overlapping labels.
+
 The D&D 5e system supplies scrolls and enchantment effects. Missing compendium
 entries, unsupported enchantment riders, failed placement, or a scene change
 are reported in the chat card instead of stopping the remaining loot. Some

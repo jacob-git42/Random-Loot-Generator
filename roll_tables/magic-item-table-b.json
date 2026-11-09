@@ -1,13 +1,13 @@
 {
   "name": "Magic Item Table B",
   "formula": "d100",
-  "description": "<div class=\"ve-muted\"><i>Magic Item</i></div>",
+  "description": "<div class=\"ve-muted\"><p><em>Magic Item</em></p></div>",
   "results": [
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of greater healing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgGreaterPotion]{Potion of Healing (Greater)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         1,
@@ -21,22 +21,23 @@
       },
       "_id": "pfzbSJSGQJbZi0x3",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212583483,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of fire breath]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.world.jacobs-loot-generator.Item.F8ab6GqSJoP4PPXf]{Potion of Fire Breath}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         16,
@@ -50,22 +51,23 @@
       },
       "_id": "Y7lyO1hkKbgxPFjE",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794222059074,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of resistance]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfResis]{Potion of Resistance}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         23,
@@ -79,22 +81,23 @@
       },
       "_id": "uMCZcbx4PcstBa3i",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212632604,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[+1 ammunition]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgAmmunition12o]{Ammunition, +1}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         30,
@@ -108,22 +111,23 @@
       },
       "_id": "L2IvucBQDFag1lhn",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212829931,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of animal friendship]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfAnima]{Potion of Animal Friendship}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         35,
@@ -137,22 +141,23 @@
       },
       "_id": "xvhsm3yTDNEq0pSr",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212644714,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of hill giant strength]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgHillPotionOfG]{Potion of Giant Strength (Hill)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         40,
@@ -166,22 +171,23 @@
       },
       "_id": "Umg3BBTka3koJDFd",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212664607,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of growth]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfGrowt]{Potion of Growth}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         45,
@@ -195,22 +201,23 @@
       },
       "_id": "DbckFiBSbrEYT7y1",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212673372,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of water breathing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfWater]{Potion of Water Breathing}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         50,
@@ -224,22 +231,23 @@
       },
       "_id": "tsy6VOL1KmaamIT8",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212684790,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (2nd level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll2n]{Spell Scroll, 2nd Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         55,
@@ -253,22 +261,23 @@
       },
       "_id": "0TzawP98RZKW7zDI",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212845583,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (3rd level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll3r]{Spell Scroll, 3rd Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         60,
@@ -282,22 +291,23 @@
       },
       "_id": "Irn2Q4nxqhE23otN",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212851499,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Bag of holding]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgBagOfHolding0]{Bag of Holding}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         65,
@@ -311,22 +321,23 @@
       },
       "_id": "eaFM7q6HC3jhzicO",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212867286,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Keoghtom's ointment]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.world.jacobs-loot-generator.Item.lF8Hj2gDdREAGL69]{Keoghtom's Ointment}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         68,
@@ -340,22 +351,23 @@
       },
       "_id": "LNFkv5CX7FbO47Gp",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794222039071,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Oil of slipperiness]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgOilOfSlipperi]{Oil of Slipperiness}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         71,
@@ -369,22 +381,23 @@
       },
       "_id": "Pnuc7266SctnIGlJ",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212892130,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Dust of disappearance]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgDustOfDisappe]{Dust of Disappearance}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         74,
@@ -398,22 +411,23 @@
       },
       "_id": "W3J943aYqRH041ED",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212904997,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Dust of dryness]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgDustOfDryness]{Dust of Dryness}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         76,
@@ -427,22 +441,23 @@
       },
       "_id": "B1HoZpgnSd4xwPl2",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212913127,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Dust of sneezing and choking]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgDustOfSneezin]{Dust of Sneezing and Choking}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         78,
@@ -456,22 +471,23 @@
       },
       "_id": "aJ19ECQryw8N3LvI",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794212919144,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Elemental gem]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgBlueElemental]{Elemental Gem (Blue Sapphire)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         80,
@@ -485,22 +501,23 @@
       },
       "_id": "AcjZ8RKjmb3E0IMm",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213110114,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Philter of love]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPhilterOfLove]{Philter of Love}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         82,
@@ -514,51 +531,23 @@
       },
       "_id": "W7pHBXxaIUBYHGgQ",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213140343,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
-    },
-    {
-      "type": "text",
-      "name": "",
-      "description": "@item[Alchemy jug]",
-      "img": "icons/svg/d20-black.svg",
-      "weight": 1,
-      "range": [
-        84,
-        84
-      ],
-      "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "84-84"
-        }
       },
-      "_id": "QcUex3UmeHFF1Qza",
-      "_stats": {
-        "coreVersion": "14.367",
-        "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
-        "lastModifiedBy": "d8OGxoanPxSpeqvo",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      }
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Cap of water breathing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.world.jacobs-loot-generator.Item.zjkxW3vNYtmVCtQm]{Cap of Water Breathing}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         85,
@@ -572,22 +561,23 @@
       },
       "_id": "CLlaLamaw2cFbwjH",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794222017066,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Cloak of the manta ray]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgCloakOfTheMan]{Cloak of the Manta Ray}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         86,
@@ -601,22 +591,23 @@
       },
       "_id": "iThqnudZ6PjkpJCf",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213193424,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Driftglobe]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.world.jacobs-loot-generator.Item.jTHSMfUDwAPZ798P]{Driftglobe}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         87,
@@ -630,22 +621,23 @@
       },
       "_id": "FUNTfAPwrsEpvWlx",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794222023048,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Goggles of night]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgGogglesOfNigh]{Goggles of Night}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         88,
@@ -659,22 +651,23 @@
       },
       "_id": "zXjzSOJm8m8dgn8r",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213211388,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Helm of comprehending languages]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgHelmOfCompreh]{Helm of Comprehending Languages}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         89,
@@ -688,22 +681,23 @@
       },
       "_id": "5oC8UhweelaovWIT",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213222264,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Immovable rod]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgImmovableRod0]{Immovable Rod}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         90,
@@ -717,22 +711,23 @@
       },
       "_id": "HH9Ify7qHlzR3Mlv",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213232868,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Lantern of revealing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgLanternOfReve]{Lantern of Revealing}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         91,
@@ -746,22 +741,23 @@
       },
       "_id": "aNz4qZVD3hMwVpx3",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213241507,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Mariner's armor]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.world.jacobs-loot-generator.Item.DIBpBB9o8zrDzN0D]{Mariner's Armor}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         92,
@@ -775,22 +771,23 @@
       },
       "_id": "xVRZODX6ij2cISPa",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794222046467,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Mithral armor]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgMithralArmor0]{Mithral Armor}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         93,
@@ -804,22 +801,23 @@
       },
       "_id": "0aIWQdgAEcmg3lol",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213266243,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of poison]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfPoiso]{Potion of Poison}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         94,
@@ -833,22 +831,23 @@
       },
       "_id": "yUv4xVmYm2BU1xQI",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213320603,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Ring of swimming]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgRingOfSwimmin]{Ring of Swimming}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         95,
@@ -862,22 +861,23 @@
       },
       "_id": "PH2KRaYxnDZby1e6",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213329759,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Robe of useful items]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgRobeOfUsefulI]{Robe of Useful Items}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         96,
@@ -891,22 +891,23 @@
       },
       "_id": "zz4X0LJgOzaH9l2A",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213341712,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Rope of climbing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgRopeOfClimbin]{Rope of Climbing}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         97,
@@ -920,22 +921,23 @@
       },
       "_id": "YSuc7G76t2u65UvR",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213365933,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Saddle of the cavalier]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.world.jacobs-loot-generator.Item.2uKJloA92GmyM4ia]{Saddle of the Cavalier}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         98,
@@ -949,22 +951,23 @@
       },
       "_id": "0Nc7aAOleqlUj7If",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794222066390,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Wand of magic detection]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgWandOfMagicDe]{Wand of Magic Detection}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         99,
@@ -978,22 +981,23 @@
       },
       "_id": "djm1wklKiH60s8EF",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213385533,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Wand of secrets]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgWandOfSecrets]{Wand of Secrets}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         100,
@@ -1007,47 +1011,130 @@
       },
       "_id": "xWxABDivufLfkYUf",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697216,
-        "modifiedTime": 1788467697216,
+        "modifiedTime": 1794213393748,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        101,
+        103
+      ],
+      "_id": "GGOCVxuWGJY2Ae00",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgEmeraldElemen]{Elemental Gem (Emerald)}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794213096355,
+        "modifiedTime": 1794213116361,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        104,
+        106
+      ],
+      "_id": "cLRQVs5sXKZrBjb6",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgRedElementalG]{Elemental Gem (Red Corundum)}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794213100830,
+        "modifiedTime": 1794213121896,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        107,
+        109
+      ],
+      "_id": "LL2sRFPrMIhUKfEr",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgYellowElement]{Elemental Gem (Yellow Diamond)}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794213102033,
+        "modifiedTime": 1794213126466,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
     }
   ],
   "replacement": true,
   "displayRoll": true,
   "img": "modules/plutonium/media/icon/hamburger-menu.svg",
   "ownership": {
-    "default": 2
+    "default": 3
   },
   "flags": {
     "plutonium": {
       "page": "tables.html",
       "source": "DMG",
       "hash": "magic%20item%20table%20b_dmg"
+    },
+    "scene-packer": {
+      "sourceId": "RollTable.sBW8jf8SX1x3lplV",
+      "defaultPermission": 3
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
+  "folder": "UHyv3fZzT45p6nV4",
   "_stats": {
     "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
     "createdTime": 1788467697216,
-    "modifiedTime": 1788471694754,
+    "modifiedTime": 1794221905278,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
       "uuid": "RollTable.sBW8jf8SX1x3lplV",
-      "coreVersion": "14.367",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

@@ -1,31 +1,27 @@
 {
   "name": "750 GP Art Objects",
-  "formula": "1d10",
-  "description": "<div class=\"ve-muted\"><i>Object</i></div>",
+  "description": "A random table created from the contents of the 750 GP Art Objects Folder.",
   "results": [
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Silver chalice set with moonstones|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Bottle stopper cork embossed with gold leaf and set with amethysts",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.f2S9EclMTsAK4kMc",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         1,
         1
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "1-1"
-        }
-      },
-      "_id": "qsclX0hilgLrPkcK",
+      "_id": "YfEDlZLyiEEq9AXd",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -33,28 +29,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Bundle of sheet music representing the lost dirges of a famous composer|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Bundle of sheet music representing the lost dirges of a famous composer",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.pJtQPWsPWGete89A",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         2,
         2
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "2-2"
-        }
-      },
-      "_id": "Kr9KoPY9olZVff2q",
+      "_id": "jTmc7cn6nMTHXvYk",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -62,28 +55,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Carved wooden harp with ivory inlay and zircon gems|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Carved wooden harp with ivory inlay and zircon gems",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.lVDppks0aWqtVwlL",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         3,
         3
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "3-3"
-        }
-      },
-      "_id": "4v1bmVV7Eqw8C5Wk",
+      "_id": "BHV6xQT4UmErgNLE",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -91,28 +81,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold idol|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Detailed, life-sized dragonborn skull cast in electrum",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.e5C6KaOMq6QAiYIT",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         4,
         4
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "4-4"
-        }
-      },
-      "_id": "7eWPIwB51ZGBKCXN",
+      "_id": "MXZY2Kf9R0TIxrmj",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -120,28 +107,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold comb shaped like a dragon with red garnets as eyes|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold comb shaped like a dragon with red garnets as eyes",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.mPlYVOAuxO5njeaJ",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         5,
         5
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "5-5"
-        }
-      },
-      "_id": "ZYKNAYjkV6egvp5I",
+      "_id": "9Nek0wSMHRfZwYiU",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -149,28 +133,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Bottle stopper cork embossed with gold leaf and set with amethysts|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold idol",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.V84ox9B8OR63aqoP",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         6,
         6
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "6-6"
-        }
-      },
-      "_id": "aul0iSCqjkRiHQRR",
+      "_id": "Pi9bxcGF249tChUk",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -178,28 +159,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Detailed, life-sized dragonborn skull cast in electrum|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Obsidian statuette with gold fittings and inlay",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.fj8WGIEhjVvVNKVJ",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         7,
         7
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "7-7"
-        }
-      },
-      "_id": "TUa9PNA3Cxcnt0tQ",
+      "_id": "M0nXkZffsVcRi2m0",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -207,28 +185,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Silver and gold brooch|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Painted gold war mask",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.DViy8QmMWbsbCXJ9",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         8,
         8
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "8-8"
-        }
-      },
-      "_id": "8W2109Zj327K4C4q",
+      "_id": "3wapo9AANy2arV7p",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -236,28 +211,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Obsidian statuette with gold fittings and inlay|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Silver and gold brooch",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.A0Z7hS7y2EYc4Jzl",
+      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "weight": 1,
       "range": [
         9,
         9
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "9-9"
-        }
-      },
-      "_id": "fiPJe0ce3nvph9Y3",
+      "_id": "ZrxLu0f9VxZ5gbY3",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -265,28 +237,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Painted gold war mask|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Silver chalice set with moonstones",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.L4N54aO3ZdrVXs22",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         10,
         10
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "10-10"
-        }
-      },
-      "_id": "9EFlRoUgLUmWq7Uq",
+      "_id": "NWLuBNAzVJhEp6es",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987835,
-        "modifiedTime": 1780944987835,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221988755,
+        "modifiedTime": 1794221988755,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -294,38 +263,35 @@
       }
     }
   ],
+  "formula": "1d10",
+  "img": "icons/svg/d20-grey.svg",
   "replacement": true,
   "displayRoll": true,
-  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "folder": "UHyv3fZzT45p6nV4",
   "ownership": {
-    "default": 2
+    "default": 0
   },
   "flags": {
-    "plutonium": {
-      "page": "tables.html",
-      "source": "XDMG",
-      "hash": "750%20gp%20art%20objects_xdmg"
-    },
     "scene-packer": {
-      "hash": "5c49da2d71fea7d988e405236c05812443fca45d"
+      "hash": "c6e2ea8217bfb25f74b735f1ebf87fbfa47b8fcd",
+      "sourceId": "RollTable.AhKYZ9XXlaLHlOLZ"
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
   "_stats": {
-    "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
-    "createdTime": 1780944987835,
-    "modifiedTime": 1788471694751,
+    "systemVersion": "6.0.6",
+    "createdTime": 1794221988755,
+    "modifiedTime": 1794221991435,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
-      "uuid": "RollTable.TnqPt0ktKgH6WSGs",
-      "coreVersion": "14.367",
+      "uuid": "RollTable.AhKYZ9XXlaLHlOLZ",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

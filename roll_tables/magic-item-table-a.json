@@ -1,13 +1,13 @@
 {
   "name": "Magic Item Table A",
   "formula": "d100",
-  "description": "<div class=\"ve-muted\"><i>Magic Item</i></div>",
+  "description": "<div class=\"ve-muted\"><p><em>Magic Item</em></p></div>",
   "results": [
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of healing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbagPotionofHea]{Potion of Healing}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         1,
@@ -21,22 +21,23 @@
       },
       "_id": "0t1MNoNibH2vDqoC",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
+        "modifiedTime": 1794170446154,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (cantrip)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScrollCa]{Spell Scroll, Cantrip}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         51,
@@ -50,22 +51,23 @@
       },
       "_id": "i4iNi34hcMVBrjYb",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
+        "modifiedTime": 1794170460645,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of climbing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfClimb]{Potion of Climbing}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         61,
@@ -79,22 +81,23 @@
       },
       "_id": "NlBfVVzFvn01pHsV",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
+        "modifiedTime": 1794170477817,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (1st level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll1s]{Spell Scroll, 1st Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         71,
@@ -108,22 +111,23 @@
       },
       "_id": "MUn0cWHUBF3gK6bL",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
+        "modifiedTime": 1794170495679,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (2nd level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll2n]{Spell Scroll, 2nd Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         91,
@@ -137,22 +141,23 @@
       },
       "_id": "7QDzsTFyG8sFgpdG",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
+        "modifiedTime": 1794170504971,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of greater healing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgGreaterPotion]{Potion of Healing (Greater)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         95,
@@ -166,22 +171,23 @@
       },
       "_id": "mAHZPhS6RtuzlXnJ",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
+        "modifiedTime": 1794170519974,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Bag of holding]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgBagOfHolding0]{Bag of Holding}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         99,
@@ -195,76 +201,52 @@
       },
       "_id": "uNLUQ8jovfWnZDRw",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
+        "modifiedTime": 1794170531176,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
-    },
-    {
-      "type": "text",
-      "name": "",
-      "description": "@item[Driftglobe]",
-      "img": "icons/svg/d20-black.svg",
-      "weight": 1,
-      "range": [
-        100,
-        100
-      ],
-      "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "100-100"
-        }
       },
-      "_id": "pxU4WKhAuo63w27L",
-      "_stats": {
-        "coreVersion": "14.367",
-        "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1788467293362,
-        "modifiedTime": 1788467293362,
-        "lastModifiedBy": "d8OGxoanPxSpeqvo",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      }
+      "documentUuid": null
     }
   ],
   "replacement": true,
   "displayRoll": true,
   "img": "modules/plutonium/media/icon/hamburger-menu.svg",
   "ownership": {
-    "default": 2
+    "default": 3
   },
   "flags": {
     "plutonium": {
       "page": "tables.html",
       "source": "DMG",
       "hash": "magic%20item%20table%20a_dmg"
+    },
+    "scene-packer": {
+      "sourceId": "RollTable.4Izp7FsCs8dWZyUR",
+      "defaultPermission": 3
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
+  "folder": "UHyv3fZzT45p6nV4",
   "_stats": {
     "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
     "createdTime": 1788467293362,
-    "modifiedTime": 1788471694752,
+    "modifiedTime": 1794221905278,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
       "uuid": "RollTable.4Izp7FsCs8dWZyUR",
-      "coreVersion": "14.367",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

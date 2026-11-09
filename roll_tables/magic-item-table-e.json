@@ -1,13 +1,13 @@
 {
   "name": "Magic Item Table E",
   "formula": "d100",
-  "description": "<div class=\"ve-muted\"><i>Magic Item</i></div>",
+  "description": "<div class=\"ve-muted\"><p><em>Magic Item</em></p></div>",
   "results": [
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (8th level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll8t]{Spell Scroll, 8th Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         1,
@@ -21,22 +21,23 @@
       },
       "_id": "lM9oS56l41qkwpbS",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697785,
-        "modifiedTime": 1788467697785,
+        "modifiedTime": 1794214067233,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of storm giant strength]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgStormPotionOf]{Potion of Giant Strength (Storm)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         31,
@@ -50,22 +51,23 @@
       },
       "_id": "Oos52FQjwbjD2e2X",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697785,
-        "modifiedTime": 1788467697785,
+        "modifiedTime": 1794214043599,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of supreme healing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSupremePotion]{Potion of Healing (Supreme)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         56,
@@ -79,22 +81,23 @@
       },
       "_id": "zJJW9Q7KNTKXci8k",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697785,
-        "modifiedTime": 1788467697785,
+        "modifiedTime": 1794214050372,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (9th level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll9t]{Spell Scroll, 9th Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         71,
@@ -108,22 +111,23 @@
       },
       "_id": "twnBAknHXGP4FT6O",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697785,
-        "modifiedTime": 1788467697785,
+        "modifiedTime": 1794214072379,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Universal solvent]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgUniversalSolv]{Universal Solvent}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         86,
@@ -137,22 +141,23 @@
       },
       "_id": "2WVUGo6B4UdvWQVp",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697785,
-        "modifiedTime": 1788467697785,
+        "modifiedTime": 1794214080752,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Arrow of slaying]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSlayingAmmuni]{Ammunition of Slaying}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         94,
@@ -166,22 +171,23 @@
       },
       "_id": "stvwFzE8ucYtG8YE",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697785,
-        "modifiedTime": 1788467697785,
+        "modifiedTime": 1794214089759,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Sovereign glue]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSovereignGlue]{Sovereign Glue}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         99,
@@ -195,47 +201,52 @@
       },
       "_id": "aEHcmIS4w7jp9khA",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697785,
-        "modifiedTime": 1788467697785,
+        "modifiedTime": 1794214099958,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     }
   ],
   "replacement": true,
   "displayRoll": true,
   "img": "modules/plutonium/media/icon/hamburger-menu.svg",
   "ownership": {
-    "default": 2
+    "default": 3
   },
   "flags": {
     "plutonium": {
       "page": "tables.html",
       "source": "DMG",
       "hash": "magic%20item%20table%20e_dmg"
+    },
+    "scene-packer": {
+      "sourceId": "RollTable.pDAHO2GhQoac67s0",
+      "defaultPermission": 3
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
+  "folder": "UHyv3fZzT45p6nV4",
   "_stats": {
     "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
     "createdTime": 1788467697785,
-    "modifiedTime": 1788471694758,
+    "modifiedTime": 1794221905282,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
       "uuid": "RollTable.pDAHO2GhQoac67s0",
-      "coreVersion": "14.367",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

@@ -187,7 +187,7 @@ async function postTargetedLoot(entries, includeClaim = false) {
 
   if (includeClaim) {
     await ChatMessage.create({
-      content: `<div class="loot-card__claim"><span style="display:none;">LOOT-CLAIM:TARGETED</span>Loot Claimed: <span class="loot-card__claim-name">${game.user.name}</span> 💰</div>`,
+      content: `<div class="loot-card__claim"><span style="display:none;">LOOT-CLAIM:TARGETED</span>Loot Claimed: <span class="loot-card__claim-name">${scope?.claimerName ?? game.user.name}</span> 💰</div>`,
       speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
     });
   }

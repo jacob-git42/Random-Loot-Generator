@@ -89,8 +89,12 @@
   font-weight: 700;
 }
 
-.loot-card a.content-link.loot-card__button {
+.loot-card a.content-link.loot-card__button,
+.loot-card button.loot-card__button {
   display: inline-block;
+  width: auto;
+  height: auto;
+  cursor: pointer;
   padding: 9px 16px;
   border: 1px solid #ffe08a !important;
   border-radius: 4px;
@@ -102,7 +106,8 @@
   text-shadow: none !important;
 }
 
-.loot-card a.content-link.loot-card__button:hover {
+.loot-card a.content-link.loot-card__button:hover,
+.loot-card button.loot-card__button:hover:not(:disabled) {
   background: #ffdc78 !important;
   color: #111611 !important;
 }

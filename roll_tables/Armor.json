@@ -1,0 +1,349 @@
+{
+  "folder": "UHyv3fZzT45p6nV4",
+  "name": "Armor",
+  "img": "icons/svg/d20-grey.svg",
+  "description": "",
+  "results": [
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "_id": "XcYpHR0BgVQ17UnS",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmLeatherArm]{Leather Armor}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223198803,
+        "modifiedTime": 1794223204711,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "_id": "IbeuhwBzvvELjcnE",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmPaddedArmo]{Padded Armor}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223199408,
+        "modifiedTime": 1794223208448,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "_id": "jlta0hYLkWW8Scbx",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmStuddedLea]{Studded Leather Armor}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223199998,
+        "modifiedTime": 1794223212962,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "_id": "laqdYTMZ461KfwHo",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmBreastplat]{Breastplate}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223218776,
+        "modifiedTime": 1794223226997,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "_id": "JjiqXfrvsxd8zDkm",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmChainShirt]{Chain Shirt}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223219361,
+        "modifiedTime": 1794223230307,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "_id": "PH8dY49YayPy9ylq",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmHalfPlateA]{Half Plate Armor}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223219972,
+        "modifiedTime": 1794223233855,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "_id": "9uguRdGPen8FS29L",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmHideArmor0]{Hide Armor}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223220549,
+        "modifiedTime": 1794223237480,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "_id": "NI5JBvNg3iVNOOYq",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmScaleMail0]{Scale Mail}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223221126,
+        "modifiedTime": 1794223242077,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "_id": "0kZdhY7MVoc8Lvov",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmChainMail0]{Chain Mail}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223246256,
+        "modifiedTime": 1794223252889,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "_id": "3Roiu9Ta109eL4fz",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmPlateArmor]{Plate Armor}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223246868,
+        "modifiedTime": 1794223257358,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "_id": "BT7rZIfxQrrRG1K2",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmRingMail00]{Ring Mail}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223247515,
+        "modifiedTime": 1794223261527,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "_id": "KpXMYlB7U1eCITPV",
+      "name": "",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbarmSplintArmo]{Splint Armor}</p>",
+      "drawn": false,
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.369",
+        "systemId": "dnd5e",
+        "systemVersion": "6.0.6",
+        "createdTime": 1794223248169,
+        "modifiedTime": 1794223264197,
+        "lastModifiedBy": "d8OGxoanPxSpeqvo",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "documentUuid": null
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {
+    "scene-packer": {
+      "hash": "4b163e2316a04ac2eca42b549ca18cba46545578",
+      "sourceId": "RollTable.ryKdAMIE4jfyrF2N"
+    }
+  },
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "dnd5e",
+    "systemVersion": "6.0.6",
+    "createdTime": 1794223195184,
+    "modifiedTime": 1794223250542,
+    "lastModifiedBy": "d8OGxoanPxSpeqvo",
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "chroniken-von-nebelweid",
+      "uuid": "RollTable.ryKdAMIE4jfyrF2N",
+      "coreVersion": "14.369",
+      "systemId": "dnd5e",
+      "systemVersion": "6.0.6"
+    }
+  },
+  "formula": ""
+}

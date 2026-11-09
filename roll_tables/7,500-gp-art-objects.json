@@ -1,31 +1,27 @@
 {
   "name": "7,500 GP Art Objects",
-  "formula": "1d10",
-  "description": "<div class=\"ve-muted\"><i>Object</i></div>",
+  "description": "A random table created from the contents of the 7,500 GP Art Objects Folder.",
   "results": [
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Jeweled gold crown|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Bejeweled ivory drinking horn with gold filigree",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.FBuubFWd5hFfH1T2",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         1,
         1
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "1-1"
-        }
-      },
-      "_id": "tHNtEjn59mgyNrub",
+      "_id": "W7AHfrVU05ZZApCs",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -33,28 +29,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Jeweled platinum ring|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Ceremonial gold armor with black pearls",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.625shnlcWfNy0uTo",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         2,
         2
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "2-2"
-        }
-      },
-      "_id": "8wSqJbgL3U1tO3Wq",
+      "_id": "pzICT8eqFaiEPKm3",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -62,28 +55,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold statuette set with rubies|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gilded royal coach or funeral barge",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.MhvYwAk8JrBP1cuf",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         3,
         3
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "3-3"
-        }
-      },
-      "_id": "gvI5quSQ2bWZocW8",
+      "_id": "75l83quPc3NjBFye",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -91,28 +81,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold cup set with emeralds|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold cup set with emeralds",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.b13Xd0HiBcgwgv7u",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         4,
         4
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "4-4"
-        }
-      },
-      "_id": "tJ9VQJbtruTewpqz",
+      "_id": "QK3jBg8qypS2KcNI",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -120,28 +107,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold jewelry box with platinum filigree|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold jewelry box with platinum filigree",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.59t8T78py84sHzv3",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         5,
         5
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "5-5"
-        }
-      },
-      "_id": "CaBDWq4jnAs5Kn37",
+      "_id": "h5S1RIbJNI088BXP",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -149,28 +133,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Set of gold nesting dolls|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold statuette set with rubies",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.gj4qBGqvkYJoRVQw",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         6,
         6
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "6-6"
-        }
-      },
-      "_id": "QWqGw4A0BHh3j5ny",
+      "_id": "tCVZKS2QKQ65sch6",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -178,28 +159,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Jade game board with gold playing pieces|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Jade game board with gold playing pieces",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.vlW3tx5o7FFyaRtM",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         7,
         7
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "7-7"
-        }
-      },
-      "_id": "BzLfzXjHGupYyk4r",
+      "_id": "nDNVV2pFsEPjA52J",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -207,28 +185,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Bejeweled ivory drinking horn with gold filigree|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Jeweled gold crown",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.E1iQFmqEu141aJUr",
+      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "weight": 1,
       "range": [
         8,
         8
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "8-8"
-        }
-      },
-      "_id": "D3fuSg3fZwivwpqf",
+      "_id": "aHoHzFm3rtPH3hS0",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -236,28 +211,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gilded royal coach or funeral barge|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Jeweled platinum ring",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.HGqwAi7Kchw6fiE2",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         9,
         9
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "9-9"
-        }
-      },
-      "_id": "v3waoIoJLwO1Iklz",
+      "_id": "ck0txQ6t6t9HQpiL",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -265,28 +237,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Ceremonial gold armor with black pearls|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Set of gold nesting dolls",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.wGU9zUyy6rEJQvHz",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         10,
         10
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "10-10"
-        }
-      },
-      "_id": "PXsZKfzUynRgqq0r",
+      "_id": "O1zClqvtzGzmKiCJ",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987956,
-        "modifiedTime": 1780944987956,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221980473,
+        "modifiedTime": 1794221980473,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -294,38 +263,35 @@
       }
     }
   ],
+  "formula": "1d10",
+  "img": "icons/svg/d20-grey.svg",
   "replacement": true,
   "displayRoll": true,
-  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "folder": "UHyv3fZzT45p6nV4",
   "ownership": {
-    "default": 2
+    "default": 0
   },
   "flags": {
-    "plutonium": {
-      "page": "tables.html",
-      "source": "XDMG",
-      "hash": "7%2c500%20gp%20art%20objects_xdmg"
-    },
     "scene-packer": {
-      "hash": "f966a72c6cd9c5ab88406615a926efef3130123c"
+      "hash": "2d153f66ea87074cabf94cf30b6adc5838a864ec",
+      "sourceId": "RollTable.6tFeS6ZkA5ET52ir"
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
   "_stats": {
-    "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
-    "createdTime": 1780944987956,
-    "modifiedTime": 1788471694750,
+    "systemVersion": "6.0.6",
+    "createdTime": 1794221980473,
+    "modifiedTime": 1794221982703,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
-      "uuid": "RollTable.JRnbuJ4IyttOFpKA",
-      "coreVersion": "14.367",
+      "uuid": "RollTable.6tFeS6ZkA5ET52ir",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Magic Item Table D",
   "formula": "d100",
-  "description": "<div class=\"ve-muted\"><i>Magic Item</i></div>",
+  "description": "<div class=\"ve-muted\"><p><em>Magic Item</em></p></div>",
   "results": [
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of supreme healing]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSupremePotion]{Potion of Healing (Supreme)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         1,
@@ -21,22 +21,23 @@
       },
       "_id": "IgtRQqgHNaaKFiCw",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213852899,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of invisibility]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfInvis]{Potion of Invisibility}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         21,
@@ -50,22 +51,23 @@
       },
       "_id": "qzYcSuOZrqqom8PX",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213863297,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of speed]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfSpeed]{Potion of Speed}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         31,
@@ -79,22 +81,23 @@
       },
       "_id": "ZWFyqUQ6ZccpgiB2",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213870830,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (6th level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll6t]{Spell Scroll, 6th Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         41,
@@ -108,22 +111,23 @@
       },
       "_id": "SmPFJ6EaRAZy7O82",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213929842,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (7th level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll7t]{Spell Scroll, 7th Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         51,
@@ -137,22 +141,23 @@
       },
       "_id": "ptH4rOJeCQSWFgQk",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213934442,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[+3 ammunition]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgAmmunition12o]{Ammunition, +3}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         58,
@@ -166,22 +171,23 @@
       },
       "_id": "3m07OlXcZ9np1786",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213950522,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Oil of sharpness]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgOilOfSharpnes]{Oil of Sharpness}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         63,
@@ -195,22 +201,23 @@
       },
       "_id": "UokwXnXd6DIs8dM2",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213961061,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of flying]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfFlyin]{Potion of Flying}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         68,
@@ -224,22 +231,23 @@
       },
       "_id": "7ufwEQ8xEAeuPEGb",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213882820,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of cloud giant strength]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgCloudPotionOf]{Potion of Giant Strength (Cloud)}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         73,
@@ -253,22 +261,23 @@
       },
       "_id": "8m6WRtbvgSXqxYlG",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213894813,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of longevity]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfLonge]{Potion of Longevity}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         78,
@@ -282,22 +291,23 @@
       },
       "_id": "OnrhEVONWgQ9hZL3",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213904512,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Potion of vitality]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPotionOfVital]{Potion of Vitality}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         83,
@@ -311,22 +321,23 @@
       },
       "_id": "iB9mHc590eCSMAFx",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213915004,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spell scroll (8th level)]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgSpellScroll8t]{Spell Scroll, 8th Level}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         88,
@@ -340,22 +351,23 @@
       },
       "_id": "cDp4UtCKfMXaanb1",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213974252,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Horseshoes of a zephyr]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgHorseshoesOfA]{Horseshoes of a Zephyr}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         93,
@@ -369,22 +381,23 @@
       },
       "_id": "rB1WEOcdhvPeFq6M",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794213988878,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Nolzur's marvelous pigments]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgNolzursMarvel]{Marvelous Pigments}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         96,
@@ -398,22 +411,23 @@
       },
       "_id": "0yS4xrLMNj5DyL6C",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794214001184,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Bag of devouring]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgBagOfDevourin]{Bag of Devouring}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         99,
@@ -427,22 +441,23 @@
       },
       "_id": "evE0yPuDET0zJTJv",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794214009437,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Portable hole]",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.dmgPortableHole0]{Portable Hole}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         100,
@@ -456,47 +471,52 @@
       },
       "_id": "l8VI91ynGql375bC",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467697652,
-        "modifiedTime": 1788467697652,
+        "modifiedTime": 1794214017808,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     }
   ],
   "replacement": true,
   "displayRoll": true,
   "img": "modules/plutonium/media/icon/hamburger-menu.svg",
   "ownership": {
-    "default": 2
+    "default": 3
   },
   "flags": {
     "plutonium": {
       "page": "tables.html",
       "source": "DMG",
       "hash": "magic%20item%20table%20d_dmg"
+    },
+    "scene-packer": {
+      "sourceId": "RollTable.hD234IrZeH0gDWY0",
+      "defaultPermission": 3
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
+  "folder": "UHyv3fZzT45p6nV4",
   "_stats": {
     "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
     "createdTime": 1788467697652,
-    "modifiedTime": 1788471694757,
+    "modifiedTime": 1794221905281,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
       "uuid": "RollTable.hD234IrZeH0gDWY0",
-      "coreVersion": "14.367",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

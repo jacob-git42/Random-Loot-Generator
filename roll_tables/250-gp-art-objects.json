@@ -1,31 +1,27 @@
 {
   "name": "250 GP Art Objects",
-  "formula": "1d10",
-  "description": "<div class=\"ve-muted\"><i>Object</i></div>",
+  "description": "A random table created from the contents of the 250 GP Art Objects Folder.",
   "results": [
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold ring set with bloodstones|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Bejeweled gold bracelet",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.Mp17GeRE1TQiGFbZ",
+      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "weight": 1,
       "range": [
         1,
         1
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "1-1"
-        }
-      },
-      "_id": "K97a7DwkOgxZmD1N",
+      "_id": "Mp4PuHixwztDdjYn",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -33,28 +29,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Carved ivory statuette|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Box of turquoise animal figurines",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.wNidUIOM9OP2R8vV",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         2,
         2
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "2-2"
-        }
-      },
-      "_id": "DlY0ZDDHaEzc5D5e",
+      "_id": "vBoGT8CK1Csx0AYP",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -62,28 +55,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Bejeweled gold bracelet|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Brass mug with jade inlay",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.rsgPX3Trf1f7erYF",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         3,
         3
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "3-3"
-        }
-      },
-      "_id": "LDSrseODNdsLzZad",
+      "_id": "VccoQcC7jm1lOKqS",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -91,28 +81,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Silver necklace with a gemstone pendant|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Bronze crown",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.00b4qtWc3rm1elan",
+      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "weight": 1,
       "range": [
         4,
         4
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "4-4"
-        }
-      },
-      "_id": "B6k6qhB0mWNyy9K0",
+      "_id": "3d2JuYTGs6CZDy5J",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -120,28 +107,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Bronze crown|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Carved ivory statuette",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.TXnDcdy0vWdpNB7u",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         5,
         5
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "5-5"
-        }
-      },
-      "_id": "0cqCKKmN6aqy4Ug6",
+      "_id": "yT974nm3MxYad88J",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -149,28 +133,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Silk vestments with gold embroidery|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold birdcage with electrum filigree",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.F2cbad3V9NFdfTeV",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         6,
         6
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "6-6"
-        }
-      },
-      "_id": "9z66zYKVT35IWr8S",
+      "_id": "16HWfIPr4DblRjN9",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -178,28 +159,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Well-made tapestry that is 10 feet by 10 feet|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold ring set with bloodstones",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.XiUh1HQSoPGW0sUl",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         7,
         7
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "7-7"
-        }
-      },
-      "_id": "2YMIE8TK5CZrWTGe",
+      "_id": "W2SGJMZ5Cgjg0pwf",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -207,28 +185,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Brass mug with jade inlay|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Silk vestments with gold embroidery",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.epLJ3poyzC65xohe",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         8,
         8
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "8-8"
-        }
-      },
-      "_id": "Ka5cc53uNRXE2JI9",
+      "_id": "p815VUKyUEyya27K",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -236,28 +211,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Box of turquoise animal figurines|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Silver necklace with a gemstone pendant",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.1QErwYQsfQESyD5V",
+      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "weight": 1,
       "range": [
         9,
         9
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "9-9"
-        }
-      },
-      "_id": "Xb8vHyLa1yHPVrtD",
+      "_id": "psgaPtS3tjETNnWU",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -265,28 +237,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold birdcage with electrum filigree|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Well-made tapestry that is 10 feet by 10 feet",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.dlIQACR3HCXZdutp",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         10,
         10
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "10-10"
-        }
-      },
-      "_id": "ZhKISW4q5D6yPvwK",
+      "_id": "u5NcKkAwHDUFP4E6",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987777,
-        "modifiedTime": 1780944987777,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221953231,
+        "modifiedTime": 1794221953231,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -294,38 +263,35 @@
       }
     }
   ],
+  "formula": "1d10",
+  "img": "icons/svg/d20-grey.svg",
   "replacement": true,
   "displayRoll": true,
-  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "folder": "UHyv3fZzT45p6nV4",
   "ownership": {
-    "default": 2
+    "default": 0
   },
   "flags": {
-    "plutonium": {
-      "page": "tables.html",
-      "source": "XDMG",
-      "hash": "250%20gp%20art%20objects_xdmg"
-    },
     "scene-packer": {
-      "hash": "af97fbd4b338d5a046587bf5ed1eba22204dd8ed"
+      "hash": "fabcc4bc1751a0e54a3e948523b85303a5796098",
+      "sourceId": "RollTable.SZC58R3lwTnFDCsb"
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
   "_stats": {
-    "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
-    "createdTime": 1780944987777,
-    "modifiedTime": 1788471694748,
+    "systemVersion": "6.0.6",
+    "createdTime": 1794221953231,
+    "modifiedTime": 1794221956231,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
-      "uuid": "RollTable.3kzCr0WYoMoeAHB5",
-      "coreVersion": "14.367",
+      "uuid": "RollTable.SZC58R3lwTnFDCsb",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

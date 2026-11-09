@@ -466,6 +466,9 @@ if (options) {
           
           if (!selectedMacro) return;
 
+          // Presets stay in GM memory (lootSession) instead of a world setting
+          let sessionPreset = null;
+
           if (isIndividualTreasureMacro(selectedMacro)) {
             if (!game.user.isGM) {
               ui.notifications.warn("Only a GM can preset Individual Treasure values.");
@@ -478,11 +481,11 @@ if (options) {
 
             await incrementLootCounters({ individual: counts });
 
-            await game.settings.set(individualTreasureSettingsNamespace, individualTreasureSettingsKey, {
-              counts,
-              createdBy: game.user.id,
-              createdAt: Date.now()
-            });
+            sessionPreset = {
+              namespace: individualTreasureSettingsNamespace,
+              key: individualTreasureSettingsKey,
+              value: { counts, createdBy: game.user.id, createdAt: Date.now() }
+            };
           }
 
           if (isTreasureHoardMacro(selectedMacro)) {
@@ -497,13 +500,17 @@ if (options) {
 
             await incrementLootCounters({ hoard: { count: hoardPreset.count, tier: hoardPreset.tier, isMiniHoard: hoardPreset.isMiniHoard } });
 
-            await game.settings.set(treasureHoardSettingsNamespace, treasureHoardSettingsKey, {
-              count: hoardPreset.count,
-              tier: hoardPreset.tier,
-              isMiniHoard: hoardPreset.isMiniHoard,
-              createdBy: game.user.id,
-              createdAt: Date.now()
-            });
+            sessionPreset = {
+              namespace: treasureHoardSettingsNamespace,
+              key: treasureHoardSettingsKey,
+              value: {
+                count: hoardPreset.count,
+                tier: hoardPreset.tier,
+                isMiniHoard: hoardPreset.isMiniHoard,
+                createdBy: game.user.id,
+                createdAt: Date.now()
+              }
+            };
           }
 
           if (isSpellsMacro(selectedMacro)) {
@@ -516,11 +523,11 @@ if (options) {
             const spellsPreset = await askSpellsPreset();
             if (!spellsPreset) return;
 
-            await game.settings.set(spellsSettingsNamespace, spellsSettingsKey, {
-              selections: spellsPreset,
-              createdBy: game.user.id,
-              createdAt: Date.now()
-            });
+            sessionPreset = {
+              namespace: spellsSettingsNamespace,
+              key: spellsSettingsKey,
+              value: { selections: spellsPreset, createdBy: game.user.id, createdAt: Date.now() }
+            };
           }
 
           if (isPotionsMacro(selectedMacro)) {
@@ -533,11 +540,11 @@ if (options) {
             const potionCount = await askPotionsPreset();
             if (!potionCount) return;
 
-            await game.settings.set(potionsSettingsNamespace, potionsSettingsKey, {
-              count: potionCount,
-              createdBy: game.user.id,
-              createdAt: Date.now()
-            });
+            sessionPreset = {
+              namespace: potionsSettingsNamespace,
+              key: potionsSettingsKey,
+              value: { count: potionCount, createdBy: game.user.id, createdAt: Date.now() }
+            };
           }
 
           if (isTargetedLootMacro(selectedMacro)) {
@@ -550,62 +557,40 @@ if (options) {
             const entries = await askTargetedLootPreset();
             if (!entries) return;
 
-            await game.settings.set(targetedLootSettingsNamespace, targetedLootSettingsKey, {
-              entries,
-              createdBy: game.user.id,
-              createdAt: Date.now()
-            });
+            sessionPreset = {
+              namespace: targetedLootSettingsNamespace,
+              key: targetedLootSettingsKey,
+              value: { entries, createdBy: game.user.id, createdAt: Date.now() }
+            };
           }
 
           const randomTitle = randomTitles[Math.floor(Math.random() * randomTitles.length)];
-          const expectedClaimMarker = getClaimMarkerForMacro(selectedMacro);
 
-          const chatMessage = await ChatMessage.create({
-            content: "Generating loot card...",
-            speaker: ChatMessage.getSpeaker({ title: "Dungeon Master" })
+          const lootSessionApi = game.modules.get("jacobs-loot-generator")?.api;
+          if (!lootSessionApi?.createLootSession) {
+            ui.notifications.error("Loot session API not available. Is socketlib active?");
+            return;
+          }
+
+          // The card only carries the anonymous session id; presets stay in GM memory
+          const sessionId = lootSessionApi.createLootSession({
+            macroId: selectedMacro.id,
+            macroName: selectedMacro.name,
+            preset: sessionPreset
           });
 
-          const chatContent = `
-            <div class="loot-card loot-card--reveal">
-              <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Treasure Opportunity</p>
-              <p class="loot-card__headline">${randomTitle}</p>
+          await ChatMessage.create({
+            content: `
+              <div class="loot-card loot-card--reveal">
+                <p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Treasure Opportunity</p>
+                <p class="loot-card__headline">${randomTitle}</p>
 
-              <a class="content-link loot-card__button" data-link data-type="Macro" data-uuid="Macro.${selectedMacro.id}">
-                ⚡ Reveal Loot ⚡
-              </a>
-            </div>
-          `;
-
-          await chatMessage.update({ content: chatContent });
-
-          let hookId = Hooks.on("createChatMessage", async (msgDoc, options, userId) => {
-            if (!game.user.isGM) return;
-
-            const isMatchingClaim = expectedClaimMarker ? msgDoc.content.includes(expectedClaimMarker) : false;
-
-            if (isMatchingClaim) {
-              const targetMsg = game.messages.get(chatMessage.id);
-              
-              if (targetMsg && targetMsg.content.includes('⚡ Reveal Loot ⚡')) {
-                const lockedContent = targetMsg.content.replace(
-                  /<a class="content-link[^\"]*"[\s\S]*?⚡ Reveal Loot ⚡\s*<\/a>/,
-                  `<span class="loot-card__button--locked">🔒 Loot Claimed 🔒</span>`
-                );
-                
-                await targetMsg.update({ content: lockedContent });
-                ui.notifications.info("Loot card locked.");
-                
-                // Trigger custom hook for Gold Payout System
-                // This allows the payout system to react when loot is revealed
-                Hooks.callAll("lootRevealed", {
-                  claimMarker: expectedClaimMarker,
-                  macroName: selectedMacro.name,
-                  revealedBy: msgDoc.author
-                });
-              }
-              
-              Hooks.off("createChatMessage", hookId);
-            }
+                <button type="button" class="loot-card__button reveal-loot-btn" data-session-id="${sessionId}">
+                  ⚡ Reveal Loot ⚡
+                </button>
+              </div>
+            `,
+            speaker: ChatMessage.getSpeaker({ title: "Dungeon Master" })
           });
         }
       },

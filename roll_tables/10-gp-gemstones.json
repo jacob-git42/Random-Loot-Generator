@@ -1,31 +1,27 @@
 {
   "name": "10 GP Gemstones",
-  "formula": "1d12",
-  "description": "<div class=\"ve-muted\"><i>Stone</i></div>",
+  "description": "A random table created from the contents of the 10 GP Gemstones Folder.",
   "results": [
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Azurite|XDMG] (mottled deep blue)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Blue Quartz",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.0PP591XwkiNhqNR4",
+      "img": "icons/commodities/stone/ore-chunk-blue.webp",
       "weight": 1,
       "range": [
         1,
         1
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "1-1"
-        }
-      },
-      "_id": "YjUXiUygiqe3XbzA",
+      "_id": "WocJToh6FCfnz3zj",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -33,28 +29,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Banded agate|XDMG] (striped brown, blue, white, or red)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Turquoise",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.9OdOG3yrbRQDeon5",
+      "img": "icons/commodities/gems/gem-fragments-turquoise.webp",
       "weight": 1,
       "range": [
         2,
         2
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "2-2"
-        }
-      },
-      "_id": "XshMTQVFDbewFOhg",
+      "_id": "DPSZ5fBR3dEl0sZR",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -62,28 +55,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Blue quartz|XDMG] (pale blue)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Malachite",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.IfjBMIY7UP5ATuVr",
+      "img": "icons/commodities/gems/gem-raw-rough-green-yellow.webp",
       "weight": 1,
       "range": [
         3,
         3
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "3-3"
-        }
-      },
-      "_id": "ERWjpnfZQurmxrVi",
+      "_id": "iW4nlwy9QmbhdHhY",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -91,28 +81,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Eye agate|XDMG] (circles of gray, white, brown, blue, or green)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Hematite",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.LE2hvsuTYduAtF4X",
+      "img": "icons/commodities/gems/pearl-brown.webp",
       "weight": 1,
       "range": [
         4,
         4
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "4-4"
-        }
-      },
-      "_id": "jdJrF78UlfjJebNK",
+      "_id": "y8AIKS6QPP70hd3K",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -120,28 +107,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Hematite|XDMG] (gray black)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Obsidian",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.NGlcVRHpuKHtpDCY",
+      "img": "icons/commodities/stone/geode-raw-black.webp",
       "weight": 1,
       "range": [
         5,
         5
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "5-5"
-        }
-      },
-      "_id": "bZTWzRl7sGtxsuoO",
+      "_id": "bizT0fFW4226H4xp",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -149,28 +133,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Lapis lazuli|XDMG] (light and dark blue with yellow flecks)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Azurite",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.THeREYk2R1ZR8w0l",
+      "img": "icons/commodities/stone/geode-raw-purple.webp",
       "weight": 1,
       "range": [
         6,
         6
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "6-6"
-        }
-      },
-      "_id": "LoIPr3dfUNyHJhqJ",
+      "_id": "hiefro71dhBLHTxj",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -178,28 +159,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Malachite|XDMG] (striated light and dark green)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Banded Agate",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.eBpTvqT5njFbDTQn",
+      "img": "icons/commodities/gems/gem-rough-can-orange-red.webp",
       "weight": 1,
       "range": [
         7,
         7
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "7-7"
-        }
-      },
-      "_id": "cUH1g8X52r3ZlYop",
+      "_id": "IHDBkBgyHynXXAdO",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -207,28 +185,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Moss agate|XDMG] (pink or yellow white with mossy gray or green markings)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Lapis Lazuli",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.ncWw1HtxwWrsjS3z",
+      "img": "icons/commodities/gems/gem-rough-pendeloque-blue.webp",
       "weight": 1,
       "range": [
         8,
         8
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "8-8"
-        }
-      },
-      "_id": "NdZQhjMsG2YP6BoZ",
+      "_id": "hwF7GNnLgj4XvYUw",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -236,28 +211,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Obsidian|XDMG] (black)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Tiger Eye",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.oin7UOaU1NDG13V9",
+      "img": "icons/commodities/gems/gem-faceted-trillion-orange.webp",
       "weight": 1,
       "range": [
         9,
         9
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "9-9"
-        }
-      },
-      "_id": "o4cDCeV66nc9Rcn8",
+      "_id": "hjZcqsfXteClM3O0",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -265,28 +237,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Rhodochrosite|XDMG] (light pink)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Moss Agate",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.u814sjmVFUuekVRS",
+      "img": "icons/commodities/materials/glass-orb-green.webp",
       "weight": 1,
       "range": [
         10,
         10
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "10-10"
-        }
-      },
-      "_id": "5qP2GcZBEEUSHV41",
+      "_id": "7rPoIXxxcL6JQ5E6",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -294,28 +263,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Tiger eye|XDMG] (brown with golden center)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Eye Agate",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.xZgLMTaak3K4qok6",
+      "img": "icons/commodities/gems/gem-rough-oval-orange.webp",
       "weight": 1,
       "range": [
         11,
         11
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "11-11"
-        }
-      },
-      "_id": "3aGPkRghxAPqYpIO",
+      "_id": "rMRbZk51uyhEC8UA",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -323,28 +289,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Turquoise|XDMG] (light blue green)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Rhodochrosite",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.zfLpDFOgAHtqw1mb",
+      "img": "icons/commodities/gems/gem-fragments-pink.webp",
       "weight": 1,
       "range": [
         12,
         12
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "12-12"
-        }
-      },
-      "_id": "cr4ypzirYVIQtRWh",
+      "_id": "pz5Ip1GBMfqRz2lb",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956076999,
-        "modifiedTime": 1780956076999,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221875229,
+        "modifiedTime": 1794221875229,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -352,38 +315,35 @@
       }
     }
   ],
+  "formula": "1d12",
+  "img": "icons/svg/d20-grey.svg",
   "replacement": true,
   "displayRoll": true,
-  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "folder": "UHyv3fZzT45p6nV4",
   "ownership": {
-    "default": 2
+    "default": 0
   },
   "flags": {
-    "plutonium": {
-      "page": "tables.html",
-      "source": "XDMG",
-      "hash": "10%20gp%20gemstones_xdmg"
-    },
     "scene-packer": {
-      "hash": "d157c7c5c7ea9470fa0a8270454a711dbda964d5"
+      "hash": "c0ddbf3e28f6e8e106022805cc48d5f633d632c5",
+      "sourceId": "RollTable.LQreM51AekEeaEo7"
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
   "_stats": {
-    "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
-    "createdTime": 1780956076999,
-    "modifiedTime": 1788471694731,
+    "systemVersion": "6.0.6",
+    "createdTime": 1794221875229,
+    "modifiedTime": 1794221905277,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
-      "uuid": "RollTable.oa5ZgIlfXm77gOmM",
-      "coreVersion": "14.367",
+      "uuid": "RollTable.LQreM51AekEeaEo7",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

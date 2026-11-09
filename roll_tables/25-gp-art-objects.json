@@ -1,31 +1,27 @@
 {
   "name": "25 GP Art Objects",
-  "formula": "1d10",
-  "description": "<div class=\"ve-muted\"><i>Object</i></div>",
+  "description": "A random table created from the contents of the 25 GP Art Objects Folder.",
   "results": [
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Silver ewer|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Black velvet mask stitched with silver thread",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.9tAFOvb234rDpvyY",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         1,
         1
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "1-1"
-        }
-      },
-      "_id": "fySgR0X3i8Yz1SVE",
+      "_id": "ZXXi1BoplRD7MPlo",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -33,28 +29,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Carved bone statuette|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Carved bone statuette",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.57r50IUne5Hx6zi4",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         2,
         2
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "2-2"
-        }
-      },
-      "_id": "HV8A0KINnf7lR0KL",
+      "_id": "4UI4tH9pa89jVHL6",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -62,28 +55,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold bracelet|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Cloth-of-gold vestments",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.jGBfAcRdOJ0LwJVj",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         3,
         3
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "3-3"
-        }
-      },
-      "_id": "85vscRpy0XZqn9RP",
+      "_id": "2BpaW1gYryaS665L",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -91,28 +81,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Cloth-of-gold vestments|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Copper chalice with silver filigree",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.9wscvZC87ASXv17r",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         4,
         4
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "4-4"
-        }
-      },
-      "_id": "kpraRiXIp3ISNtXR",
+      "_id": "Bc9EwCqnAihL3EK6",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -120,28 +107,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Black velvet mask stitched with silver thread|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Embroidered silk handkerchief",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.AZyDvIMzIVCvnbFO",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         5,
         5
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "5-5"
-        }
-      },
-      "_id": "RqOpwjxeuFdINeol",
+      "_id": "xNNCz2BXhZOC1Lvz",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -149,28 +133,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Copper chalice with silver filigree|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold bracelet",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.IGqz7elekSyDX7z5",
+      "img": "systems/dnd5e/icons/svg/items/equipment.svg",
       "weight": 1,
       "range": [
         6,
         6
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "6-6"
-        }
-      },
-      "_id": "cb2FDuqibWzPKb3I",
+      "_id": "EPKFVarZXt5uLOV3",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -178,28 +159,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Pair of engraved bone dice|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Gold locket with a painted portrait inside",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.5xpJoKWOETpFTshH",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         7,
         7
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "7-7"
-        }
-      },
-      "_id": "4isnly8ACcU8mYLE",
+      "_id": "4th7NCkpDcZBXPV9",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -207,28 +185,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Handheld mirror set in a painted wooden frame|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Handheld mirror set in a painted wooden frame",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.OiCpM7plsk8XZ1h7",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         8,
         8
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "8-8"
-        }
-      },
-      "_id": "UYbyccgcAAFjwelm",
+      "_id": "34F3f8FWwrjsy1bo",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -236,28 +211,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Embroidered silk handkerchief|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Pair of engraved bone dice",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.aweXOLP5fhXts0ax",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         9,
         9
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "9-9"
-        }
-      },
-      "_id": "sGVK8Yg2yN8VFzg6",
+      "_id": "jH030hKissGeskNz",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -265,28 +237,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Gold locket with a painted portrait inside|XDMG]",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Silver ewer",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.c3gH7Yts6ih9Qqw9",
+      "img": "systems/dnd5e/icons/svg/items/loot.svg",
       "weight": 1,
       "range": [
         10,
         10
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "10-10"
-        }
-      },
-      "_id": "qHSVNLcOHGAkHTQk",
+      "_id": "XgeXuapoq7g8wgCd",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780944987714,
-        "modifiedTime": 1780944987714,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221942189,
+        "modifiedTime": 1794221942189,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -294,38 +263,35 @@
       }
     }
   ],
+  "formula": "1d10",
+  "img": "icons/svg/d20-grey.svg",
   "replacement": true,
   "displayRoll": true,
-  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "folder": "UHyv3fZzT45p6nV4",
   "ownership": {
-    "default": 2
+    "default": 0
   },
   "flags": {
-    "plutonium": {
-      "page": "tables.html",
-      "source": "XDMG",
-      "hash": "25%20gp%20art%20objects_xdmg"
-    },
     "scene-packer": {
-      "hash": "f483a63e54c421e7d6c8f18a1d27dc291090e890"
+      "hash": "4fc2946810e89bab506f45eca105712ff8d07375",
+      "sourceId": "RollTable.dJESs8ectG6tT9K2"
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
   "_stats": {
-    "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
-    "createdTime": 1780944987714,
-    "modifiedTime": 1788471694747,
+    "systemVersion": "6.0.6",
+    "createdTime": 1794221942189,
+    "modifiedTime": 1794221945857,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
-      "uuid": "RollTable.Y5a9IhwboN29hhTi",
-      "coreVersion": "14.367",
+      "uuid": "RollTable.dJESs8ectG6tT9K2",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

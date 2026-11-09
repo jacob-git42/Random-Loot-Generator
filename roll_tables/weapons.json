@@ -1,42 +1,13 @@
 {
   "name": "Weapons",
   "formula": "1d42",
-  "description": "<div class=\"ve-muted\"><i>Name | Damage | Properties | Mastery | Weight | Cost</i></div>",
+  "description": "<div class=\"ve-muted\"><p><em>Name | Damage | Properties | Mastery | Weight | Cost</em></p></div>",
   "results": [
     {
       "type": "text",
       "name": "",
-      "description": "",
-      "img": "icons/svg/d20-black.svg",
-      "weight": 1,
-      "range": [
-        1,
-        1
-      ],
-      "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "1-1"
-        }
-      },
-      "_id": "9sQ9qdZHD0ZsGXfD",
-      "_stats": {
-        "coreVersion": "14.367",
-        "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
-        "lastModifiedBy": "d8OGxoanPxSpeqvo",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      }
-    },
-    {
-      "type": "text",
-      "name": "",
-      "description": "@item[Club|XPHB] | [[/r 1d4]] Bludgeoning | @itemProperty[L|XPHB|Light] | @itemMastery[Slow] | 2 lb. | 1 SP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepClub000000]{Club}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         2,
@@ -50,22 +21,23 @@
       },
       "_id": "bZazetPLNySJz5tb",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222900879,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Dagger|XPHB] | [[/r 1d4]] Piercing | @itemProperty[F|XPHB|Finesse], @itemProperty[L|XPHB|Light], @itemProperty[T|XPHB|Thrown] (Range 20/60) | @itemMastery[Nick] | 1 lb. | 2 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepDagger0000]{Dagger}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         3,
@@ -79,22 +51,23 @@
       },
       "_id": "sEhv8o0BAiMXWXT3",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222906413,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Greatclub|XPHB] | [[/r 1d8]] Bludgeoning | @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Push] | 10 lb. | 2 SP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepGreatclub0]{Greatclub}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         4,
@@ -108,22 +81,23 @@
       },
       "_id": "RVRhFegjf9tvOo7C",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222912058,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Handaxe|XPHB] | [[/r 1d6]] Slashing | @itemProperty[L|XPHB|Light], @itemProperty[T|XPHB|Thrown] (Range 20/60) | @itemMastery[Vex] | 2 lb. | 5 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepHandaxe000]{Handaxe}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         5,
@@ -137,22 +111,23 @@
       },
       "_id": "WvF1pwFrue6Neg46",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222917520,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Javelin|XPHB] | [[/r 1d6]] Piercing | @itemProperty[T|XPHB|Thrown] (Range 30/120) | @itemMastery[Slow] | 2 lb. | 5 SP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepJavelin000]{Javelin}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         6,
@@ -166,22 +141,23 @@
       },
       "_id": "kKai08AAjO3P7nKJ",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222922940,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Light Hammer|XPHB] | [[/r 1d4]] Bludgeoning | @itemProperty[L|XPHB|Light], @itemProperty[T|XPHB|Thrown] (Range 20/60) | @itemMastery[Nick] | 2 lb. | 2 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepLightHamme]{Light Hammer}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         7,
@@ -195,22 +171,23 @@
       },
       "_id": "pqcWcG7k5Mae89gC",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222930642,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Mace|XPHB] | [[/r 1d6]] Bludgeoning | — | @itemMastery[Sap] | 4 lb. | 5 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepMace000000]{Mace}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         8,
@@ -224,22 +201,23 @@
       },
       "_id": "tsi1yYQyf7oDb0bN",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222937113,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Quarterstaff|XPHB] | [[/r 1d6]] Bludgeoning | @itemProperty[V|XPHB|Versatile] ([[/r 1d8]]) | @itemMastery[Topple] | 4 lb. | 2 SP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepQuartersta]{Quarterstaff}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         9,
@@ -253,22 +231,23 @@
       },
       "_id": "s5g2WKZogLypDxhK",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222942839,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Sickle|XPHB] | [[/r 1d4]] Slashing | @itemProperty[L|XPHB|Light] | @itemMastery[Nick] | 2 lb. | 1 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepSickle0000]{Sickle}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         10,
@@ -282,22 +261,23 @@
       },
       "_id": "HOwzkgM3A7INufj7",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222948172,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Spear|XPHB] | [[/r 1d6]] Piercing | @itemProperty[T|XPHB|Thrown] (Range 20/60), @itemProperty[V|XPHB|Versatile] ([[/r 1d8]]) | @itemMastery[Sap] | 3 lb. | 1 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepSpear00000]{Spear}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         11,
@@ -311,51 +291,23 @@
       },
       "_id": "tPkyAuhsACdK1U7f",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222953371,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
-    },
-    {
-      "type": "text",
-      "name": "",
-      "description": "",
-      "img": "icons/svg/d20-black.svg",
-      "weight": 1,
-      "range": [
-        12,
-        12
-      ],
-      "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "12-12"
-        }
       },
-      "_id": "hFQPeKWjxaJK2pp5",
-      "_stats": {
-        "coreVersion": "14.367",
-        "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
-        "lastModifiedBy": "d8OGxoanPxSpeqvo",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      }
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Dart|XPHB] | [[/r 1d4]] Piercing | @itemProperty[F|XPHB|Finesse], @itemProperty[T|XPHB|Thrown] (Range 20/60) | @itemMastery[Vex] | 1/4 lb. | 5 CP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepDart000000]{Dart}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         13,
@@ -369,22 +321,23 @@
       },
       "_id": "Rnj1CbsGj09tvD7y",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222964377,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Light Crossbow|XPHB] | [[/r 1d8]] Piercing | @itemProperty[A|XPHB|Ammunition] (Range 80/320; Bolt), @itemProperty[LD|XPHB|Loading], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Slow] | 5 lb. | 25 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepLightCross]{Light Crossbow}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         14,
@@ -398,22 +351,23 @@
       },
       "_id": "qbkKhu3ogKq5F3vn",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222969150,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Shortbow|XPHB] | [[/r 1d6]] Piercing | @itemProperty[A|XPHB|Ammunition] (Range 80/320; Arrow), @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Vex] | 2 lb. | 25 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepShortbow00]{Shortbow}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         15,
@@ -427,22 +381,23 @@
       },
       "_id": "ZJ2EsdFEZcqdwxfZ",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222974023,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Sling|XPHB] | [[/r 1d4]] Bludgeoning | @itemProperty[A|XPHB|Ammunition] (Range 30/120; Bullet) | @itemMastery[Slow] | — | 1 SP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepSling00000]{Sling}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         16,
@@ -456,51 +411,23 @@
       },
       "_id": "bS7m8L0leLkCOWKn",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222978646,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
-    },
-    {
-      "type": "text",
-      "name": "",
-      "description": "",
-      "img": "icons/svg/d20-black.svg",
-      "weight": 1,
-      "range": [
-        17,
-        17
-      ],
-      "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "17-17"
-        }
       },
-      "_id": "WyF250TkSzhHX6Fb",
-      "_stats": {
-        "coreVersion": "14.367",
-        "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
-        "lastModifiedBy": "d8OGxoanPxSpeqvo",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      }
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Battleaxe|XPHB] | [[/r 1d8]] Slashing | @itemProperty[V|XPHB|Versatile] ([[/r 1d10]]) | @itemMastery[Topple] | 4 lb. | 10 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepBattleaxe0]{Battleaxe}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         18,
@@ -514,22 +441,23 @@
       },
       "_id": "81MIrZWdgCuMDV59",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222990943,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Flail|XPHB] | [[/r 1d8]] Bludgeoning | — | @itemMastery[Sap] | 2 lb. | 10 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepFlail00000]{Flail}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         19,
@@ -543,22 +471,23 @@
       },
       "_id": "eIn4pBhatde72jFl",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794222997234,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Glaive|XPHB] | [[/r 1d10]] Slashing | @itemProperty[H|XPHB|Heavy], @itemProperty[R|XPHB|Reach], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Graze] | 6 lb. | 20 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepGlaive0000]{Glaive}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         20,
@@ -572,22 +501,23 @@
       },
       "_id": "Q8ioxq3R6vl4An8I",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223001856,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Greataxe|XPHB] | [[/r 1d12]] Slashing | @itemProperty[H|XPHB|Heavy], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Cleave] | 7 lb. | 30 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepGreataxe00]{Greataxe}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         21,
@@ -601,22 +531,23 @@
       },
       "_id": "14L7gGOL6GdGUd4Z",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223008038,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Greatsword|XPHB] | [[/r 2d6]] Slashing | @itemProperty[H|XPHB|Heavy], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Graze] | 6 lb. | 50 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepGreatsword]{Greatsword}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         22,
@@ -630,22 +561,23 @@
       },
       "_id": "36TEE9VY7OVrlhI7",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223014357,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Halberd|XPHB] | [[/r 1d10]] Slashing | @itemProperty[H|XPHB|Heavy], @itemProperty[R|XPHB|Reach], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Cleave] | 6 lb. | 20 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepHalberd000]{Halberd}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         23,
@@ -659,22 +591,23 @@
       },
       "_id": "apBeFRV2boDuayfr",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223019542,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Lance|XPHB] | [[/r 1d10]] Piercing | @itemProperty[H|XPHB|Heavy], @itemProperty[R|XPHB|Reach], @itemProperty[2H|XPHB|Two-Handed] (unless mounted) | @itemMastery[Topple] | 6 lb. | 10 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepLance00000]{Lance}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         24,
@@ -688,22 +621,23 @@
       },
       "_id": "2esMtZgKogVmRVKb",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223024154,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Longsword|XPHB] | [[/r 1d8]] Slashing | @itemProperty[V|XPHB|Versatile] ([[/r 1d10]]) | @itemMastery[Sap] | 3 lb. | 15 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepLongsword0]{Longsword}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         25,
@@ -717,22 +651,23 @@
       },
       "_id": "Wf46YWxW6bAF8gmt",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223028961,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Maul|XPHB] | [[/r 2d6]] Bludgeoning | @itemProperty[H|XPHB|Heavy], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Topple] | 10 lb. | 10 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepMaul000000]{Maul}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         26,
@@ -746,22 +681,23 @@
       },
       "_id": "EmBA44ES6uAF7Eql",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223035392,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Morningstar|XPHB] | [[/r 1d8]] Piercing | — | @itemMastery[Sap] | 4 lb. | 15 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepMorningsta]{Morningstar}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         27,
@@ -775,22 +711,23 @@
       },
       "_id": "EFNDXb2SbQOSqIGO",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223043244,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Pike|XPHB] | [[/r 1d10]] Piercing | @itemProperty[H|XPHB|Heavy], @itemProperty[R|XPHB|Reach], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Push] | 18 lb. | 5 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepPike000000]{Pike}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         28,
@@ -804,22 +741,23 @@
       },
       "_id": "p0pcQ8NYOCLhAEgy",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223049961,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Rapier|XPHB] | [[/r 1d8]] Piercing | @itemProperty[F|XPHB|Finesse] | @itemMastery[Vex] | 2 lb. | 25 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepRapier0000]{Rapier}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         29,
@@ -833,22 +771,23 @@
       },
       "_id": "jWroDZNANoEcFPBL",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223054479,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Scimitar|XPHB] | [[/r 1d6]] Slashing | @itemProperty[F|XPHB|Finesse], @itemProperty[L|XPHB|Light] | @itemMastery[Nick] | 3 lb. | 25 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepScimitar00]{Scimitar}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         30,
@@ -862,22 +801,23 @@
       },
       "_id": "ZmhnLukqrpVUz2Fi",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223059573,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Shortsword|XPHB] | [[/r 1d6]] Piercing | @itemProperty[F|XPHB|Finesse], @itemProperty[L|XPHB|Light] | @itemMastery[Vex] | 2 lb. | 10 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepShortsword]{Shortsword}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         31,
@@ -891,22 +831,23 @@
       },
       "_id": "EcGBdeqxqaL9lhc4",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223064250,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Trident|XPHB] | [[/r 1d8]] Piercing | @itemProperty[T|XPHB|Thrown] (Range 20/60), @itemProperty[V|XPHB|Versatile] ([[/r 1d10]]) | @itemMastery[Topple] | 4 lb. | 5 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepTrident000]{Trident}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         32,
@@ -920,22 +861,23 @@
       },
       "_id": "OJno53kBMqelxPuW",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223068790,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Warhammer|XPHB] | [[/r 1d8]] Bludgeoning | @itemProperty[V|XPHB|Versatile] ([[/r 1d10]]) | @itemMastery[Push] | 5 lb. | 15 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepWarhammer0]{Warhammer}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         33,
@@ -949,22 +891,23 @@
       },
       "_id": "CoZcp9frZKiWgzoP",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223076346,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[War Pick|XPHB] | [[/r 1d8]] Piercing | @itemProperty[V|XPHB|Versatile] ([[/r 1d10]]) | @itemMastery[Sap] | 2 lb. | 5 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepWarPick000]{War Pick}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         34,
@@ -978,22 +921,23 @@
       },
       "_id": "T7lDIwqSK2n0ohV0",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223081217,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Whip|XPHB] | [[/r 1d4]] Slashing | @itemProperty[F|XPHB|Finesse], @itemProperty[R|XPHB|Reach] | @itemMastery[Slow] | 3 lb. | 2 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepWhip000000]{Whip}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         35,
@@ -1007,51 +951,23 @@
       },
       "_id": "ntOb3BlmYGoAXNqr",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223085798,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
-    },
-    {
-      "type": "text",
-      "name": "",
-      "description": "",
-      "img": "icons/svg/d20-black.svg",
-      "weight": 1,
-      "range": [
-        36,
-        36
-      ],
-      "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "36-36"
-        }
       },
-      "_id": "WZxf1PVcwIBZYubl",
-      "_stats": {
-        "coreVersion": "14.367",
-        "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
-        "lastModifiedBy": "d8OGxoanPxSpeqvo",
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "exportSource": null
-      }
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Blowgun|XPHB] | 1 Piercing | @itemProperty[A|XPHB|Ammunition] (Range 25/100; Needle), @itemProperty[LD|XPHB|Loading] | @itemMastery[Vex] | 1 lb. | 10 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepBlowgun000]{Blowgun}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         37,
@@ -1065,22 +981,23 @@
       },
       "_id": "3SmIAyqy4rs0VuWg",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223096248,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Hand Crossbow|XPHB] | [[/r 1d6]] Piercing | @itemProperty[A|XPHB|Ammunition] (Range 30/120; Bolt), @itemProperty[L|XPHB|Light], @itemProperty[LD|XPHB|Loading] | @itemMastery[Vex] | 3 lb. | 75 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepHandCrossb]{Hand Crossbow}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         38,
@@ -1094,22 +1011,23 @@
       },
       "_id": "Y6fTWa2CN5aefgdl",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223100136,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Heavy Crossbow|XPHB] | [[/r 1d10]] Piercing | @itemProperty[A|XPHB|Ammunition] (Range 100/400; Bolt), @itemProperty[H|XPHB|Heavy], @itemProperty[LD|XPHB|Loading], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Push] | 18 lb. | 50 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepHeavyCross]{Heavy Crossbow}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         39,
@@ -1123,22 +1041,23 @@
       },
       "_id": "SYsVnyMErZJs1EgG",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223106537,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Longbow|XPHB] | [[/r 1d8]] Piercing | @itemProperty[A|XPHB|Ammunition] (Range 150/600; Arrow), @itemProperty[H|XPHB|Heavy], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Slow] | 2 lb. | 50 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepLongbow000]{Longbow}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         40,
@@ -1152,22 +1071,23 @@
       },
       "_id": "9MaS9Is3e4BGHq0q",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223111478,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Musket|XPHB] | [[/r 1d12]] Piercing | @itemProperty[A|XPHB|Ammunition] (Range 40/120; Bullet), @itemProperty[LD|XPHB|Loading], @itemProperty[2H|XPHB|Two-Handed] | @itemMastery[Slow] | 10 lb. | 500 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepMusket0000]{Musket}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         41,
@@ -1181,22 +1101,23 @@
       },
       "_id": "YGKcuPGtF4B9Kw68",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223116358,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     },
     {
       "type": "text",
       "name": "",
-      "description": "@item[Pistol|XPHB] | [[/r 1d10]] Piercing | @itemProperty[A|XPHB|Ammunition] (Range 30/90; Bullet), @itemProperty[LD|XPHB|Loading] | @itemMastery[Vex] | 3 lb. | 250 GP",
-      "img": "icons/svg/d20-black.svg",
+      "description": "<p>@UUID[Compendium.dnd5e.equipment24.Item.phbwepPistol0000]{Pistol}</p>",
+      "img": "systems/dnd5e/icons/svg/dice/d20.svg",
       "weight": 1,
       "range": [
         42,
@@ -1210,47 +1131,52 @@
       },
       "_id": "DV8oNecwyCRy8Ffk",
       "_stats": {
-        "coreVersion": "14.367",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
         "systemVersion": "5.3.3",
         "createdTime": 1788467936749,
-        "modifiedTime": 1788467936749,
+        "modifiedTime": 1794223121618,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
         "exportSource": null
-      }
+      },
+      "documentUuid": null
     }
   ],
   "replacement": true,
   "displayRoll": true,
   "img": "modules/plutonium/media/icon/hamburger-menu.svg",
   "ownership": {
-    "default": 2
+    "default": 3
   },
   "flags": {
     "plutonium": {
       "page": "tables.html",
       "source": "XPHB",
       "hash": "weapons_xphb"
+    },
+    "scene-packer": {
+      "sourceId": "RollTable.Nt2rSLrHku6ZI95T",
+      "defaultPermission": 3
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
+  "folder": "UHyv3fZzT45p6nV4",
   "_stats": {
     "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
     "createdTime": 1788467936749,
-    "modifiedTime": 1788471694766,
+    "modifiedTime": 1794221905293,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
       "uuid": "RollTable.Nt2rSLrHku6ZI95T",
-      "coreVersion": "14.367",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

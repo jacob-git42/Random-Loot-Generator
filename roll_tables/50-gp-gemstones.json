@@ -1,31 +1,27 @@
 {
   "name": "50 GP Gemstones",
-  "formula": "1d12",
-  "description": "<div class=\"ve-muted\"><i>Stone</i></div>",
+  "description": "A random table created from the contents of the 50 GP Gemstones Folder.",
   "results": [
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Bloodstone|XDMG] (dark gray with red flecks)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Bloodstone",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.7c8FYac0EEWbitDR",
+      "img": "icons/commodities/stone/geode-raw-red.webp",
       "weight": 1,
       "range": [
         1,
         1
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "1-1"
-        }
-      },
-      "_id": "pEKOIBKA6bz1qt4m",
+      "_id": "svU6SDfbZH0Nyadc",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -33,28 +29,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Carnelian|XDMG] (orange to red brown)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Carnelian",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.tgNGxLdubqqQ642C",
+      "img": "icons/commodities/gems/gem-faceted-radiant-red.webp",
       "weight": 1,
       "range": [
         2,
         2
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "2-2"
-        }
-      },
-      "_id": "pP04SfbRQnomEKvS",
+      "_id": "N1z4OEYO0zVtJzFU",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -62,28 +55,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Chalcedony|XDMG] (white)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Chalcedony",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.5797gpbZMetc7uRN",
+      "img": "icons/commodities/gems/gem-cluster-blue-white.webp",
       "weight": 1,
       "range": [
         3,
         3
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "3-3"
-        }
-      },
-      "_id": "Iv2Fc2GQtaFYttk3",
+      "_id": "8U8zBYc1I3gUhV96",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -91,28 +81,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Chrysoprase|XDMG] (green)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Chrysoprase",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.HNNdzIWu93dMf7H6",
+      "img": "icons/commodities/gems/gem-fragments-rough-green.webp",
       "weight": 1,
       "range": [
         4,
         4
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "4-4"
-        }
-      },
-      "_id": "xQOBDDrXcz8WYWgV",
+      "_id": "S3qAmfwQFgqJeoYx",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -120,28 +107,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Citrine|XDMG] (pale yellow brown)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Citrine",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.aUxr5mh5tE3jB4xP",
+      "img": "icons/commodities/gems/gem-amber-insect-orange.webp",
       "weight": 1,
       "range": [
         5,
         5
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "5-5"
-        }
-      },
-      "_id": "jYeNCXMeHDJaoJpN",
+      "_id": "oPwTOSdx6uQwsMqY",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -149,28 +133,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Jasper|XDMG] (blue, black, or brown)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Jasper",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.k0p55FrShFztSQxD",
+      "img": "icons/commodities/gems/gem-oval-red.webp",
       "weight": 1,
       "range": [
         6,
         6
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "6-6"
-        }
-      },
-      "_id": "JoFiuLZF5pcpZAIC",
+      "_id": "dxc6xz09Zws9xPaX",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -178,28 +159,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Moonstone|XDMG] (white with pale-blue glow)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Moonstone",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.UMfFpOv4RlmNB6HZ",
+      "img": "icons/commodities/gems/pearl-swirl-blue.webp",
       "weight": 1,
       "range": [
         7,
         7
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "7-7"
-        }
-      },
-      "_id": "Qyjf0ngCXXS1Edps",
+      "_id": "NJxWEIQhZ6uxZiFx",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -207,28 +185,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Onyx|XDMG] (bands of black and white, or pure black or white)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Onyx",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.6KzdgY6P6BX51XkP",
+      "img": "icons/commodities/gems/gem-faceted-round-black.webp",
       "weight": 1,
       "range": [
         8,
         8
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "8-8"
-        }
-      },
-      "_id": "nmFAVyTgi1rjoome",
+      "_id": "mAyfZM0iskwYMBq4",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -236,28 +211,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Quartz|XDMG] (white, smoky gray, or yellow)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Quartz",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.lhSFTGYXr5QAGr3m",
+      "img": "icons/commodities/stone/ore-chunk-white.webp",
       "weight": 1,
       "range": [
         9,
         9
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "9-9"
-        }
-      },
-      "_id": "S4A3VE4kPADVz185",
+      "_id": "ESA6SItDZdjeDp4L",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -265,28 +237,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Sardonyx|XDMG] (bands of red and white)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Sardonyx",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.STvh5gq3zbcA4BnR",
+      "img": "icons/commodities/gems/gem-rough-pendeloque-blue.webp",
       "weight": 1,
       "range": [
         10,
         10
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "10-10"
-        }
-      },
-      "_id": "77skPy0mwSNUz0yP",
+      "_id": "6hVhPI4E5Qo3IBb6",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -294,28 +263,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Star rose quartz|XDMG] (rosy stone with white star-shaped center)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Star rose quartz",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.4f5WJM8HcPRlhUyC",
+      "img": "icons/commodities/gems/pearl-natural.webp",
       "weight": 1,
       "range": [
         11,
         11
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "11-11"
-        }
-      },
-      "_id": "pkjodKWAP2xCbZyN",
+      "_id": "AIGaOtXh1ZNTf7xy",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -323,28 +289,25 @@
       }
     },
     {
-      "type": "text",
-      "name": "",
-      "description": "@item[Zircon|XDMG] (pale blue green)",
-      "img": "icons/svg/d20-black.svg",
+      "name": "Zircon",
+      "type": "document",
+      "documentUuid": "Compendium.world.jacobs-loot-generator.Item.g63rg0tin8OW0WyZ",
+      "img": "icons/commodities/gems/gem-faceted-diamond-blue.webp",
       "weight": 1,
       "range": [
         12,
         12
       ],
       "drawn": false,
-      "flags": {
-        "plutonium": {
-          "dedupeId": "12-12"
-        }
-      },
-      "_id": "QfR0TawGsd5rGpzU",
+      "_id": "fQRPYz6hhJ9cnH6f",
+      "description": "",
+      "flags": {},
       "_stats": {
-        "coreVersion": "14.363",
+        "coreVersion": "14.369",
         "systemId": "dnd5e",
-        "systemVersion": "5.3.3",
-        "createdTime": 1780956077062,
-        "modifiedTime": 1780956077062,
+        "systemVersion": "6.0.6",
+        "createdTime": 1794221962256,
+        "modifiedTime": 1794221962256,
         "lastModifiedBy": "d8OGxoanPxSpeqvo",
         "compendiumSource": null,
         "duplicateSource": null,
@@ -352,38 +315,35 @@
       }
     }
   ],
+  "formula": "1d12",
+  "img": "icons/svg/d20-grey.svg",
   "replacement": true,
   "displayRoll": true,
-  "img": "modules/plutonium/media/icon/hamburger-menu.svg",
+  "folder": "UHyv3fZzT45p6nV4",
   "ownership": {
-    "default": 2
+    "default": 0
   },
   "flags": {
-    "plutonium": {
-      "page": "tables.html",
-      "source": "XDMG",
-      "hash": "50%20gp%20gemstones_xdmg"
-    },
     "scene-packer": {
-      "hash": "d4d3b9ffe743ca0aeafc8f5bc4bb18729f0a4f43"
+      "hash": "016547ce9df0f23f2d55f336bb3dcdd152d2c457",
+      "sourceId": "RollTable.c8TRhuoXEpXeQjia"
     }
   },
-  "folder": "cmW65dgLwso0LeUl",
   "_stats": {
-    "systemVersion": "5.3.3",
-    "coreVersion": "14.367",
+    "coreVersion": "14.369",
     "systemId": "dnd5e",
-    "createdTime": 1780956077062,
-    "modifiedTime": 1788471694749,
+    "systemVersion": "6.0.6",
+    "createdTime": 1794221962256,
+    "modifiedTime": 1794221966791,
     "lastModifiedBy": "d8OGxoanPxSpeqvo",
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": {
       "worldId": "chroniken-von-nebelweid",
-      "uuid": "RollTable.8zwIhC7lSSsdQXFw",
-      "coreVersion": "14.367",
+      "uuid": "RollTable.c8TRhuoXEpXeQjia",
+      "coreVersion": "14.369",
       "systemId": "dnd5e",
-      "systemVersion": "5.3.3"
+      "systemVersion": "6.0.6"
     }
   }
 }

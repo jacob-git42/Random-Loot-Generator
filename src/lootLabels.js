@@ -1,12 +1,12 @@
 const MODULE_ID = 'jacobs-loot-generator';
 
 const STYLES = {
-  common:    { background: 0x141400, foreground: 0xDCDCDC, weight: 'normal' },
-  uncommon:  { background: 0x050828, foreground: 0xDCDCDC, weight: 'normal' },
-  rare:      { background: 0xD59F00, foreground: 0x000000, weight: 'normal' },
-  veryRare:  { background: 0xFF9619, foreground: 0x000000, weight: 'bold' },
-  legendary: { background: 0xAF6025, foreground: 0xFFFFFF, weight: 'bold' },
-  artifact:  { background: 0x262626, foreground: 0x77ed91, weight: 'bold' }
+  common:    { background: 0x141400, foreground: 0xDCDCDC, weight: 'normal', bgAlpha: 0.8  },
+  uncommon:  { background: 0x050828, foreground: 0xDCDCDC, weight: 'normal', bgAlpha: 0.8 },
+  rare:      { background: 0xD59F00, foreground: 0x000000, weight: 'normal', bgAlpha: 0.8 },
+  veryRare:  { background: 0xFF9619, foreground: 0x000000, weight: 'bold', bgAlpha: 0.8 },
+  legendary: { background: 0xAF6025, foreground: 0xFFFFFF, weight: 'bold', bgAlpha: 0.8 },
+  artifact:  { background: 0x262626, foreground: 0x77ed91, weight: 'bold', bgAlpha: 0.8 }
 };
 
 const labels = new WeakMap();
@@ -37,7 +37,7 @@ function drawLootLabel(token) {
   const height = text.height + padding * 2;
   const background = new PIXI.Graphics();
   background.lineStyle(1, style.foreground, 1);
-  background.beginFill(style.background, 0.95);
+  background.beginFill(style.background, style.bgAlpha);
   background.drawRect(0, 0, width, height);
   background.endFill();
   text.position.set((width - text.width) / 2, padding);
@@ -45,7 +45,7 @@ function drawLootLabel(token) {
   const label = new PIXI.Container();
   label.eventMode = 'none';
   label.addChild(background, text);
-  label.position.set((token.w - width) / 2, (token.h - height) / 2);
+  label.position.set((token.w - width) / 2, (token.h - height) - 6 );
   token.addChild(label);
   labels.set(token, label);
 }

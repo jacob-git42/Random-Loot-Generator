@@ -1,12 +1,12 @@
 const MODULE_ID = 'jacobs-loot-generator';
 
 const STYLES = {
-  common:    { background: 0x262626, foreground: 0xf3f3f3, weight: 'normal' },
-  uncommon:  { background: 0x262626, foreground: 0x91cfff, weight: 'normal' },
-  rare:      { background: 0x262626, foreground: 0xffe66d, weight: 'normal' },
-  veryRare:  { background: 0xd5d5d5, foreground: 0x705000, weight: 'normal' },
-  legendary: { background: 0xd5d5d5, foreground: 0x7d390d, weight: 'bold' },
-  artifact:  { background: 0x262626, foreground: 0x77ed91, weight: 'normal' }
+  common:    { background: 0x141400, foreground: 0xDCDCDC, weight: 'normal' },
+  uncommon:  { background: 0x050828, foreground: 0xDCDCDC, weight: 'normal' },
+  rare:      { background: 0xD59F00, foreground: 0x000000, weight: 'normal' },
+  veryRare:  { background: 0xFF9619, foreground: 0x000000, weight: 'bold' },
+  legendary: { background: 0xAF6025, foreground: 0xFFFFFF, weight: 'bold' },
+  artifact:  { background: 0x262626, foreground: 0x77ed91, weight: 'bold' }
 };
 
 const labels = new WeakMap();
@@ -22,11 +22,7 @@ function drawLootLabel(token) {
   if (!data?.name || !(token.w > 0) || !(token.h > 0)) return;
 
   const style = Object.hasOwn(STYLES, data.rarity) ? STYLES[data.rarity] : STYLES.common;
-  const margin = Math.max(1, Math.min(token.w, token.h) * 0.01);
-  const maxWidth = token.w - 2 * margin;
-  const maxHeight = token.h * 0.45;
   const padding = Math.max(2, Math.min(token.w, token.h) * 0.025);
-  if (maxWidth <= padding * 2 || maxHeight <= padding * 2) return;
   const fontSize = Math.max(8, Math.min(14, token.h * 0.13));
   const name = data.name.replace(/^spell scroll:\s*(?=\S)/i, '');
   const text = new PIXI.Text(name, {
@@ -35,13 +31,9 @@ function drawLootLabel(token) {
     fontWeight: style.weight,
     fill: style.foreground,
     align: 'center',
-    wordWrap: true,
-    wordWrapWidth: Math.max(1, maxWidth - padding * 2),
-    breakWords: true
+    wordWrap: false
   });
-  const scale = Math.min(1, (maxWidth - padding * 2) / text.width, (maxHeight - padding * 2) / text.height);
-  text.scale.set(scale);
-  const width = maxWidth;
+  const width = text.width + padding * 2;
   const height = text.height + padding * 2;
   const background = new PIXI.Graphics();
   background.lineStyle(1, style.foreground, 1);
@@ -53,7 +45,7 @@ function drawLootLabel(token) {
   const label = new PIXI.Container();
   label.eventMode = 'none';
   label.addChild(background, text);
-  label.position.set((token.w - width) / 2, token.h - margin - height);
+  label.position.set((token.w - width) / 2, (token.h - height) / 2);
   token.addChild(label);
   labels.set(token, label);
 }

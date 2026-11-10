@@ -310,14 +310,14 @@ function createLootCollector({ tokenId, sceneId }) {
               width: 1,
               height: 1,
               displayName: CONST.TOKEN_DISPLAY_MODES.NONE,
-              texture: { src: item.img, scaleX: 0.5, scaleY: 0.5 },
+              texture: { src: item.img, scaleX: 0.2, scaleY: 0.2 },
               flags: { [MODULE_ID]: { lootLabel: {
                 name: isArt ? 'Art Object' : preparedItem.name,
                 rarity: isValuable ? treasureRarity(preparedItem, tableName) : preparedItem.system?.rarity || ''
               } } }
             },
             itemPileFlags: {
-              displayOne: true, showItemName: true, overrideSingleItemScale: true, singleItemScale: 0.5,
+              displayOne: true, showItemName: true, overrideSingleItemScale: true, singleItemScale: 0.2,
               deleteWhenEmpty: true
             },
             items: [{ item, quantity: 1 }]

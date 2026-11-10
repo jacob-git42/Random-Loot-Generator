@@ -13,9 +13,9 @@ spaces run out, piles can overlap. A public Item Piles chat card lists successes
 and items requiring manual placement. Gold is not placed on the canvas: the
 existing gold payout and GM confirmation remain unchanged.
 
-Newly generated piles use 0.5 icon scale and a compact canvas label colored by
-the prepared item's rarity. The label is bounded to the token's grid cell and
-is restored on scene load or client reload. Items without a rarity use the
+Newly generated piles use 0.2 icon scale and a compact single-line canvas label
+(no text wrap) centered on the token and colored by the prepared item's rarity.
+The label is restored on scene load or client reload. Items without a rarity use the
 common colors. Art objects and gemstones instead use the item's price in GP:
 under 100 is common, 100–250 uncommon, over 250–750 rare, over 750–2,500
 very rare, and over 2,500 legendary. If the item has no usable price, the

@@ -20,8 +20,8 @@ function fixture() {
     constructor(text, style) {
       this.text = text;
       this.style = style;
-      this.unscaledWidth = Math.min(style.wordWrapWidth, text.length * style.fontSize * 0.6);
-      this.unscaledHeight = Math.ceil(text.length * style.fontSize * 0.6 / style.wordWrapWidth) * style.fontSize;
+      this.unscaledWidth = text.length * style.fontSize * 0.6;
+      this.unscaledHeight = style.fontSize;
       this.factor = 1;
       this.scale = { set: value => { this.factor = value; } };
       this.position = { set: (x, y) => { this.x = x; this.y = y; } };
@@ -53,10 +53,10 @@ function fixture() {
 test('draws each rarity with its specified colors inside the grid field', () => {
   const f = fixture();
   const colors = {
-    common: [0x262626, 0xf3f3f3], uncommon: [0x262626, 0x91cfff],
-    rare: [0x262626, 0xffe66d], veryRare: [0xd5d5d5, 0x705000],
-    legendary: [0xd5d5d5, 0x7d390d], artifact: [0x262626, 0x77ed91],
-    unknown: [0x262626, 0xf3f3f3]
+    common: [0x141400, 0xDCDCDC], uncommon: [0x050828, 0xDCDCDC],
+    rare: [0xD59F00, 0x000000], veryRare: [0xFF9619, 0x000000],
+    legendary: [0xAF6025, 0xFFFFFF], artifact: [0x262626, 0x77ed91],
+    unknown: [0x141400, 0xDCDCDC]
   };
   for (const [rarity, [background, foreground]] of Object.entries(colors)) {
     f.token.data = { rarity, name: 'An exceptionally long name for a magical treasure item' };
@@ -67,13 +67,11 @@ test('draws each rarity with its specified colors inside the grid field', () => 
     assert.equal(box.background, background);
     assert.equal(box.border, foreground);
     assert.equal(text.style.fill, foreground);
-    assert.equal(text.style.fontWeight, rarity === 'legendary' ? 'bold' : 'normal');
-    assert.ok(box.width >= f.token.w * 0.95);
+    assert.equal(text.style.fontWeight, ['veryRare', 'legendary', 'artifact'].includes(rarity) ? 'bold' : 'normal');
     assert.equal(text.x, (box.width - text.width) / 2);
-    assert.ok(text.style.wordWrapWidth >= f.token.w * 0.90);
-    assert.ok(label.x >= 0 && label.x + box.width <= f.token.w);
-    assert.ok(label.y >= 0 && label.y + box.height <= f.token.h);
-    assert.ok(text.style.wordWrap && text.style.breakWords);
+    assert.equal(label.x, (f.token.w - box.width) / 2);
+    assert.equal(label.y, (f.token.h - box.height) / 2);
+    assert.equal(text.style.wordWrap, false);
   }
 });
 

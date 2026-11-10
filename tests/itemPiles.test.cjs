@@ -74,11 +74,11 @@ test('places individual items, makes scrolls and reports failures without stoppi
   assert.equal(f.calls[0].items[0].item.name, 'Sword');
   assert.equal(f.calls[1].items[0].item.name, 'Scroll of Fireball');
   assert.equal(f.calls[0].tokenOverrides.texture.src, 'Sword.png');
-  assert.equal(f.calls[0].tokenOverrides.texture.scaleX, 0.5);
-  assert.equal(f.calls[0].tokenOverrides.texture.scaleY, 0.5);
+  assert.equal(f.calls[0].tokenOverrides.texture.  scaleX, 0.2);
+    assert.equal(f.calls[0].tokenOverrides.texture.scaleY, 0.2);
   assert.equal(f.calls[0].tokenOverrides.displayName, f.context.CONST.TOKEN_DISPLAY_MODES.NONE);
   assert.equal(f.calls[0].itemPileFlags.overrideSingleItemScale, true);
-  assert.equal(f.calls[0].itemPileFlags.singleItemScale, 0.5);
+  assert.equal(f.calls[0].itemPileFlags.singleItemScale, 0.2);
   assert.equal(f.calls[0].itemPileFlags.deleteWhenEmpty, true);
   assert.equal(f.calls[0].tokenOverrides.flags['jacobs-loot-generator'].lootLabel.name, 'Sword');
   assert.notDeepEqual(f.calls[0].position, f.calls[1].position);

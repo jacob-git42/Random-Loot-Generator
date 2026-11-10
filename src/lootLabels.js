@@ -26,7 +26,7 @@ function drawLootLabel(token) {
   const fontSize = Math.max(8, Math.min(14, token.h * 0.13));
   const name = data.name.replace(/^spell scroll:\s*(?=\S)/i, '');
   const text = new PIXI.Text(name, {
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: 'Roboto Condensed',
     fontSize,
     fontWeight: style.weight,
     fill: style.foreground,

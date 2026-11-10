@@ -1,9 +1,9 @@
 const MODULE_ID = 'jacobs-loot-generator';
 
 const STYLES = {
-  common:    { background: 0x141400, foreground: 0xE8BEA4, weight: 'normal', bgAlpha: 0.85  },
-  uncommon:  { background: 0x1E0806, foreground: 0xAF6025, weight: 'normal', bgAlpha: 0.85 },
-  rare:      { background: 0x350D0D, foreground: 0xAF6025, weight: 'normal', bgAlpha: 0.85 },
+  common:    { background: 0x141400, foreground: 0xDCDCDC, weight: 'normal', bgAlpha: 0.85  },
+  uncommon:  { background: 0x141400, foreground: 0x3232B4, weight: 'normal', bgAlpha: 0.85 },
+  rare:      { background: 0x141400, foreground: 0xD59F00, weight: 'normal', bgAlpha: 0.85 },
   veryRare:  { background: 0xAF6025, foreground: 0xFFFFFF, weight: 'bold', bgAlpha: 0.85 },
   legendary: { background: 0xFFFFFF, foreground: 0xAF6025, weight: 'bold', bgAlpha: 0.85 },
   artifact:  { background: 0x262626, foreground: 0x77ed91, weight: 'bold', bgAlpha: 0.85 }

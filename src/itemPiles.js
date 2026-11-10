@@ -260,9 +260,9 @@ function treasureRarity(item, tableName) {
     return item.system?.rarity || '';
   }
   if (goldValue < 100) return 'common';
-  if (goldValue <= 250) return 'uncommon';
-  if (goldValue <= 750) return 'rare';
-  if (goldValue <= 2500) return 'veryRare';
+  if (goldValue <= 400) return 'uncommon';
+  if (goldValue <= 2500) return 'rare';
+  if (goldValue <= 7500) return 'veryRare';
   return 'legendary';
 }
 

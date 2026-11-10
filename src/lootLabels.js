@@ -45,7 +45,7 @@ function drawLootLabel(token) {
   const label = new PIXI.Container();
   label.eventMode = 'none';
   label.addChild(background, text);
-  label.position.set((token.w - width) / 2, (token.h - height) - 6 );
+  label.position.set((token.w - width) / 2, (token.h - height) - 10 );
   token.addChild(label);
   labels.set(token, label);
 }

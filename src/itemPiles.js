@@ -259,10 +259,10 @@ function treasureRarity(item, tableName) {
     console.warn(`${MODULE_ID} | No usable gold value for treasure "${item.name}"; using item rarity or common.`);
     return item.system?.rarity || '';
   }
-  if (goldValue < 100) return 'common';
+  if (goldValue <= 100) return 'common';
   if (goldValue <= 400) return 'uncommon';
-  if (goldValue <= 2500) return 'rare';
-  if (goldValue <= 7500) return 'veryRare';
+  if (goldValue <= 4000) return 'rare';
+  if (goldValue <= 40000) return 'veryRare';
   return 'legendary';
 }
 

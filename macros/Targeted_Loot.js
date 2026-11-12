@@ -95,22 +95,23 @@ async function askForTargetedLootEntries() {
   return new Promise(resolve => {
     new Dialog({
       title: "Targeted Loot Preset",
-      content: `<form style="padding: 5px;"><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">${dropZonesHtml}</div></form>`,
+      content: `<form style="padding: 5px;"><div class="form-group"><label for="targeted-loot-gold">Gold (GP)</label><input type="text" id="targeted-loot-gold" placeholder="Optional: 50 or 2d6 * 10"></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">${dropZonesHtml}</div></form>`,
       buttons: {
         apply: {
           icon: '<i class="fas fa-check"></i>',
           label: "Apply",
           callback: html => {
+            const goldFormula = String(html.find("#targeted-loot-gold").val() || "").trim();
             const entries = [];
             for (let i = 0; i < 8; i++) {
               const uuid = String(html.find(`#item-uuid-${i}`).val() || "").trim();
               if (uuid) entries.push(uuid);
             }
-            if (!entries.length) {
-              ui.notifications.warn("Please add at least one item first!");
+            if (!entries.length && !goldFormula) {
+              ui.notifications.warn("Please add at least one item or enter a gold amount.");
               return resolve(null);
             }
-            resolve(entries);
+            resolve({ entries, goldFormula });
           }
         },
         cancel: {
@@ -160,9 +161,23 @@ async function askForTargetedLootEntries() {
   });
 }
 
-async function postTargetedLoot(entries, includeClaim = false) {
-  if (game.user.isGM) {
-    await game.settings.set(targetedLootSettingsNamespace, targetedLootSettingsKey, {});
+async function postTargetedLoot(entries, goldFormula = "", includeClaim = false) {
+  const cleanGoldFormula = String(goldFormula || "").trim();
+  let goldTotal = null;
+  if (cleanGoldFormula) {
+    try {
+      const goldRoll = await new Roll(cleanGoldFormula).evaluate();
+      goldTotal = goldRoll.total;
+    } catch (error) {
+      console.error("Targeted Loot gold formula failed:", error);
+      ui.notifications.error(`Could not evaluate gold formula: ${cleanGoldFormula}`);
+      return;
+    }
+
+    if (!Number.isFinite(goldTotal) || goldTotal < 0) {
+      ui.notifications.warn("Gold must evaluate to a non-negative number.");
+      return;
+    }
   }
 
   let itemsListHtml = "";
@@ -177,13 +192,25 @@ async function postTargetedLoot(entries, includeClaim = false) {
   }
 
   if (scope?.lootCollector) await scope.lootCollector.finish();
-  if (itemsCount === 0) {
-    ui.notifications.warn("No valid items found.");
+  if (itemsCount === 0 && goldTotal === null) {
+    ui.notifications.warn("No valid items or gold amount found.");
     return;
   }
 
+  if (game.user.isGM) {
+    await game.settings.set(targetedLootSettingsNamespace, targetedLootSettingsKey, {});
+  }
+
+  const goldSection = goldTotal === null ? "" : `
+    <p class="loot-card__section loot-card__section--gold" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-coins"></i> Gold per Player (4 players):</p>
+    <p class="loot-card__gold" style="margin: 0 0 8px 15px; font-size: 1.1em; font-weight: bold;">${Math.ceil(goldTotal / 4).toLocaleString()} GP each</p>
+  `;
+  const itemsSection = itemsCount === 0 ? "" : `
+    <ul style="margin: 5px 0; padding-left: 0; list-style-type: none; line-height: 1.6em;">${itemsListHtml}</ul>
+  `;
+
   await ChatMessage.create({
-    content: await TextEditor.enrichHTML(`<div class="loot-card"><p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Curated Reward</p><h3>💎 Treasure Found!</h3><ul style="margin: 5px 0; padding-left: 0; list-style-type: none; line-height: 1.6em;">${itemsListHtml}</ul></div>`, { async: true }),
+    content: await TextEditor.enrichHTML(`<div class="loot-card"><p class="loot-card__eyebrow" style="margin: 0 0 4px 0;">Curated Reward</p><h3>💎 Treasure Found!</h3>${goldSection}${itemsSection}</div>`, { async: true }),
     speaker: ChatMessage.getSpeaker({ title: "Treasure Chest" })
   });
 
@@ -193,20 +220,25 @@ async function postTargetedLoot(entries, includeClaim = false) {
       speaker: ChatMessage.getSpeaker({ alias: "Loot System" })
     });
   }
+
+  if (goldTotal !== null && game.user?.isGM) {
+    await handleGoldPayout(Math.ceil(goldTotal / 4));
+  }
 }
 
 async function runWithPreset() {
   ensureTargetedLootSettingRegistered();
   const preset = game.settings.get(targetedLootSettingsNamespace, targetedLootSettingsKey);
   const entries = Array.isArray(preset?.entries) ? preset.entries : [];
-  if (!entries.length) return false;
+  const goldFormula = String(preset?.goldFormula || "");
+  if (!entries.length && !goldFormula.trim()) return false;
 
-  await postTargetedLoot(entries, true);
+  await postTargetedLoot(entries, goldFormula, true);
   return true;
 }
 
 const usedPreset = await runWithPreset();
 if (!usedPreset) {
-  const entries = await askForTargetedLootEntries();
-  if (entries) await postTargetedLoot(entries);
+  const targetedLoot = await askForTargetedLootEntries();
+  if (targetedLoot) await postTargetedLoot(targetedLoot.entries, targetedLoot.goldFormula);
 }

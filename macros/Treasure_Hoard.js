@@ -8,14 +8,14 @@ function getTableResultText(result) {
 }
 
 const potionTableName = "🧪 Potions and Poisons"; 
-const BONUS_POTION_CHANCE = 0.40;
+const BONUS_POTION_CHANCE = 0.25;
 
 // Spell scroll chance configuration by tier
 const SCROLL_CHANCES = {
-  1: { extraChance2: 0.20, extraChance3: 0.05 },
-  2: { extraChance2: 0.30, extraChance3: 0.10 },
-  3: { extraChance2: 0.40, extraChance3: 0.12 },
-  4: { extraChance2: 0.50, extraChance3: 0.15 }
+  1: { extraChance2: 0.20, extraChance3: 0.10 },
+  2: { extraChance2: 0.20, extraChance3: 0.10 },
+  3: { extraChance2: 0.25, extraChance3: 0.12 },
+  4: { extraChance2: 0.30, extraChance3: 0.15 }
 };
 
 // Spell level weighting by tier (total: 100)
@@ -189,15 +189,13 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
     hoardGold = hoardGold * hoardMultiplier;
     totalGoldValue += hoardGold;
 
-    // 2. Gemstones - skip for mini hoard
-    if (!isMiniHoard) {
-      const gemRoll = await new Roll("1d2").evaluate();
-      for (let g = 0; g < gemRoll.total; g++) {
-        const gemName = getGemTableNameForTier(tier);
-        const gemTable = findTable(gemName);
-        if (gemTable) gemResults.push(`<li>${await resolveTableRoll(gemTable, 0, 'gem')}</li>`);
-        else gemResults.push(`<li>(Table "${gemName}" is missing)</li>`);
-      }
+    // 2. Gemstones
+    const gemRoll = await new Roll("1d2").evaluate();
+    for (let g = 0; g < gemRoll.total; g++) {
+      const gemName = getGemTableNameForTier(tier);
+      const gemTable = findTable(gemName);
+      if (gemTable) gemResults.push(`<li>${await resolveTableRoll(gemTable, 0, 'gem')}</li>`);
+      else gemResults.push(`<li>(Table "${gemName}" is missing)</li>`);
     }
 
     // 3. Art objects - skip for mini hoard
@@ -240,7 +238,7 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
       }
     }
 
-    // 5. Scrolls and Potions - skip for mini hoard
+    // 5. Scrolls - skip for mini hoard
     if (!isMiniHoard) {
       const config = SCROLL_CHANCES[tier];
       bonusItems.push(`<li>${await rollSpellScroll(tier)}</li>`);
@@ -250,11 +248,11 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
           bonusItems.push(`<li>${await rollSpellScroll(tier)}</li>`);
         }
       }
+    }
 
-      // 6. Potions
-      if (Math.random() < BONUS_POTION_CHANCE && potionTable) {
-        bonusItems.push(`<li><b>🧪 Potion:</b> ${await resolveTableRoll(potionTable)}</li>`);
-      }
+    // 6. Potions
+    if (Math.random() < BONUS_POTION_CHANCE && potionTable) {
+      bonusItems.push(`<li><b>🧪 Potion:</b> ${await resolveTableRoll(potionTable)}</li>`);
     }
   }
 
@@ -266,8 +264,8 @@ async function rollTreasureHoard(hoardCount, selectedTier, includeClaim = false,
     <ul style="margin: 0; padding-left: 20px; line-height: 1.6em;">${bonusItems.join("")}</ul>
   ` : "";
 
-  // Conditionally show gems and art objects (not in mini hoard)
-  let gemsSection = !isMiniHoard && gemResults.length > 0 ? `
+  // Gems appear in all hoards; art objects are excluded from mini hoards.
+  let gemsSection = gemResults.length > 0 ? `
     <hr style="border: 0; border-top: 1px solid rgba(123,99,48,0.3); margin: 8px 0;">
     <p class="loot-card__section loot-card__section--gems" style="margin: 5px 0; font-weight: bold;"><i class="fas fa-gem"></i> Gemstones:</p>
     <ul style="margin: 0 0 8px 0; padding-left: 20px; line-height: 1.5em;">${gemResults.join("")}</ul>

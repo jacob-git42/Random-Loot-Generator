@@ -554,13 +554,13 @@ if (options) {
             }
 
             ensureTargetedLootSettingRegistered();
-            const entries = await askTargetedLootPreset();
-            if (!entries) return;
+            const targetedLoot = await askTargetedLootPreset();
+            if (!targetedLoot) return;
 
             sessionPreset = {
               namespace: targetedLootSettingsNamespace,
               key: targetedLootSettingsKey,
-              value: { entries, createdBy: game.user.id, createdAt: Date.now() }
+              value: { ...targetedLoot, createdBy: game.user.id, createdAt: Date.now() }
             };
           }
 
@@ -806,24 +806,25 @@ async function askTargetedLootPreset() {
   return new Promise(resolve => {
     new Dialog({
       title: "Targeted Loot Preset",
-      content: `<form style="padding: 5px;"><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">${dropZonesHtml}</div></form>`,
+      content: `<form style="padding: 5px;"><div class="form-group"><label for="targeted-loot-gold">Gold (GP)</label><input type="text" id="targeted-loot-gold" placeholder="Optional: 50 or 2d6 * 10"></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">${dropZonesHtml}</div></form>`,
       buttons: {
         apply: {
           icon: '<i class="fas fa-check"></i>',
           label: "Apply",
           callback: (html) => {
+            const goldFormula = String(html.find("#targeted-loot-gold").val() || "").trim();
             const entries = [];
             for (let i = 0; i < 8; i++) {
               const uuid = String(html.find(`#item-uuid-${i}`).val() || "").trim();
               if (uuid) entries.push(uuid);
             }
 
-            if (!entries.length) {
-              ui.notifications.warn("Please add at least one item first!");
+            if (!entries.length && !goldFormula) {
+              ui.notifications.warn("Please add at least one item or enter a gold amount.");
               return resolve(null);
             }
 
-            resolve(entries);
+            resolve({ entries, goldFormula });
           }
         },
         cancel: {
